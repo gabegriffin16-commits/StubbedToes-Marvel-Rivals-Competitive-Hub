@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const C={bg:"#0a0b0f",panel:"#12141c",ph:"#181b26",accent:"#e63946",gold:"#f4a825",blue:"#4cc9f0",purple:"#9b5de5",green:"#06d6a0",text:"#e8e8e8",dim:"#8892a4",muted:"#555e70",border:"#1e2233",tank:"#3a86a8",dps:"#e63946",heal:"#06d6a0",sec:"#0e1018"};
-const F={xs:"13px",sm:"14px",md:"16px",lg:"19px",xl:"24px",xxl:"30px",h1:"34px",pad:"22px",padL:"28px",gap:"14px",rad:"14px"};
+const F={xs:"15px",sm:"16px",md:"18px",lg:"22px",xl:"28px",xxl:"34px",h1:"40px",pad:"24px",padL:"30px",gap:"16px",rad:"14px"};
 
 const STATS={
 Begin:{ign:"Begooon",rank:"GM3",rs:4544,wr:"62%",rec:"18W 11L",r20:"35%",r20r:"7W 13L",
@@ -44,6 +44,11 @@ heroes:[{h:"Cloak & Dagger",w:"55.6%",g:18,k:"12.82",l:"12.9/3.3/29.8"},{h:"Luna
 extra:"C&D 12.82 KDA with 29.8 assists/game = massive healing output when the hero is working. The 55.6% season WR vs 18% recent WR gap is enormous — something fundamentally changed in her play. White Fox at 67% in QP is encouraging but QP WR doesn't translate 1:1 to comp.",
 note:"The C&D slump needs forensic analysis. A player doesn't drop from 55.6% to 18% without a specific cause. Possible explanations: (1) meta shifted and dive is harder to survive, (2) team compositions changed around her, (3) mental/confidence spiral from losses feeding more losses. The 12.82 KDA proves she can play the hero at a high level — this is a fixable problem, not a skill cap issue. But the 3-hero pool with only 1 tournament-viable remains the #1 vulnerability.",
 url:"https://rivalsmeta.com/player/997192574"},
+Jace:{ign:"Jaejanken",rank:"Plat 1",rs:4145,wr:"48%",rec:"32W 34L",r20:"55%",r20r:"11W 9L",
+heroes:[{h:"Daredevil",w:"72%",g:25,k:"4.32",l:"21.3/6.7/7.6"},{h:"Blade",w:"33.3%",g:9,k:"3.52",l:"16/6/5.1"},{h:"Deadpool (V)",w:"22.2%",g:9,k:"2.72",l:"13.4/6.4/4.1"},{h:"Deadpool (S)",w:"50%",g:6,k:"5.50",l:"20.3/7/18.2"},{h:"Iron Man",w:"50%",g:2,k:"4.45",l:"24.5/5.5/0"}],
+extra:"Peaked Diamond 3 (4,201 RS). Also played: Angela 50% 2g, Loki 100% 1g 5.43 KDA, Magneto 100% 1g 3.83 KDA, Spider-Man 0% 1g, Human Torch 50% 2g, Dr. Strange 0% 2g, Punisher 0% 1g, Winter Soldier 0% 1g. Role breakdown: Duelist 54.55% (24W 20L, 44g) vs Vanguard 26.67% (4W 11L, 15g) vs Strategist 57.14% (4W 3L, 7g). Best maps: Hydra Charteris 83.3%, Empire Eternal Night 75%, Tokyo 2099 Convoy 100% (3g). Worst maps: Yggsgard 30%, Hellfire Gala 25%, K'un-Lun 36%.",
+note:"Daredevil SPECIALIST. 72% WR across 25 games with 4.32 KDA is the strongest single-hero DPS data on the entire roster at this volume. His recent 20 at 55% WR shows upward trajectory despite the 48% season. Blade at 33.3% across 9 games has high variance — individual games show 10.75 KDA MVP and 7.50 KDA MVP alongside sub-2.0 losses. Deadpool (V) at 22.2% confirms he is NOT a tank player. Deadpool (S) at 50% with 5.50 KDA across 6g shows genuine support flex potential — worth exploring. The Daredevil data alone makes him a direct fit for every poke composition.",
+url:"https://rivalsmeta.com/player/1899986434"},
 };
 
 const TM=[
@@ -214,6 +219,10 @@ r:"The forensic analysis: your C&D at 12.82 KDA with 29.8 assists/game proves th
 s:"Plat 2 (4,062 RS). 50 comp Sue Storm games. C&D 55.6% WR 9g (40.7 assists/game — enormous healing output). Rocket 66.7% 3g. Highest total support game count on roster (62 games).",
 w:"47% overall. Sue 44% after 50g — ceiling reached. Strange 0% WR 4g. Role confusion with tank experiments.",
 r:"Make C&D your primary — the 55.6% WR with 40.7 assists/game proves you heal at an elite level on that hero. Sue at 44% after 50 games means you've hit the skill ceiling on Sue at your current rank. That's not failure — it's information. The information says: switch to C&D. Learn Gambit for Explosive Entanglement team-up value. The Strange experiments at 0% WR (4g) must stop immediately — you are a support player and every game you spend on Strange is a game you could be improving on Gambit or C&D."},
+{n:"Jace",i:"🎯",v:"DAREDEVIL SPECIALIST",g:"B+",
+s:"Plat 1 (4,145 RS, peaked Diamond 3 at 4,201). Daredevil: 72% WR across 25g with 4.32 KDA — the strongest single-hero DPS data at volume on the entire roster. Recent 20 at 55% WR shows an upward trajectory. Blade has shown MVP ceiling games (10.75 KDA, 7.50 KDA). Deadpool (S) at 50% WR 6g 5.50 KDA indicates genuine support flex. Best maps: Hydra Charteris 83.3%, Empire Eternal Night 75%.",
+w:"48% overall season WR — the recent climb hasn't offset the early losses yet. Blade at 33.3% across 9g is high-variance and not tournament-stable. Deadpool (V) at 22.2% across 9g confirms Vanguard is a dead role (26.67% role WR overall). Hero pool outside Daredevil is thin — most heroes have 1-2 game samples. Yggsgard 30% WR and Hellfire Gala 25% are disaster maps. The gap between his best (Daredevil 72%) and everything else is enormous.",
+r:"You have one of the most valuable assets on the roster: a 72% Daredevil across 25 games. Daredevil is S-tier at Diamond+ — his wallhack gives the ENTIRE TEAM permanent information advantage, which in tournament play is priceless. Your tournament role is clear: Daredevil in every poke comp. This directly benefits the team because Zach was slotted into Daredevil but has no comp data on him — you fill this gap with PROVEN stats. Secondary path: Blade for dive/brawl maps. The 33.3% WR is misleading — your individual games show massive KDA spikes (10.75 MVP, 7.50 MVP) that suggest the losses are team-comp issues not individual skill issues. Blade's S7 buffs and lifesteal self-sustain make him a legitimate dive DPS. DO NOT play Deadpool (V) in tournament — 22.2% WR. Your Deadpool (S) at 5.50 KDA is intriguing as an emergency healer flex. The priority: master Daredevil (already done), stabilize Blade (get to 50%+ over 20g), and keep Deadpool (S) in the pocket for emergency support."},
 ];
 
 const BANS={g:"S7: A ban→B ban→B lock→A lock→A ban→B ban→B lock→A lock→A ban→B ban. 3 bans + 2 locks each. 15s/phase. In BO3+, winner bans first next game. STRATEGY: Use first ban to remove enemy's best hero. Use first LOCK (phase 3-4) to protect YOUR critical hero. Use bans 2-3 to target enemy healer pool or one-tricks.",
@@ -371,6 +380,11 @@ vanguard:{wr:"—",conf:"NONE",heroes:"None",note:"Not a tank player.",c:C.muted
 duelist:{wr:"—",conf:"NONE",heroes:"None",note:"Not a DPS player.",c:C.muted},
 strategist:{wr:"55.6%",conf:"AT RISK",heroes:"C&D 55.6% 18g, Luna 0% 3g, White Fox 67% QP",note:"3-hero pool, only C&D tournament-viable. One ban removes her. MUST expand.",c:C.gold}
 }},
+{name:"Jace",roles:{
+vanguard:{wr:"26.7%",conf:"DEAD",heroes:"Deadpool V 22.2% 9g, Magneto 100% 1g, Thing 0% 1g",note:"26.67% Vanguard role WR across 15 games. DO NOT put on tank. Deadpool V 22.2% across 9g is definitive.",c:C.accent},
+duelist:{wr:"72%",conf:"ELITE",heroes:"Daredevil 72% 25g, Blade 33.3% 9g, Iron Man 50% 2g",note:"Daredevil 72% across 25g = strongest single-hero DPS on roster at volume. S-tier pick. Blade high-variance but ceiling is real (10.75 KDA MVP).",c:C.green},
+strategist:{wr:"57.1%",conf:"FLEX",heroes:"Deadpool S 50% 6g 5.50 KDA, Loki 100% 1g",note:"Deadpool (S) 5.50 KDA across 6g is promising emergency flex. 57.14% role WR. Small sample but real output.",c:C.gold}
+}},
 ];
 
 // ─── NEW: ALL HEROES FOR DRAFT SIM ───
@@ -398,6 +412,7 @@ const OUR_HEROES={
 "Zach":["Thor","Deadpool (V)","Wolverine","Daredevil","Gambit"],
 "Raquel":["Cloak & Dagger","Luna Snow","White Fox"],
 "T-Money":["Angela","Peni Parker","Punisher","Magneto"],
+"Jace":["Daredevil","Blade","Deadpool (V)","Deadpool (S)","Iron Man"],
 };
 
 // ─── UI (35% larger) ───
