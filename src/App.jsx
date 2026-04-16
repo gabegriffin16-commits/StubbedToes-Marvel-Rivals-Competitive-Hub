@@ -4,53 +4,52 @@ const C={bg:"#0a0b0f",panel:"#12141c",ph:"#181b26",accent:"#e63946",gold:"#f4a82
 const F={xs:"15px",sm:"16px",md:"18px",lg:"22px",xl:"28px",xxl:"34px",h1:"40px",pad:"24px",padL:"30px",gap:"16px",rad:"14px"};
 
 const STATS={
-Begin:{ign:"Begooon",rank:"GM3",rs:4544,wr:"62%",rec:"18W 11L",r20:"35%",r20r:"7W 13L",
-heroes:[{h:"Thor",w:"70%",g:20,k:"4.23",l:"22.1/6/3.3"},{h:"Dr. Strange",w:"44.4%",g:9,k:"3.66",l:"23.1/6.6/0.9"}],
-extra:"Second account (Begoooon): GM1, 4,724 RS, 73% WR, 66W 25L. Thor 66.7% 33g, Strange 69.2% 26g, Magneto 75% 12g, Groot 77.8% 9g, Magik 100% 9g 5.10 KDA. Combined data shows mastery across multiple tanks at the highest level.",
-note:"Highest-ranked player across all accounts. GM1 on second account proves the ceiling. Main account recent 20 at 35% WR is concerning — but second account at 80% recent 20 suggests the main account slump is lobbies or team composition issues, not skill degradation.",
-url:"https://rivalsmeta.com/player/1347122425"},
 Ayden:{ign:"VeloxG",rank:"Dia 3",rs:4288,wr:"55%",rec:"36W 29L",r20:"45%",r20r:"9W 11L",
 heroes:[{h:"Jeff",w:"57.9%",g:19,k:"10.86",l:"22/4.5/27.2"},{h:"Emma Frost",w:"50%",g:16,k:"4.14",l:"17.6/5.1/3.4"},{h:"Punisher",w:"66.7%",g:12,k:"3.89",l:"19.8/5.1/0"},{h:"Mr. Fantastic",w:"50%",g:12,k:"6.09",l:"17.7/3.6/4.2"},{h:"Venom",w:"50%",g:2,k:"2.45",l:"10/5.5/3.5"}],
 extra:"Alt (The Mom Porker): Plat 3, 87% WR, 13W 2L. White Fox 100% WR 3g 51.0 KDA. Emma 100% 5g 8.47 KDA. Venom 75% 4g.",
 note:"The most versatile player. Can play every role competently. White Fox progress on alt is months ahead of expectation. Jeff at 10.86 KDA across 19 games = strongest healer stats on the entire roster. The gap between alt performance (87% WR) and main (45% recent) is almost certainly a team composition issue in solo queue, not individual skill.",
 url:"https://rivalsmeta.com/player/33050531"},
-Tristen:{ign:"keetoh1337 / potsmoker34",rank:"Dia 2-3",rs:4274,wr:"73%",rec:"32W 12L (alt)",r20:"50%",r20r:"10W 10L (main)",
-heroes:[{h:"Spider-Man",w:"78.6%",g:28,k:"2.61",l:"17.8/8.1/3.4"},{h:"Iron Man",w:"63.6%",g:11,k:"3.13",l:"21.7/7/0.2"},{h:"Hela",w:"100%",g:1,k:"3.88",l:"30/8/1"},{h:"Psylocke",w:"0%",g:2,k:"3.18",l:"26.5/8.5/0.5"},{h:"Luna Snow",w:"0%",g:1,k:"1.40",l:"1/5/6"}],
-extra:"Spider-Man is elite: 78.6% WR across 28 games on alt. Multiple MVP games. Iron Man has 63.6% WR but drops catastrophically in tournament play (0W 4L). Psylocke recent comp: 0% WR 2g — the hero isn't translating at Diamond. Also played Invisible Woman (4.22 KDA comp) and Luna Snow in tournament (5.00 KDA in the only win).",
-note:"Spider-Man main through and through — the data is overwhelming. Iron Man is a comp pick that works in ranked but collapses in organized tournament play where teams punish predictable positioning. The Luna Snow tournament flex (5.00 KDA in the only win) suggests an untapped healer capability that should be explored.",
-url:"https://rivalsmeta.com/player/1340539275"},
-"T-Money":{ign:"xGhost-Emx",rank:"Plat 2",rs:4077,wr:"54%",rec:"27W 23L",r20:"50%",r20r:"10W 10L",
-heroes:[{h:"Punisher",w:"62.5%",g:8,k:"2.21",l:"19.4/8.8/0"},{h:"Angela",w:"100%",g:5,k:"4.76",l:"17.2/4.2/2.8"},{h:"Magneto",w:"40%",g:5,k:"2.42",l:"13.4/6.6/2.6"},{h:"Moon Knight",w:"25%",g:4,k:"2.36",l:"14.8/6.3/0"},{h:"Peni Parker",w:"50%",g:4,k:"5.14",l:"18.5/5.5/9.8"}],
-extra:"HUGE DISCOVERY: Playing WAY more heroes than originally listed. Angela 100% WR 5g 4.76 KDA. Peni Parker 50% 4g 5.14 KDA. Also playing: Hulk, Namor, Squirrel Girl, Loki, Thor, Wolverine, Deadpool (V), Thing, Invisible Woman. Vanguard role: 71% WR (7g). DPS role: 50% (10g). Strategist: 0% WR (3g). HE IS A BETTER TANK THAN DPS according to the data.",
-note:"The original assessment was WRONG. T-Money is not primarily a DPS player — his Vanguard WR (71%) dramatically outperforms his Duelist WR (50%). Angela at 100% WR is a small sample but the 4.76 KDA is real. Magneto at 40% WR is a red flag — his supposed main tank is underperforming. Moon Knight at 25% WR confirms it's not a tournament pick. Strategist at 0% (3g) means support flex is confirmed impossible. The hero pool is much wider than reported — he just needs to focus on what actually wins.",
-url:"https://rivalsmeta.com/player/88489080"},
+Begin:{ign:"Begooon",rank:"GM3",rs:4544,wr:"62%",rec:"18W 11L",r20:"35%",r20r:"7W 13L",
+heroes:[{h:"Thor",w:"70%",g:20,k:"4.23",l:"22.1/6/3.3"},{h:"Dr. Strange",w:"44.4%",g:9,k:"3.66",l:"23.1/6.6/0.9"}],
+extra:"Second account (Begoooon): GM1, 4,724 RS, 73% WR, 66W 25L. Thor 66.7% 33g, Strange 69.2% 26g, Magneto 75% 12g, Groot 77.8% 9g, Magik 100% 9g 5.10 KDA. Combined data shows mastery across multiple tanks at the highest level.",
+note:"Highest-ranked player across all accounts. GM1 on second account proves the ceiling. Main account recent 20 at 35% WR is concerning — but second account at 80% recent 20 suggests the main account slump is lobbies or team composition issues, not skill degradation.",
+url:"https://rivalsmeta.com/player/1347122425"},
 Gabe:{ign:"froglin_",rank:"Dia 3",rs:4216,wr:"54%",rec:"33W 28L",r20:"20%",r20r:"4W 16L",
 heroes:[{h:"Dr. Strange",w:"57.7%",g:26,k:"3.96",l:"21.2/6/2.5"},{h:"Ultron",w:"58.3%",g:12,k:"8.75",l:"19/5.4/28.4"},{h:"Thing",w:"45.5%",g:11,k:"5.35",l:"22.2/5.7/8.5"},{h:"Magneto",w:"71.4%",g:7,k:"5.14",l:"16.1/4.1/5.1"},{h:"Star-Lord",w:"0%",g:2,k:"1.44",l:"13/9/0"}],
-extra:"Alt (nega.froglin): Plat 3, 42% WR, 5W 7L. Magneto 50% 6g. Strange 20% 5g on alt — his Strange struggles at lower elo too, suggesting fundamentals may be the issue not just lobbies.",
-note:"The 20% recent WR is the single most alarming stat on the entire roster. The disconnect between his Magneto WR (71.4%) and his tournament hero selection (never played Magneto) is the biggest fixable coaching issue. His alt account shows Strange at 20% WR — which means his Strange may be overperforming on main due to higher-quality teammates, not individual mastery. The Magneto data is real. The Strange data needs scrutiny.",
+extra:"Alt (nega.froglin): Plat 3, 42% WR, 5W 7L. Magneto 50% 6g. Strange 20% 5g on alt — his Strange struggles at lower elo too, suggesting fundamentals may be the issue not just lobbies. NEW: Strange 10.75 KDA WIN (38/4/5) on Tokyo 2099 = best comp game on the entire roster this review cycle. Also Cap America 0% 1g LOSS, Emma 100% 1g 8.00 KDA in comp. Season hero table now includes Loki 0% 1g and Cap 0% 1g.",
+note:"The 10.75 KDA Strange game (38/4/5 on Tokyo 2099) is a STATEMENT. That is elite-level performance at Diamond — proof that Gabe's ceiling on Strange is genuinely high. But the very next game was Strange at 1.36 KDA (9/11/6 LOSS). This is the Gabe paradox: the ceiling is GM-level, the floor is catastrophic, and the team needs consistency. The 20% R20 is still the most alarming stat on the roster but the trend is no longer pure freefall — he's finding wins between the losses. Magneto 71.4% remains untapped in tournament. Cap America at 0% comp WR confirms it's not viable. The path: Strange for maps where portals have value (Tokyo, Midtown), Magneto for everything else.",
 url:"https://rivalsmeta.com/player/1767308270"},
-Sam:{ign:"SAMBRI912",rank:"Plat 2",rs:4062,wr:"47%",rec:"29W 33L",r20:"30%",r20r:"6W 14L",
-heroes:[{h:"Sue Storm",w:"44%",g:50,k:"5.92",l:"16.1/6.4/21.7"},{h:"Cloak & Dagger",w:"55.6%",g:9,k:"7.51",l:"18.6/7.9/40.7"},{h:"Rocket Raccoon",w:"66.7%",g:3,k:"4.29",l:"10/7/20"}],
-extra:"Highest game count of any support player (50 Sue + 9 C&D + 3 Rocket = 62 support games). C&D 40.7 assists/game is enormous — proving high healing output even in losses. Also playing Strange (0% WR 4g) and Thing in recent matches — confirmed role confusion.",
-note:"Sam is the most experienced support player by volume but the 44% Sue WR after 50 games is a ceiling indicator. When a hero isn't above 50% after that many games, the player has likely reached their skill ceiling on that hero at their current rank. The C&D at 55.6% with 40.7 assists per game suggests C&D should be the primary pick — the healing output is there even when the team loses.",
-url:"https://rivalsmeta.com/player/1558596661"},
-Zach:{ign:"Rothmaxing",rank:"Plat 3",rs:3943,wr:"58%",rec:"11W 8L",r20:"35%",r20r:"7W 13L",
-heroes:[{h:"Thor",w:"83.3%",g:6,k:"4.48",l:"16.2/4.2/2.5"},{h:"Deadpool (V)",w:"75%",g:4,k:"5.37",l:"20.5/4.8/5"},{h:"Thing",w:"25%",g:4,k:"3.14",l:"18.5/9/9.8"},{h:"Ultron",w:"100%",g:1,k:"51.0",l:"21/1/30"}],
-extra:"Gambit showing 8.50 KDA MVP in recent QP. Deadpool (V) NOT on original list but 75% WR. Playing Mantis (0%), Sue (0%), Daredevil, Gambit across recent games. Widest hero experimentation on roster.",
-note:"Thor 83.3% is the highest single-hero WR on the roster (minimum 5 games). Deadpool Vanguard at 75% confirms a genuine new weapon. The issue is identical to T-Money: too many heroes being tested without enough depth on any of them. His recent 20 at 35% WR mirrors his experimental phase. When he plays Thor or Deadpool (V), he wins. When he plays anything else, he doesn't.",
-url:"https://rivalsmeta.com/player/802297818"},
-Raquel:{ign:"Wendigloop",rank:"Plat 3",rs:3900,wr:"59%",rec:"16W 11L",r20:"25%",r20r:"5W 15L",
-heroes:[{h:"Cloak & Dagger",w:"55.6%",g:18,k:"12.82",l:"12.9/3.3/29.8"},{h:"Luna Snow",w:"0%",g:3,k:"3.64",l:"11/8.3/19.3"},{h:"White Fox",w:"67%",g:3,k:"~5.8",l:"~12/5/14 (QP)"}],
-extra:"C&D 12.82 KDA with 29.8 assists/game = massive healing output when the hero is working. The 55.6% season WR vs 18% recent WR gap is enormous — something fundamentally changed in her play. White Fox at 67% in QP is encouraging but QP WR doesn't translate 1:1 to comp.",
-note:"The C&D slump needs forensic analysis. A player doesn't drop from 55.6% to 18% without a specific cause. Possible explanations: (1) meta shifted and dive is harder to survive, (2) team compositions changed around her, (3) mental/confidence spiral from losses feeding more losses. The 12.82 KDA proves she can play the hero at a high level — this is a fixable problem, not a skill cap issue. But the 3-hero pool with only 1 tournament-viable remains the #1 vulnerability.",
-url:"https://rivalsmeta.com/player/997192574"},
 Jace:{ign:"Jaejanken",rank:"Plat 1",rs:4145,wr:"48%",rec:"32W 34L",r20:"55%",r20r:"11W 9L",
 heroes:[{h:"Daredevil",w:"72%",g:25,k:"4.32",l:"21.3/6.7/7.6"},{h:"Blade",w:"33.3%",g:9,k:"3.52",l:"16/6/5.1"},{h:"Deadpool (V)",w:"22.2%",g:9,k:"2.72",l:"13.4/6.4/4.1"},{h:"Deadpool (S)",w:"50%",g:6,k:"5.50",l:"20.3/7/18.2"},{h:"Iron Man",w:"50%",g:2,k:"4.45",l:"24.5/5.5/0"}],
 extra:"Peaked Diamond 3 (4,201 RS). Also played: Angela 50% 2g, Loki 100% 1g 5.43 KDA, Magneto 100% 1g 3.83 KDA, Spider-Man 0% 1g, Human Torch 50% 2g, Dr. Strange 0% 2g, Punisher 0% 1g, Winter Soldier 0% 1g. Role breakdown: Duelist 54.55% (24W 20L, 44g) vs Vanguard 26.67% (4W 11L, 15g) vs Strategist 57.14% (4W 3L, 7g). Best maps: Hydra Charteris 83.3%, Empire Eternal Night 75%, Tokyo 2099 Convoy 100% (3g). Worst maps: Yggsgard 30%, Hellfire Gala 25%, K'un-Lun 36%.",
 note:"Daredevil SPECIALIST. 72% WR across 25 games with 4.32 KDA is the strongest single-hero DPS data on the entire roster at this volume. His recent 20 at 55% WR shows upward trajectory despite the 48% season. Blade at 33.3% across 9 games has high variance — individual games show 10.75 KDA MVP and 7.50 KDA MVP alongside sub-2.0 losses. Deadpool (V) at 22.2% confirms he is NOT a tank player. Deadpool (S) at 50% with 5.50 KDA across 6g shows genuine support flex potential — worth exploring. The Daredevil data alone makes him a direct fit for every poke composition.",
 url:"https://rivalsmeta.com/player/1899986434"},
-};
-
+Raquel:{ign:"Wendigloop",rank:"Plat 3",rs:3900,wr:"59%",rec:"16W 11L",r20:"25%",r20r:"5W 15L",
+heroes:[{h:"Cloak & Dagger",w:"55.6%",g:18,k:"12.82",l:"12.9/3.3/29.8"},{h:"Jeff",w:"100%",g:4,k:"18.44",l:"20/2.3/21.5"},{h:"Luna Snow",w:"0%",g:3,k:"3.64",l:"11/8.3/19.3"},{h:"White Fox",w:"67%",g:3,k:"~5.8",l:"~12/5/14 (QP)"}],
+extra:"C&D 12.82 KDA with 29.8 assists/game = massive healing output when the hero is working. The 55.6% season WR vs 18% recent WR gap is enormous — something fundamentally changed in her play. JEFF THE LAND SHARK: 100% WR 4g 18.44 KDA (20/2.3/21.5) — the highest KDA stat on the entire roster at any game count. White Fox at 67% in R20 (2W 1L) is developing. Hero pool expanded from 3 to 4 viable heroes.",
+note:"JEFF CHANGES EVERYTHING. 100% WR across 4g with 18.44 KDA is not a fluke — it's 4 consecutive wins with an average of 2.3 deaths per game. Jeff should be tested as her PRIMARY healer immediately because C&D at 18% R20 (3W 14L) is a confirmed slump. The C&D data proves she CAN heal at an elite level (12.82 KDA season) but something broke in the recent meta. Jeff might be the answer — his speed boost and team healing ult fit the current meta better than C&D's positioning-dependent kit. White Fox at 67% R20 adds a third option. The 3-hero vulnerability is being addressed, but Jeff needs 15+ comp games to confirm the trend.",
+url:"https://rivalsmeta.com/player/997192574"},
+Sam:{ign:"SAMBRI912",rank:"Plat 2",rs:4062,wr:"47%",rec:"29W 33L",r20:"30%",r20r:"6W 14L",
+heroes:[{h:"Sue Storm",w:"44%",g:50,k:"5.92",l:"16.1/6.4/21.7"},{h:"Cloak & Dagger",w:"55.6%",g:9,k:"7.51",l:"18.6/7.9/40.7"},{h:"Rocket Raccoon",w:"66.7%",g:3,k:"4.29",l:"10/7/20"}],
+extra:"Highest game count of any support player (50 Sue + 9 C&D + 3 Rocket = 62 support games). C&D 40.7 assists/game is enormous — proving high healing output even in losses. Also playing Strange (0% WR 4g) and Thing in recent matches — confirmed role confusion.",
+note:"Sam is the most experienced support player by volume but the 44% Sue WR after 50 games is a ceiling indicator. When a hero isn't above 50% after that many games, the player has likely reached their skill ceiling on that hero at their current rank. The C&D at 55.6% with 40.7 assists per game suggests C&D should be the primary pick — the healing output is there even when the team loses.",
+url:"https://rivalsmeta.com/player/1558596661"},
+"T-Money":{ign:"xGhost-Emx",rank:"Plat 2",rs:4077,wr:"54%",rec:"27W 23L",r20:"50%",r20r:"10W 10L",
+heroes:[{h:"Punisher",w:"62.5%",g:8,k:"2.21",l:"19.4/8.8/0"},{h:"Angela",w:"100%",g:5,k:"4.76",l:"17.2/4.2/2.8"},{h:"Magneto",w:"40%",g:5,k:"2.42",l:"13.4/6.6/2.6"},{h:"Moon Knight",w:"25%",g:4,k:"2.36",l:"14.8/6.3/0"},{h:"Peni Parker",w:"50%",g:4,k:"5.14",l:"18.5/5.5/9.8"}],
+extra:"HUGE DISCOVERY: Playing WAY more heroes than originally listed. Angela 100% WR 5g 4.76 KDA. Peni Parker 50% 4g 5.14 KDA. Also playing: Hulk, Namor, Squirrel Girl, Loki, Thor, Wolverine, Deadpool (V), Thing, Invisible Woman. Vanguard role: 71% WR (7g). DPS role: 50% (10g). Strategist: 0% WR (3g). HE IS A BETTER TANK THAN DPS according to the data.",
+note:"The original assessment was WRONG. T-Money is not primarily a DPS player — his Vanguard WR (71%) dramatically outperforms his Duelist WR (50%). Angela at 100% WR is a small sample but the 4.76 KDA is real. Magneto at 40% WR is a red flag — his supposed main tank is underperforming. Moon Knight at 25% WR confirms it's not a tournament pick. Strategist at 0% (3g) means support flex is confirmed impossible. The hero pool is much wider than reported — he just needs to focus on what actually wins.",
+url:"https://rivalsmeta.com/player/88489080"},
+Tristen:{ign:"keetoh1337 / potsmoker34",rank:"Dia 2-3",rs:4274,wr:"73%",rec:"32W 12L (alt)",r20:"25%",r20r:"5W 15L (main)",
+heroes:[{h:"Spider-Man",w:"78.6%",g:28,k:"2.61",l:"17.8/8.1/3.4"},{h:"Iron Man",w:"63.6%",g:11,k:"3.13",l:"21.7/7/0.2"},{h:"Hela",w:"100%",g:1,k:"3.88",l:"30/8/1"},{h:"Psylocke",w:"0%",g:2,k:"3.18",l:"26.5/8.5/0.5"},{h:"Luna Snow",w:"0%",g:1,k:"1.40",l:"1/5/6"}],
+extra:"Spider-Man is elite: 78.6% WR across 28 games on alt. Multiple MVP games. Iron Man has 63.6% WR but drops catastrophically in tournament play (0W 4L) and now 0% in R20 (0W 5L). Psylocke recent comp: 0% WR 2g — the hero isn't translating at Diamond. Also played Invisible Woman (8.67 KDA comp WIN, previously 4.22 KDA) and Luna Snow in tournament (5.00 KDA in the only win). R20 Duelist role: 19% (3W 13L). R20 Strategist role: 50% (2W 2L). His support flex is literally outperforming his DPS right now.",
+note:"R20 FREEFALL: 50% → 25% (5W 15L). Spider-Man R20 dropped to 22% (2W 7L). Iron Man R20 is 0% (0W 5L) — the hero is DEAD in comp, not just tournament. The Invisible Woman 8.67 KDA comp WIN confirms his support flex is real and getting stronger. His R20 Strategist WR (50%) is more than double his Duelist WR (19%). The data is screaming: Tristen's highest-value role right now might be support, not DPS. Spider-Man remains elite at 78.6% season but the recent collapse needs diagnosis — is he being target-banned, or has the meta shifted around him?",
+url:"https://rivalsmeta.com/player/1340539275"},
+Zach:{ign:"Rothmaxing",rank:"Plat 3",rs:3943,wr:"58%",rec:"11W 8L",r20:"35%",r20r:"7W 13L",
+heroes:[{h:"Thor",w:"83.3%",g:6,k:"4.48",l:"16.2/4.2/2.5"},{h:"Deadpool (V)",w:"75%",g:4,k:"5.37",l:"20.5/4.8/5"},{h:"Thing",w:"25%",g:4,k:"3.14",l:"18.5/9/9.8"},{h:"Ultron",w:"100%",g:1,k:"51.0",l:"21/1/30"}],
+extra:"Gambit showing 8.50 KDA MVP in recent QP. Deadpool (V) NOT on original list but 75% WR. Playing Mantis (0%), Sue (0%), Daredevil, Gambit across recent games. Widest hero experimentation on roster.",
+note:"Thor 83.3% is the highest single-hero WR on the roster (minimum 5 games). Deadpool Vanguard at 75% confirms a genuine new weapon. The issue is identical to T-Money: too many heroes being tested without enough depth on any of them. His recent 20 at 35% WR mirrors his experimental phase. When he plays Thor or Deadpool (V), he wins. When he plays anything else, he doesn't.",
+url:"https://rivalsmeta.com/player/802297818"},
+}
 const TM=[
 {map:"Klyntar",sc:"2:0",res:"WIN",p:[{n:"Begin",h:"Thor",k:"27/0/2",r:"∞",b:"MVP"},{n:"Gabe",h:"Strange",k:"16/4/2",r:"4.50"},{n:"Raquel",h:"C&D",k:"6/2/26",r:"16.00"},{n:"Tristen",h:"Luna Snow",k:"13/5/12",r:"5.00"},{n:"Ayden",h:"—",k:"TBD",r:"—"},{n:"Zach",h:"—",k:"TBD",r:"—"}],a:"THE ONLY WIN. Begin's perfect Thor. Tristen played LUNA SNOW (healer!) with 5.00 KDA — his best tournament KDA. Everyone performed. This is what the team looks like when composition and coordination align. Key lesson: Tristen flexing to support freed up a slot that may have enabled a better overall comp."},
 {map:"Tokyo 2099",sc:"0:1",res:"LOSS",p:[{n:"Begin",h:"Thor",k:"4/4/1",r:"1.25"},{n:"Gabe",h:"Strange",k:"4/6/0",r:"0.67"},{n:"Raquel",h:"C&D",k:"6/3/9",r:"5.00"},{n:"Tristen",h:"Luna",k:"6/5/3",r:"1.80",b:"SVP"},{n:"Ayden",h:"—",k:"TBD",r:"—"},{n:"Zach",h:"—",k:"TBD",r:"—"}],a:"Quick loss. Tristen again on Luna — his tournament heal flex. Raquel actually had best KDA. DPS/tank output completely absent. Gabe's Strange at 0.67 KDA — his alt account shows Strange at 20% WR, confirming Strange may not be tournament-viable for Gabe."},
@@ -176,55 +175,55 @@ const LEARNS=[
 {h:"Expand Pool to 5+ Healers",p:"CRITICAL",r:"Raquel has 3 heroes with only C&D tournament-viable. One C&D ban = dead seat. Rocket Raccoon is fastest to learn (simple kit, strong damage, Planet X Pals team-up). Gambit is highest team-up value (Explosive Entanglement enables Rogue comp). Sue Storm is simplest mechanically. She needs AT MINIMUM 2 additions before tournament.",w:["Raquel"]},
 {h:"Hawkeye",p:"HIGH",r:"S-tier poke DPS in S7. Zero hitscan snipers on roster — this is the biggest DPS gap. Hawkeye's charged headshots are instant kills at any range. In the slower S7 neutral phases, consistent long-range picks are more valuable than ever because teams can't cycle healing ults to undo the damage. Tristen's Hela fills part of this niche but Hawkeye has higher single-target burst.",w:["Tristen","T-Money"]},
 {h:"Blade",p:"HIGH",r:"S-tier dive DPS. Self-sufficient with lifesteal. Blade of Khonshu team-up with Moon Knight (Tristen/T-Money play MK). The lifesteal means Blade doesn't need healer peel to survive — he sustains himself, freeing your supports to focus on tanks. In dive comps, this self-sufficiency is game-changing. Jace already playing at 33.3% 9g with MVP ceiling games (10.75, 7.50 KDA) — needs volume to stabilize.",w:["Tristen","Zach","Jace"]},
+{h:"Jace: Stabilize Blade",p:"HIGH",r:"Blade at 33.3% WR 9g is high-variance — individual games hit 10.75 and 7.50 KDA MVPs but losses drag the average. S7 Blade buffs (lifesteal self-sustain) make him a legitimate dive DPS. Jace needs 20+ comp games to stabilize toward 50%+ WR. Blade is the secondary pick for maps where Daredevil poke isn't optimal (Hellfire Gala, Krakoa, Shin-Shibuya). Blade of Khonshu team-up with Moon Knight adds synergy.",w:["Jace"]},
 {h:"Deadpool (V)",p:"MEDIUM",r:"Zach already playing at 75% WR (4g, 5.37 KDA). Officially add to roster. Deadpool Vanguard is one of the most flexible tanks in S7 — he can selfie for invulnerability, flex between roles mid-match, and his ult is impactful in any comp. The flexibility alone justifies the pick.",w:["Zach"]},
 {h:"Venom",p:"MEDIUM",r:"Only Ayden plays dive tank. If Ayden is on heals (which he should be — he has the best healer stats), dive becomes impossible. Begin or Zach learning Venom enables comps where Ayden can flex to Jeff/White Fox while someone else dives. Without a backup Venom, the dive archetype lives and dies on one player.",w:["Begin","Zach"]},
 {h:"Groot",p:"MEDIUM",r:"S-tier anchor tank. Gabe needs a backup when Magneto is banned. Begin's Groot is 77.8% WR on second account — he can teach Gabe the fundamentals. Groot's wall is the most impactful single ability on poke maps (Midtown, Yggsgard, Central Park). Without Groot access, the poke comp loses its strongest tool.",w:["Gabe"]},
 {h:"Gambit (Heals)",p:"MEDIUM",r:"Explosive Entanglement is the highest-value team-up on the roster because it enables Rogue (ult drain) and Magneto (shield) simultaneously. Sam needs this for team-up value. Zach already showing 8.50 KDA MVP games on Gambit.",w:["Sam","Zach"]},
 {h:"Daredevil",p:"MEDIUM",r:"S-tier info DPS. Bestial Hunt team-up with Punisher (Tristen already plays Punisher). The wallhack passive is arguably the most underrated ability in the game — it gives your ENTIRE TEAM permanent information advantage. In tournament where teams actively try to surprise each other, knowing where the enemy is at all times is priceless. Jace is now the primary DD player (72% WR 25g) — this slot is filled. Tristen as backup.",w:["Tristen"]},
 {h:"Peni Parker",p:"MEDIUM",r:"T-Money already playing at 50% WR 4g with 5.14 KDA — his HIGHEST KDA hero. Peni is a solid flex tank that pairs well in 2-2-2 comps. Her spider drone provides area control and her ult zones enemies. T-Money's data shows he performs well on her — add to his official tournament pool.",w:["T-Money"]},
+{h:"Jace: Deadpool (S) Flex",p:"MEDIUM",r:"50% WR 6g with 5.50 KDA = genuine support flex potential from a DPS player. The same pattern that made Tristen's Luna Snow flex win the only tournament game. Jace on Deadpool (S) in emergency 1-2-3 comps frees a healer slot for someone with deeper support pools. Needs 15+ comp games to prove reliability.",w:["Jace"]},
 {h:"Angela (T-Money only)",p:"LOW",r:"T-Money has Angela at 100% WR 5g with 4.76 KDA — by far his best performer. Angela is generally C-tier BUT in tight corridor maps (Hellfire Gala Convoy, Krakoa Dom) she can be niche effective. Small sample warning: 5 games is enough to note but not enough to build a strategy around. Keep playing her in comp to grow the sample.",w:["T-Money"]},
 {h:"Invisible Woman",p:"LOW",r:"Tristen played Sue in comp (4.22 KDA on main, 8.67 KDA on alt). Emergency healer flex from a DPS player. Tournament proved Tristen CAN flex to support (Luna Snow 5.00 KDA in only win). Sue gives him a second support option with more defensive utility.",w:["Tristen"]},
-{h:"Jace: Stabilize Blade",p:"HIGH",r:"Blade at 33.3% WR 9g is high-variance — individual games hit 10.75 and 7.50 KDA MVPs but losses drag the average. S7 Blade buffs (lifesteal self-sustain) make him a legitimate dive DPS. Jace needs 20+ comp games to stabilize toward 50%+ WR. Blade is the secondary pick for maps where Daredevil poke isn't optimal (Hellfire Gala, Krakoa, Shin-Shibuya). Blade of Khonshu team-up with Moon Knight adds synergy.",w:["Jace"]},
-{h:"Jace: Deadpool (S) Flex",p:"MEDIUM",r:"50% WR 6g with 5.50 KDA = genuine support flex potential from a DPS player. The same pattern that made Tristen's Luna Snow flex win the only tournament game. Jace on Deadpool (S) in emergency 1-2-3 comps frees a healer slot for someone with deeper support pools. Needs 15+ comp games to prove reliability.",w:["Jace"]},
 ];
 
 const FB=[
-{n:"Begin",i:"⚡",v:"TEAM ANCHOR",g:"A-",
-s:"GM3 main (4,544 RS). Second account: GM1 (4,724 RS, 73% WR). Thor 70% WR main, 66.7% across 33g on second account. Groot 77.8% 9g, Magneto 75% 12g, Magik 100% 9g on second account. The mechanical skill ceiling on this roster lives here — GM1 is the top 0.5% of the competitive player base.",
-w:"Main account recent 20: 35% WR despite being GM3. Tournament: 1W 9L. Thor went 1W 4L in tournament — the team isn't enabling his engages. Strange at 44.4% comp WR on main is declining. Angela (0.29 KDA tournament) is confirmed dead pick. Even with GM-level mechanics, the team coordination gap is dragging performance down.",
-r:"Thor is your weapon, but the tournament proved individual skill can't carry alone. The team needs pre-planned comps that SUPPORT your engages — when you leap in as Thor, the DPS and healers must follow within 1-2 seconds or you die alone. Drop Angela permanently. Your Magik (100% WR second account) should be the dive comp centerpiece but needs team practice. Push the team to run structured dive scrims with callouts. Consider learning ONE support (Rocket or C&D) — in the Klyntar win, Tristen flexed to Luna Snow and you got your best game. If YOU could also flex to support in emergencies, the team gains massive draft flexibility."},
 {n:"Ayden",i:"🔧",v:"THE FLEX PLAYER",g:"A",
 s:"Diamond 3 (4,288 RS). Jeff: 57.9% WR, 10.86 KDA across 19g — strongest healer stats on roster by a wide margin. Emma: 50% WR 16g. Punisher: 66.7% 12g. Mr. Fantastic: 6.09 KDA. Alt: 87% WR with White Fox at 100% WR 51.0 KDA. Can play every role.",
 w:"Main recent 20: 45% — likely solo queue team issues. Venom only 2g at Diamond. White Fox not yet comp-tested on main account. The versatility can become a weakness if he's constantly being shuffled between roles without a defined primary identity.",
 r:"Your identity should be: primary healer (Jeff/White Fox) with Venom as a strategic flex. Jeff at 10.86 KDA across 19 games makes you objectively the best healer on the roster. White Fox at 100% WR on alt proves the skill is there — get 30+ comp games on main ASAP. Venom reps at Diamond+ are critical because you're the only dive tank. The team should NOT be putting you on DPS (Punisher/Mr. Fantastic) in tournament — your healer stats are too valuable to waste on a DPS role that Tristen can fill."},
-{n:"Tristen",i:"🎯",v:"DPS CORE — VERIFIED",g:"B+",
-s:"Diamond 2-3 across accounts. Spider-Man: 78.6% WR across 28g — elite. Iron Man: 63.6% 11g. Hela: 100% 1g 3.88 KDA. Multiple MVP games on Spider-Man. Also capable of flexing to Luna Snow and Invisible Woman in support role.",
-w:"Tournament: 1W 9L. Iron Man 0W 4L (KDA range 0.20-2.30). Spider-Man 0W 3L (averaged 12.3 deaths/game). Moon Knight 0W 1L (17 deaths). Psylocke 0% recent comp WR. The tournament data is brutal — his best game was on Luna Snow (5.00 KDA), not on any DPS hero. Iron Man collapses in organized play because tournament teams punish his flight predictability and lack of escape tools.",
-r:"Spider-Man is your weapon — 78.6% comp WR doesn't lie. But tournament showed the team isn't enabling dive follow-up, which means Spider-Man dives into 1v6 and dies. Solution: (1) the team must practice coordinated dive timing — Venom CC → Magik portal → THEN you engage, not before. (2) DROP Iron Man from tournament entirely — 0W 4L is definitive. (3) Add Hawkeye for poke comps where Spider-Man dive isn't viable. (4) The Luna Snow flex is genuinely valuable — your 5.00 KDA in the only win proves you can heal at a competitive level. Keep Luna in the pocket for maps/comps where having 3 supports is correct."},
-{n:"T-Money",i:"📈",v:"BETTER THAN EXPECTED",g:"B-",
-s:"Plat 2 (4,077 RS, peaked Plat 1). 54% WR. HIDDEN WEAPON: Angela 100% WR 5g 4.76 KDA. Peni Parker 50% 4g 5.14 KDA. Vanguard role 71% WR (7g) dramatically outperforms DPS role (50%). Also playing: Hulk, Namor, Squirrel Girl, Loki, Thor, Wolverine, Deadpool (V), Thing. Much wider hero pool than originally reported.",
-w:"Magneto 40% WR (5g) — his supposed main tank is underperforming. Moon Knight 25% WR (4g) — not a tournament pick. Strategist 0% WR (3g) — support role confirmed impossible. Playing too many heroes without depth on any. Punisher at 62.5% is decent but 8.8 deaths/game is concerning.",
-r:"The data says you're a TANK player, not a DPS player. Your Vanguard WR (71%) vs DPS WR (50%) isn't close. Your tournament pool should be: Peni Parker (5.14 KDA), Magneto (needs improvement — play more), and Angela (100% WR small sample — keep growing it on tight corridor maps). For DPS: Punisher only (62.5% WR). DROP Moon Knight (25%), Squirrel Girl (niche), Namor (niche). Don't play support in tournament — 0% WR across 3 games. Focus tank: Peni → Magneto → Angela. Add Hawkeye for DPS if you want a second DPS option. The Angela stats are intriguing but 5 games is NOT enough to call it proven — get to 15+ games."},
-{n:"Gabe",i:"🛡️",v:"ANCHOR TANK IN CRISIS",g:"B-",
+{n:"Begin",i:"⚡",v:"TEAM ANCHOR",g:"A-",
+s:"GM3 main (4,544 RS). Second account: GM1 (4,724 RS, 73% WR). Thor 70% WR main, 66.7% across 33g on second account. Groot 77.8% 9g, Magneto 75% 12g, Magik 100% 9g on second account. The mechanical skill ceiling on this roster lives here — GM1 is the top 0.5% of the competitive player base.",
+w:"Main account recent 20: 35% WR despite being GM3. Tournament: 1W 9L. Thor went 1W 4L in tournament — the team isn't enabling his engages. Strange at 44.4% comp WR on main is declining. Angela (0.29 KDA tournament) is confirmed dead pick. Even with GM-level mechanics, the team coordination gap is dragging performance down.",
+r:"Thor is your weapon, but the tournament proved individual skill can't carry alone. The team needs pre-planned comps that SUPPORT your engages — when you leap in as Thor, the DPS and healers must follow within 1-2 seconds or you die alone. Drop Angela permanently. Your Magik (100% WR second account) should be the dive comp centerpiece but needs team practice. Push the team to run structured dive scrims with callouts. Consider learning ONE support (Rocket or C&D) — in the Klyntar win, Tristen flexed to Luna Snow and you got your best game. If YOU could also flex to support in emergencies, the team gains massive draft flexibility."},
+{n:"Gabe",i:"🛡️",v:"ANCHOR TANK IN CRISIS",g:"A-",
 s:"Diamond 3 (4,216 RS). Magneto 71.4% WR is elite. Strange 57.7% across 26g. Ultron heals 58.3%. The Magneto data proves high-level tank play IS in his toolkit.",
 w:"20% last 20 WR — the most alarming stat on the entire roster. Tournament: 1W 9L playing 5 different heroes without committing to Magneto. MAG NEVER PLAYED IN TOURNAMENT. Thing 3 tourney games all losses. Cap America (C-tier). Emma (C-tier). Alt account: Strange at 20% WR confirms Strange may be carried by teammates on main, not individual mastery.",
 r:"This is the most important coaching conversation on the roster: WHY DIDN'T YOU PLAY MAGNETO IN TOURNAMENT? If Magneto was banned every game — that's information the team needs to plan around. If it was a comp/draft issue — the team needs to restructure drafts around securing Magneto. If it was a personal comfort issue — you need to understand that 71.4% WR is your BEST hero by far and playing Thing at 45.5% instead is actively hurting the team. Your Strange at 20% on alt raises real questions about whether Strange is viable for you in tournament. The path forward: Magneto primary (always, unless banned). Learn Groot as backup. Consider Ultron heals as an emergency flex (4.71 KDA in tournament when forced onto it — your best non-Magneto tournament performance). Drop Thing, Cap, Star-Lord, Emma from all tournament consideration."},
-{n:"Zach",i:"🏗️",v:"THE WILD CARD",g:"B",
-s:"Plat 3 (3,943 RS). Thor 83.3% WR (6g) — highest single-hero WR on the roster (min 5g). Deadpool (V) 75% 4g. Gambit 8.50 KDA MVP recently.",
-w:"35% recent 20. Thing 25%. Mantis/Sue 0%. 18+ heroes experimented with but only Thor and Deadpool (V) are winning. Tournament data incomplete.",
-r:"Thor 83.3% is remarkable — but Begin also plays Thor at 70%. In tournament, Begin should be on Thor and you should fill the flex role. Your tournament pool: Deadpool (V) and Magneto for tanks. Daredevil and Wolverine for DPS. Gambit and C&D for heals. That's 6 heroes. The Deadpool (V) at 75% is your unique weapon — nobody else on the roster plays it. Own that. DROP: Thing, Mantis, Sue, Bucky, Loki, Ultron, Mr. Fantastic. The experimentation phase needs to end and the mastery phase needs to begin."},
-{n:"Raquel",i:"🚨",v:"CRITICAL LIABILITY",g:"D",
-s:"C&D 55.6% season WR (18g, 12.82 KDA, 29.8 assists/game). Learning White Fox (67% QP). The KDA and assist numbers prove the healing output is elite when the hero is working.",
-w:"3 heroes total (C&D, Luna 0%, White Fox QP-only). C&D 18% last 20. Tournament 1W 8L on C&D with zero adaptation. Multiple 0-kill games. A player who drops from 55.6% to 18% WR without a hero change has encountered either a meta shift, a confidence spiral, or both.",
-r:"The forensic analysis: your C&D at 12.82 KDA with 29.8 assists/game proves the HEALING OUTPUT is not the problem — you're dying too much. In your 55.6% WR games, you were likely dying ~3 times/game. In the recent 18% stretch, you're dying ~7+ times. That's a positioning/peel issue. Two hypotheses: (1) S7's dive meta means more enemies are targeting supports — you need to position further back than you did in S6, or (2) your team's composition isn't providing enough peel. The tournament data supports both — games where the team ran proper tanks (Klyntar win) you had 16.00 KDA. Games where the team was scrambled, you died 7-11 times. FIX: (1) Position 5-10m further from the fight than you currently do. (2) Learn to toggle to Dagger form when being dove — the damage can kill flankers. (3) EXPAND YOUR POOL — Rocket, Gambit, Sue. Not negotiable."},
-{n:"Sam",i:"💊",v:"SUPPORT SPECIALIST",g:"B-",
-s:"Plat 2 (4,062 RS). 50 comp Sue Storm games. C&D 55.6% WR 9g (40.7 assists/game — enormous healing output). Rocket 66.7% 3g. Highest total support game count on roster (62 games).",
-w:"47% overall. Sue 44% after 50g — ceiling reached. Strange 0% WR 4g. Role confusion with tank experiments.",
-r:"Make C&D your primary — the 55.6% WR with 40.7 assists/game proves you heal at an elite level on that hero. Sue at 44% after 50 games means you've hit the skill ceiling on Sue at your current rank. That's not failure — it's information. The information says: switch to C&D. Learn Gambit for Explosive Entanglement team-up value. The Strange experiments at 0% WR (4g) must stop immediately — you are a support player and every game you spend on Strange is a game you could be improving on Gambit or C&D."},
 {n:"Jace",i:"🎯",v:"DAREDEVIL SPECIALIST",g:"B+",
 s:"Plat 1 (4,145 RS, peaked Diamond 3 at 4,201). Daredevil: 72% WR across 25g with 4.32 KDA — the strongest single-hero DPS data at volume on the entire roster. Recent 20 at 55% WR shows an upward trajectory. Blade has shown MVP ceiling games (10.75 KDA, 7.50 KDA). Deadpool (S) at 50% WR 6g 5.50 KDA indicates genuine support flex. Best maps: Hydra Charteris 83.3%, Empire Eternal Night 75%.",
 w:"48% overall season WR — the recent climb hasn't offset the early losses yet. Blade at 33.3% across 9g is high-variance and not tournament-stable. Deadpool (V) at 22.2% across 9g confirms Vanguard is a dead role (26.67% role WR overall). Hero pool outside Daredevil is thin — most heroes have 1-2 game samples. Yggsgard 30% WR and Hellfire Gala 25% are disaster maps. The gap between his best (Daredevil 72%) and everything else is enormous.",
 r:"You have one of the most valuable assets on the roster: a 72% Daredevil across 25 games. Daredevil is S-tier at Diamond+ — his wallhack gives the ENTIRE TEAM permanent information advantage, which in tournament play is priceless. Your tournament role is clear: Daredevil in every poke comp. This directly benefits the team because Zach was slotted into Daredevil but has no comp data on him — you fill this gap with PROVEN stats. Secondary path: Blade for dive/brawl maps. The 33.3% WR is misleading — your individual games show massive KDA spikes (10.75 MVP, 7.50 MVP) that suggest the losses are team-comp issues not individual skill issues. Blade's S7 buffs and lifesteal self-sustain make him a legitimate dive DPS. DO NOT play Deadpool (V) in tournament — 22.2% WR. Your Deadpool (S) at 5.50 KDA is intriguing as an emergency healer flex. The priority: master Daredevil (already done), stabilize Blade (get to 50%+ over 20g), and keep Deadpool (S) in the pocket for emergency support."},
+{n:"Tristen",i:"🎯",v:"DPS CORE — VERIFIED",g:"B",
+s:"Diamond 2-3 across accounts. Spider-Man: 78.6% WR across 28g — elite. Iron Man: 63.6% 11g. Hela: 100% 1g 3.88 KDA. Multiple MVP games on Spider-Man. Also capable of flexing to Luna Snow and Invisible Woman in support role.",
+w:"Tournament: 1W 9L. Iron Man 0W 4L (KDA range 0.20-2.30). Spider-Man 0W 3L (averaged 12.3 deaths/game). Moon Knight 0W 1L (17 deaths). Psylocke 0% recent comp WR. The tournament data is brutal — his best game was on Luna Snow (5.00 KDA), not on any DPS hero. Iron Man collapses in organized play because tournament teams punish his flight predictability and lack of escape tools.",
+r:"Spider-Man is your weapon — 78.6% comp WR doesn't lie. But tournament showed the team isn't enabling dive follow-up, which means Spider-Man dives into 1v6 and dies. Solution: (1) the team must practice coordinated dive timing — Venom CC → Magik portal → THEN you engage, not before. (2) DROP Iron Man from tournament entirely — 0W 4L is definitive. (3) Add Hawkeye for poke comps where Spider-Man dive isn't viable. (4) The Luna Snow flex is genuinely valuable — your 5.00 KDA in the only win proves you can heal at a competitive level. Keep Luna in the pocket for maps/comps where having 3 supports is correct."},
+{n:"Zach",i:"🏗️",v:"THE WILD CARD",g:"B",
+s:"Plat 3 (3,943 RS). Thor 83.3% WR (6g) — highest single-hero WR on the roster (min 5g). Deadpool (V) 75% 4g. Gambit 8.50 KDA MVP recently.",
+w:"35% recent 20. Thing 25%. Mantis/Sue 0%. 18+ heroes experimented with but only Thor and Deadpool (V) are winning. Tournament data incomplete.",
+r:"Thor 83.3% is remarkable — but Begin also plays Thor at 70%. In tournament, Begin should be on Thor and you should fill the flex role. Your tournament pool: Deadpool (V) and Magneto for tanks. Daredevil and Wolverine for DPS. Gambit and C&D for heals. That's 6 heroes. The Deadpool (V) at 75% is your unique weapon — nobody else on the roster plays it. Own that. DROP: Thing, Mantis, Sue, Bucky, Loki, Ultron, Mr. Fantastic. The experimentation phase needs to end and the mastery phase needs to begin."},
+{n:"T-Money",i:"📈",v:"THE CLOSET VANGUARD",g:"B-",
+s:"Plat 2 (4,077 RS, peaked Plat 1). 54% WR. HIDDEN WEAPON: Angela 100% WR 5g 4.76 KDA. Peni Parker 50% 4g 5.14 KDA. Vanguard role 71% WR (7g) dramatically outperforms DPS role (50%). Also playing: Hulk, Namor, Squirrel Girl, Loki, Thor, Wolverine, Deadpool (V), Thing. Much wider hero pool than originally reported.",
+w:"Magneto 40% WR (5g) — his supposed main tank is underperforming. Moon Knight 25% WR (4g) — not a tournament pick. Strategist 0% WR (3g) — support role confirmed impossible. Playing too many heroes without depth on any. Punisher at 62.5% is decent but 8.8 deaths/game is concerning.",
+r:"The data says you're a TANK player, not a DPS player. Your Vanguard WR (71%) vs DPS WR (50%) isn't close. Your tournament pool should be: Peni Parker (5.14 KDA), Magneto (needs improvement — play more), and Angela (100% WR small sample — keep growing it on tight corridor maps). For DPS: Punisher only (62.5% WR). DROP Moon Knight (25%), Squirrel Girl (niche), Namor (niche). Don't play support in tournament — 0% WR across 3 games. Focus tank: Peni → Magneto → Angela. Add Hawkeye for DPS if you want a second DPS option. The Angela stats are intriguing but 5 games is NOT enough to call it proven — get to 15+ games."},
+{n:"Sam",i:"💊",v:"SUPPORT SPECIALIST",g:"C+",
+s:"Plat 2 (4,062 RS). 50 comp Sue Storm games. C&D 55.6% WR 9g (40.7 assists/game — enormous healing output). Rocket 66.7% 3g. Highest total support game count on roster (62 games).",
+w:"47% overall. Sue 44% after 50g — ceiling reached. Strange 0% WR 4g. Role confusion with tank experiments.",
+r:"Make C&D your primary — the 55.6% WR with 40.7 assists/game proves you heal at an elite level on that hero. Sue at 44% after 50 games means you've hit the skill ceiling on Sue at your current rank. That's not failure — it's information. The information says: switch to C&D. Learn Gambit for Explosive Entanglement team-up value. The Strange experiments at 0% WR (4g) must stop immediately — you are a support player and every game you spend on Strange is a game you could be improving on Gambit or C&D."},
+{n:"Raquel",i:"🚨",v:"CRITICAL LIABILITY",g:"C+",
+s:"C&D 55.6% season WR (18g, 12.82 KDA, 29.8 assists/game). Learning White Fox (67% QP). The KDA and assist numbers prove the healing output is elite when the hero is working.",
+w:"3 heroes total (C&D, Luna 0%, White Fox QP-only). C&D 18% last 20. Tournament 1W 8L on C&D with zero adaptation. Multiple 0-kill games. A player who drops from 55.6% to 18% WR without a hero change has encountered either a meta shift, a confidence spiral, or both.",
+r:"The forensic analysis: your C&D at 12.82 KDA with 29.8 assists/game proves the HEALING OUTPUT is not the problem — you're dying too much. In your 55.6% WR games, you were likely dying ~3 times/game. In the recent 18% stretch, you're dying ~7+ times. That's a positioning/peel issue. Two hypotheses: (1) S7's dive meta means more enemies are targeting supports — you need to position further back than you did in S6, or (2) your team's composition isn't providing enough peel. The tournament data supports both — games where the team ran proper tanks (Klyntar win) you had 16.00 KDA. Games where the team was scrambled, you died 7-11 times. FIX: (1) Position 5-10m further from the fight than you currently do. (2) Learn to toggle to Dagger form when being dove — the damage can kill flankers. (3) EXPAND YOUR POOL — Rocket, Gambit, Sue. Not negotiable."},
 ];
 
 const BANS={g:"S7: A ban→B ban→B lock→A lock→A ban→B ban→B lock→A lock→A ban→B ban. 3 bans + 2 locks each. 15s/phase. In BO3+, winner bans first next game. STRATEGY: Use first ban to remove enemy's best hero. Use first LOCK (phase 3-4) to protect YOUR critical hero. Use bans 2-3 to target enemy healer pool or one-tricks.",
@@ -342,50 +341,50 @@ teamups:[
 
 // ─── NEW: ROLE FLEXIBILITY MATRIX ───
 const ROLE_MATRIX=[
-{name:"Begin",roles:{
-vanguard:{wr:"70%",conf:"ELITE",heroes:"Thor 70%, Groot 77.8%, Magneto 75%, Magik 100%",note:"GM1 tank player. Thor/Groot/Magneto all proven at highest level.",c:C.green},
-duelist:{wr:"—",conf:"NONE",heroes:"No DPS data",note:"Not a DPS player. All successful picks are Vanguard-class.",c:C.muted},
-strategist:{wr:"—",conf:"NONE",heroes:"No support data",note:"Learning Rocket/C&D recommended for emergency flex.",c:C.muted}
-}},
 {name:"Ayden",roles:{
 vanguard:{wr:"50%",conf:"FLEX",heroes:"Emma 50% 16g, Venom 50% 2g",note:"Venom is ONLY dive tank on roster — needs 20+ games.",c:C.gold},
 duelist:{wr:"66.7%",conf:"STRONG",heroes:"Punisher 66.7% 12g, Mr. Fantastic 50%",note:"Solid DPS but healer stats are so much better.",c:C.blue},
 strategist:{wr:"57.9%",conf:"ELITE",heroes:"Jeff 57.9% 10.86 KDA, White Fox 100% alt",note:"BEST healer by KDA. THIS is his primary role.",c:C.green}
 }},
-{name:"Tristen",roles:{
-vanguard:{wr:"—",conf:"NONE",heroes:"No tank data",note:"Not a tank player.",c:C.muted},
-duelist:{wr:"78.6%",conf:"ELITE",heroes:"Spider-Man 78.6% 28g, Hela 100% 1g, Iron Man 63.6%",note:"Spider-Man elite. Iron Man NOT tournament-viable (0W 4L).",c:C.green},
-strategist:{wr:"—",conf:"FLEX",heroes:"Luna Snow 5.00 KDA tourney, Invis Woman 4.22",note:"Tournament-proven support flex. Luna in ONLY WIN.",c:C.gold}
-}},
-{name:"T-Money",roles:{
-vanguard:{wr:"71%",conf:"STRONG",heroes:"Angela 100% 5g, Peni 50% 4g, Magneto 40%",note:"71% Vanguard WR vs 50% DPS. HE IS A TANK PLAYER.",c:C.blue},
-duelist:{wr:"50%",conf:"WEAK",heroes:"Punisher 62.5%, Moon Knight 25%",note:"Moon Knight 25% = dead pick. Duelist NOT his role.",c:C.gold},
-strategist:{wr:"0%",conf:"DEAD",heroes:"0% across 3g",note:"IMPOSSIBLE. Do not put on support.",c:C.accent}
+{name:"Begin",roles:{
+vanguard:{wr:"70%",conf:"ELITE",heroes:"Thor 70%, Groot 77.8%, Magneto 75%, Magik 100%",note:"GM1 tank player. Thor/Groot/Magneto all proven at highest level.",c:C.green},
+duelist:{wr:"—",conf:"NONE",heroes:"No DPS data",note:"Not a DPS player. All successful picks are Vanguard-class.",c:C.muted},
+strategist:{wr:"—",conf:"NONE",heroes:"No support data",note:"Learning Rocket/C&D recommended for emergency flex.",c:C.muted}
 }},
 {name:"Gabe",roles:{
 vanguard:{wr:"71.4%",conf:"ELITE",heroes:"Magneto 71.4% 7g, Strange 57.7% 26g, Thing 45.5%",note:"Magneto 71.4% ELITE. NEVER PLAYED IN TOURNAMENT. #1 fix.",c:C.green},
 duelist:{wr:"0%",conf:"DEAD",heroes:"Star-Lord 0% 2g",note:"Not a DPS player.",c:C.accent},
 strategist:{wr:"58.3%",conf:"FLEX",heroes:"Ultron 58.3% 12g, 8.75 KDA",note:"Emergency Ultron heals. 4.71 KDA in tourney was his best non-Mag game.",c:C.gold}
 }},
+{name:"Jace",roles:{
+vanguard:{wr:"26.7%",conf:"DEAD",heroes:"Deadpool V 22.2% 9g, Magneto 100% 1g, Thing 0% 1g",note:"26.67% Vanguard role WR across 15 games. DO NOT put on tank. Deadpool V 22.2% across 9g is definitive.",c:C.accent},
+duelist:{wr:"72%",conf:"ELITE",heroes:"Daredevil 72% 25g, Blade 33.3% 9g, Iron Man 50% 2g",note:"Daredevil 72% across 25g = strongest single-hero DPS on roster at volume. S-tier pick. Blade high-variance but ceiling is real (10.75 KDA MVP).",c:C.green},
+strategist:{wr:"57.1%",conf:"FLEX",heroes:"Deadpool S 50% 6g 5.50 KDA, Loki 100% 1g",note:"Deadpool (S) 5.50 KDA across 6g is promising emergency flex. 57.14% role WR. Small sample but real output.",c:C.gold}
+}},
+{name:"Raquel",roles:{
+vanguard:{wr:"—",conf:"NONE",heroes:"None",note:"Not a tank player.",c:C.muted},
+duelist:{wr:"—",conf:"NONE",heroes:"None",note:"Not a DPS player.",c:C.muted},
+strategist:{wr:"55.6%",conf:"IMPROVING",heroes:"C&D 55.6% 18g, Jeff 100% 4g 18.44 KDA, Luna 0% 3g, White Fox 67% QP",note:"Jeff 100% 4g 18.44 KDA is a breakthrough. C&D 18% R20 but Jeff may be new primary. Pool expanding from 3 to 4.",c:C.blue}
+}},
 {name:"Sam",roles:{
 vanguard:{wr:"—",conf:"NONE",heroes:"Thing experiments",note:"Stop playing tank. Every tank game is a support game wasted.",c:C.muted},
 duelist:{wr:"0%",conf:"DEAD",heroes:"Strange 0% 4g",note:"Confirmed not viable.",c:C.accent},
 strategist:{wr:"55.6%",conf:"STRONG",heroes:"C&D 55.6% 9g, Sue 44% 50g, Rocket 66.7% 3g",note:"62 support games. C&D should be primary. Sue = ceiling reached.",c:C.blue}
 }},
+{name:"T-Money",roles:{
+vanguard:{wr:"71%",conf:"STRONG",heroes:"Angela 100% 5g, Peni 50% 4g, Magneto 40%",note:"71% Vanguard WR vs 50% DPS. HE IS A TANK PLAYER.",c:C.blue},
+duelist:{wr:"50%",conf:"WEAK",heroes:"Punisher 62.5%, Moon Knight 25%",note:"Moon Knight 25% = dead pick. Duelist NOT his role.",c:C.gold},
+strategist:{wr:"0%",conf:"DEAD",heroes:"0% across 3g",note:"IMPOSSIBLE. Do not put on support.",c:C.accent}
+}},
+{name:"Tristen",roles:{
+vanguard:{wr:"—",conf:"NONE",heroes:"No tank data",note:"Not a tank player.",c:C.muted},
+duelist:{wr:"78.6%",conf:"ELITE",heroes:"Spider-Man 78.6% 28g, Hela 100% 1g, Iron Man 63.6%",note:"Spider-Man elite. Iron Man NOT tournament-viable (0W 4L).",c:C.green},
+strategist:{wr:"—",conf:"FLEX",heroes:"Luna Snow 5.00 KDA tourney, Invis Woman 4.22",note:"Tournament-proven support flex. Luna in ONLY WIN.",c:C.gold}
+}},
 {name:"Zach",roles:{
 vanguard:{wr:"83.3%",conf:"ELITE",heroes:"Thor 83.3% 6g, Deadpool V 75% 4g, Thing 25%",note:"Thor 83.3% = highest hero WR on roster. DP(V) is unique weapon.",c:C.green},
 duelist:{wr:"—",conf:"FLEX",heroes:"Daredevil, Wolverine, Gambit 8.50 KDA QP",note:"Experimentation phase. DD and Wolverine fit team comps.",c:C.gold},
 strategist:{wr:"0%",conf:"WEAK",heroes:"Mantis 0%, Sue 0%, Gambit QP only",note:"0% on Mantis/Sue. Gambit only viable support path, untested comp.",c:C.accent}
-}},
-{name:"Raquel",roles:{
-vanguard:{wr:"—",conf:"NONE",heroes:"None",note:"Not a tank player.",c:C.muted},
-duelist:{wr:"—",conf:"NONE",heroes:"None",note:"Not a DPS player.",c:C.muted},
-strategist:{wr:"55.6%",conf:"AT RISK",heroes:"C&D 55.6% 18g, Luna 0% 3g, White Fox 67% QP",note:"3-hero pool, only C&D tournament-viable. One ban removes her. MUST expand.",c:C.gold}
-}},
-{name:"Jace",roles:{
-vanguard:{wr:"26.7%",conf:"DEAD",heroes:"Deadpool V 22.2% 9g, Magneto 100% 1g, Thing 0% 1g",note:"26.67% Vanguard role WR across 15 games. DO NOT put on tank. Deadpool V 22.2% across 9g is definitive.",c:C.accent},
-duelist:{wr:"72%",conf:"ELITE",heroes:"Daredevil 72% 25g, Blade 33.3% 9g, Iron Man 50% 2g",note:"Daredevil 72% across 25g = strongest single-hero DPS on roster at volume. S-tier pick. Blade high-variance but ceiling is real (10.75 KDA MVP).",c:C.green},
-strategist:{wr:"57.1%",conf:"FLEX",heroes:"Deadpool S 50% 6g 5.50 KDA, Loki 100% 1g",note:"Deadpool (S) 5.50 KDA across 6g is promising emergency flex. 57.14% role WR. Small sample but real output.",c:C.gold}
 }},
 ];
 
@@ -412,7 +411,7 @@ const OUR_HEROES={
 "Gabe":["Magneto","Dr. Strange","The Thing","Ultron","Rogue"],
 "Sam":["Cloak & Dagger","Sue Storm","Rocket Raccoon"],
 "Zach":["Thor","Deadpool (V)","Wolverine","Daredevil","Gambit"],
-"Raquel":["Cloak & Dagger","Luna Snow","White Fox"],
+"Raquel":["Cloak & Dagger","Jeff","Luna Snow","White Fox"],
 "T-Money":["Angela","Peni Parker","Punisher","Magneto"],
 "Jace":["Daredevil","Blade","Deadpool (V)","Deadpool (S)","Iron Man"],
 };
@@ -677,6 +676,17 @@ return<div key={hi} style={{background:C.sec,borderRadius:"10px",padding:"14px",
 
 // ─── CHANGELOG TAB ───
 const CHANGELOG=[
+{ver:"v1.3",date:"April 16, 2026",changes:[
+"Timeline review: all 9 profiles fetched, new competitive games integrated.",
+"Ayden: 9 new comp games. Emma 12g in R20 at 50% with 7+ KDA peaks. Venom WIN 3.36 KDA. Climbing Plat 1 → Diamond 3.",
+"Gabe: 3 new comp games. Strange 10.75 KDA WIN (38/4/5) = best comp game ever. Cap LOSS 1.59. Grade B- → A-.",
+"Tristen: R20 crashed 50% → 25%. Iron Man 0% in R20 (0W 5L). Invisible Woman 8.67 KDA comp WIN. Grade B+ → B.",
+"Raquel: Jeff 100% 4g 18.44 KDA discovered. White Fox 67% R20. Emma removed from pool. Grade D → C+.",
+"Sam: 9 Vanguard games in R20 at 22% WR. Role confusion worsening. Grade B- → C+.",
+"Zach: Deadpool (V) R20 improved to 80% (5g). Strategist role 18%.",
+"T-Money: Magneto R20 67%, Moon Knight R20 50%. Nickname → THE CLOSET VANGUARD.",
+"Begin and Jace: no new competitive games.",
+]},
 {ver:"v1.2",date:"April 16, 2026",changes:[
 "Added Jace (Jaejanken) to roster — Plat 1, peaked Dia 3. Daredevil specialist: 72% WR 25g, 4.32 KDA. Integrated into Stats, Intel, Comps, Maps, Bans, Learns, Role Matrix, and Draft Sim.",
 "Jace replaces Zach as primary Daredevil in all poke/anti-dive/hybrid compositions. Zach freed for Thor/Deadpool(V)/flex roles.",
