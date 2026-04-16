@@ -247,7 +247,6 @@ vanguard:[
 {h:"Emma Frost",n:"Diamond Form brawling is powerful with 100-to-0 tank combo at high elo. Mobalytics confirms S-tier at Diamond+ — her kit excels WITH a team built around her. Ayden's 50% 16g and recent 7+ KDA games validate the pick."},
 {h:"Rogue",n:"Ult drain is 20% more devastating in S7. Draining an enemy's ult removes 50+ seconds of progress. Explosive Entanglement with Gambit amplifies. Anti-ult-economy specialist."},
 {h:"The Thing",n:"Gamma Charge team-up plus durability makes him a solid anchor. Damage reduction and CC are deceptively effective. Consistent rather than flashy — and consistency matters in tournament."},
-{h:"Moon Knight",n:"S-tier Vanguard per Mobalytics. Flanking tank with lethal ult — Groot + Moon Knight ult combo is a guaranteed fight win vs triple support. Tristen played MK in tournament (17 deaths). Map-dependent, high-ceiling pick that rewards practice."},
 ]},
 {tier:"A",heroes:[
 {h:"Thor",n:"Damage machine but provides zero team utility beyond kills. Begin's 70% WR proves he works. Zach's 83.3% is the highest single-hero WR on the roster. At highest level, Thor comps need extra support infrastructure."},
@@ -272,7 +271,7 @@ duelist:[
 {h:"Star-Lord",n:"Consistent ranged DPS with strong mobility. Element Guns provide flexible damage. Aerial mobility makes him hard to pin. Solid in poke and hybrid comps."},
 {h:"Namor",n:"Rose from D-tier. Turrets provide consistent zone damage. Team-up with Hela. Turret playstyle scales with S7's longer neutral phases."},
 {h:"Daredevil",n:"S-tier per Mobalytics. Wallhack passive gives ENTIRE TEAM permanent info advantage. Jace's 72% WR 25g 4.32 KDA validates — strongest single-hero DPS data at volume on the roster."},
-{h:"Moon Knight (D)",n:"S-tier flanker per Mobalytics. Mobility and burst nightmare for isolated supports. Requires discipline — overextending punished in tournament."},
+{h:"Moon Knight",n:"S-tier Duelist per Mobalytics. Mobility and burst nightmare for isolated supports. Groot + Moon Knight ult combo is a guaranteed fight win vs triple support — the foundation of our Anti-3 Supp comp. Tristen has tournament data (0W 1L, 17 deaths) proving it's in his pool but needs practice. High-ceiling pick that rewards discipline."},
 ]},
 {tier:"A",heroes:[
 {h:"Wolverine",n:"Sustained melee with self-healing. In S7's longer neutrals, sustain lets him outlast opponents. Excellent in brawl, weak on open poke maps."},
@@ -325,20 +324,28 @@ strategist:[
 ],
 teamups:[
 {tier:"S",tu:[
-{n:"Planet X Pals",h:"Groot + Rocket",d:"Wall + damage behind it = poke foundation. C.Y.A. damage boost empowers Thor ult. Passive synergy, zero coordination needed."},
-{n:"Explosive Entanglement",h:"Gambit + Magneto/Rogue",d:"Highest-value team-up. Enables Rogue ult drain AND Magneto bubble. Two S+ heroes made stronger."},
-{n:"Blessing of the Kumiho",h:"White Fox + Luna Snow",d:"S7 marquee team-up. Charm CC + healing + damage. Meta-defining triple threat."},
-{n:"Symbiote Shenanigans",h:"Venom + Jeff/Hela",d:"+150 HP for Venom. Simple, passive, always valuable."},
+{n:"Vibrant Vitality",h:"Mantis + Groot / Loki",d:"HIGH IMPACT per Mobalytics. Groot gets a 4th healing wall. Loki gets larger immortality rune with damage boost that stacks with Mantis' standard boost. Game-changing sustain."},
+{n:"Arcane Order",h:"Dr. Strange + Scarlet Witch",d:"HIGH IMPACT per Mobalytics. Scarlet Witch gets rapid-fire right-click + primary fire simultaneously. Only 20s downtime. Transforms Wanda into a backline assassin."},
+{n:"Primal Flame",h:"Phoenix + Wolverine",d:"HIGH IMPACT per Mobalytics. Lifesteal makes Wolverine nearly unkillable. Was the most banned team-up in S3. Still devastating when both heroes are picked."},
 ]},
 {tier:"A",tu:[
-{n:"Bestial Hunt",h:"Punisher + Daredevil",d:"Grenade blind effect. Niche but real utility. Jace's Daredevil activates this."},
-{n:"Metal Bulwark",h:"Magneto bubble team",d:"Magneto bubble protects poke line. Always active. Passive value."},
-{n:"Gamma Charge",h:"Hulk + Thing + Wolverine",d:"Double-tank durability. Requires 2 specific tanks — inflexible at high elo."},
-{n:"Cosmic Cyclone",h:"Storm + Adam Warlock",d:"New S7. AoE synergy. Niche but effective on domination."},
-{n:"Blade of Khonshu",h:"Blade + Moon Knight",d:"Dive flanker synergy. Jace plays Blade, Tristen has MK data. Potential roster activation."},
+{n:"Chilling Assault",h:"Luna Snow + Hawkeye / Iron Fist",d:"MEDIUM per Mobalytics. Ice arrows stun and pierce — gives Hawkeye a guaranteed headshot KO every 20s. Iron Fist gets AoE healing."},
+{n:"Stark Protocol",h:"Iron Man + Ultron / Squirrel Girl",d:"MEDIUM per Mobalytics. Nano Ray pierces entire map through enemies AND allies — heals and damages simultaneously. Massive ult charge generation."},
+{n:"Symbiote Shenanigans",h:"Venom + Jeff / Hela",d:"MEDIUM per Mobalytics. Symbiote tendrils heal linked allies with burst healing at end. Excess converts to bonus HP. +150 HP for Venom."},
+{n:"Explosive Entanglement",h:"Gambit + Magneto / Rogue",d:"S7 addition. Enables Rogue ult drain AND Magneto bubble. Two S+ heroes made stronger. Highest roster team-up value."},
+{n:"Blessing of the Kumiho",h:"White Fox + Luna Snow",d:"S7 addition. Charm CC + healing + damage. Meta-defining triple threat. Ayden and Raquel both developing White Fox."},
 ]},
 {tier:"B",tu:[
-{n:"Fastball Special",h:"Hulk + Thing + Wolverine",d:"Fun meme. Not tournament-viable."},
+{n:"Planet X Pals",h:"Groot + Rocket",d:"LOW IMPACT per Mobalytics. The heroes are individually S+/A tier but the team-up bonus itself is passive and minor. Still run together for individual hero value, not team-up value."},
+{n:"Stars Aligned",h:"Captain America + Winter Soldier",d:"LOW per Mobalytics. Bucky gets AoE slam + slow + bonus HP for allies. Versatile but both heroes rarely picked together at Diamond+."},
+{n:"Bestial Hunt",h:"Punisher + Daredevil",d:"S7 addition. Grenade blind effect. Niche utility. Jace's Daredevil activates this with any Punisher player."},
+{n:"Blade of Khonshu",h:"Blade + Moon Knight",d:"S7 addition. Dive flanker synergy. Jace plays Blade, Tristen has MK data."},
+{n:"Cosmic Cyclone",h:"Storm + Adam Warlock",d:"S7 addition. AoE synergy. Niche on domination maps."},
+{n:"Fastball Special",h:"Hulk + Thing + Wolverine",d:"LOW per Mobalytics. Fun meme. Not tournament-viable."},
+]},
+{tier:"—",tu:[
+{n:"Jeff-nado (REMOVED)",h:"Storm + Jeff",d:"Was HIGH IMPACT — removed in S7. Former best team-up in the game. Rest in peace."},
+{n:"Duality Dance (REMOVED)",h:"Adam Warlock + Luna Snow",d:"Was MEDIUM IMPACT — removed in S7. Adam Warlock lost 15% healing anchor. Significant indirect nerf."},
 ]},
 ]};
 
@@ -394,11 +401,11 @@ strategist:{wr:"0%",conf:"WEAK",heroes:"Mantis 0%, Sue 0%, Gambit QP only",note:
 // ─── NEW: ALL HEROES FOR DRAFT SIM ───
 const ALL_HEROES=[
 {h:"Groot",r:"tank",t:"S+"},{h:"Deadpool (V)",r:"tank",t:"S+"},{h:"Magneto",r:"tank",t:"S+"},
-{h:"Rogue",r:"tank",t:"S"},{h:"Emma Frost",r:"tank",t:"S"},{h:"The Thing",r:"tank",t:"S"},{h:"Moon Knight (V)",r:"tank",t:"S"},
+{h:"Rogue",r:"tank",t:"S"},{h:"Emma Frost",r:"tank",t:"S"},{h:"The Thing",r:"tank",t:"S"},
 {h:"Thor",r:"tank",t:"A"},{h:"Hulk",r:"tank",t:"A"},{h:"Venom",r:"tank",t:"A"},{h:"Dr. Strange",r:"tank",t:"A"},{h:"Captain America",r:"tank",t:"A"},
 {h:"Peni Parker",r:"tank",t:"B"},
 {h:"Elsa Bloodstone",r:"dps",t:"S+"},{h:"Phoenix",r:"dps",t:"S+"},{h:"Psylocke",r:"dps",t:"S+"},{h:"Loki",r:"dps",t:"S+"},
-{h:"Winter Soldier",r:"dps",t:"S"},{h:"Star-Lord",r:"dps",t:"S"},{h:"Namor",r:"dps",t:"S"},{h:"Daredevil",r:"dps",t:"S"},{h:"Moon Knight (D)",r:"dps",t:"S"},
+{h:"Winter Soldier",r:"dps",t:"S"},{h:"Star-Lord",r:"dps",t:"S"},{h:"Namor",r:"dps",t:"S"},{h:"Daredevil",r:"dps",t:"S"},{h:"Moon Knight",r:"dps",t:"S"},
 {h:"Wolverine",r:"dps",t:"A"},{h:"Hela",r:"dps",t:"A"},{h:"Spider-Man",r:"dps",t:"A"},{h:"Magik",r:"dps",t:"A"},{h:"Blade",r:"dps",t:"A"},{h:"Black Panther",r:"dps",t:"A"},{h:"Punisher",r:"dps",t:"A"},{h:"Storm (D)",r:"dps",t:"A"},
 {h:"Iron Man",r:"dps",t:"B"},{h:"Hawkeye",r:"dps",t:"B"},{h:"Iron Fist",r:"dps",t:"B"},{h:"Human Torch",r:"dps",t:"B"},{h:"Deadpool (D)",r:"dps",t:"B"},{h:"Mr. Fantastic",r:"dps",t:"B"},{h:"Squirrel Girl",r:"dps",t:"B"},
 {h:"Black Widow",r:"dps",t:"C"},{h:"Scarlet Witch",r:"dps",t:"C"},
@@ -622,7 +629,7 @@ return<td key={r} onClick={()=>setSel(isOpen?null:p.name+r)} style={{padding:"12
 function MetaTab(){
 const[roleFilter,setRoleFilter]=useState("vanguard");
 const[showTU,setShowTU]=useState(false);
-const tierColors={"S+":"#ff006e","S":C.green,"A":C.blue,"B":C.gold,"C":C.muted};
+const tierColors={"S+":"#ff006e","S":C.green,"A":C.blue,"B":C.gold,"C":C.muted,"—":C.muted};
 const roleData=META_TIERS[roleFilter]||[];
 const labels={vanguard:"VANGUARD",duelist:"DUELIST",strategist:"STRATEGIST"};
 return<div style={{display:"grid",gap:"16px"}}>
@@ -681,6 +688,11 @@ return<div key={hi} style={{background:C.sec,borderRadius:"10px",padding:"14px",
 
 // ─── CHANGELOG TAB ───
 const CHANGELOG=[
+{ver:"v1.5",date:"April 16, 2026",changes:[
+"FIXED: Moon Knight correctly classified as Duelist across all tabs. Removed from Vanguard tier in Meta Snapshot and Draft Sim. Consolidated from 'Moon Knight (V)' and 'Moon Knight (D)' into single 'Moon Knight' Duelist entry.",
+"Team-ups overhauled with Mobalytics data: Vibrant Vitality, Arcane Order, Primal Flame = S-tier (HIGH IMPACT). Planet X Pals downgraded to B-tier (LOW IMPACT per Mobalytics — heroes are strong individually but team-up bonus is minor). Removed team-ups (Jeff-nado, Duality Dance) now listed in dedicated section.",
+"Mobalytics team-up page is S3.5 vintage — S7 additions (Explosive Entanglement, Kumiho, Bestial Hunt, Blade of Khonshu, Cosmic Cyclone) placed at A/B pending updated Mobalytics rankings.",
+]},
 {ver:"v1.4",date:"April 16, 2026",changes:[
 "Meta Snapshot overhauled: all tier data now sourced primarily from Mobalytics Diamond+. Featured tier list image added to tab header.",
 "Key tier shifts: Emma Frost → S (was disputed), Daredevil confirmed S, Moon Knight → S, Jeff → B, Hawkeye → B, Cap America → A.",
