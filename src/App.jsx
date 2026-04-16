@@ -168,6 +168,8 @@ lineup:[{p:"Gabe",h:"Magneto",r:"tank",n:"71.4% WR. Metal Bulwark."},{p:"Begin",
 lineup:[{p:"Begin",h:"Groot",r:"tank",n:"Wall control for poke phase."},{p:"Gabe",h:"Magneto",r:"tank",n:"Shield during poke. Can flex to aggressive positioning for dive phase."},{p:"Tristen",h:"Spider-Man",r:"dps",n:"78.6% WR. Pokes from rooftops, dives when target is low."},{p:"Jace",h:"Daredevil",r:"dps",n:"72% WR. Wall-hack IDs dive targets. Info bridges poke and dive."},{p:"Ayden",h:"Rocket",r:"heal",n:"Planet X Pals w/ Groot."},{p:"Sam",h:"C&D",r:"heal",n:"Teleport repositions for dive follow-up."}],tu:["Planet X Pals (Groot+Rocket)"],alt:"Tristen to Hela for more consistent poke if Spider-Man dives aren't converting."},
 {name:"HYBRID: Poke/Brawl",tag:"Range to Rush",color:C.gold,desc:"Poke to soften, then Thor rushes in when enemies are low. This is actually how Begin's Thor SHOULD play — he has 70% WR because he picks his moments. Thor's hammer throw pokes at range, then he commits with the leap when targets are softened. The comp supports this playstyle by having poke heroes weaken the enemy before Thor engages.",
 lineup:[{p:"Begin",h:"Thor",r:"tank",n:"70% WR. Pokes w/ lightning, hammer engages when enemies are low."},{p:"Gabe",h:"Magneto",r:"tank",n:"Shield during poke phase. Push forward for brawl."},{p:"Tristen",h:"Hela",r:"dps",n:"Ranged poke damage softens targets for Thor's engage."},{p:"Zach",h:"Wolverine",r:"dps",n:"Waits for poke to soften, dives for cleanup with Thor."},{p:"Ayden",h:"Gambit",r:"heal",n:"AoE heals for brawl phase. Explosive Entanglement w/ Mag."},{p:"Sam",h:"C&D",r:"heal",n:"Primary heals."}],tu:["Explosive Entanglement (Gambit+Magneto)"],alt:"Jace on Daredevil for more poke (swap Zach out). Jace Blade for melee maps. T-Money tank sub."},
+{name:"ANTI-3 SUPP",tag:"Burst the Healers",color:"#ff006e",desc:"Mobalytics-sourced counter to 1-2-3 triple-support comps. The philosophy: trade defensive ults for burst kill power that cuts through ANY amount of healing. Groot + Moon Knight ult combo is a guaranteed fight win — not even Luna or Mantis ult survives it. Thor's Awakening Rune bursts through healing to secure elims in neutral. Rocket's C.Y.A. damage boost empowers Thor ult to one-shot all 300HP heroes. Magneto bubble counters enemy C&D ult. This comp exists because triple support has a fundamental weakness: with only 1 tank and 1-2 DPS, they can't contest space or dive YOUR backline. You outpressure them.",
+lineup:[{p:"Begin",h:"Groot",r:"tank",n:"Wall isolates healers from team. Ult combo with Tristen's Moon Knight = guaranteed fight win. Planet X Pals w/ Rocket."},{p:"Gabe",h:"Magneto",r:"tank",n:"71.4% WR. Bubble protects your team. Ult COUNTERS enemy C&D ult directly — KO her mid-channel."},{p:"Zach",h:"Thor",r:"tank",n:"83.3% WR. Awakening Rune burst assassinates healers through their own healing. Storm Surge repositions enemy tanks away from healer protection."},{p:"Tristen",h:"Moon Knight",r:"dps",n:"Ult combo with Groot = guaranteed fight win vs triple support. Practice required — 0W 1L 17 deaths in tournament. The combo ceiling justifies the investment."},{p:"Ayden",h:"Rocket",r:"heal",n:"C.Y.A. damage boost empowers Thor ult to one-shot 300HP healers. Planet X Pals w/ Groot."},{p:"Sam",h:"C&D",r:"heal",n:"Primary healer. Magneto bubble keeps her alive during ult."}],tu:["Planet X Pals (Groot+Rocket)","C.Y.A. Damage Boost (Rocket → Thor)"],alt:"Tristen not ready on MK: Jace Daredevil for wallhack healer tracking (loses ult combo synergy). T-Money Moon Knight if practiced."},
 ];
 
 const LEARNS=[
@@ -176,6 +178,7 @@ const LEARNS=[
 {h:"Hawkeye",p:"HIGH",r:"S-tier poke DPS in S7. Zero hitscan snipers on roster — this is the biggest DPS gap. Hawkeye's charged headshots are instant kills at any range. In the slower S7 neutral phases, consistent long-range picks are more valuable than ever because teams can't cycle healing ults to undo the damage. Tristen's Hela fills part of this niche but Hawkeye has higher single-target burst.",w:["Tristen","T-Money"]},
 {h:"Blade",p:"HIGH",r:"S-tier dive DPS. Self-sufficient with lifesteal. Blade of Khonshu team-up with Moon Knight (Tristen/T-Money play MK). The lifesteal means Blade doesn't need healer peel to survive — he sustains himself, freeing your supports to focus on tanks. In dive comps, this self-sufficiency is game-changing. Jace already playing at 33.3% 9g with MVP ceiling games (10.75, 7.50 KDA) — needs volume to stabilize.",w:["Tristen","Zach","Jace"]},
 {h:"Jace: Stabilize Blade",p:"HIGH",r:"Blade at 33.3% WR 9g is high-variance — individual games hit 10.75 and 7.50 KDA MVPs but losses drag the average. S7 Blade buffs (lifesteal self-sustain) make him a legitimate dive DPS. Jace needs 20+ comp games to stabilize toward 50%+ WR. Blade is the secondary pick for maps where Daredevil poke isn't optimal (Hellfire Gala, Krakoa, Shin-Shibuya). Blade of Khonshu team-up with Moon Knight adds synergy.",w:["Jace"]},
+{h:"Tristen: Moon Knight (Anti-3 Supp)",p:"HIGH",r:"The ANTI-TRIPLE SUPPORT comp requires Groot + Moon Knight ult combo — a guaranteed fight win per Mobalytics that not even Luna/Mantis ult survives. Tristen has tournament MK data (0W 1L, 17 deaths) proving the hero is in his pool but needs refinement. MK is S-tier per Mobalytics at Diamond+. 15+ comp games before tournament to build ult timing and reduce deaths. This unlocks an entire comp archetype the team currently cannot run.",w:["Tristen"]},
 {h:"Deadpool (V)",p:"MEDIUM",r:"Zach already playing at 75% WR (4g, 5.37 KDA). Officially add to roster. Deadpool Vanguard is one of the most flexible tanks in S7 — he can selfie for invulnerability, flex between roles mid-match, and his ult is impactful in any comp. The flexibility alone justifies the pick.",w:["Zach"]},
 {h:"Venom",p:"MEDIUM",r:"Only Ayden plays dive tank. If Ayden is on heals (which he should be — he has the best healer stats), dive becomes impossible. Begin or Zach learning Venom enables comps where Ayden can flex to Jeff/White Fox while someone else dives. Without a backup Venom, the dive archetype lives and dies on one player.",w:["Begin","Zach"]},
 {h:"Groot",p:"MEDIUM",r:"S-tier anchor tank. Gabe needs a backup when Magneto is banned. Begin's Groot is 77.8% WR on second account — he can teach Gabe the fundamentals. Groot's wall is the most impactful single ability on poke maps (Midtown, Yggsgard, Central Park). Without Groot access, the poke comp loses its strongest tool.",w:["Gabe"]},
@@ -237,24 +240,24 @@ const META_TIERS={
 vanguard:[
 {tier:"S+",heroes:[
 {h:"Groot",n:"S7's anchor king. Wall control is the single most impactful non-ult ability now that neutral phases stretch 50+ seconds. Blocks corridors, denies dive, scales with slower ult economy. Planet X Pals with Rocket adds team-up value."},
-{h:"Deadpool (V)",n:"Most flexible tank in the game. Selfie for invulnerability, pistols shred backlines, Pool Party ult deletes teams. Answers every problem. S+ because versatility at the highest level is unmatched."},
+{h:"Deadpool (V)",n:"Most flexible tank in the game. Selfie for invulnerability, pistols shred backlines, Pool Party ult deletes teams. S+ because versatility at the highest level is unmatched."},
 {h:"Magneto",n:"Metal Bulwark remains the premier team-protection tool. Bubble shields your entire poke line during long S7 neutrals. Top 3 ban target at Diamond+. Gabe's 71.4% WR proves this is real."},
 ]},
 {tier:"S",heroes:[
-{h:"Rogue",n:"Ult drain is 20% more devastating in S7 — stolen charge is agonizingly slow to rebuild. Draining an enemy's ult removes 50+ seconds of their progress. Explosive Entanglement with Gambit amplifies. Anti-ult-economy specialist."},
-{h:"Emma Frost",n:"Diamond Form brawling is powerful with 100-to-0 tank combo at high elo. S-tier WITH a team built around her, C-tier as solo tank. Sources disagree on placement — Mobalytics S-tier, others C-tier. Map/comp dependent."},
-{h:"The Thing",n:"Gamma Charge team-up plus durability makes him a solid anchor. Damage reduction and CC are deceptively effective. Not flashy but consistent — and consistency matters in tournament."},
-{h:"Moon Knight",n:"Flanking Vanguard. Mobility and kill threat on isolated targets is real. Gets PUNISHED in tournament when teams track flanks — your data shows 17 deaths in one game. Map-dependent."},
+{h:"Emma Frost",n:"Diamond Form brawling is powerful with 100-to-0 tank combo at high elo. Mobalytics confirms S-tier at Diamond+ — her kit excels WITH a team built around her. Ayden's 50% 16g and recent 7+ KDA games validate the pick."},
+{h:"Rogue",n:"Ult drain is 20% more devastating in S7. Draining an enemy's ult removes 50+ seconds of progress. Explosive Entanglement with Gambit amplifies. Anti-ult-economy specialist."},
+{h:"The Thing",n:"Gamma Charge team-up plus durability makes him a solid anchor. Damage reduction and CC are deceptively effective. Consistent rather than flashy — and consistency matters in tournament."},
+{h:"Moon Knight",n:"S-tier Vanguard per Mobalytics. Flanking tank with lethal ult — Groot + Moon Knight ult combo is a guaranteed fight win vs triple support. Tristen played MK in tournament (17 deaths). Map-dependent, high-ceiling pick that rewards practice."},
 ]},
 {tier:"A",heroes:[
-{h:"Thor",n:"Damage machine but provides zero team utility beyond kills. Begin's 70% WR proves he works. At highest level, Thor comps need extra support infrastructure because he offers no shields or walls."},
+{h:"Thor",n:"Damage machine but provides zero team utility beyond kills. Begin's 70% WR proves he works. Zach's 83.3% is the highest single-hero WR on the roster. At highest level, Thor comps need extra support infrastructure."},
 {h:"Hulk",n:"Massive S7 buffs. Stall potential on objectives is now elite. Strong on domination maps. Less valuable on convoy where positioning matters more than raw HP."},
-{h:"Venom",n:"THE dive tank. Only Vanguard who truly initiates dives. Symbiote Shenanigans +150 HP. But Gambit's cleanse hard-counters Venom ult."},
-{h:"Dr. Strange",n:"Portal and Eye of Agamotto remain two of the best abilities in the game. Shield of the Seraphim is largest in the game. Meta shifted away from him but still A-tier in right hands and map."},
-{h:"Captain America",n:"Mobile off-tank. Can dive AND take hits. WR dropped at Diamond+ in S7. Effective below Diamond where all-around kit compensates for uncoordinated teams."},
+{h:"Venom",n:"THE dive tank. Only Vanguard who truly initiates dives. Symbiote Shenanigans +150 HP. Ayden's new 3.36 KDA WIN shows improvement. But Gambit cleanse hard-counters Venom ult."},
+{h:"Dr. Strange",n:"Portal and Eye of Agamotto remain two of the best abilities in the game. Gabe's 10.75 KDA game (38/4/5 on Tokyo) proves the ceiling is elite. Shield of the Seraphim is largest in the game. Inconsistency is the issue, not capability."},
+{h:"Captain America",n:"Mobile off-tank. Can dive AND take hits — not the best at either, but versatile. Mobalytics places him A-tier. Tournament data for Gabe on Cap was poor (0.88 KDA) — roster should avoid."},
 ]},
 {tier:"B",heroes:[
-{h:"Peni Parker",n:"Spider drone provides area denial, ult zones enemies. Solid flex tank in 2-2-2. T-Money's 5.14 KDA proves viability. Lacks raw impact of Groot wall or Magneto bubble. Backup, not primary."},
+{h:"Peni Parker",n:"Spider drone provides area denial, ult zones enemies. T-Money's 5.14 KDA proves viability. Solid flex tank in 2-2-2 comps. Backup, not primary."},
 ]},
 ],
 duelist:[
@@ -262,79 +265,79 @@ duelist:[
 {h:"Elsa Bloodstone",n:"Most impactful DPS when unbanned. Burst damage and self-sufficiency make her a terror. Ban-or-build-around at Diamond+."},
 {h:"Phoenix",n:"Despite nerfs, resurrection mechanic is game-warping. Dying is a minor inconvenience. Lower damage post-nerf but passive alone keeps her S+."},
 {h:"Psylocke",n:"S7 dive buff hit her hard. Slower defensive ults mean wider assassination windows. Melee burst combo deletes squishies. Scariest flanker on the map."},
-{h:"Loki",n:"Value comes from copying S+ heroes. When Invisible Woman or Gambit is banned, Loki becomes them. Galaxy-brain draft flexibility — banning Loki limits your ability to ban other heroes."},
+{h:"Loki",n:"Value comes from copying S+ heroes. When Invisible Woman or Gambit is banned, Loki becomes them. Galaxy-brain draft flexibility."},
 ]},
 {tier:"S",heroes:[
-{h:"Winter Soldier",n:"Despite Assassin's Charge CD nerf (3s→6s), dominant hitscan threat. Burst headshots still instant kills. Nerf slowed engage frequency, didn't touch kill power."},
+{h:"Winter Soldier",n:"Despite Assassin's Charge CD nerf (3s to 6s), dominant hitscan. Burst headshots still instant kills. Nerf slowed engage frequency, didn't touch kill power."},
 {h:"Star-Lord",n:"Consistent ranged DPS with strong mobility. Element Guns provide flexible damage. Aerial mobility makes him hard to pin. Solid in poke and hybrid comps."},
-{h:"Namor",n:"Rose from D-tier. Turrets provide consistent zone damage, trident does respectable burst. Team-up with Hela. Turret playstyle scales with S7's longer neutral phases."},
-{h:"Daredevil",n:"Wallhack passive gives ENTIRE TEAM permanent info advantage. In tournament, permanent vision is priceless. Combo damage respectable. Bestial Hunt team-up with Punisher."},
-{h:"Moon Knight (D)",n:"S-tier flanker. Mobility and burst nightmare for isolated supports. Requires discipline — overextending punished in tournament. Map-dependent."},
+{h:"Namor",n:"Rose from D-tier. Turrets provide consistent zone damage. Team-up with Hela. Turret playstyle scales with S7's longer neutral phases."},
+{h:"Daredevil",n:"S-tier per Mobalytics. Wallhack passive gives ENTIRE TEAM permanent info advantage. Jace's 72% WR 25g 4.32 KDA validates — strongest single-hero DPS data at volume on the roster."},
+{h:"Moon Knight (D)",n:"S-tier flanker per Mobalytics. Mobility and burst nightmare for isolated supports. Requires discipline — overextending punished in tournament."},
 ]},
 {tier:"A",heroes:[
 {h:"Wolverine",n:"Sustained melee with self-healing. In S7's longer neutrals, sustain lets him outlast opponents. Excellent in brawl, weak on open poke maps."},
 {h:"Hela",n:"Top-tier ranged hitscan. Goddess of Death ult = 10s aerial AoE. Aim-dependent: S-tier in skilled hands, B-tier otherwise. Team-ups with Namor and Venom."},
-{h:"Spider-Man",n:"Elite dive DPS. 78.6% WR on Tristen's alt. NEEDS team follow-up — solo dives = 15-death games. Web-pull environmental kills are his unique niche."},
-{h:"Magik",n:"S-tier dive assassin. Portal pressure forces constant backline checks. Begin 100% WR (9g). S7 dive buffs widened her windows."},
-{h:"Blade",n:"Major S7 buffs. Lifesteal self-sustain frees supports. In dive comps, self-sufficiency is game-changing. Blade of Khonshu team-up with Moon Knight."},
+{h:"Spider-Man",n:"Elite dive DPS. Tristen's 78.6% season WR proves the ceiling. BUT R20 crashed to 22% (2W 7L). NEEDS team follow-up — solo dives = death. Web-pull environmental kills are unique niche."},
+{h:"Magik",n:"S-tier dive assassin. Portal pressure forces constant backline checks. Begin 100% WR (9g on second acct). S7 dive buffs widened her windows."},
+{h:"Blade",n:"Major S7 buffs. Lifesteal self-sustain frees supports. Jace showing MVP ceiling games (10.75, 7.50 KDA). Blade of Khonshu team-up with Moon Knight."},
 {h:"Black Panther",n:"Meaningful S7 buffs. Stealth and burst make him strong flanker. Less mechanical than Psylocke, similar assassination potential."},
-{h:"Punisher",n:"Consistent ranged damage with grenade utility. Bestial Hunt team-up. Doesn't need team coordination to be effective."},
+{h:"Punisher",n:"Consistent ranged damage with grenade utility. Bestial Hunt team-up with Daredevil. Solid mid-range DPS."},
 {h:"Storm",n:"AoE damage queen. Cosmic Cyclone team-up with Adam Warlock (new S7). Strong on domination maps."},
 ]},
 {tier:"B",heroes:[
-{h:"Iron Man",n:"S7 buffs improved aerial pressure but predictable flight gets punished. Your tournament data: 0W 4L, 20 deaths in one game. Ranked viable, tournament liability."},
-{h:"Hawkeye",n:"Charged headshots are instant kills. Dies to a stiff breeze. Aim-dependent inconsistency keeps him in B."},
+{h:"Iron Man",n:"S7 buffs improved aerial pressure but predictable flight gets punished. Tristen's tournament: 0W 4L. R20 now 0% (0W 5L). Ranked viable, tournament/comp liability confirmed."},
+{h:"Hawkeye",n:"Charged headshots instant kills but glass cannon. Mobalytics B-tier at Diamond+ — aim-dependent inconsistency. Still the roster's biggest missing archetype (hitscan sniper)."},
 {h:"Iron Fist",n:"Matchup-dependent. Hard-counters some, gets hard-countered. Strange movement hard to track below Diamond."},
-{h:"Human Torch",n:"S7 buff with more teased. Not strong enough to justify over S/A-tier options. Unrealized potential."},
+{h:"Human Torch",n:"S7 buff with more teased. Not strong enough to justify over S/A-tier options."},
 {h:"Deadpool (D)",n:"Worst of Deadpool's three forms. Blocks superior Vanguard/Strategist kits."},
 {h:"Mr. Fantastic",n:"Off-tank Duelist. Dominates below Diamond, damage too low for Diamond+ DPS slot."},
-{h:"Squirrel Girl",n:"Can't confirm kills in 3-healer meta. Damage outhealed constantly. Niche Groot-wall-busting utility."},
+{h:"Squirrel Girl",n:"Can't confirm kills in 3-healer meta. Damage outhealed constantly."},
 ]},
 {tier:"C",heroes:[
-{h:"Black Widow",n:"Lowest-performing DPS at Diamond+. Kit hasn't kept up with power creep. Stealth devalued by Daredevil wallhack."},
-{h:"Scarlet Witch",n:"S7 buffs but still bottom at Diamond+. Countered by coordinated teams. Dominates below Diamond with no-aim kit."},
+{h:"Black Widow",n:"Lowest-performing DPS at Diamond+. Kit hasn't kept up with power creep."},
+{h:"Scarlet Witch",n:"S7 buffs but still bottom at Diamond+. Countered by coordinated teams. Dominates below Diamond."},
 ]},
 ],
 strategist:[
 {tier:"S+",heroes:[
-{h:"Gambit",n:"Most impactful support. Ragin' Royal Flush supercharges allies (the Marvel Rivals Nano Boost). CC cleanse is unique and invaluable. Removing him via ban is almost always correct."},
-{h:"Invisible Woman",n:"Piercing attack heals AND damages simultaneously. Barrier + invisibility = unmatched defensive utility. S+ at every rank: powerful AND easy to execute."},
-{h:"Cloak & Dagger",n:"S-tier comeback in S7. Dual-form versatility (Dagger heals, Cloak controls) is unpredictable. C&D ult has more security with Magneto less present. Team's most-played support."},
+{h:"Gambit",n:"Most impactful support. Ragin' Royal Flush supercharges allies. CC cleanse is unique and invaluable. Removing him via ban is almost always correct."},
+{h:"Invisible Woman",n:"Piercing attack heals AND damages simultaneously. Barrier + invisibility = unmatched defensive utility. S+ at every rank. Tristen's 8.67 KDA comp WIN shows DPS players can pilot her effectively."},
+{h:"Cloak & Dagger",n:"S-tier comeback in S7. Dual-form versatility is unpredictable. C&D ult has more security with Magneto bubble. Team's most-played support across 4 players."},
 ]},
 {tier:"S",heroes:[
-{h:"White Fox",n:"S7's new Strategist and biggest meta development. Charm CC from support is genuinely new. Kumiho team-up with Luna Snow creates oppressive dual-support. Legitimate S-tier in first season."},
-{h:"Mantis",n:"Team-buffing kit unlocks teammates. More prevalent in coordinated teams. Scales with team quality."},
-{h:"Luna Snow",n:"Dual-role: heals allies, damages enemies. Share the Stage pockets two allies. Kumiho team-up with White Fox. Held back by freeze-reliance at Diamond+."},
+{h:"White Fox",n:"S7's new Strategist. Charm CC from support is genuinely disruptive. Kumiho team-up with Luna Snow. Ayden 100% WR on alt, Raquel 67% R20. Both developing."},
+{h:"Mantis",n:"Team-buffing kit unlocks teammates. Prevalent in coordinated teams. Scales with team quality."},
+{h:"Luna Snow",n:"Dual-role: heals allies, damages enemies. Kumiho team-up with White Fox. Tristen's 5.00 KDA in the only tournament WIN proves her value in flex comps."},
 ]},
 {tier:"A",heroes:[
-{h:"Rocket Raccoon",n:"Simple kit, strong damage, Planet X Pals with Groot. Sam's 66.7% WR. Easy to learn, effective at all ranks. Fastest support to add to any pool."},
+{h:"Rocket Raccoon",n:"Simple kit, strong damage, Planet X Pals with Groot. Sam's 66.7% WR. C.Y.A. damage boost empowers Thor ult to one-shot 300HP healers in anti-triple-support comps."},
 {h:"Loki (S)",n:"Copy banned S+ supports. When Invisible Woman or Gambit is banned, Loki becomes them. Enormous draft value."},
 {h:"Phoenix (S)",n:"Resurrection + decent damage from support slot. Passive revive always valuable."},
-{h:"Deadpool (S)",n:"Strategist Deadpool is surprisingly viable. Solid healing, impactful ult. Better than DPS form."},
-{h:"Jeff",n:"Two team-ups. Ult now provides team healing. Speed-boost bubbles for objectives. Solid but doesn't outperform S-tier."},
+{h:"Deadpool (S)",n:"Strategist Deadpool surprisingly viable. Jace's 50% WR 6g 5.50 KDA confirms. Solid healing, impactful ult."},
+{h:"Angela",n:"Mobalytics A-tier. Niche effective in tight corridors. T-Money's 100% WR (5g) 4.76 KDA is intriguing."},
 {h:"Adam Warlock",n:"Lost team-up anchor in S7 (15% healing gone). Flight addition exciting but indirect nerf hurts. Ult still amazing."},
-{h:"Angela",n:"Niche effective in tight corridors. T-Money's 100% WR (5g) is intriguing. Generally lower tier but map-specific value."},
 ]},
 {tier:"B",heroes:[
-{h:"Ultron",n:"Solid third healer vs dive. Being airborne forces opponents off dive. Two drones let you pocket divers OR protect backline. Not a primary healer."},
-{h:"Sue Storm",n:"Sam's 44% WR after 50g = ceiling hero. Shields protect pushes but healing output can't match S/A-tier. Simple, good for beginners, outscaled at Diamond+."},
+{h:"Ultron",n:"Solid third healer vs dive. Being airborne forces opponents off dive. Gabe's 58.3% 12g 8.75 KDA, 4.71 KDA in tournament. Not primary healer but effective emergency flex."},
+{h:"Jeff",n:"Mobalytics B-tier at Diamond+. Two team-ups. Ult now provides team healing. Speed-boost bubbles. Raquel's Jeff is 100% 4g 18.44 KDA — individually strong but meta placement is lower than expected."},
+{h:"Sue Storm",n:"Sam's 44% WR after 50g = ceiling hero. R20 dropped to 25% (2W 6L). Shields protect pushes but healing output can't match S/A-tier. Outscaled at Diamond+."},
 ]},
 ],
 teamups:[
 {tier:"S",tu:[
-{n:"Planet X Pals",h:"Groot + Rocket",d:"Wall + damage behind it = poke foundation. Passive synergy, zero coordination needed."},
-{n:"Explosive Entanglement",h:"Gambit + Magneto/Rogue",d:"Highest-value team-up. Enables Rogue ult drain AND Magneto bubble. Two S-tier heroes made stronger."},
+{n:"Planet X Pals",h:"Groot + Rocket",d:"Wall + damage behind it = poke foundation. C.Y.A. damage boost empowers Thor ult. Passive synergy, zero coordination needed."},
+{n:"Explosive Entanglement",h:"Gambit + Magneto/Rogue",d:"Highest-value team-up. Enables Rogue ult drain AND Magneto bubble. Two S+ heroes made stronger."},
 {n:"Blessing of the Kumiho",h:"White Fox + Luna Snow",d:"S7 marquee team-up. Charm CC + healing + damage. Meta-defining triple threat."},
 {n:"Symbiote Shenanigans",h:"Venom + Jeff/Hela",d:"+150 HP for Venom. Simple, passive, always valuable."},
 ]},
 {tier:"A",tu:[
-{n:"Bestial Hunt",h:"Punisher + Daredevil",d:"Grenade blind effect. Utility is real but niche."},
-{n:"Metal Bulwark",h:"Magneto shield team",d:"Magneto bubble protects poke line. Always active. Passive value."},
+{n:"Bestial Hunt",h:"Punisher + Daredevil",d:"Grenade blind effect. Niche but real utility. Jace's Daredevil activates this."},
+{n:"Metal Bulwark",h:"Magneto bubble team",d:"Magneto bubble protects poke line. Always active. Passive value."},
 {n:"Gamma Charge",h:"Hulk + Thing + Wolverine",d:"Double-tank durability. Requires 2 specific tanks — inflexible at high elo."},
 {n:"Cosmic Cyclone",h:"Storm + Adam Warlock",d:"New S7. AoE synergy. Niche but effective on domination."},
+{n:"Blade of Khonshu",h:"Blade + Moon Knight",d:"Dive flanker synergy. Jace plays Blade, Tristen has MK data. Potential roster activation."},
 ]},
 {tier:"B",tu:[
-{n:"Blade of Khonshu",h:"Blade + Moon Knight",d:"Dive flanker synergy. Both must be picked, limiting flexibility."},
 {n:"Fastball Special",h:"Hulk + Thing + Wolverine",d:"Fun meme. Not tournament-viable."},
 ]},
 ]};
@@ -342,7 +345,7 @@ teamups:[
 // ─── NEW: ROLE FLEXIBILITY MATRIX ───
 const ROLE_MATRIX=[
 {name:"Ayden",roles:{
-vanguard:{wr:"50%",conf:"FLEX",heroes:"Emma 50% 16g, Venom 50% 2g",note:"Venom is ONLY dive tank on roster — needs 20+ games.",c:C.gold},
+vanguard:{wr:"50%",conf:"FLEX",heroes:"Emma 50% 16g, Venom 50% 2g",note:"Emma 12g in R20 at 50% with 7+ KDA peaks. Venom NEW WIN 3.36 KDA. Climbing Plat 1 → Dia 3 on Vanguard picks.",c:C.gold},
 duelist:{wr:"66.7%",conf:"STRONG",heroes:"Punisher 66.7% 12g, Mr. Fantastic 50%",note:"Solid DPS but healer stats are so much better.",c:C.blue},
 strategist:{wr:"57.9%",conf:"ELITE",heroes:"Jeff 57.9% 10.86 KDA, White Fox 100% alt",note:"BEST healer by KDA. THIS is his primary role.",c:C.green}
 }},
@@ -352,7 +355,7 @@ duelist:{wr:"—",conf:"NONE",heroes:"No DPS data",note:"Not a DPS player. All s
 strategist:{wr:"—",conf:"NONE",heroes:"No support data",note:"Learning Rocket/C&D recommended for emergency flex.",c:C.muted}
 }},
 {name:"Gabe",roles:{
-vanguard:{wr:"71.4%",conf:"ELITE",heroes:"Magneto 71.4% 7g, Strange 57.7% 26g, Thing 45.5%",note:"Magneto 71.4% ELITE. NEVER PLAYED IN TOURNAMENT. #1 fix.",c:C.green},
+vanguard:{wr:"71.4%",conf:"ELITE",heroes:"Magneto 71.4% 7g, Strange 57.7% 26g, Thing 45.5%",note:"Magneto 71.4% ELITE. NEVER PLAYED IN TOURNAMENT. Strange hit 10.75 KDA (38/4/5) = best comp game on roster. Ceiling is GM-level, floor is catastrophic.",c:C.green},
 duelist:{wr:"0%",conf:"DEAD",heroes:"Star-Lord 0% 2g",note:"Not a DPS player.",c:C.accent},
 strategist:{wr:"58.3%",conf:"FLEX",heroes:"Ultron 58.3% 12g, 8.75 KDA",note:"Emergency Ultron heals. 4.71 KDA in tourney was his best non-Mag game.",c:C.gold}
 }},
@@ -367,9 +370,9 @@ duelist:{wr:"—",conf:"NONE",heroes:"None",note:"Not a DPS player.",c:C.muted},
 strategist:{wr:"55.6%",conf:"IMPROVING",heroes:"C&D 55.6% 18g, Jeff 100% 4g 18.44 KDA, Luna 0% 3g, White Fox 67% QP",note:"Jeff 100% 4g 18.44 KDA is a breakthrough. C&D 18% R20 but Jeff may be new primary. Pool expanding from 3 to 4.",c:C.blue}
 }},
 {name:"Sam",roles:{
-vanguard:{wr:"—",conf:"NONE",heroes:"Thing experiments",note:"Stop playing tank. Every tank game is a support game wasted.",c:C.muted},
-duelist:{wr:"0%",conf:"DEAD",heroes:"Strange 0% 4g",note:"Confirmed not viable.",c:C.accent},
-strategist:{wr:"55.6%",conf:"STRONG",heroes:"C&D 55.6% 9g, Sue 44% 50g, Rocket 66.7% 3g",note:"62 support games. C&D should be primary. Sue = ceiling reached.",c:C.blue}
+vanguard:{wr:"—",conf:"NONE",heroes:"Thing experiments, Strange 0% 4g",note:"9 Vanguard games in R20 at 22% WR (2W 7L). Role confusion WORSENING. Every tank game is a support game wasted.",c:C.muted},
+duelist:{wr:"0%",conf:"DEAD",heroes:"Strange 0% 4g",note:"0% WR. Stop immediately.",c:C.accent},
+strategist:{wr:"55.6%",conf:"STRONG",heroes:"C&D 55.6% 9g, Sue 44% 50g, Rocket 66.7% 3g",note:"62 support games. C&D should be primary. Sue R20 dropped to 25% (2W 6L) — ceiling confirmed. Invisible Woman R20 also 25% (2W 6L).",c:C.blue}
 }},
 {name:"T-Money",roles:{
 vanguard:{wr:"71%",conf:"STRONG",heroes:"Angela 100% 5g, Peni 50% 4g, Magneto 40%",note:"71% Vanguard WR vs 50% DPS. HE IS A TANK PLAYER.",c:C.blue},
@@ -378,8 +381,8 @@ strategist:{wr:"0%",conf:"DEAD",heroes:"0% across 3g",note:"IMPOSSIBLE. Do not p
 }},
 {name:"Tristen",roles:{
 vanguard:{wr:"—",conf:"NONE",heroes:"No tank data",note:"Not a tank player.",c:C.muted},
-duelist:{wr:"78.6%",conf:"ELITE",heroes:"Spider-Man 78.6% 28g, Hela 100% 1g, Iron Man 63.6%",note:"Spider-Man elite. Iron Man NOT tournament-viable (0W 4L).",c:C.green},
-strategist:{wr:"—",conf:"FLEX",heroes:"Luna Snow 5.00 KDA tourney, Invis Woman 4.22",note:"Tournament-proven support flex. Luna in ONLY WIN.",c:C.gold}
+duelist:{wr:"78.6%",conf:"ELITE",heroes:"Spider-Man 78.6% 28g, Hela 100% 1g, Iron Man 63.6%",note:"Spider-Man elite season but R20 CRASHED to 22% (2W 7L). Iron Man 0% R20 (0W 5L) = DEAD. Duelist R20 role: 19% (3W 13L).",c:C.green},
+strategist:{wr:"—",conf:"FLEX",heroes:"Luna Snow 5.00 KDA tourney, Invis Woman 8.67 KDA WIN",note:"Strategist R20 role: 50% (2W 2L). OUTPERFORMING his Duelist R20 (19%). Luna in ONLY WIN. IW 8.67 KDA new comp game.",c:C.gold}
 }},
 {name:"Zach",roles:{
 vanguard:{wr:"83.3%",conf:"ELITE",heroes:"Thor 83.3% 6g, Deadpool V 75% 4g, Thing 25%",note:"Thor 83.3% = highest hero WR on roster. DP(V) is unique weapon.",c:C.green},
@@ -624,7 +627,9 @@ const roleData=META_TIERS[roleFilter]||[];
 const labels={vanguard:"VANGUARD",duelist:"DUELIST",strategist:"STRATEGIST"};
 return<div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.purple}44`} title="S7 META SNAPSHOT — DIAMOND+" titleColor={C.purple}>
-<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Complete hero tier list for S7 competitive play (Diamond+ / Tournament). Data sourced from Mobalytics, MarvelRivals.gg, and high-elo consensus. The 20% ult charge nerf defines this meta — base kit value outweighs ult cycling, dive has wider windows, neutral phases stretch 50+ seconds.</p>
+<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:"0 0 14px"}}>Complete hero tier list for S7 competitive play (Diamond+ / Tournament). Data sourced primarily from Mobalytics with high-elo consensus cross-referencing. The 20% ult charge nerf defines this meta — base kit value outweighs ult cycling, dive has wider windows, neutral phases stretch 50+ seconds.</p>
+<img src="/mobalytics-tierlist.jpg" alt="Mobalytics S7 Diamond+ Tier List" style={{width:"100%",borderRadius:"10px",border:`1px solid ${C.border}`,marginBottom:"8px"}} onError={(e)=>{e.target.style.display="none"}}/>
+<div style={{color:C.muted,fontSize:"12px",fontStyle:"italic",textAlign:"center"}}>Source: Mobalytics Diamond+ Tier List — Season 7</div>
 </Sec>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:"10px"}}>
 {[{t:"ULT ECONOMY",c:C.accent,d:"Vanguard/Duelist: dmg-to-energy 90%→70%. Strategist: heal-to-energy 90%→75%, passive 12/s→8/s. Neutrals now 50+ seconds."},{t:"DOMINANT FORMAT",c:C.green,d:"1-2-3 (1 Van, 2 Due, 3 Str) dominant at Diamond+. Raw healing in neutrals > ult cycling. 2-2-2 viable but niche."},{t:"DIVE BUFFED",c:C.purple,d:"Slower defensive ults = wider dive windows. Venom/Spider-Man/Magik/Psylocke all benefit."}].map((x,i)=><div key={i} style={{background:C.sec,borderRadius:"10px",padding:"14px",border:`1px solid ${x.c}33`}}>
@@ -670,12 +675,20 @@ return<div key={hi} style={{background:C.sec,borderRadius:"10px",padding:"14px",
 "Scarlet Witch buffed: first improvement in ages, still C-tier Diamond+.",
 "Iron Man buffed: aerial pressure improved, still B-tier predictable flight.",
 "Shin-Shibuya returned to comp. Lower Manhattan added April 3.",
-"Emma Frost & Cap America: worst tank WRs in S7. Sources disagree on exact tier — Mobalytics S, others C. Exercise caution.",
+"Emma Frost: S-tier per Mobalytics Diamond+ (contrary to some sources listing C-tier). Powerful with team support, vulnerable solo. Captain America: A-tier per Mobalytics. Roster should still avoid — Gabe's tournament Cap was 0.88 KDA.",
 ].map((n,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"10px 14px",marginBottom:"6px",display:"flex",gap:"10px"}}><span style={{color:C.gold,fontWeight:700}}>▸</span><span style={{color:C.dim,fontSize:F.xs,lineHeight:"22px"}}>{n}</span></div>)}
 </Sec></div>}
 
 // ─── CHANGELOG TAB ───
 const CHANGELOG=[
+{ver:"v1.4",date:"April 16, 2026",changes:[
+"Meta Snapshot overhauled: all tier data now sourced primarily from Mobalytics Diamond+. Featured tier list image added to tab header.",
+"Key tier shifts: Emma Frost → S (was disputed), Daredevil confirmed S, Moon Knight → S, Jeff → B, Hawkeye → B, Cap America → A.",
+"Added ANTI-TRIPLE SUPPORT comp (Mobalytics-sourced): Begin Groot + Gabe Magneto + Zach Thor + Tristen Moon Knight + Ayden Rocket + Sam C&D. Groot+MK ult combo = guaranteed fight win. Rocket damage boost + Thor ult one-shots 300HP healers.",
+"Added Tristen Moon Knight practice to Learns (HIGH priority) — required for Anti-Triple Support comp.",
+"Timeline review v1.3 insights propagated to Role Matrix: Tristen R20 Duelist 19%/Strategist 50%, Gabe 10.75 KDA Strange, Ayden Venom WIN + Emma R20 climb, Sam 9 tank games at 22% in R20.",
+"Image deployment: add mobalytics-tierlist.jpg to your repo's public/ folder for the Meta tab image to display.",
+]},
 {ver:"v1.3",date:"April 16, 2026",changes:[
 "Timeline review: all 9 profiles fetched, new competitive games integrated.",
 "Ayden: 9 new comp games. Emma 12g in R20 at 50% with 7+ KDA peaks. Venom WIN 3.36 KDA. Climbing Plat 1 → Diamond 3.",
