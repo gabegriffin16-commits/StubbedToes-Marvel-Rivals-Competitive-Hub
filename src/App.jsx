@@ -149,27 +149,27 @@ ourComp:"Default to POKE until map meta develops. Then adjust based on scrim res
 
 const COMPS=[
 {name:"POKE A",tag:"Double Shield",color:C.blue,desc:"Primary poke composition. Groot wall + Magneto shield = fortress. S7's 20% ult nerf stretches neutral phases to 50+ seconds, which means base kit value matters enormously. Groot and Magneto both provide massive neutral-phase value without needing ults. Ranged DPS shreds from behind the double barrier.",
-lineup:[{p:"Begin",h:"Groot",r:"tank",n:"Wall control. Planet X Pals w/ Rocket. 77.8% WR on second account."},{p:"Gabe",h:"Magneto",r:"tank",n:"71.4% WR. Metal Bulwark. MUST be default tournament pick."},{p:"Tristen",h:"Hela",r:"dps",n:"Primary ranged hitscan. Goddess of Death ult = 10s aerial AoE."},{p:"Jace",h:"Daredevil",r:"dps",n:"72% WR 25g 4.32 KDA. Wallhack = permanent team info. Bestial Hunt w/ Punisher."},{p:"Ayden",h:"Rocket",r:"heal",n:"Planet X Pals w/ Groot."},{p:"Sam",h:"C&D",r:"heal",n:"55.6% WR. Primary healer."}],tu:["Planet X Pals (Groot+Rocket)","Explosive Entanglement (Mag+Gambit — flex)"],alt:"Groot banned: Begin Thor. Mag banned: Gabe Strange (57.7%). Jace unavailable: Zach Daredevil backup."},
+lineup:[{p:"Begin",h:"Groot",r:"tank",n:"Wall control. Planet X Pals w/ Rocket. 77.8% WR on second account."},{p:"Gabe",h:"Magneto",r:"tank",n:"71.4% WR. Metal Bulwark. MUST be default tournament pick."},{p:"Tristen",h:"Hela",r:"dps",n:"Primary ranged hitscan. Goddess of Death ult = 10s aerial AoE."},{p:"Jace",h:"Daredevil",r:"dps",n:"72% WR 25g 4.32 KDA. Wallhack = permanent team info. Bestial Hunt w/ Punisher."},{p:"Ayden",h:"Rocket",r:"heal",n:"Planet X Pals w/ Groot."},{p:"Raquel",h:"C&D",r:"heal",n:"55.6% WR 12.82 KDA. Primary healer. Prioritized on C&D until pool expands."}],tu:["Planet X Pals (Groot+Rocket)","Explosive Entanglement (Mag+Gambit — flex)"],alt:"Groot banned: Begin Thor. Mag banned: Gabe Strange (57.7%). Jace unavailable: Zach Daredevil backup."},
 {name:"POKE B",tag:"1-2-3 Triple Heal",color:C.blue,desc:"Triple-support poke. The 1-2-3 format (1 Tank, 2 DPS, 3 Strategists) remains dominant at Diamond+ even after the ult nerf. The raw healing throughput between ults is still better than 2-2-2 in most scenarios. Longer neutral phases mean more time where consistent healing matters.",
-lineup:[{p:"Begin",h:"Groot",r:"tank",n:"Solo tank anchor. Wall control sustains poke without needing a second tank."},{p:"Tristen",h:"Hela",r:"dps",n:"Primary poke DPS."},{p:"Jace",h:"Daredevil",r:"dps",n:"72% WR. Primary info DPS. Frees Zach for flex/sub."},{p:"Ayden",h:"Jeff",r:"heal",n:"57.9% WR, 10.86 KDA — best healer stats on roster."},{p:"Sam",h:"C&D",r:"heal",n:"55.6% WR."},{p:"Raquel",h:"White Fox",r:"heal",n:"IF ready. Kumiho w/ Luna if available. Otherwise Raquel on C&D, Sam on Rocket."}],tu:["Planet X Pals (Groot+Jeff if applicable)"],alt:"Raquel not ready on WF: Raquel C&D + Sam Rocket for Planet X Pals."},
+lineup:[{p:"Begin",h:"Groot",r:"tank",n:"Solo tank anchor. Wall control sustains poke without needing a second tank."},{p:"Tristen",h:"Hela",r:"dps",n:"Primary poke DPS."},{p:"Jace",h:"Daredevil",r:"dps",n:"72% WR. Primary info DPS. Frees Zach for flex/sub."},{p:"Ayden",h:"Jeff",r:"heal",n:"57.9% WR, 10.86 KDA — best healer stats on roster."},{p:"Sam",h:"Rocket",r:"heal",n:"66.7% WR. Planet X Pals w/ Groot."},{p:"Raquel",h:"C&D",r:"heal",n:"C&D priority. 12.82 KDA 29.8 assists/game."}],tu:["Planet X Pals (Groot+Rocket/Jeff)"],alt:"Raquel banned off C&D: Sam C&D backup. Raquel to White Fox if ready."},
 {name:"BRAWL A",tag:"Thor Rush",color:C.accent,desc:"Begin's Thor (70% WR main, 66.7% second acct across 33g) is the team's most proven hero. Thor excels in close-range fights where his AoE hammer and lightning chain hit multiple targets. Emma's Diamond Form adds a second melee threat. The comp needs tight coordination on engage timing — tournament showed brawl failing when players go in at different times.",
 lineup:[{p:"Begin",h:"Thor",r:"tank",n:"70% WR. Primary engage and brawl anchor."},{p:"Ayden",h:"Emma Frost",r:"tank",n:"50% WR main. Diamond Form for close-range. NOTE: Emma is C-tier in S7 — use only when brawl is clearly correct."},{p:"Tristen",h:"Psylocke",r:"dps",n:"Melee flanker. Backstabs during frontline engage."},{p:"Zach",h:"Wolverine",r:"dps",n:"S-tier sustained melee DPS."},{p:"Sam",h:"Sue Storm",r:"heal",n:"50g experience. Shields protect the push."},{p:"Raquel",h:"C&D",r:"heal",n:"Must position BEHIND the brawl, not in it."}],tu:["Chilling Assault (Luna+Emma — requires swap)"],alt:"Zach to Gambit heals for 1-2-3. Gabe subs for Ayden on Magneto. Jace Blade can replace Zach/Tristen for self-sustaining melee DPS."},
 {name:"BRAWL B",tag:"Rogue Drain",color:C.accent,desc:"Rogue's ult drain is the most underrated ability in S7. With ults taking 50+ seconds to charge, stealing that charge is devastating — the enemy effectively loses minutes of progress. Gambit's Explosive Entanglement team-up amplifies Rogue further. This comp wins by making the enemy's ult economy miserable.",
-lineup:[{p:"Gabe",h:"Rogue",r:"tank",n:"Ult drain punishes slow S7 ult charge."},{p:"Begin",h:"Thor",r:"tank",n:"70% WR. Brawl monster."},{p:"Tristen",h:"Psylocke",r:"dps",n:"Melee flanker."},{p:"Zach",h:"Wolverine",r:"dps",n:"Sustained melee."},{p:"Ayden",h:"Gambit",r:"heal",n:"Explosive Entanglement w/ Rogue."},{p:"Sam",h:"C&D",r:"heal",n:"Primary healer."}],tu:["Explosive Entanglement (Gambit+Rogue)"],alt:"Rogue banned: Gabe Magneto. Sub Raquel for Sam if C&D form recovers."},
+lineup:[{p:"Gabe",h:"Rogue",r:"tank",n:"Ult drain punishes slow S7 ult charge."},{p:"Begin",h:"Thor",r:"tank",n:"70% WR. Brawl monster."},{p:"Tristen",h:"Psylocke",r:"dps",n:"Melee flanker."},{p:"Zach",h:"Wolverine",r:"dps",n:"Sustained melee."},{p:"Ayden",h:"Gambit",r:"heal",n:"Explosive Entanglement w/ Rogue."},{p:"Raquel",h:"C&D",r:"heal",n:"Primary healer. C&D priority until pool expands."}],tu:["Explosive Entanglement (Gambit+Rogue)"],alt:"Rogue banned: Gabe Magneto. Sub Raquel for Sam if C&D form recovers."},
 {name:"DIVE A",tag:"Magik Core",color:C.purple,desc:"Begin's Magik (100% WR, 9g, 5.10 KDA on second account) combined with Ayden's Venom creates the highest-ceiling comp on the roster. S7 buffed dive by slowing defensive ults — enemies can't use healing ults as often to survive dives. Requires the highest coordination. Every player must collapse simultaneously or the dive fails — tournament Spider-Man at 0W 3L with 15 deaths/game proves dive without follow-up is suicide.",
-lineup:[{p:"Ayden",h:"Venom",r:"tank",n:"ONLY dive tank. +150 HP Symbiote Shenanigans."},{p:"Begin",h:"Magik",r:"dps",n:"S-tier dive DPS. Portal pressure. 100% WR 9g on second acct."},{p:"Tristen",h:"Spider-Man",r:"dps",n:"78.6% WR on alt. Dive mobility king. MUST dive WITH Venom, not solo."},{p:"Zach",h:"Gambit",r:"heal",n:"8.50 KDA MVP recent. AoE heals."},{p:"Sam",h:"C&D",r:"heal",n:"Teleport for aggressive positioning."},{p:"T-Money",h:"Peni Parker",r:"tank",n:"50% WR 4g 5.14 KDA. Second tank for 2-2-2 variant if needed."}],tu:["Symbiote Shenanigans (Venom+Jeff/Hela)"],alt:"Venom banned: Dive is dead. Swap to Poke/Brawl. Jace Blade can sub for Zach (lifesteal = self-sustaining dive DPS)."},
+lineup:[{p:"Ayden",h:"Venom",r:"tank",n:"ONLY dive tank. +150 HP Symbiote Shenanigans."},{p:"Begin",h:"Magik",r:"dps",n:"S-tier dive DPS. Portal pressure. 100% WR 9g on second acct."},{p:"Tristen",h:"Spider-Man",r:"dps",n:"78.6% WR on alt. Dive mobility king. MUST dive WITH Venom, not solo."},{p:"Zach",h:"Gambit",r:"heal",n:"8.50 KDA MVP recent. AoE heals."},{p:"Raquel",h:"C&D",r:"heal",n:"Teleport for aggressive positioning. C&D priority."},{p:"T-Money",h:"Peni Parker",r:"tank",n:"50% WR 4g 5.14 KDA. Second tank for 2-2-2 variant if needed."}],tu:["Symbiote Shenanigans (Venom+Jeff/Hela)"],alt:"Venom banned: Dive is dead. Swap to Poke/Brawl. Jace Blade can sub for Zach (lifesteal = self-sustaining dive DPS)."},
 {name:"DIVE B",tag:"Triple Heal Dive",color:C.purple,desc:"1-2-3 dive variant. The insight from tournament: Tristen's best game was on Luna Snow healer (5.00 KDA in the only win). Having a DPS player flex to support can unlock comps that a traditional role-locked roster can't run. This comp uses Tristen's Luna Snow flex with Ayden's Venom and Begin's Magik.",
-lineup:[{p:"Ayden",h:"Venom",r:"tank",n:"Dive initiator."},{p:"Begin",h:"Magik",r:"dps",n:"Primary dive assassin."},{p:"Zach",h:"Wolverine",r:"dps",n:"Follow-up dive DPS."},{p:"Tristen",h:"Luna Snow",r:"heal",n:"Tournament-proven: 5.00 KDA in the only win. Kumiho team-up if WF available."},{p:"Sam",h:"C&D",r:"heal",n:"Teleport."},{p:"Ayden",h:"—",r:"note",n:"PROBLEM: Ayden is on Venom. Need Raquel or T-Money to fill 6th. Raquel C&D or T-Money on Peni backup tank."}],tu:["Blessing of Kumiho (WF+Luna — future)"],alt:"Raquel C&D as 6th. Or T-Money Peni Parker as 2nd tank for 2-2-2."},
+lineup:[{p:"Ayden",h:"Venom",r:"tank",n:"Dive initiator."},{p:"Begin",h:"Magik",r:"dps",n:"Primary dive assassin."},{p:"Zach",h:"Wolverine",r:"dps",n:"Follow-up dive DPS."},{p:"Tristen",h:"Luna Snow",r:"heal",n:"Tournament-proven: 5.00 KDA in the only win. Kumiho team-up if WF available."},{p:"Raquel",h:"C&D",r:"heal",n:"Teleport. C&D priority."},{p:"Ayden",h:"—",r:"note",n:"PROBLEM: Ayden is on Venom. Need Raquel or T-Money to fill 6th. Raquel C&D or T-Money on Peni backup tank."}],tu:["Blessing of Kumiho (WF+Luna — future)"],alt:"Raquel C&D as 6th. Or T-Money Peni Parker as 2nd tank for 2-2-2."},
 {name:"ANTI-DIVE A",tag:"Groot Fortress",color:C.green,desc:"Designed to punish enemy dive attempts. Groot walls physically block dive lanes. Daredevil spots flankers through walls before they reach the backline. Rogue drains the ult charge divers desperately need. Every enemy who dives into this comp loses their engage AND their ult progress.",
 lineup:[{p:"Gabe",h:"Rogue",r:"tank",n:"Ult drain devastates divers who commit resources."},{p:"Begin",h:"Groot",r:"tank",n:"Walls block dive lanes. Planet X Pals."},{p:"Tristen",h:"Hela",r:"dps",n:"Punishes from range. Divers eat damage the entire approach."},{p:"Jace",h:"Daredevil",r:"dps",n:"72% WR. Wall-hack spots dives before they happen."},{p:"Ayden",h:"Gambit",r:"heal",n:"Explosive Entanglement w/ Rogue."},{p:"Sam",h:"Rocket",r:"heal",n:"66.7% WR. Planet X Pals w/ Groot."}],tu:["Explosive Entanglement (Gambit+Rogue)","Planet X Pals (Groot+Rocket)"],alt:"Groot banned: Begin Thor. Rogue banned: Gabe Magneto."},
 {name:"ANTI-DIVE B",tag:"Shield Stack",color:C.green,desc:"Double-shield defensive comp. Magneto bubble + Strange portal repositioning = the most survivable backline possible. When the enemy dives, Strange portals the team to safety, Magneto shields the landing, and the ranged DPS shreds the overextended divers.",
-lineup:[{p:"Gabe",h:"Magneto",r:"tank",n:"71.4% WR. Metal Bulwark."},{p:"Begin",h:"Dr. Strange",r:"tank",n:"Portal repositions punish overcommitted divers. 69.2% WR on second acct."},{p:"Tristen",h:"Hela",r:"dps",n:"Ranged damage from safety."},{p:"Jace",h:"Daredevil",r:"dps",n:"72% WR. Info tracking. Bestial Hunt w/ Punisher."},{p:"Ayden",h:"Jeff",r:"heal",n:"57.9% WR, 10.86 KDA. Best healer stats."},{p:"Sam",h:"C&D",r:"heal",n:"Primary healer."}],tu:["Arcane Order (Strange+Magik+SW — partial)"],alt:"Raquel C&D if form recovers, Sam to Rocket."},
+lineup:[{p:"Gabe",h:"Magneto",r:"tank",n:"71.4% WR. Metal Bulwark."},{p:"Begin",h:"Dr. Strange",r:"tank",n:"Portal repositions punish overcommitted divers. 69.2% WR on second acct."},{p:"Tristen",h:"Hela",r:"dps",n:"Ranged damage from safety."},{p:"Jace",h:"Daredevil",r:"dps",n:"72% WR. Info tracking. Bestial Hunt w/ Punisher."},{p:"Ayden",h:"Jeff",r:"heal",n:"57.9% WR, 10.86 KDA. Best healer stats."},{p:"Raquel",h:"C&D",r:"heal",n:"C&D priority. Primary healer."}],tu:["Arcane Order (Strange+Magik+SW — partial)"],alt:"Raquel unavailable: Sam C&D backup, Sam to Rocket."},
 {name:"HYBRID: Poke/Dive",tag:"Flex Engage",color:C.gold,desc:"The most adaptable comp. Poke from range to build damage advantage, then Spider-Man dives the weakened target. The key insight: you don't have to commit to dive OR poke for the entire match. This comp plays poke for 80% of the fight and dives for the killing blow. Daredevil's wallhack identifies the low-health target for Spider-Man to finish.",
-lineup:[{p:"Begin",h:"Groot",r:"tank",n:"Wall control for poke phase."},{p:"Gabe",h:"Magneto",r:"tank",n:"Shield during poke. Can flex to aggressive positioning for dive phase."},{p:"Tristen",h:"Spider-Man",r:"dps",n:"78.6% WR. Pokes from rooftops, dives when target is low."},{p:"Jace",h:"Daredevil",r:"dps",n:"72% WR. Wall-hack IDs dive targets. Info bridges poke and dive."},{p:"Ayden",h:"Rocket",r:"heal",n:"Planet X Pals w/ Groot."},{p:"Sam",h:"C&D",r:"heal",n:"Teleport repositions for dive follow-up."}],tu:["Planet X Pals (Groot+Rocket)"],alt:"Tristen to Hela for more consistent poke if Spider-Man dives aren't converting."},
+lineup:[{p:"Begin",h:"Groot",r:"tank",n:"Wall control for poke phase."},{p:"Gabe",h:"Magneto",r:"tank",n:"Shield during poke. Can flex to aggressive positioning for dive phase."},{p:"Tristen",h:"Spider-Man",r:"dps",n:"78.6% WR. Pokes from rooftops, dives when target is low."},{p:"Jace",h:"Daredevil",r:"dps",n:"72% WR. Wall-hack IDs dive targets. Info bridges poke and dive."},{p:"Ayden",h:"Rocket",r:"heal",n:"Planet X Pals w/ Groot."},{p:"Raquel",h:"C&D",r:"heal",n:"Teleport repositions for dive follow-up. C&D priority."}],tu:["Planet X Pals (Groot+Rocket)"],alt:"Tristen to Hela for more consistent poke if Spider-Man dives aren't converting."},
 {name:"HYBRID: Poke/Brawl",tag:"Range to Rush",color:C.gold,desc:"Poke to soften, then Thor rushes in when enemies are low. This is actually how Begin's Thor SHOULD play — he has 70% WR because he picks his moments. Thor's hammer throw pokes at range, then he commits with the leap when targets are softened. The comp supports this playstyle by having poke heroes weaken the enemy before Thor engages.",
-lineup:[{p:"Begin",h:"Thor",r:"tank",n:"70% WR. Pokes w/ lightning, hammer engages when enemies are low."},{p:"Gabe",h:"Magneto",r:"tank",n:"Shield during poke phase. Push forward for brawl."},{p:"Tristen",h:"Hela",r:"dps",n:"Ranged poke damage softens targets for Thor's engage."},{p:"Zach",h:"Wolverine",r:"dps",n:"Waits for poke to soften, dives for cleanup with Thor."},{p:"Ayden",h:"Gambit",r:"heal",n:"AoE heals for brawl phase. Explosive Entanglement w/ Mag."},{p:"Sam",h:"C&D",r:"heal",n:"Primary heals."}],tu:["Explosive Entanglement (Gambit+Magneto)"],alt:"Jace on Daredevil for more poke (swap Zach out). Jace Blade for melee maps. T-Money tank sub."},
+lineup:[{p:"Begin",h:"Thor",r:"tank",n:"70% WR. Pokes w/ lightning, hammer engages when enemies are low."},{p:"Gabe",h:"Magneto",r:"tank",n:"Shield during poke phase. Push forward for brawl."},{p:"Tristen",h:"Hela",r:"dps",n:"Ranged poke damage softens targets for Thor's engage."},{p:"Zach",h:"Wolverine",r:"dps",n:"Waits for poke to soften, dives for cleanup with Thor."},{p:"Ayden",h:"Gambit",r:"heal",n:"AoE heals for brawl phase. Explosive Entanglement w/ Mag."},{p:"Raquel",h:"C&D",r:"heal",n:"Primary heals. C&D priority."}],tu:["Explosive Entanglement (Gambit+Magneto)"],alt:"Jace on Daredevil for more poke (swap Zach out). Jace Blade for melee maps. T-Money tank sub."},
 {name:"ANTI-3 SUPP",tag:"Burst the Healers",color:"#ff006e",desc:"Mobalytics-sourced counter to 1-2-3 triple-support comps. The philosophy: trade defensive ults for burst kill power that cuts through ANY amount of healing. Groot + Moon Knight ult combo is a guaranteed fight win — not even Luna or Mantis ult survives it. Thor's Awakening Rune bursts through healing to secure elims in neutral. Rocket's C.Y.A. damage boost empowers Thor ult to one-shot all 300HP heroes. Magneto bubble counters enemy C&D ult. This comp exists because triple support has a fundamental weakness: with only 1 tank and 1-2 DPS, they can't contest space or dive YOUR backline. You outpressure them.",
-lineup:[{p:"Begin",h:"Groot",r:"tank",n:"Wall isolates healers from team. Ult combo with Tristen's Moon Knight = guaranteed fight win. Planet X Pals w/ Rocket."},{p:"Gabe",h:"Magneto",r:"tank",n:"71.4% WR. Bubble protects your team. Ult COUNTERS enemy C&D ult directly — KO her mid-channel."},{p:"Zach",h:"Thor",r:"tank",n:"83.3% WR. Awakening Rune burst assassinates healers through their own healing. Storm Surge repositions enemy tanks away from healer protection."},{p:"Tristen",h:"Moon Knight",r:"dps",n:"Ult combo with Groot = guaranteed fight win vs triple support. Practice required — 0W 1L 17 deaths in tournament. The combo ceiling justifies the investment."},{p:"Ayden",h:"Rocket",r:"heal",n:"C.Y.A. damage boost empowers Thor ult to one-shot 300HP healers. Planet X Pals w/ Groot."},{p:"Sam",h:"C&D",r:"heal",n:"Primary healer. Magneto bubble keeps her alive during ult."}],tu:["Planet X Pals (Groot+Rocket)","C.Y.A. Damage Boost (Rocket → Thor)"],alt:"Tristen not ready on MK: Jace Daredevil for wallhack healer tracking (loses ult combo synergy). T-Money Moon Knight if practiced."},
+lineup:[{p:"Begin",h:"Groot",r:"tank",n:"Wall isolates healers from team. Ult combo with Tristen's Moon Knight = guaranteed fight win. Planet X Pals w/ Rocket."},{p:"Gabe",h:"Magneto",r:"tank",n:"71.4% WR. Bubble protects your team. Ult COUNTERS enemy C&D ult directly — KO her mid-channel."},{p:"Zach",h:"Thor",r:"tank",n:"83.3% WR. Awakening Rune burst assassinates healers through their own healing. Storm Surge repositions enemy tanks away from healer protection."},{p:"Tristen",h:"Moon Knight",r:"dps",n:"Ult combo with Groot = guaranteed fight win vs triple support. Practice required — 0W 1L 17 deaths in tournament. The combo ceiling justifies the investment."},{p:"Ayden",h:"Rocket",r:"heal",n:"C.Y.A. damage boost empowers Thor ult to one-shot 300HP healers. Planet X Pals w/ Groot."},{p:"Raquel",h:"C&D",r:"heal",n:"Primary healer. Magneto bubble protects her ult. C&D priority."}],tu:["Planet X Pals (Groot+Rocket)","C.Y.A. Damage Boost (Rocket → Thor)"],alt:"Tristen not ready on MK: Jace Daredevil for wallhack healer tracking (loses ult combo synergy). T-Money Moon Knight if practiced."},
 ];
 
 const LEARNS=[
@@ -281,7 +281,7 @@ duelist:[
 {h:"Blade",n:"Major S7 buffs. Lifesteal self-sustain frees supports. Jace showing MVP ceiling games (10.75, 7.50 KDA). Blade of Khonshu team-up with Moon Knight."},
 {h:"Black Panther",n:"Meaningful S7 buffs. Stealth and burst make him strong flanker. Less mechanical than Psylocke, similar assassination potential."},
 {h:"Punisher",n:"Consistent ranged damage with grenade utility. Bestial Hunt team-up with Daredevil. Solid mid-range DPS."},
-{h:"Storm",n:"AoE damage queen. Cosmic Cyclone team-up with Adam Warlock (new S7). Strong on domination maps."},
+{h:"Storm",n:"AoE damage and support hybrid. Cosmic Cyclone team-up with Adam Warlock (new S7). Strong on domination maps. Can flex between Duelist and Strategist roles."},
 ]},
 {tier:"B",heroes:[
 {h:"Iron Man",n:"S7 buffs improved aerial pressure but predictable flight gets punished. Tristen's tournament: 0W 4L. R20 now 0% (0W 5L). Ranked viable, tournament/comp liability confirmed."},
@@ -310,8 +310,6 @@ strategist:[
 ]},
 {tier:"A",heroes:[
 {h:"Rocket Raccoon",n:"Simple kit, strong damage, Planet X Pals with Groot. Sam's 66.7% WR. C.Y.A. damage boost empowers Thor ult to one-shot 300HP healers in anti-triple-support comps."},
-{h:"Loki (S)",n:"Copy banned S+ supports. When Invisible Woman or Gambit is banned, Loki becomes them. Enormous draft value."},
-{h:"Phoenix (S)",n:"Resurrection + decent damage from support slot. Passive revive always valuable."},
 {h:"Deadpool (S)",n:"Strategist Deadpool surprisingly viable. Jace's 50% WR 6g 5.50 KDA confirms. Solid healing, impactful ult."},
 {h:"Angela",n:"Mobalytics A-tier. Niche effective in tight corridors. T-Money's 100% WR (5g) 4.76 KDA is intriguing."},
 {h:"Adam Warlock",n:"Lost team-up anchor in S7 (15% healing gone). Flight addition exciting but indirect nerf hurts. Ult still amazing."},
@@ -406,12 +404,12 @@ const ALL_HEROES=[
 {h:"Peni Parker",r:"tank",t:"B"},
 {h:"Elsa Bloodstone",r:"dps",t:"S+"},{h:"Phoenix",r:"dps",t:"S+"},{h:"Psylocke",r:"dps",t:"S+"},{h:"Loki",r:"dps",t:"S+"},
 {h:"Winter Soldier",r:"dps",t:"S"},{h:"Star-Lord",r:"dps",t:"S"},{h:"Namor",r:"dps",t:"S"},{h:"Daredevil",r:"dps",t:"S"},{h:"Moon Knight",r:"dps",t:"S"},
-{h:"Wolverine",r:"dps",t:"A"},{h:"Hela",r:"dps",t:"A"},{h:"Spider-Man",r:"dps",t:"A"},{h:"Magik",r:"dps",t:"A"},{h:"Blade",r:"dps",t:"A"},{h:"Black Panther",r:"dps",t:"A"},{h:"Punisher",r:"dps",t:"A"},{h:"Storm (D)",r:"dps",t:"A"},
+{h:"Wolverine",r:"dps",t:"A"},{h:"Hela",r:"dps",t:"A"},{h:"Spider-Man",r:"dps",t:"A"},{h:"Magik",r:"dps",t:"A"},{h:"Blade",r:"dps",t:"A"},{h:"Black Panther",r:"dps",t:"A"},{h:"Punisher",r:"dps",t:"A"},{h:"Storm",r:"dps",t:"A"},
 {h:"Iron Man",r:"dps",t:"B"},{h:"Hawkeye",r:"dps",t:"B"},{h:"Iron Fist",r:"dps",t:"B"},{h:"Human Torch",r:"dps",t:"B"},{h:"Deadpool (D)",r:"dps",t:"B"},{h:"Mr. Fantastic",r:"dps",t:"B"},{h:"Squirrel Girl",r:"dps",t:"B"},
 {h:"Black Widow",r:"dps",t:"C"},{h:"Scarlet Witch",r:"dps",t:"C"},
 {h:"Gambit",r:"heal",t:"S+"},{h:"Invisible Woman",r:"heal",t:"S+"},{h:"Cloak & Dagger",r:"heal",t:"S+"},
 {h:"White Fox",r:"heal",t:"S"},{h:"Mantis",r:"heal",t:"S"},{h:"Luna Snow",r:"heal",t:"S"},
-{h:"Rocket Raccoon",r:"heal",t:"A"},{h:"Loki (S)",r:"heal",t:"A"},{h:"Deadpool (S)",r:"heal",t:"A"},{h:"Jeff",r:"heal",t:"A"},{h:"Adam Warlock",r:"heal",t:"A"},{h:"Angela",r:"heal",t:"A"},
+{h:"Rocket Raccoon",r:"heal",t:"A"},{h:"Deadpool (S)",r:"heal",t:"A"},{h:"Jeff",r:"heal",t:"A"},{h:"Adam Warlock",r:"heal",t:"A"},{h:"Angela",r:"heal",t:"A"},
 {h:"Ultron",r:"heal",t:"B"},{h:"Sue Storm",r:"heal",t:"B"},
 ];
 const OUR_HEROES={
@@ -519,64 +517,133 @@ const PHASES=[
 {step:7,team:"B",action:"LOCK"},{step:8,team:"A",action:"LOCK"},
 {step:9,team:"A",action:"BAN"},{step:10,team:"B",action:"BAN"},
 ];
+const allPlayers=Object.keys(OUR_HEROES).sort((a,b)=>a.toLowerCase().localeCompare(b.toLowerCase()));
+const[roster,setRoster]=useState([]);
+const[ourSide,setOurSide]=useState(null);
 const[phase,setPhase]=useState(0);
-const[bans,setBans]=useState([]);
-const[locks,setLocks]=useState([]);
+const[actions,setActions]=useState([]);
 const[filter,setFilter]=useState("all");
 const[search,setSearch]=useState("");
-const done=phase>=PHASES.length;
-const cur=done?null:PHASES[phase];
-function pick(hero){if(done)return;const entry={hero,team:cur.team,action:cur.action,step:cur.step};if(cur.action==="BAN")setBans(p=>[...p,entry]);else setLocks(p=>[...p,entry]);setPhase(p=>p+1);}
-function reset(){setPhase(0);setBans([]);setLocks([]);setSearch("");}
-const used=new Set([...bans,...locks].map(x=>x.hero));
-const available=ALL_HEROES.filter(h=>!used.has(h.h)).filter(h=>filter==="all"||h.r===filter).filter(h=>!search||h.h.toLowerCase().includes(search.toLowerCase()));
+const step=roster.length<6?"roster":!ourSide?"side":phase<PHASES.length?"draft":"done";
+const cur=step==="draft"?PHASES[phase]:null;
+const bans=actions.filter(a=>a.action==="BAN");
+const locks=actions.filter(a=>a.action==="LOCK");
 const bannedSet=new Set(bans.map(b=>b.hero));
-const impacted=[];
-Object.entries(OUR_HEROES).forEach(([player,heroes])=>{const lost=heroes.filter(h=>bannedSet.has(h));if(lost.length>0)impacted.push({player,lost,remaining:heroes.filter(h=>!bannedSet.has(h))});});
-return<div style={{display:"grid",gap:"16px"}}>
+const used=new Set(actions.map(a=>a.hero));
+// Roster heroes for selected 6 players only
+const activeHeroes={};roster.forEach(p=>{if(OUR_HEROES[p])activeHeroes[p]=OUR_HEROES[p];});
+const allActiveHeroes=[...new Set(Object.values(activeHeroes).flat())];
+function pick(hero){if(step!=="draft")return;const entry={hero,team:cur.team,action:cur.action,step:cur.step};setActions(p=>[...p,entry]);setPhase(p=>p+1);}
+function undo(){if(actions.length===0)return;setActions(p=>p.slice(0,-1));setPhase(p=>p-1);}
+function reset(){setPhase(0);setActions([]);setSearch("");setOurSide(null);setRoster([]);}
+function togglePlayer(p){setRoster(r=>r.includes(p)?r.filter(x=>x!==p):r.length<6?[...r,p]:r);}
+const available=ALL_HEROES.filter(h=>!used.has(h.h)).filter(h=>filter==="all"||h.r===filter).filter(h=>!search||h.h.toLowerCase().includes(search.toLowerCase()));
+// Recommendations: high-tier heroes from our active pool still available
+const isOurTurn=cur&&cur.team===ourSide;
+const recHeroes=isOurTurn?allActiveHeroes.filter(h=>!used.has(h)).map(h=>{const hero=ALL_HEROES.find(a=>a.h===h);return hero?{h,t:hero.t,r:hero.r}:null;}).filter(Boolean).sort((a,b)=>{const ord={"S+":0,"S":1,"A":2,"B":3,"C":4};return(ord[a.t]||5)-(ord[b.t]||5);}).slice(0,6):[];
+// Comp survival with replacement suggestions
+const compAnalysis=COMPS.map(comp=>{
+const compPlayers=comp.lineup.filter(l=>l.r!=="note");
+const inRoster=compPlayers.every(l=>roster.includes(l.p));
+const bannedInComp=compPlayers.filter(l=>bannedSet.has(l.h));
+const alive=bannedInComp.length===0&&inRoster;
+const replacements=bannedInComp.map(banned=>{
+const alts=[];Object.entries(activeHeroes).forEach(([player,heroes])=>{
+heroes.forEach(h=>{if(!bannedSet.has(h)&&!used.has(h)){const hd=ALL_HEROES.find(a=>a.h===h);
+if(hd&&hd.r===banned.r)alts.push({player,hero:h,tier:hd.t});}});});
+alts.sort((a,b)=>{const ord={"S+":0,"S":1,"A":2,"B":3,"C":4};return(ord[a.tier]||5)-(ord[b.tier]||5);});
+return{banned:banned.h,player:banned.p,alts:alts.slice(0,3)};});
+return{name:comp.name,color:comp.color,tag:comp.tag,alive,inRoster,bannedInComp,replacements};});
+// === RENDER ===
+if(step==="roster")return<div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.gold}44`} title="DRAFT SIMULATOR" titleColor={C.gold}>
-<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:"0 0 14px"}}>Simulate the S7 ban-lock draft. Click heroes to ban or lock them through the 10-phase process. See which compositions survive and which players lose heroes. Gold-tagged heroes are on YOUR roster.</p>
-</Sec>
+<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Step 1: Select the 6 players competing in this match.</p></Sec>
+<div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:"8px"}}>
+{allPlayers.map(p=>{const picked=roster.includes(p);const fb=FB.find(f=>f.n===p);
+return<div key={p} onClick={()=>togglePlayer(p)} style={{background:picked?`${C.green}22`:C.panel,border:`2px solid ${picked?C.green:C.border}`,borderRadius:"10px",padding:"14px",cursor:"pointer",textAlign:"center"}}>
+<div style={{fontSize:"24px"}}>{fb?fb.i:"👤"}</div>
+<div style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.lg,color:picked?C.green:C.text}}>{p}</div>
+{picked&&<div style={{color:C.green,fontSize:"11px",fontWeight:700,marginTop:"4px"}}>✓ SELECTED</div>}
+</div>})}</div>
+<div style={{textAlign:"center",color:C.dim,fontSize:F.sm}}>{roster.length}/6 players selected</div>
+{roster.length===6&&<div style={{textAlign:"center"}}><button onClick={()=>{}} style={{background:C.green,color:"#000",border:"none",borderRadius:"8px",padding:"12px 30px",cursor:"pointer",fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.md,letterSpacing:"1px"}} onClick={()=>setOurSide("pending")}>CONFIRM ROSTER →</button></div>}
+</div>;
+if(step==="side")return<div style={{display:"grid",gap:"16px"}}>
+<Sec border={`${C.gold}44`} title="DRAFT SIMULATOR" titleColor={C.gold}>
+<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Step 2: Is StubbedToes Team A (first ban) or Team B (second ban)?</p></Sec>
+<div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"14px"}}>
+{[{side:"A",label:"TEAM A",sub:"First Ban → Second Lock → First Ban → Second Lock → First Ban",c:C.accent},{side:"B",label:"TEAM B",sub:"Second Ban → First Lock → Second Ban → First Lock → Second Ban",c:C.blue}].map(s=>
+<div key={s.side} onClick={()=>setOurSide(s.side)} style={{background:C.panel,border:`2px solid ${s.c}44`,borderRadius:F.rad,padding:F.padL,cursor:"pointer",textAlign:"center"}}>
+<div style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.xxl,color:s.c,letterSpacing:"3px"}}>{s.label}</div>
+<div style={{color:C.dim,fontSize:F.xs,marginTop:"8px",lineHeight:1.5}}>{s.sub}</div>
+</div>)}</div>
+<div style={{textAlign:"center"}}><button onClick={reset} style={{background:"transparent",border:`1px solid ${C.border}`,borderRadius:"6px",padding:"8px 18px",cursor:"pointer",color:C.dim,fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px"}}>← CHANGE ROSTER</button></div>
+</div>;
+// DRAFT + DONE states
+const enemySide=ourSide==="A"?"B":"A";
+return<div style={{display:"grid",gap:"16px"}}>
+<Sec border={`${C.gold}44`} title={"DRAFT — STUBBEDTOES IS TEAM "+ourSide} titleColor={C.gold}>
+<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Active roster: {roster.join(", ")}. {step==="done"?"Draft complete.":"Select heroes to ban or lock."}</p></Sec>
 <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:"6px"}}>
-{PHASES.map((p,i)=>{const isCur=i===phase&&!done;const isDone=i<phase;const entry=[...bans,...locks].find(x=>x.step===p.step);const ac=p.action==="BAN"?C.accent:C.green;
+{PHASES.map((p,i)=>{const isCur=i===phase&&step==="draft";const isDone=i<phase;const entry=actions.find(x=>x.step===p.step);const ac=p.action==="BAN"?C.accent:C.green;const isOurs=p.team===ourSide;
 return<div key={i} style={{background:isCur?`${ac}44`:isDone?`${ac}22`:`${C.border}44`,border:`2px solid ${isCur?ac:isDone?`${ac}66`:C.border}`,borderRadius:"10px",padding:"10px",textAlign:"center"}}>
-<div style={{fontSize:"10px",color:C.muted,fontFamily:"'Rajdhani'"}}>{p.step}. Team {p.team}</div>
+<div style={{fontSize:"10px",color:isOurs?C.gold:C.muted,fontFamily:"'Rajdhani'",fontWeight:isOurs?900:400}}>{isOurs?"US":"THEM"}</div>
 <div style={{fontSize:F.xs,color:ac,fontWeight:700,fontFamily:"'Rajdhani'"}}>{p.action}</div>
 {entry&&<div style={{fontSize:"11px",color:C.text,fontWeight:600,marginTop:"4px",fontFamily:"'Rajdhani'"}}>{entry.hero}</div>}
 {isCur&&!entry&&<div style={{fontSize:"10px",color:C.gold,marginTop:"4px",fontFamily:"'Rajdhani'"}}>← SELECT</div>}
 </div>})}
 </div>
-{!done&&<div style={{background:`${cur.action==="BAN"?C.accent:C.green}11`,border:`1px solid ${cur.action==="BAN"?C.accent:C.green}44`,borderRadius:"10px",padding:"16px",textAlign:"center"}}><span style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.xl,color:cur.action==="BAN"?C.accent:C.green,letterSpacing:"2px"}}>TEAM {cur.team} — {cur.action} A HERO</span></div>}
-{done&&<div style={{background:`${C.gold}11`,border:`1px solid ${C.gold}44`,borderRadius:"10px",padding:"16px",textAlign:"center"}}><span style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.xl,color:C.gold,letterSpacing:"2px"}}>DRAFT COMPLETE</span></div>}
+{step==="draft"&&<div style={{background:`${cur.action==="BAN"?C.accent:C.green}11`,border:`1px solid ${cur.action==="BAN"?C.accent:C.green}44`,borderRadius:"10px",padding:"16px",textAlign:"center"}}>
+<span style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.xl,color:cur.team===ourSide?C.gold:C.dim,letterSpacing:"2px"}}>{cur.team===ourSide?"YOUR TURN":"OPPONENT'S TURN"} — {cur.action} A HERO</span>
+</div>}
+{step==="done"&&<div style={{background:`${C.gold}11`,border:`1px solid ${C.gold}44`,borderRadius:"10px",padding:"16px",textAlign:"center"}}><span style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.xl,color:C.gold,letterSpacing:"2px"}}>DRAFT COMPLETE</span></div>}
+{/* Recommendations for our turn */}
+{isOurTurn&&recHeroes.length>0&&<div style={{background:`${C.gold}11`,border:`1px solid ${C.gold}44`,borderRadius:"10px",padding:"14px"}}>
+<div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",color:C.gold,letterSpacing:"1px",marginBottom:"8px"}}>RECOMMENDED {cur.action==="BAN"?"BANS":"LOCKS"} FOR YOUR ROSTER</div>
+<div style={{display:"flex",gap:"6px",flexWrap:"wrap"}}>{recHeroes.map(r=>{const tc=r.t==="S+"?"#ff006e":r.t==="S"?C.green:r.t==="A"?C.blue:C.gold;
+return<div key={r.h} onClick={()=>pick(r.h)} style={{background:C.sec,border:`1px solid ${tc}44`,borderRadius:"8px",padding:"8px 12px",cursor:"pointer",display:"flex",gap:"6px",alignItems:"center"}}>
+<span style={{color:C.text,fontSize:F.xs,fontWeight:600}}>{r.h}</span><span style={{color:tc,fontSize:"10px",fontWeight:900}}>{r.t}</span>
+</div>})}</div></div>}
+{/* Filters, Search, Undo, Reset */}
 <div style={{display:"flex",gap:"8px",alignItems:"center",flexWrap:"wrap"}}>
-<input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search heroes..." style={{background:C.sec,border:`1px solid ${C.border}`,borderRadius:"8px",padding:"10px 14px",color:C.text,fontFamily:"'Rajdhani'",fontSize:F.sm,flex:"1",minWidth:"160px",outline:"none"}}/>
+<input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search heroes..." style={{background:C.sec,border:`1px solid ${C.border}`,borderRadius:"8px",padding:"10px 14px",color:C.text,fontFamily:"'Rajdhani'",fontSize:F.sm,flex:"1",minWidth:"140px",outline:"none"}}/>
 {[{id:"all",l:"All"},{id:"tank",l:"Vanguard"},{id:"dps",l:"Duelist"},{id:"heal",l:"Strategist"}].map(f=>
 <button key={f.id} onClick={()=>setFilter(f.id)} style={{background:filter===f.id?(f.id==="tank"?C.tank:f.id==="dps"?C.dps:f.id==="heal"?C.heal:C.purple):"transparent",color:filter===f.id?"#fff":C.dim,border:`1px solid ${C.border}`,borderRadius:"6px",padding:"8px 14px",cursor:"pointer",fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",letterSpacing:"1px"}}>{f.l}</button>)}
+<button onClick={undo} disabled={actions.length===0} style={{background:actions.length>0?C.gold:"transparent",color:actions.length>0?"#000":C.muted,border:`1px solid ${actions.length>0?C.gold:C.border}`,borderRadius:"6px",padding:"8px 18px",cursor:actions.length>0?"pointer":"default",fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",letterSpacing:"1px",opacity:actions.length>0?1:0.4}}>UNDO</button>
 <button onClick={reset} style={{background:C.accent,color:"#fff",border:"none",borderRadius:"6px",padding:"8px 18px",cursor:"pointer",fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",letterSpacing:"1px"}}>RESET</button>
 </div>
-<div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(140px,1fr))",gap:"6px"}}>
+{/* Hero grid */}
+{step==="draft"&&<div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(140px,1fr))",gap:"6px"}}>
 {available.map(h=>{const rc=h.r==="tank"?C.tank:h.r==="dps"?C.dps:C.heal;const tc=h.t==="S+"?"#ff006e":h.t==="S"?C.green:h.t==="A"?C.blue:h.t==="B"?C.gold:C.muted;
-const ourPlayers=Object.entries(OUR_HEROES).filter(([,heroes])=>heroes.includes(h.h)).map(([p])=>p);
-return<div key={h.h} onClick={()=>!done&&pick(h.h)} style={{background:C.sec,border:`1px solid ${C.border}`,borderRadius:"8px",padding:"10px",cursor:done?"default":"pointer",opacity:done?0.5:1}}>
+const ourPlayers=Object.entries(activeHeroes).filter(([,heroes])=>heroes.includes(h.h)).map(([p])=>p);
+return<div key={h.h} onClick={()=>pick(h.h)} style={{background:C.sec,border:`1px solid ${ourPlayers.length>0?`${C.gold}66`:C.border}`,borderRadius:"8px",padding:"10px",cursor:"pointer"}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><span style={{color:C.text,fontSize:F.xs,fontWeight:600,fontFamily:"'Rajdhani'"}}>{h.h}</span><span style={{color:tc,fontSize:"10px",fontWeight:900,fontFamily:"'Rajdhani'"}}>{h.t}</span></div>
 <div style={{display:"flex",gap:"4px",marginTop:"4px",alignItems:"center"}}><span style={{width:"8px",height:"8px",borderRadius:"50%",background:rc,display:"inline-block"}}/><span style={{color:C.muted,fontSize:"10px"}}>{h.r==="tank"?"VAN":h.r==="dps"?"DUE":"STR"}</span></div>
 {ourPlayers.length>0&&<div style={{marginTop:"4px"}}>{ourPlayers.map(p=><span key={p} style={{background:`${C.gold}22`,color:C.gold,padding:"1px 6px",borderRadius:"3px",fontSize:"9px",fontWeight:700,marginRight:"3px",fontFamily:"'Rajdhani'"}}>{p}</span>)}</div>}
 </div>})}
-</div>
+</div>}
+{/* Roster Impact Analysis */}
 {bans.length>0&&<Sec border={`${C.accent}44`} title="ROSTER IMPACT ANALYSIS" titleColor={C.accent}>
-{impacted.length===0&&<div style={{color:C.green,fontSize:F.sm}}>No roster heroes banned. All compositions available.</div>}
-{impacted.map((imp,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"12px",marginBottom:"8px"}}>
+{(()=>{const impacted=[];Object.entries(activeHeroes).forEach(([player,heroes])=>{const lost=heroes.filter(h=>bannedSet.has(h));if(lost.length>0)impacted.push({player,lost,remaining:heroes.filter(h=>!bannedSet.has(h))});});
+return impacted.length===0?<div style={{color:C.green,fontSize:F.sm}}>No roster heroes banned. All compositions available.</div>:impacted.map((imp,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"12px",marginBottom:"8px"}}>
 <div style={{fontFamily:"'Rajdhani'",fontWeight:700,color:C.text,fontSize:F.md}}>{imp.player}</div>
 <div style={{color:C.accent,fontSize:F.xs,marginTop:"4px"}}>LOST: {imp.lost.join(", ")}</div>
 <div style={{color:C.green,fontSize:F.xs,marginTop:"2px"}}>REMAINING: {imp.remaining.length>0?imp.remaining.join(", "):<span style={{color:C.accent,fontWeight:700}}>NO HEROES LEFT</span>}</div>
-</div>)}
+</div>)})()}
 <div style={{marginTop:"12px"}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,color:C.gold,fontSize:"12px",letterSpacing:"1px",marginBottom:"8px"}}>COMPOSITION SURVIVAL</div>
-{COMPS.map((comp,i)=>{const compHeroes=comp.lineup.filter(l=>l.r!=="note").map(l=>l.h);const bannedInComp=compHeroes.filter(h=>bannedSet.has(h));const alive=bannedInComp.length===0;
-return<div key={i} style={{display:"flex",gap:"8px",alignItems:"center",marginBottom:"4px"}}>
-<span style={{width:"10px",height:"10px",borderRadius:"50%",background:alive?C.green:C.accent}}/>
-<span style={{color:alive?C.text:C.muted,fontSize:F.xs,fontFamily:"'Rajdhani'",fontWeight:alive?600:400,textDecoration:alive?"none":"line-through"}}>{comp.name}</span>
-{!alive&&<span style={{color:C.accent,fontSize:"10px"}}>({bannedInComp.join(", ")})</span>}
-</div>})}
+{compAnalysis.map((ca,i)=><div key={i} style={{marginBottom:"6px"}}>
+<div style={{display:"flex",gap:"8px",alignItems:"center"}}>
+<span style={{width:"10px",height:"10px",borderRadius:"50%",background:ca.alive?C.green:!ca.inRoster?C.muted:C.accent}}/>
+<span style={{color:ca.alive?C.text:C.inRoster?C.muted:C.muted,fontSize:F.xs,fontFamily:"'Rajdhani'",fontWeight:ca.alive?600:400,textDecoration:ca.alive?"none":"line-through"}}>{ca.name} <span style={{color:C.dim,fontWeight:400}}>{ca.tag}</span></span>
+{!ca.inRoster&&<span style={{color:C.muted,fontSize:"10px"}}>(players not in match)</span>}
+{ca.bannedInComp.length>0&&ca.inRoster&&<span style={{color:C.accent,fontSize:"10px"}}>({ca.bannedInComp.map(b=>b.h).join(", ")})</span>}
+</div>
+{ca.replacements.length>0&&ca.inRoster&&ca.replacements.map((rep,j)=>rep.alts.length>0&&<div key={j} style={{marginLeft:"26px",marginTop:"3px",display:"flex",gap:"6px",alignItems:"center",flexWrap:"wrap"}}>
+<span style={{color:C.accent,fontSize:"10px"}}>↳ {rep.banned}:</span>
+{rep.alts.map((alt,k)=>{const tc=alt.tier==="S+"?"#ff006e":alt.tier==="S"?C.green:alt.tier==="A"?C.blue:C.gold;
+return<span key={k} style={{background:`${tc}22`,color:tc,padding:"1px 8px",borderRadius:"4px",fontSize:"10px",fontWeight:700,fontFamily:"'Rajdhani'"}}>{alt.player}→{alt.hero} ({alt.tier})</span>})}
+</div>)}
+</div>)}
 </div></Sec>}
 </div>}
 
@@ -688,22 +755,14 @@ return<div key={hi} style={{background:C.sec,borderRadius:"10px",padding:"14px",
 
 // ─── CHANGELOG TAB ───
 const CHANGELOG=[
-{ver:"v1.6",date:"April 16, 2026",changes:[
-"Added Player Profile tab — select any player to view their complete profile aggregated from all tabs: Stats, Intel grade + analysis, Role Matrix, Draft Pool with meta tier tags, every Comp they appear in, Tournament match history, and Learning priorities. Designed for individual coaching sessions.",
-"Tab count: 12 → 13.",
-]},
-{ver:"v1.5",date:"April 16, 2026",changes:[
-"FIXED: Moon Knight correctly classified as Duelist across all tabs. Removed from Vanguard tier in Meta Snapshot and Draft Sim. Consolidated from 'Moon Knight (V)' and 'Moon Knight (D)' into single 'Moon Knight' Duelist entry.",
-"Team-ups overhauled with Mobalytics data: Vibrant Vitality, Arcane Order, Primal Flame = S-tier (HIGH IMPACT). Planet X Pals downgraded to B-tier (LOW IMPACT per Mobalytics — heroes are strong individually but team-up bonus is minor). Removed team-ups (Jeff-nado, Duality Dance) now listed in dedicated section.",
-"Mobalytics team-up page is S3.5 vintage — S7 additions (Explosive Entanglement, Kumiho, Bestial Hunt, Blade of Khonshu, Cosmic Cyclone) placed at A/B pending updated Mobalytics rankings.",
-]},
-{ver:"v1.4",date:"April 16, 2026",changes:[
-"Meta Snapshot overhauled: all tier data now sourced primarily from Mobalytics Diamond+. Featured tier list image added to tab header.",
-"Key tier shifts: Emma Frost → S (was disputed), Daredevil confirmed S, Moon Knight → S, Jeff → B, Hawkeye → B, Cap America → A.",
-"Added ANTI-TRIPLE SUPPORT comp (Mobalytics-sourced): Begin Groot + Gabe Magneto + Zach Thor + Tristen Moon Knight + Ayden Rocket + Sam C&D. Groot+MK ult combo = guaranteed fight win. Rocket damage boost + Thor ult one-shots 300HP healers.",
-"Added Tristen Moon Knight practice to Learns (HIGH priority) — required for Anti-Triple Support comp.",
-"Timeline review v1.3 insights propagated to Role Matrix: Tristen R20 Duelist 19%/Strategist 50%, Gabe 10.75 KDA Strange, Ayden Venom WIN + Emma R20 climb, Sam 9 tank games at 22% in R20.",
-"Image deployment: add mobalytics-tierlist.jpg to your repo's public/ folder for the Meta tab image to display.",
+{ver:"v1.7",date:"April 16, 2026",changes:[
+"Meta Snapshot overhauled: all tiers sourced from Mobalytics Diamond+. Featured tier list image. Moon Knight corrected to Duelist. Team-ups rebuilt from Mobalytics (Vibrant Vitality/Arcane Order/Primal Flame = S-tier; Planet X Pals = B-tier). Hero designations cleaned — removed (V)/(D)/(S) from all except Deadpool.",
+"Added ANTI-TRIPLE SUPPORT comp (Mobalytics-sourced): Groot+Magneto+Thor+Moon Knight+Rocket+C&D. Groot+MK ult combo = guaranteed fight win.",
+"Raquel prioritized as C&D in ALL comps (10 comps updated). Sam moved to Rocket/Sue/bench.",
+"Draft Simulator rebuilt: pre-draft roster selection (6 of 9), Team A/B side declaration, undo button, smart recommendations on your turn, replacement hero suggestions for banned comps in survival analysis.",
+"Added Player Profile tab: select any player to see all data aggregated from every tab. Tab count: 8 → 13.",
+"Timeline review: Tristen R20 crash (50%→25%), Gabe 10.75 KDA Strange, Ayden Venom WIN, Raquel Jeff 100% 4g 18.44 KDA. Grades: Gabe B-→A-, Tristen B+→B, Sam B-→C+, Raquel D→C+. T-Money → THE CLOSET VANGUARD.",
+"Tristen Moon Knight practice added to Learns (HIGH) for Anti-3 Supp comp.",
 ]},
 {ver:"v1.3",date:"April 16, 2026",changes:[
 "Timeline review: all 9 profiles fetched, new competitive games integrated.",
