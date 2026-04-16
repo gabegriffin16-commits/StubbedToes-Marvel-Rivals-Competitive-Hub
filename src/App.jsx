@@ -254,6 +254,7 @@ vanguard:[
 {h:"Venom",n:"THE dive tank. Only Vanguard who truly initiates dives. Symbiote Shenanigans +150 HP. Ayden's new 3.36 KDA WIN shows improvement. But Gambit cleanse hard-counters Venom ult."},
 {h:"Dr. Strange",n:"Portal and Eye of Agamotto remain two of the best abilities in the game. Gabe's 10.75 KDA game (38/4/5 on Tokyo) proves the ceiling is elite. Shield of the Seraphim is largest in the game. Inconsistency is the issue, not capability."},
 {h:"Captain America",n:"Mobile off-tank. Can dive AND take hits — not the best at either, but versatile. Mobalytics places him A-tier. Tournament data for Gabe on Cap was poor (0.88 KDA) — roster should avoid."},
+{h:"Angela",n:"Mobalytics A-tier Vanguard. Niche effective in tight corridor maps (Hellfire Gala, Krakoa). T-Money's 100% WR (5g) 4.76 KDA is intriguing but small sample. High mobility melee tank."},
 ]},
 {tier:"B",heroes:[
 {h:"Peni Parker",n:"Spider drone provides area denial, ult zones enemies. T-Money's 5.14 KDA proves viability. Solid flex tank in 2-2-2 comps. Backup, not primary."},
@@ -311,7 +312,6 @@ strategist:[
 {tier:"A",heroes:[
 {h:"Rocket Raccoon",n:"Simple kit, strong damage, Planet X Pals with Groot. Sam's 66.7% WR. C.Y.A. damage boost empowers Thor ult to one-shot 300HP healers in anti-triple-support comps."},
 {h:"Deadpool (S)",n:"Strategist Deadpool surprisingly viable. Jace's 50% WR 6g 5.50 KDA confirms. Solid healing, impactful ult."},
-{h:"Angela",n:"Mobalytics A-tier. Niche effective in tight corridors. T-Money's 100% WR (5g) 4.76 KDA is intriguing."},
 {h:"Adam Warlock",n:"Lost team-up anchor in S7 (15% healing gone). Flight addition exciting but indirect nerf hurts. Ult still amazing."},
 ]},
 {tier:"B",heroes:[
@@ -376,7 +376,7 @@ strategist:{wr:"55.6%",conf:"IMPROVING",heroes:"C&D 55.6% 18g, Jeff 100% 4g 18.4
 }},
 {name:"Sam",roles:{
 vanguard:{wr:"—",conf:"NONE",heroes:"Thing experiments, Strange 0% 4g",note:"9 Vanguard games in R20 at 22% WR (2W 7L). Role confusion WORSENING. Every tank game is a support game wasted.",c:C.muted},
-duelist:{wr:"0%",conf:"DEAD",heroes:"Strange 0% 4g",note:"0% WR. Stop immediately.",c:C.accent},
+duelist:{wr:"—",conf:"NONE",heroes:"No Duelist data",note:"No DPS games on record. Sam is a support player.",c:C.muted},
 strategist:{wr:"55.6%",conf:"STRONG",heroes:"C&D 55.6% 9g, Sue 44% 50g, Rocket 66.7% 3g",note:"62 support games. C&D should be primary. Sue R20 dropped to 25% (2W 6L) — ceiling confirmed. Invisible Woman R20 also 25% (2W 6L).",c:C.blue}
 }},
 {name:"T-Money",roles:{
@@ -400,7 +400,7 @@ strategist:{wr:"0%",conf:"WEAK",heroes:"Mantis 0%, Sue 0%, Gambit QP only",note:
 const ALL_HEROES=[
 {h:"Groot",r:"tank",t:"S+"},{h:"Deadpool (V)",r:"tank",t:"S+"},{h:"Magneto",r:"tank",t:"S+"},
 {h:"Rogue",r:"tank",t:"S"},{h:"Emma Frost",r:"tank",t:"S"},{h:"The Thing",r:"tank",t:"S"},
-{h:"Thor",r:"tank",t:"A"},{h:"Hulk",r:"tank",t:"A"},{h:"Venom",r:"tank",t:"A"},{h:"Dr. Strange",r:"tank",t:"A"},{h:"Captain America",r:"tank",t:"A"},
+{h:"Thor",r:"tank",t:"A"},{h:"Hulk",r:"tank",t:"A"},{h:"Venom",r:"tank",t:"A"},{h:"Dr. Strange",r:"tank",t:"A"},{h:"Captain America",r:"tank",t:"A"},{h:"Angela",r:"tank",t:"A"},
 {h:"Peni Parker",r:"tank",t:"B"},
 {h:"Elsa Bloodstone",r:"dps",t:"S+"},{h:"Phoenix",r:"dps",t:"S+"},{h:"Psylocke",r:"dps",t:"S+"},{h:"Loki",r:"dps",t:"S+"},
 {h:"Winter Soldier",r:"dps",t:"S"},{h:"Star-Lord",r:"dps",t:"S"},{h:"Namor",r:"dps",t:"S"},{h:"Daredevil",r:"dps",t:"S"},{h:"Moon Knight",r:"dps",t:"S"},
@@ -409,7 +409,7 @@ const ALL_HEROES=[
 {h:"Black Widow",r:"dps",t:"C"},{h:"Scarlet Witch",r:"dps",t:"C"},
 {h:"Gambit",r:"heal",t:"S+"},{h:"Invisible Woman",r:"heal",t:"S+"},{h:"Cloak & Dagger",r:"heal",t:"S+"},
 {h:"White Fox",r:"heal",t:"S"},{h:"Mantis",r:"heal",t:"S"},{h:"Luna Snow",r:"heal",t:"S"},
-{h:"Rocket Raccoon",r:"heal",t:"A"},{h:"Deadpool (S)",r:"heal",t:"A"},{h:"Jeff",r:"heal",t:"A"},{h:"Adam Warlock",r:"heal",t:"A"},{h:"Angela",r:"heal",t:"A"},
+{h:"Rocket Raccoon",r:"heal",t:"A"},{h:"Deadpool (S)",r:"heal",t:"A"},{h:"Jeff",r:"heal",t:"A"},{h:"Adam Warlock",r:"heal",t:"A"},
 {h:"Ultron",r:"heal",t:"B"},{h:"Sue Storm",r:"heal",t:"B"},
 ];
 const OUR_HEROES={
@@ -547,13 +547,18 @@ const compPlayers=comp.lineup.filter(l=>l.r!=="note");
 const inRoster=compPlayers.every(l=>roster.includes(l.p));
 const bannedInComp=compPlayers.filter(l=>bannedSet.has(l.h));
 const alive=bannedInComp.length===0&&inRoster;
+const missingPlayers=compPlayers.filter(l=>!roster.includes(l.p));
+const playerSubs=missingPlayers.map(mp=>{const subs=[];Object.entries(activeHeroes).forEach(([player,heroes])=>{if(!compPlayers.some(l=>l.p===player)||!roster.includes(player)){
+if(heroes.includes(mp.h))subs.push({player,hero:mp.h,exact:true,tier:""});
+else{heroes.forEach(h=>{const hd=ALL_HEROES.find(a=>a.h===h);if(hd&&hd.r===mp.r&&!bannedSet.has(h)&&!used.has(h))subs.push({player,hero:h,exact:false,tier:hd.t});});}}});
+subs.sort((a,b)=>a.exact?-1:b.exact?1:0);return{missing:mp.p,hero:mp.h,subs:subs.slice(0,3)};});
 const replacements=bannedInComp.map(banned=>{
 const alts=[];Object.entries(activeHeroes).forEach(([player,heroes])=>{
 heroes.forEach(h=>{if(!bannedSet.has(h)&&!used.has(h)){const hd=ALL_HEROES.find(a=>a.h===h);
 if(hd&&hd.r===banned.r)alts.push({player,hero:h,tier:hd.t});}});});
 alts.sort((a,b)=>{const ord={"S+":0,"S":1,"A":2,"B":3,"C":4};return(ord[a.tier]||5)-(ord[b.tier]||5);});
 return{banned:banned.h,player:banned.p,alts:alts.slice(0,3)};});
-return{name:comp.name,color:comp.color,tag:comp.tag,alive,inRoster,bannedInComp,replacements};});
+return{name:comp.name,color:comp.color,tag:comp.tag,alive,inRoster,bannedInComp,replacements,missingPlayers,playerSubs};});
 // === RENDER ===
 if(step==="roster")return<div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.gold}44`} title="DRAFT SIMULATOR" titleColor={C.gold}>
@@ -635,7 +640,12 @@ return impacted.length===0?<div style={{color:C.green,fontSize:F.sm}}>No roster 
 <div style={{display:"flex",gap:"8px",alignItems:"center"}}>
 <span style={{width:"10px",height:"10px",borderRadius:"50%",background:ca.alive?C.green:!ca.inRoster?C.muted:C.accent}}/>
 <span style={{color:ca.alive?C.text:C.inRoster?C.muted:C.muted,fontSize:F.xs,fontFamily:"'Rajdhani'",fontWeight:ca.alive?600:400,textDecoration:ca.alive?"none":"line-through"}}>{ca.name} <span style={{color:C.dim,fontWeight:400}}>{ca.tag}</span></span>
-{!ca.inRoster&&<span style={{color:C.muted,fontSize:"10px"}}>(players not in match)</span>}
+{!ca.inRoster&&<span style={{color:C.muted,fontSize:"10px"}}>({ca.missingPlayers.map(m=>m.p).join(", ")} not in match)</span>}
+{ca.playerSubs&&ca.playerSubs.length>0&&!ca.inRoster&&ca.playerSubs.map((ps,j)=>ps.subs.length>0&&<div key={j} style={{marginLeft:"26px",marginTop:"3px",display:"flex",gap:"6px",alignItems:"center",flexWrap:"wrap"}}>
+<span style={{color:C.blue,fontSize:"10px"}}>↳ {ps.missing}({ps.hero}):</span>
+{ps.subs.map((sub,k)=>{const tc=sub.exact?C.green:sub.tier==="S+"?"#ff006e":sub.tier==="S"?C.green:sub.tier==="A"?C.blue:C.gold;
+return<span key={k} style={{background:`${tc}22`,color:tc,padding:"1px 8px",borderRadius:"4px",fontSize:"10px",fontWeight:700,fontFamily:"'Rajdhani'"}}>{sub.player}→{sub.hero}{sub.exact?" ✓":` (${sub.tier})`}</span>})}
+</div>)}
 {ca.bannedInComp.length>0&&ca.inRoster&&<span style={{color:C.accent,fontSize:"10px"}}>({ca.bannedInComp.map(b=>b.h).join(", ")})</span>}
 </div>
 {ca.replacements.length>0&&ca.inRoster&&ca.replacements.map((rep,j)=>rep.alts.length>0&&<div key={j} style={{marginLeft:"26px",marginTop:"3px",display:"flex",gap:"6px",alignItems:"center",flexWrap:"wrap"}}>
