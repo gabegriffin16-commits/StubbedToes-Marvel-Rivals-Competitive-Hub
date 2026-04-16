@@ -755,10 +755,9 @@ return<div key={hi} style={{background:C.sec,borderRadius:"10px",padding:"14px",
 
 // ─── CHANGELOG TAB ───
 const CHANGELOG=[
-{ver:"v1.7",date:"April 16, 2026",changes:[
+{ver:"v1.4",date:"April 16, 2026",changes:[
 "Meta Snapshot overhauled: all tiers sourced from Mobalytics Diamond+. Featured tier list image. Moon Knight corrected to Duelist. Team-ups rebuilt from Mobalytics (Vibrant Vitality/Arcane Order/Primal Flame = S-tier; Planet X Pals = B-tier). Hero designations cleaned — removed (V)/(D)/(S) from all except Deadpool.",
 "Added ANTI-TRIPLE SUPPORT comp (Mobalytics-sourced): Groot+Magneto+Thor+Moon Knight+Rocket+C&D. Groot+MK ult combo = guaranteed fight win.",
-"Raquel prioritized as C&D in ALL comps (10 comps updated). Sam moved to Rocket/Sue/bench.",
 "Draft Simulator rebuilt: pre-draft roster selection (6 of 9), Team A/B side declaration, undo button, smart recommendations on your turn, replacement hero suggestions for banned comps in survival analysis.",
 "Added Player Profile tab: select any player to see all data aggregated from every tab. Tab count: 8 → 13.",
 "Timeline review: Tristen R20 crash (50%→25%), Gabe 10.75 KDA Strange, Ayden Venom WIN, Raquel Jeff 100% 4g 18.44 KDA. Grades: Gabe B-→A-, Tristen B+→B, Sam B-→C+, Raquel D→C+. T-Money → THE CLOSET VANGUARD.",
