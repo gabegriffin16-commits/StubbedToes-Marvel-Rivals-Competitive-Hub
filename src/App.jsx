@@ -688,6 +688,10 @@ return<div key={hi} style={{background:C.sec,borderRadius:"10px",padding:"14px",
 
 // ─── CHANGELOG TAB ───
 const CHANGELOG=[
+{ver:"v1.6",date:"April 16, 2026",changes:[
+"Added Player Profile tab — select any player to view their complete profile aggregated from all tabs: Stats, Intel grade + analysis, Role Matrix, Draft Pool with meta tier tags, every Comp they appear in, Tournament match history, and Learning priorities. Designed for individual coaching sessions.",
+"Tab count: 12 → 13.",
+]},
 {ver:"v1.5",date:"April 16, 2026",changes:[
 "FIXED: Moon Knight correctly classified as Duelist across all tabs. Removed from Vanguard tier in Meta Snapshot and Draft Sim. Consolidated from 'Moon Knight (V)' and 'Moon Knight (D)' into single 'Moon Knight' Duelist entry.",
 "Team-ups overhauled with Mobalytics data: Vibrant Vitality, Arcane Order, Primal Flame = S-tier (HIGH IMPACT). Planet X Pals downgraded to B-tier (LOW IMPACT per Mobalytics — heroes are strong individually but team-up bonus is minor). Removed team-ups (Jeff-nado, Duality Dance) now listed in dedicated section.",
@@ -746,8 +750,112 @@ function ChangelogTab(){return<div style={{display:"grid",gap:"16px"}}>
 </div>)}
 </div>}
 
+// ─── PLAYER PROFILE TAB ───
+function PlayerTab(){
+const names=Object.keys(STATS).sort((a,b)=>a.toLowerCase().localeCompare(b.toLowerCase()));
+const[sel,setSel]=useState(null);
+if(!sel)return<div style={{display:"grid",gap:"16px"}}>
+<Sec border={`${C.gold}44`} title="PLAYER PROFILES" titleColor={C.gold}>
+<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Select a player to view their complete profile — all data from every tab filtered into a single view. Use this for individual coaching sessions.</p>
+</Sec>
+<div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))",gap:"10px"}}>
+{names.map(n=>{const s=STATS[n];const fb=FB.find(f=>f.n===n);return<div key={n} onClick={()=>setSel(n)} style={{background:C.panel,border:`1px solid ${C.border}`,borderRadius:F.rad,padding:F.pad,cursor:"pointer",textAlign:"center"}}>
+<div style={{fontSize:"28px",marginBottom:"6px"}}>{fb?fb.i:"👤"}</div>
+<div style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.xl,color:C.text}}>{n}</div>
+<div style={{color:C.dim,fontSize:F.xs,marginTop:"4px"}}>{s.ign}</div>
+<div style={{marginTop:"8px"}}>{fb&&<Gr g={fb.g}/>}</div>
+<div style={{marginTop:"8px"}}><Bd color={C.purple} text={s.rank}/></div>
+</div>})}
+</div></div>;
+const s=STATS[sel];const fb=FB.find(f=>f.n===sel);const rm=ROLE_MATRIX.find(r=>r.name===sel);
+const myComps=COMPS.filter(c=>c.lineup.some(l=>l.p===sel));
+const myMatches=TM.filter(m=>m.p.some(p=>p.n===sel));
+const myLearns=LEARNS.filter(l=>l.w.includes(sel));
+const myHeroes=OUR_HEROES[sel]||[];
+const roles=["vanguard","duelist","strategist"];
+const roleColors={vanguard:C.tank,duelist:C.dps,strategist:C.heal};
+const roleLabels={vanguard:"VANGUARD",duelist:"DUELIST",strategist:"STRATEGIST"};
+return<div style={{display:"grid",gap:"16px"}}>
+{/* Back button + Header */}
+<div style={{display:"flex",alignItems:"center",gap:"14px"}}>
+<button onClick={()=>setSel(null)} style={{background:C.panel,border:`1px solid ${C.border}`,borderRadius:"8px",padding:"10px 18px",cursor:"pointer",color:C.dim,fontFamily:"'Rajdhani'",fontWeight:700,fontSize:F.sm}}>← ALL PLAYERS</button>
+<div style={{flex:1}}>
+<div style={{display:"flex",alignItems:"center",gap:"12px"}}>{fb&&<span style={{fontSize:"30px"}}>{fb.i}</span>}
+<div><div style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.xxl,color:C.text}}>{sel}</div>
+<div style={{color:C.dim,fontSize:F.sm}}>{fb?fb.v:""}</div></div>
+{fb&&<Gr g={fb.g}/>}</div>
+</div></div>
+{/* Stats Overview */}
+<Sec border={`${C.purple}44`} title="COMPETITIVE STATS" titleColor={C.purple}>
+<div style={{display:"flex",gap:"8px",flexWrap:"wrap",marginBottom:"14px"}}>
+<Bd color={C.purple} text={s.rank+" ("+s.rs+" RS)"}/><Bd color={parseFloat(s.wr)>=55?C.green:parseFloat(s.wr)>=45?C.gold:C.accent} text={s.wr+" "+s.rec}/><Bd color={parseFloat(s.r20)>=50?C.green:parseFloat(s.r20)>=35?C.gold:C.accent} text={"L20: "+s.r20+" "+s.r20r}/>
+</div>
+<table style={{width:"100%",borderCollapse:"collapse",fontSize:F.sm}}><thead><tr style={{borderBottom:`1px solid ${C.border}`}}>{["Hero","WR","Games","KDA","K/D/A"].map(h=><th key={h} style={{textAlign:"left",padding:"8px",color:C.dim,fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",letterSpacing:"1px"}}>{h}</th>)}</tr></thead>
+<tbody>{s.heroes.map((h,i)=>{const w=parseFloat(h.w),wc=w>=60?C.green:w>=45?C.gold:C.accent;return<tr key={i} style={{borderBottom:`1px solid ${C.border}22`}}><td style={{padding:"8px",color:C.text,fontWeight:600}}>{h.h}</td><td style={{padding:"8px",color:wc,fontWeight:700}}>{h.w}</td><td style={{padding:"8px",color:C.dim}}>{h.g}</td><td style={{padding:"8px",color:C.blue,fontWeight:600}}>{h.k}</td><td style={{padding:"8px",color:C.dim}}>{h.l}</td></tr>})}</tbody></table>
+{s.extra&&<div style={{background:`${C.purple}11`,borderRadius:"8px",padding:"14px",marginTop:"12px",border:`1px solid ${C.purple}33`}}><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{s.extra}</div></div>}
+{s.note&&<div style={{background:`${C.gold}11`,borderRadius:"8px",padding:"14px",marginTop:"8px",border:`1px solid ${C.gold}33`}}><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{s.note}</div></div>}
+</Sec>
+{/* Intel Assessment */}
+{fb&&<Sec border={`${C.accent}44`} title="INTEL ASSESSMENT" titleColor={C.accent}>
+{[{l:"STRENGTHS",c:C.green,t:fb.s},{l:"WEAKNESSES",c:C.accent,t:fb.w},{l:"THE ONE ABOVE ALL DECREES",c:C.gold,t:fb.r}].map((x,i)=><div key={i} style={{background:`${x.c}11`,borderRadius:"10px",padding:"16px",marginBottom:"10px",border:`1px solid ${x.c}33`}}>
+<div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",color:x.c,letterSpacing:"1px",marginBottom:"6px"}}>{x.l}</div>
+<div style={{color:C.dim,fontSize:F.sm,lineHeight:1.7}}>{x.t}</div></div>)}
+</Sec>}
+{/* Role Matrix */}
+{rm&&<Sec border={`${C.blue}44`} title="ROLE FLEXIBILITY" titleColor={C.blue}>
+<div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"10px"}}>
+{roles.map(r=>{const d=rm.roles[r];return<div key={r} style={{background:`${d.c}11`,border:`2px solid ${d.c}44`,borderRadius:"10px",padding:"14px",textAlign:"center"}}>
+<div style={{fontFamily:"'Rajdhani'",fontWeight:900,color:roleColors[r],fontSize:"12px",letterSpacing:"1.5px",marginBottom:"4px"}}>{roleLabels[r]}</div>
+<div style={{fontFamily:"'Rajdhani'",fontWeight:900,color:d.c,fontSize:F.lg}}>{d.conf}</div>
+<div style={{color:d.wr!=="—"?C.text:C.muted,fontSize:F.md,fontWeight:700}}>{d.wr!=="—"?d.wr:"—"}</div>
+<div style={{color:C.dim,fontSize:"11px",lineHeight:1.4,marginTop:"6px",textAlign:"left"}}>{d.heroes}</div>
+<div style={{color:C.muted,fontSize:"11px",lineHeight:1.4,marginTop:"4px",textAlign:"left",fontStyle:"italic"}}>{d.note}</div>
+</div>})}
+</div></Sec>}
+{/* Draft Pool */}
+{myHeroes.length>0&&<Sec border={`${C.green}44`} title={"DRAFT POOL ("+myHeroes.length+" HEROES)"} titleColor={C.green}>
+<div style={{display:"flex",gap:"8px",flexWrap:"wrap"}}>{myHeroes.map(h=>{const hero=ALL_HEROES.find(a=>a.h===h);const rc=hero?(hero.r==="tank"?C.tank:hero.r==="dps"?C.dps:C.heal):C.muted;const tc=hero?(hero.t==="S+"?"#ff006e":hero.t==="S"?C.green:hero.t==="A"?C.blue:hero.t==="B"?C.gold:C.muted):C.muted;
+return<div key={h} style={{background:C.sec,border:`1px solid ${C.border}`,borderRadius:"8px",padding:"10px 14px",display:"flex",alignItems:"center",gap:"8px"}}>
+<span style={{width:"10px",height:"10px",borderRadius:"50%",background:rc}}/>
+<span style={{color:C.text,fontSize:F.sm,fontWeight:600,fontFamily:"'Rajdhani'"}}>{h}</span>
+<span style={{color:tc,fontSize:"11px",fontWeight:900,fontFamily:"'Rajdhani'"}}>{hero?hero.t:""}</span>
+</div>})}</div>
+</Sec>}
+{/* Compositions */}
+{myComps.length>0&&<Sec border={`${C.purple}44`} title={"COMPOSITIONS ("+myComps.length+")"} titleColor={C.purple}>
+{myComps.map((comp,i)=>{const mySlot=comp.lineup.find(l=>l.p===sel&&l.r!=="note");return<div key={i} style={{background:C.sec,borderRadius:"10px",padding:"14px",marginBottom:"8px",borderLeft:`4px solid ${comp.color}`}}>
+<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"6px"}}>
+<span style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.lg,color:comp.color}}>{comp.name} <span style={{fontSize:F.sm,color:C.dim,fontWeight:600}}>{comp.tag}</span></span>
+{mySlot&&<Bd color={mySlot.r==="tank"?C.tank:mySlot.r==="dps"?C.dps:C.heal} text={mySlot.h}/>}
+</div>
+{mySlot&&<div style={{color:C.dim,fontSize:F.xs,lineHeight:1.5}}>{mySlot.n}</div>}
+</div>})}
+</Sec>}
+{/* Tournament Matches */}
+{myMatches.length>0&&<Sec border={`${myMatches.some(m=>m.res==="WIN")?C.green:C.accent}44`} title={"TOURNAMENT MATCHES ("+myMatches.length+")"} titleColor={myMatches.some(m=>m.res==="WIN")?C.green:C.accent}>
+{myMatches.map((m,i)=>{const me=m.p.find(p=>p.n===sel);const rc=m.res==="WIN"?C.green:C.accent;const kr=parseFloat(me.r)||0;const kc=me.r==="∞"?"#ff006e":kr>=3?C.green:kr>=1.5?C.gold:C.accent;
+return<div key={i} style={{background:C.sec,borderRadius:"8px",padding:"12px",marginBottom:"6px",display:"grid",gridTemplateColumns:"60px 120px 100px 80px 1fr",gap:"10px",alignItems:"center",fontSize:F.xs}}>
+<span style={{background:rc,color:"#000",padding:"3px 10px",borderRadius:"5px",fontSize:"11px",fontWeight:900,fontFamily:"'Rajdhani'",textAlign:"center"}}>{m.res}</span>
+<span style={{color:C.text,fontWeight:600}}>{m.map} <span style={{color:C.dim}}>{m.sc}</span></span>
+<span style={{color:C.blue,fontWeight:600}}>{me.h}</span>
+<span style={{color:C.dim}}>{me.k}</span>
+<div style={{display:"flex",gap:"6px",alignItems:"center"}}><span style={{color:kc,fontWeight:700}}>{me.r==="∞"?"PERFECT":me.r+" KDA"}</span>{me.b&&<Bd color={me.b==="MVP"?"#ff006e":C.gold} text={me.b}/>}</div>
+</div>})}
+</Sec>}
+{/* Learning Priorities */}
+{myLearns.length>0&&<Sec border={`${C.gold}44`} title={"LEARNING PRIORITIES ("+myLearns.length+")"} titleColor={C.gold}>
+{myLearns.map((l,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"12px",marginBottom:"8px",display:"flex",gap:"12px",alignItems:"start"}}>
+<Bd color={l.p==="CRITICAL"?C.accent:l.p==="HIGH"?C.gold:l.p==="MEDIUM"?C.blue:C.muted} text={l.p}/>
+<div><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:F.md,color:C.text}}>{l.h}</div>
+<div style={{color:C.dim,fontSize:F.xs,lineHeight:1.5,marginTop:"4px"}}>{l.r}</div></div>
+</div>)}
+</Sec>}
+{/* Profile Link */}
+{s.url&&<a href={s.url} target="_blank" rel="noopener noreferrer" style={{color:C.blue,fontSize:F.sm,textDecoration:"none",display:"block",textAlign:"center",padding:"12px",background:C.panel,borderRadius:F.rad,border:`1px solid ${C.border}`}}>View {sel} on RivalsMeta →</a>}
+</div>}
+
 export default function App(){const[tab,setTab]=useState("stats");
-const tabs=[{id:"stats",l:"Stats"},{id:"tourney",l:"Tournament"},{id:"comps",l:"Comps"},{id:"maps",l:"Maps"},{id:"bans",l:"Bans"},{id:"feedback",l:"Intel"},{id:"learn",l:"Learns"},{id:"info",l:"Rules"},{id:"draft",l:"Draft Sim"},{id:"roles",l:"Roles"},{id:"meta",l:"Meta"},{id:"changelog",l:"Log"}];
+const tabs=[{id:"stats",l:"Stats"},{id:"tourney",l:"Tournament"},{id:"comps",l:"Comps"},{id:"maps",l:"Maps"},{id:"bans",l:"Bans"},{id:"feedback",l:"Intel"},{id:"learn",l:"Learns"},{id:"info",l:"Rules"},{id:"draft",l:"Draft Sim"},{id:"roles",l:"Roles"},{id:"meta",l:"Meta"},{id:"player",l:"Player"},{id:"changelog",l:"Log"}];
 return<div style={{minHeight:"100vh",background:C.bg,color:C.text,fontFamily:"'Rajdhani',sans-serif"}}>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet"/>
 <div style={{background:`linear-gradient(135deg,${C.panel},${C.bg})`,borderBottom:`1px solid ${C.border}`,padding:"24px 32px 16px"}}>
@@ -757,5 +865,5 @@ return<div style={{minHeight:"100vh",background:C.bg,color:C.text,fontFamily:"'R
 <div style={{padding:"24px 32px",maxWidth:"1200px"}}>
 {tab==="stats"&&<StatsTab/>}{tab==="tourney"&&<TourneyTab/>}{tab==="comps"&&<CompsTab/>}{tab==="maps"&&<MapsTab/>}
 {tab==="bans"&&<BanTab/>}{tab==="feedback"&&<FeedbackTab/>}{tab==="learn"&&<LearnTab/>}{tab==="info"&&<InfoTab/>}
-{tab==="draft"&&<DraftTab/>}{tab==="roles"&&<RoleTab/>}{tab==="meta"&&<MetaTab/>}{tab==="changelog"&&<ChangelogTab/>}
+{tab==="draft"&&<DraftTab/>}{tab==="roles"&&<RoleTab/>}{tab==="meta"&&<MetaTab/>}{tab==="player"&&<PlayerTab/>}{tab==="changelog"&&<ChangelogTab/>}
 </div></div>}
