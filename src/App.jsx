@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const C={bg:"#0a0b0f",panel:"#12141c",ph:"#181b26",accent:"#e63946",gold:"#f4a825",blue:"#4cc9f0",purple:"#9b5de5",green:"#06d6a0",text:"#e8e8e8",dim:"#8892a4",muted:"#555e70",border:"#1e2233",tank:"#3a86a8",dps:"#e63946",heal:"#06d6a0",sec:"#0e1018"};
+const C={bg:"#0a0b0f",panel:"#12141c",ph:"#181b26",accent:"#e63946",gold:"#f4a825",blue:"#4cc9f0",purple:"#9b5de5",green:"#06d6a0",text:"#e8e8e8",dim:"#8892a4",muted:"#555e70",border:"#1e2233",tank:"#4a9eff",dps:"#ff4757",heal:"#2ed573",sec:"#0e1018"};
 const F={xs:"15px",sm:"16px",md:"18px",lg:"22px",xl:"28px",xxl:"34px",h1:"40px",pad:"24px",padL:"30px",gap:"16px",rad:"14px"};
 
 const STATS={
@@ -243,13 +243,11 @@ w:"3 heroes total (C&D, Luna 0%, White Fox QP-only). C&D 18% last 20. Tournament
 r:"The forensic analysis: your C&D at 12.82 KDA with 29.8 assists/game proves the HEALING OUTPUT is not the problem — you're dying too much. In your 55.6% WR games, you were likely dying ~3 times/game. In the recent 18% stretch, you're dying ~7+ times. That's a positioning/peel issue. Two hypotheses: (1) S7's dive meta means more enemies are targeting supports — you need to position further back than you did in S6, or (2) your team's composition isn't providing enough peel. The tournament data supports both — games where the team ran proper tanks (Klyntar win) you had 16.00 KDA. Games where the team was scrambled, you died 7-11 times. FIX: (1) Position 5-10m further from the fight than you currently do. (2) Learn to toggle to Dagger form when being dove — the damage can kill flankers. (3) EXPAND YOUR POOL — Rocket, Gambit, Sue. Not negotiable."},
 ];
 
-const BANS={g:"S7: A ban→B ban→B save→A save→A ban→B ban→B save→A save→A ban→B ban. 3 bans + 2 saves each. 15s/phase. In BO3+, winner bans first next game. STRATEGY: Use first ban to remove enemy's best hero. Use first SAVE (phase 3-4) to protect YOUR critical hero. Use bans 2-3 to target enemy healer pool or one-tricks.",
-b:[{h:"C&D",w:"Best healer. 4 of your players play it. If not running it, deny it."},{h:"Magneto",w:"Metal Bulwark dominates neutral phases. Top Diamond+ ban."},{h:"Gambit",w:"Ragin' Royal Flush = highest-impact ult even post-nerf."},{h:"Groot",w:"Wall control is premium in S7's longer neutrals."},{h:"Spider-Man",w:"Premier dive DPS. Ban if running anti-dive."},{h:"Venom",w:"THE dive tank. Ban to prevent dive entirely."}],
-s:[{h:"Thor",w:"Begin's best. 70% WR. 66.7% across 33g on second acct."},{h:"Magneto",w:"Gabe's 71.4%. MUST ACTUALLY PLAY IN TOURNAMENT."},{h:"C&D",w:"Multiple pilots. Save denies enemy AND secures your heals."},{h:"Venom",w:"Ayden's only dive tank option."},{h:"Groot",w:"Begin's second tank. 77.8% WR on second acct."},{h:"Daredevil",w:"Jace's 72% WR 25g. S-tier info DPS. Save secures permanent wallhack advantage."}]};
+const BANS_GUIDE="S7: A ban→B ban→B save→A save→A ban→B ban→B save→A save→A ban→B ban. 3 bans + 2 saves each. 15s/phase. In BO3+, winner bans first next game. STRATEGY: Use first ban to remove enemy's best hero. Use first SAVE (phase 3-4) to protect YOUR critical hero. Use bans 2-3 to target enemy healer pool or one-tricks.";
 
 const RULES=[{l:"Format",v:"Open Quals (BO1) → Closed Quals (BO1) → Double Elim (BO3→BO5→BO7)"},{l:"Bans",v:"3 bans + 2 saves each (6 banned, 4 saved)"},{l:"Roster",v:"6+ per Faction. Subs between maps OK."},{l:"Rank",v:"Platinum 3 minimum"},{l:"Maps",v:"14 maps + Lower Manhattan. 1st=random Dom. Loser picks next."},{l:"Reg",v:"March 28–April 11 (AMERICAS)"},{l:"Open",v:"April 11–12 | 7-11pm ET"},{l:"Closed",v:"April 18–19 | 7-11pm ET"},{l:"Elim",v:"April 25–May 10"},{l:"Prize",v:"$7K / $3.5K / $2.5K / $1.5K"}];
 
-// ─── NEW: META TIER DATA (Diamond+ S7) ───
+// ─── META TIER DATA ───
 const META_TIERS={
 vanguard:[
 {tier:"S+",heroes:[
@@ -361,7 +359,7 @@ teamups:[
 ]},
 ]};
 
-// ─── NEW: ROLE FLEXIBILITY MATRIX ───
+// ─── ROLE FLEXIBILITY MATRIX ───
 const ROLE_MATRIX=[
 {name:"Ayden",roles:{
 vanguard:{wr:"50%",conf:"FLEX",heroes:"Emma 50% 16g, Venom 50% 2g",note:"Emma 12g in R20 at 50% with 7+ KDA peaks. Venom NEW WIN 3.36 KDA. Climbing Plat 1 → Dia 3 on Vanguard picks.",c:C.gold},
@@ -410,7 +408,7 @@ strategist:{wr:"0%",conf:"WEAK",heroes:"Mantis 0%, Sue 0%, Gambit QP only",note:
 }},
 ];
 
-// ─── NEW: ALL HEROES FOR DRAFT SIM ───
+// ─── ALL HEROES ───
 const ALL_HEROES=[
 {h:"Groot",r:"tank",t:"S+"},{h:"Deadpool (V)",r:"tank",t:"S+"},{h:"Magneto",r:"tank",t:"S+"},
 {h:"Rogue",r:"tank",t:"S"},{h:"Emma Frost",r:"tank",t:"S"},{h:"The Thing",r:"tank",t:"S"},
@@ -439,35 +437,35 @@ const OUR_HEROES={
 };
 
 // ─── UI (35% larger) ───
-function Tab({a,onClick,children,color}){return<button onClick={onClick} style={{background:a?(color||C.accent):"transparent",color:a?"#fff":C.dim,border:a?"none":`1px solid ${C.border}`,padding:"14px 22px",borderRadius:"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:F.sm,letterSpacing:"1.2px",textTransform:"uppercase",whiteSpace:"nowrap"}}>{children}</button>}
-function Bd({color,text}){return<span style={{background:`${color}22`,color,padding:"3px 10px",borderRadius:"5px",fontSize:"12px",fontWeight:700,letterSpacing:"1px",fontFamily:"'Rajdhani'"}}>{text}</span>}
-function Gr({g}){const c=g.startsWith("S")?"#ff006e":g.startsWith("A")?C.green:g.startsWith("B")?C.blue:g.startsWith("C")?C.gold:C.accent;return<span style={{background:c,color:"#000",padding:"5px 16px",borderRadius:"8px",fontSize:"20px",fontWeight:900,fontFamily:"'Rajdhani'"}}>{g}</span>}
-function Sec({bg,border,title,titleColor,children}){return<div style={{background:bg||C.panel,borderRadius:F.rad,border:`1px solid ${border||C.border}`,padding:F.padL,marginBottom:F.gap}}>{title&&<h4 style={{margin:"0 0 14px",fontFamily:"'Rajdhani'",fontWeight:900,color:titleColor||C.text,letterSpacing:"1.2px",fontSize:F.lg}}>{title}</h4>}{children}</div>}
+function Tab({a,onClick,children,color}){return <button onClick={onClick} style={{background:a?(color||C.accent):"transparent",color:a?"#fff":C.dim,border:a?"none":`1px solid ${C.border}`,padding:"14px 22px",borderRadius:"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:F.sm,letterSpacing:"1.2px",textTransform:"uppercase",whiteSpace:"nowrap"}}>{children}</button>}
+function Bd({color,text}){return <span style={{background:`${color}22`,color,padding:"3px 10px",borderRadius:"5px",fontSize:"12px",fontWeight:700,letterSpacing:"1px",fontFamily:"'Rajdhani'"}}>{text}</span>}
+function Gr({g}){const c=g.startsWith("S")?"#ff006e":g.startsWith("A")?C.green:g.startsWith("B")?C.blue:g.startsWith("C")?C.gold:C.accent;return <span style={{background:c,color:"#000",padding:"5px 16px",borderRadius:"8px",fontSize:"20px",fontWeight:900,fontFamily:"'Rajdhani'"}}>{g}</span>}
+function Sec({bg,border,title,titleColor,children}){return <div style={{background:bg||C.panel,borderRadius:F.rad,border:`1px solid ${border||C.border}`,padding:F.padL,marginBottom:F.gap}}>{title&&<h4 style={{margin:"0 0 14px",fontFamily:"'Rajdhani'",fontWeight:900,color:titleColor||C.text,letterSpacing:"1.2px",fontSize:F.lg}}>{title}</h4>}{children}</div>}
 
-function StatsTab(){const[sel,setSel]=useState(null);return<div style={{display:"grid",gap:F.gap}}>{Object.entries(STATS).map(([n,s])=>{const o=sel===n;return<div key={n} onClick={()=>setSel(o?null:n)} style={{background:o?C.ph:C.panel,borderRadius:F.rad,border:`1px solid ${o?C.gold:C.border}`,padding:F.pad,cursor:"pointer"}}>
+function StatsTab(){const[sel,setSel]=useState(null);return <div style={{display:"grid",gap:F.gap}}>{Object.entries(STATS).map(([n,s])=>{const o=sel===n;return <div key={n} onClick={()=>setSel(o?null:n)} style={{background:o?C.ph:C.panel,borderRadius:F.rad,border:`1px solid ${o?C.gold:C.border}`,padding:F.pad,cursor:"pointer"}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><div><div style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.xl,color:C.text}}>{n} <span style={{fontSize:F.sm,color:C.dim,fontWeight:500}}>({s.ign})</span></div>
 <div style={{display:"flex",gap:"8px",marginTop:"6px",flexWrap:"wrap"}}><Bd color={C.purple} text={s.rank+" ("+s.rs+" RS)"}/><Bd color={parseFloat(s.wr)>=55?C.green:parseFloat(s.wr)>=45?C.gold:C.accent} text={s.wr+" "+s.rec}/><Bd color={parseFloat(s.r20)>=50?C.green:parseFloat(s.r20)>=35?C.gold:C.accent} text={"L20: "+s.r20}/></div></div><span style={{color:C.muted,fontSize:F.lg}}>{o?"▲":"▼"}</span></div>
 {o&&<div style={{marginTop:"18px",display:"grid",gap:F.gap}}>
 <table style={{width:"100%",borderCollapse:"collapse",fontSize:F.sm}}><thead><tr style={{borderBottom:`1px solid ${C.border}`}}>{["Hero","WR","Games","KDA","K/D/A"].map(h=><th key={h} style={{textAlign:"left",padding:"8px",color:C.dim,fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",letterSpacing:"1px"}}>{h}</th>)}</tr></thead>
-<tbody>{s.heroes.map((h,i)=>{const w=parseFloat(h.w),wc=w>=60?C.green:w>=45?C.gold:C.accent;return<tr key={i} style={{borderBottom:`1px solid ${C.border}22`}}><td style={{padding:"8px",color:C.text,fontWeight:600}}>{h.h}</td><td style={{padding:"8px",color:wc,fontWeight:700}}>{h.w}</td><td style={{padding:"8px",color:C.dim}}>{h.g}</td><td style={{padding:"8px",color:C.blue,fontWeight:600}}>{h.k}</td><td style={{padding:"8px",color:C.dim}}>{h.l}</td></tr>})}</tbody></table>
+<tbody>{s.heroes.map((h,i)=>{const w=parseFloat(h.w),wc=w>=60?C.green:w>=45?C.gold:C.accent;return <tr key={i} style={{borderBottom:`1px solid ${C.border}22`}}><td style={{padding:"8px",color:C.text,fontWeight:600}}>{h.h}</td><td style={{padding:"8px",color:wc,fontWeight:700}}>{h.w}</td><td style={{padding:"8px",color:C.dim}}>{h.g}</td><td style={{padding:"8px",color:C.blue,fontWeight:600}}>{h.k}</td><td style={{padding:"8px",color:C.dim}}>{h.l}</td></tr>})}</tbody></table>
 {s.extra&&<div style={{background:`${C.purple}11`,borderRadius:"8px",padding:"14px",border:`1px solid ${C.purple}33`}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"13px",color:C.purple,letterSpacing:"1px",marginBottom:"6px"}}>ADDITIONAL DATA</div><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{s.extra}</div></div>}
 <div style={{background:`${C.gold}11`,borderRadius:"8px",padding:"14px",border:`1px solid ${C.gold}33`}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"13px",color:C.gold,letterSpacing:"1px",marginBottom:"6px"}}>ANALYSIS</div><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{s.note}</div></div>
 <a href={s.url} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()} style={{color:C.blue,fontSize:F.xs,textDecoration:"none"}}>View on RivalsMeta →</a></div>}</div>})}</div>}
 
-function TourneyTab(){const[ex,setEx]=useState(null);return<div style={{display:"grid",gap:"18px"}}>
+function TourneyTab(){const[ex,setEx]=useState(null);return <div style={{display:"grid",gap:"18px"}}>
 <Sec border={`${C.accent}44`} title={"TOURNAMENT: "+TSUMMARY.rec} titleColor={C.accent}><div style={{fontSize:F.sm,marginBottom:"12px"}}><span style={{color:C.green,fontWeight:700}}>Only Win:</span> <span style={{color:C.dim}}>{TSUMMARY.win}</span></div>
 {TSUMMARY.players.map((p,i)=><div key={i} style={{color:C.dim,fontSize:F.xs,marginBottom:"6px",lineHeight:1.5}}><strong style={{color:C.text}}>{p.n}:</strong> {p.r} — {p.d}</div>)}</Sec>
 <Sec border={`${C.gold}44`} title="KEY ISSUES" titleColor={C.gold}>{TSUMMARY.issues.map((s,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"10px 14px",marginBottom:"8px",display:"flex",gap:"10px"}}><span style={{color:C.gold,fontWeight:700,fontSize:F.sm}}>▸</span><span style={{color:C.dim,fontSize:F.xs,lineHeight:"22px"}}>{s}</span></div>)}</Sec>
 <h4 style={{margin:0,fontFamily:"'Rajdhani'",fontWeight:900,color:C.text,fontSize:F.lg}}>MATCH-BY-MATCH</h4>
-{TM.map((m,i)=>{const o=ex===i,rc=m.res==="WIN"?C.green:C.accent;return<div key={i} onClick={()=>setEx(o?null:i)} style={{background:C.panel,borderRadius:"10px",border:`1px solid ${o?rc:C.border}`,cursor:"pointer",overflow:"hidden"}}>
+{TM.map((m,i)=>{const o=ex===i,rc=m.res==="WIN"?C.green:C.accent;return <div key={i} onClick={()=>setEx(o?null:i)} style={{background:C.panel,borderRadius:"10px",border:`1px solid ${o?rc:C.border}`,cursor:"pointer",overflow:"hidden"}}>
 <div style={{padding:"14px 18px",display:"flex",justifyContent:"space-between",alignItems:"center"}}><div style={{display:"flex",alignItems:"center",gap:"12px"}}><span style={{background:rc,color:"#000",padding:"3px 12px",borderRadius:"5px",fontSize:"12px",fontWeight:900,fontFamily:"'Rajdhani'"}}>{m.res}</span><span style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:F.lg,color:C.text}}>{m.map}</span><span style={{color:C.dim,fontSize:F.sm}}>{m.sc}</span></div><span style={{color:C.muted}}>{o?"▲":"▼"}</span></div>
-{o&&<div style={{padding:"0 18px 18px"}}><div style={{display:"grid",gap:"6px",marginBottom:"14px"}}>{m.p.map((p,j)=>{const kr=parseFloat(p.r)||0,kc=p.r==="∞"?"#ff006e":kr>=3?C.green:kr>=1.5?C.gold:C.accent;return<div key={j} style={{background:C.sec,borderRadius:"6px",padding:"10px",display:"grid",gridTemplateColumns:"90px 110px 90px 1fr",gap:"8px",alignItems:"center",fontSize:F.xs}}>
+{o&&<div style={{padding:"0 18px 18px"}}><div style={{display:"grid",gap:"6px",marginBottom:"14px"}}>{m.p.map((p,j)=>{const kr=parseFloat(p.r)||0,kc=p.r==="∞"?"#ff006e":kr>=3?C.green:kr>=1.5?C.gold:C.accent;return <div key={j} style={{background:C.sec,borderRadius:"6px",padding:"10px",display:"grid",gridTemplateColumns:"90px 110px 90px 1fr",gap:"8px",alignItems:"center",fontSize:F.xs}}>
 <span style={{fontFamily:"'Rajdhani'",fontWeight:700,color:C.text}}>{p.n}</span><span style={{color:C.blue,fontWeight:600}}>{p.h}</span><span style={{color:C.dim}}>{p.k}</span>
 <div style={{display:"flex",gap:"6px",alignItems:"center"}}><span style={{color:kc,fontWeight:700}}>{p.r==="∞"?"PERFECT":p.r+" KDA"}</span>{p.b&&<Bd color={p.b==="MVP"?"#ff006e":C.gold} text={p.b}/>}</div></div>})}</div>
 <div style={{background:`${rc}11`,borderRadius:"8px",padding:"12px",border:`1px solid ${rc}33`}}><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{m.a}</div></div></div>}</div>})}
 </div>}
 
-function CompsTab(){const[idx,setIdx]=useState(0);const comp=COMPS[idx];return<div>
+function CompsTab(){const[idx,setIdx]=useState(0);const comp=COMPS[idx];return <div>
 <div style={{display:"flex",gap:"8px",flexWrap:"wrap",marginBottom:"20px"}}>{COMPS.map((c,i)=><Tab key={i} a={idx===i} onClick={()=>setIdx(i)} color={c.color}>{c.name}</Tab>)}</div>
 <div style={{background:C.panel,borderRadius:F.rad,border:`1px solid ${C.border}`,overflow:"hidden"}}>
 <div style={{padding:F.padL,borderBottom:`1px solid ${C.border}`}}><h3 style={{margin:"0 0 8px",fontSize:F.xxl,fontFamily:"'Rajdhani'",fontWeight:900,color:comp.color,letterSpacing:"2px"}}>{comp.name} <span style={{fontSize:F.md,color:C.dim,fontWeight:600}}>{comp.tag}</span></h3>
@@ -492,9 +490,9 @@ function CompsTab(){const[idx,setIdx]=useState(0);const comp=COMPS[idx];return<d
 </div>}
 </div></div></div>}
 
-function MapsTab(){const[sel,setSel]=useState(null);const modes=["Convoy","Domination","Convergence"];return<div style={{display:"grid",gap:"20px"}}>
+function MapsTab(){const[sel,setSel]=useState(null);const modes=["Convoy","Domination","Convergence"];return <div style={{display:"grid",gap:"20px"}}>
 {modes.map(mode=><div key={mode}><h4 style={{margin:"0 0 12px",fontFamily:"'Rajdhani'",fontWeight:900,color:C.purple,letterSpacing:"1.5px",fontSize:F.lg}}>{mode.toUpperCase()}</h4>
-<div style={{display:"grid",gap:"10px"}}>{MAPS.filter(m=>m.mode===mode).map((m,i)=>{const o=sel===m.name;return<div key={i} onClick={()=>setSel(o?null:m.name)} style={{background:o?C.ph:C.panel,borderRadius:"10px",border:`1px solid ${o?C.blue:C.border}`,padding:"16px",cursor:"pointer"}}>
+<div style={{display:"grid",gap:"10px"}}>{MAPS.filter(m=>m.mode===mode).map((m,i)=>{const o=sel===m.name;return <div key={i} onClick={()=>setSel(o?null:m.name)} style={{background:o?C.ph:C.panel,borderRadius:"10px",border:`1px solid ${o?C.blue:C.border}`,padding:"16px",cursor:"pointer"}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><div><span style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:F.lg,color:C.text}}>{m.name}</span><span style={{color:C.dim,fontSize:F.xs,marginLeft:"10px"}}>{m.aka}</span></div>
 <div style={{display:"flex",gap:"6px",alignItems:"center"}}><Bd color={C.blue} text={m.best}/><span style={{color:C.muted}}>{o?"▲":"▼"}</span></div></div>
 {o&&<div style={{marginTop:"14px",display:"grid",gap:"10px"}}>
@@ -505,39 +503,31 @@ function MapsTab(){const[sel,setSel]=useState(null);const modes=["Convoy","Domin
 <div style={{background:`${C.green}11`,borderRadius:"8px",padding:"14px",border:`1px solid ${C.green}33`}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"11px",color:C.green,letterSpacing:"1px",marginBottom:"6px"}}>OUR COMP</div><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{m.ourComp}</div></div>
 </div>}</div>})}</div></div>)}</div>}
 
-function FeedbackTab(){const[ex,setEx]=useState(null);return<div style={{display:"grid",gap:"12px"}}>{FB.map((p,i)=>{const o=ex===i;return<div key={i} onClick={()=>setEx(o?null:i)} style={{background:C.panel,borderRadius:F.rad,border:`1px solid ${o?C.accent:C.border}`,cursor:"pointer",overflow:"hidden"}}>
+function FeedbackTab(){const[ex,setEx]=useState(null);return <div style={{display:"grid",gap:"12px"}}>{FB.map((p,i)=>{const o=ex===i;return <div key={i} onClick={()=>setEx(o?null:i)} style={{background:C.panel,borderRadius:F.rad,border:`1px solid ${o?C.accent:C.border}`,cursor:"pointer",overflow:"hidden"}}>
 <div style={{padding:"16px 20px",display:"flex",justifyContent:"space-between",alignItems:"center"}}><div style={{display:"flex",alignItems:"center",gap:"12px"}}><span style={{fontSize:"26px"}}>{p.i}</span><div><div style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.xl,color:C.text}}>{p.n}</div><div style={{fontSize:F.xs,color:C.dim}}>{p.v}</div></div></div><Gr g={p.g}/></div>
 {o&&<div style={{padding:"0 20px 20px",display:"grid",gap:"10px"}}>
 {[{l:"STRENGTHS (DATA-BACKED)",c:C.green,t:p.s},{l:"WEAKNESSES (DATA-BACKED)",c:C.accent,t:p.w},{l:"THE ONE ABOVE ALL DECREES",c:C.gold,t:p.r}].map((s,j)=><div key={j} style={{background:`${s.c}11`,borderRadius:"10px",padding:"16px",border:`1px solid ${s.c}33`}}>
 <div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",color:s.c,letterSpacing:"1px",marginBottom:"6px"}}>{s.l}</div>
 <div style={{color:C.dim,fontSize:F.sm,lineHeight:1.7}}>{s.t}</div></div>)}</div>}</div>})}</div>}
 
-function BanTab(){return<div style={{display:"grid",gap:"16px"}}>
-<Sec title="BAN-SAVE STRATEGY" titleColor={C.gold}><p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>{BANS.g}</p></Sec>
-<div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:"6px"}}>{[{s:1,a:"A BAN",c:C.accent},{s:2,a:"B BAN",c:C.blue},{s:3,a:"B SAVE",c:C.green},{s:4,a:"A SAVE",c:C.green},{s:5,a:"A BAN",c:C.accent},{s:6,a:"B BAN",c:C.blue},{s:7,a:"B SAVE",c:C.green},{s:8,a:"A SAVE",c:C.green},{s:9,a:"A BAN",c:C.accent},{s:10,a:"B BAN",c:C.blue}].map(x=><div key={x.s} style={{background:`${x.c}22`,border:`1px solid ${x.c}44`,borderRadius:"8px",padding:"10px",textAlign:"center"}}><div style={{fontSize:"10px",color:C.muted,fontFamily:"'Rajdhani'"}}>{x.s}</div><div style={{fontSize:F.xs,color:x.c,fontWeight:700,fontFamily:"'Rajdhani'"}}>{x.a}</div></div>)}</div>
-<div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"14px"}}>
-<Sec border={`${C.accent}44`} title="PRIORITY BANS" titleColor={C.accent}>{BANS.b.map((b,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"12px",marginBottom:"8px"}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:F.md,color:C.text}}>{i+1}. {b.h}</div><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.5}}>{b.w}</div></div>)}</Sec>
-<Sec border={`${C.green}44`} title="PRIORITY SAVES" titleColor={C.green}>{BANS.s.map((s,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"12px",marginBottom:"8px"}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:F.md,color:C.text}}>{i+1}. {s.h}</div><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.5}}>{s.w}</div></div>)}</Sec>
-</div></div>}
-
-function LearnTab(){return<div style={{display:"grid",gap:"12px"}}>
+function LearnTab(){return <div style={{display:"grid",gap:"12px"}}>
 <div style={{background:`${C.accent}11`,borderRadius:F.rad,border:`1px solid ${C.accent}33`,padding:F.pad}}><p style={{margin:0,color:C.dim,fontSize:F.sm,lineHeight:1.7}}><strong style={{color:C.accent}}>CRITICAL ROSTER GAPS:</strong> Raquel's 3-hero pool is vulnerability #1. No hitscan sniper. Only 1 dive tank player. Iron Man is NOT a tournament pick (0W 4L). T-Money is secretly a better tank than DPS. Emma and Cap are C-tier — deprioritize.</p></div>
 {LEARNS.map((r,i)=><div key={i} style={{background:C.panel,borderRadius:F.rad,border:`1px solid ${C.border}`,padding:F.pad}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"8px"}}><h4 style={{margin:0,fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.lg,color:C.text}}>{r.h}</h4><Bd color={r.p==="CRITICAL"?C.accent:r.p==="HIGH"?C.gold:r.p==="MEDIUM"?C.blue:C.muted} text={r.p}/></div>
 <p style={{margin:"0 0 8px",color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{r.r}</p>
 <div style={{display:"flex",gap:"6px",flexWrap:"wrap"}}>{r.w.map(p=><span key={p} style={{background:`${C.blue}22`,color:C.blue,padding:"3px 10px",borderRadius:"5px",fontSize:"12px",fontWeight:700}}>{p}</span>)}</div></div>)}</div>}
 
-function InfoTab(){return<div style={{display:"grid",gap:"16px"}}>
+function InfoTab(){return <div style={{display:"grid",gap:"16px"}}>
 <Sec title="MRC SEASON 7" titleColor={C.gold}>{RULES.map((t,i)=><div key={i} style={{display:"grid",gridTemplateColumns:"120px 1fr",gap:"12px",padding:"8px 0",borderBottom:i<RULES.length-1?`1px solid ${C.border}`:"none"}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:F.xs,color:C.gold,letterSpacing:"1px"}}>{t.l}</div><div style={{color:C.dim,fontSize:F.sm}}>{t.v}</div></div>)}</Sec>
 <Sec border={`${C.gold}44`} title="BAN-SAVE PROCEDURE" titleColor={C.gold}>
-<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:"0 0 14px"}}>{BANS.g}</p>
+<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:"0 0 14px"}}>{BANS_GUIDE}</p>
 <p style={{color:C.dim,fontSize:F.xs,lineHeight:1.7,margin:"0 0 14px"}}>The draft alternates between bans (removing heroes from the match) and saves (protecting heroes from being banned). Each team gets 3 bans and 2 saves. Phases are 15 seconds each. In BO3+, the winner of the previous game bans first in the next game. The visual below shows the full 10-phase sequence — red = ban, green = save.</p>
 <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:"6px"}}>{[{s:1,a:"A BAN",c:C.accent},{s:2,a:"B BAN",c:C.blue},{s:3,a:"B SAVE",c:C.green},{s:4,a:"A SAVE",c:C.green},{s:5,a:"A BAN",c:C.accent},{s:6,a:"B BAN",c:C.blue},{s:7,a:"B SAVE",c:C.green},{s:8,a:"A SAVE",c:C.green},{s:9,a:"A BAN",c:C.accent},{s:10,a:"B BAN",c:C.blue}].map(x=><div key={x.s} style={{background:`${x.c}22`,border:`1px solid ${x.c}44`,borderRadius:"8px",padding:"10px",textAlign:"center"}}><div style={{fontSize:"10px",color:C.muted,fontFamily:"'Rajdhani'"}}>{x.s}</div><div style={{fontSize:F.xs,color:x.c,fontWeight:700,fontFamily:"'Rajdhani'"}}>{x.a}</div></div>)}</div>
 </Sec>
 <Sec border={`${C.purple}44`} title="S7 META" titleColor={C.purple}>
 {["20% ult charge nerf globally. Neutral phases now 50+ seconds. Base kit value > ult cycling.","1-2-3 dominant at Diamond+. 2-2-2 has 54% WR, 62% play rate. Triple support isn't dead.","Dive stronger. Slower defensive ults = larger windows for Venom/Spider-Man/Magik/Psylocke.","S-tier Tanks: Magneto, Groot, Venom, Deadpool(V), Hulk.","S-tier DPS: Hela, Daredevil, Hawkeye, Blade, Spider-Man, Psylocke, Magik, Wolverine.","S-tier Heals: C&D, Rocket, Gambit, Luna, White Fox.","C-tier Tanks: Emma Frost, Captain America — lowest WR tanks. Deprioritize.","New team-ups: Kumiho (WF+Luna), Cosmic Cyclone (Storm+Adam). Removed: Jeff-nado, Duality Dance.","Rogue ult drain more valuable — stolen charge 20% harder to rebuild.","Bucky nerfed (CD 3s→6s). Shin-Shibuya returns to comp. Lower Manhattan added April 3."].map((n,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"10px 14px",marginBottom:"6px",display:"flex",gap:"10px"}}><span style={{color:C.purple,fontWeight:700}}>▸</span><span style={{color:C.dim,fontSize:F.xs,lineHeight:"22px"}}>{n}</span></div>)}</Sec></div>}
 
-// ─── NEW TAB: DRAFT SIMULATOR ───
+// ─── DRAFT SIMULATOR ───
 function DraftTab(){
 const PHASES=[
 {step:1,team:"A",action:"BAN"},{step:2,team:"B",action:"BAN"},
@@ -589,12 +579,12 @@ alts.sort((a,b)=>{const ord={"S+":0,"S":1,"A":2,"B":3,"C":4};return(ord[a.tier]|
 return{banned:banned.h,player:banned.p,alts:alts.slice(0,3)};});
 return{name:comp.name,color:comp.color,tag:comp.tag,alive,inRoster,bannedInComp,replacements,missingPlayers,playerSubs};});
 // === RENDER ===
-if(step==="roster")return<div style={{display:"grid",gap:"16px"}}>
+if(step==="roster")return <div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.gold}44`} title="DRAFT SIMULATOR" titleColor={C.gold}>
 <p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Step 1: Select the 6 players competing in this match.</p></Sec>
 <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:"8px"}}>
 {allPlayers.map(p=>{const picked=roster.includes(p);const fb=FB.find(f=>f.n===p);
-return<div key={p} onClick={()=>togglePlayer(p)} style={{background:picked?`${C.green}22`:C.panel,border:`2px solid ${picked?C.green:C.border}`,borderRadius:"10px",padding:"14px",cursor:"pointer",textAlign:"center"}}>
+return <div key={p} onClick={()=>togglePlayer(p)} style={{background:picked?`${C.green}22`:C.panel,border:`2px solid ${picked?C.green:C.border}`,borderRadius:"10px",padding:"14px",cursor:"pointer",textAlign:"center"}}>
 <div style={{fontSize:"24px"}}>{fb?fb.i:"👤"}</div>
 <div style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.lg,color:picked?C.green:C.text}}>{p}</div>
 {picked&&<div style={{color:C.green,fontSize:"11px",fontWeight:700,marginTop:"4px"}}>✓ SELECTED</div>}
@@ -602,7 +592,7 @@ return<div key={p} onClick={()=>togglePlayer(p)} style={{background:picked?`${C.
 <div style={{textAlign:"center",color:C.dim,fontSize:F.sm}}>{roster.length}/6 players selected</div>
 {roster.length===6&&<div style={{textAlign:"center"}}><button onClick={()=>{}} style={{background:C.green,color:"#000",border:"none",borderRadius:"8px",padding:"12px 30px",cursor:"pointer",fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.md,letterSpacing:"1px"}} onClick={()=>setOurSide("pending")}>CONFIRM ROSTER →</button></div>}
 </div>;
-if(step==="side")return<div style={{display:"grid",gap:"16px"}}>
+if(step==="side")return <div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.gold}44`} title="DRAFT SIMULATOR" titleColor={C.gold}>
 <p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Step 2: Is StubbedToes Team A (first ban) or Team B (second ban)?</p></Sec>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"14px"}}>
@@ -615,12 +605,12 @@ if(step==="side")return<div style={{display:"grid",gap:"16px"}}>
 </div>;
 // DRAFT + DONE states
 const enemySide=ourSide==="A"?"B":"A";
-return<div style={{display:"grid",gap:"16px"}}>
+return <div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.gold}44`} title={"DRAFT — STUBBEDTOES IS TEAM "+ourSide} titleColor={C.gold}>
 <p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Active roster: {roster.join(", ")}. {step==="done"?"Draft complete.":"Select heroes to ban or lock."}</p></Sec>
 <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:"6px"}}>
 {PHASES.map((p,i)=>{const isCur=i===phase&&step==="draft";const isDone=i<phase;const entry=actions.find(x=>x.step===p.step);const ac=p.action==="BAN"?C.accent:C.green;const isOurs=p.team===ourSide;
-return<div key={i} style={{background:isCur?`${ac}44`:isDone?`${ac}22`:`${C.border}44`,border:`2px solid ${isCur?ac:isDone?`${ac}66`:C.border}`,borderRadius:"10px",padding:"10px",textAlign:"center"}}>
+return <div key={i} style={{background:isCur?`${ac}44`:isDone?`${ac}22`:`${C.border}44`,border:`2px solid ${isCur?ac:isDone?`${ac}66`:C.border}`,borderRadius:"10px",padding:"10px",textAlign:"center"}}>
 <div style={{fontSize:"10px",color:isOurs?C.gold:C.muted,fontFamily:"'Rajdhani'",fontWeight:isOurs?900:400}}>{isOurs?"US":"THEM"}</div>
 <div style={{fontSize:F.xs,color:ac,fontWeight:700,fontFamily:"'Rajdhani'"}}>{p.action}</div>
 {entry&&<div style={{fontSize:"11px",color:C.text,fontWeight:600,marginTop:"4px",fontFamily:"'Rajdhani'"}}>{entry.hero}</div>}
@@ -635,7 +625,7 @@ return<div key={i} style={{background:isCur?`${ac}44`:isDone?`${ac}22`:`${C.bord
 {isOurTurn&&recHeroes.length>0&&<div style={{background:`${C.gold}11`,border:`1px solid ${C.gold}44`,borderRadius:"10px",padding:"14px"}}>
 <div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",color:C.gold,letterSpacing:"1px",marginBottom:"8px"}}>RECOMMENDED {cur.action==="BAN"?"BANS":"SAVES"} FOR YOUR ROSTER</div>
 <div style={{display:"flex",gap:"6px",flexWrap:"wrap"}}>{recHeroes.map(r=>{const tc=r.t==="S+"?"#ff006e":r.t==="S"?C.green:r.t==="A"?C.blue:C.gold;
-return<div key={r.h} onClick={()=>pick(r.h)} style={{background:C.sec,border:`1px solid ${tc}44`,borderRadius:"8px",padding:"8px 12px",cursor:"pointer",display:"flex",gap:"6px",alignItems:"center"}}>
+return <div key={r.h} onClick={()=>pick(r.h)} style={{background:C.sec,border:`1px solid ${tc}44`,borderRadius:"8px",padding:"8px 12px",cursor:"pointer",display:"flex",gap:"6px",alignItems:"center"}}>
 <span style={{color:C.text,fontSize:F.xs,fontWeight:600}}>{r.h}</span><span style={{color:tc,fontSize:"10px",fontWeight:900}}>{r.t}</span>
 </div>})}</div></div>}
 {/* Filters, Search, Undo, Reset */}
@@ -650,7 +640,7 @@ return<div key={r.h} onClick={()=>pick(r.h)} style={{background:C.sec,border:`1p
 {step==="draft"&&<div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(140px,1fr))",gap:"6px"}}>
 {available.map(h=>{const rc=h.r==="tank"?C.tank:h.r==="dps"?C.dps:C.heal;const tc=h.t==="S+"?"#ff006e":h.t==="S"?C.green:h.t==="A"?C.blue:h.t==="B"?C.gold:C.muted;
 const ourPlayers=Object.entries(activeHeroes).filter(([,heroes])=>heroes.includes(h.h)).map(([p])=>p);
-return<div key={h.h} onClick={()=>pick(h.h)} style={{background:C.sec,border:`1px solid ${ourPlayers.length>0?`${C.gold}66`:C.border}`,borderRadius:"8px",padding:"10px",cursor:"pointer"}}>
+return <div key={h.h} onClick={()=>pick(h.h)} style={{background:C.sec,border:`1px solid ${ourPlayers.length>0?`${C.gold}66`:C.border}`,borderRadius:"8px",padding:"10px",cursor:"pointer"}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><span style={{color:C.text,fontSize:F.xs,fontWeight:600,fontFamily:"'Rajdhani'"}}>{h.h}</span><span style={{color:tc,fontSize:"10px",fontWeight:900,fontFamily:"'Rajdhani'"}}>{h.t}</span></div>
 <div style={{display:"flex",gap:"4px",marginTop:"4px",alignItems:"center"}}><span style={{width:"8px",height:"8px",borderRadius:"50%",background:rc,display:"inline-block"}}/><span style={{color:C.muted,fontSize:"10px"}}>{h.r==="tank"?"VAN":h.r==="dps"?"DUE":"STR"}</span></div>
 {ourPlayers.length>0&&<div style={{marginTop:"4px"}}>{ourPlayers.map(p=><span key={p} style={{background:`${C.gold}22`,color:C.gold,padding:"1px 6px",borderRadius:"3px",fontSize:"9px",fontWeight:700,marginRight:"3px",fontFamily:"'Rajdhani'"}}>{p}</span>)}</div>}
@@ -665,34 +655,42 @@ return impacted.length===0?<div style={{color:C.green,fontSize:F.sm}}>No roster 
 <div style={{color:C.green,fontSize:F.xs,marginTop:"2px"}}>REMAINING: {imp.remaining.length>0?imp.remaining.join(", "):<span style={{color:C.accent,fontWeight:700}}>NO HEROES LEFT</span>}</div>
 </div>)})()}
 <div style={{marginTop:"12px"}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,color:C.gold,fontSize:"12px",letterSpacing:"1px",marginBottom:"8px"}}>COMPOSITION SURVIVAL</div>
-{compAnalysis.map((ca,i)=><div key={i} style={{marginBottom:"6px"}}>
+{compAnalysis.filter(ca=>ca.name!=="DRAFT").map((ca,i)=>{
+const hasBannedHeroes=ca.bannedInComp.length>0&&ca.inRoster;
+const hasMissingPlayers=!ca.inRoster&&ca.missingPlayers&&ca.missingPlayers.length>0;
+const allBannedHaveSubs=hasBannedHeroes?ca.replacements.every(r=>r.alts.length>0):true;
+const allMissingHaveSubs=hasMissingPlayers?(ca.playerSubs||[]).every(ps=>ps.subs.length>0):true;
+const playableWithSubs=!ca.alive&&(hasBannedHeroes||hasMissingPlayers)&&allBannedHaveSubs&&allMissingHaveSubs;
+const unplayable=!ca.alive&&!playableWithSubs;
+const dotColor=ca.alive?C.green:playableWithSubs?C.blue:C.muted;
+return <div key={i} style={{marginBottom:"6px"}}>
 <div style={{display:"flex",gap:"8px",alignItems:"center"}}>
-<span style={{width:"10px",height:"10px",borderRadius:"50%",background:ca.alive?C.green:!ca.inRoster?C.muted:C.accent}}/>
-<span style={{color:ca.alive?C.text:C.inRoster?C.muted:C.muted,fontSize:F.xs,fontFamily:"'Rajdhani'",fontWeight:ca.alive?600:400,textDecoration:ca.alive?"none":"line-through"}}>{ca.name} <span style={{color:C.dim,fontWeight:400}}>{ca.tag}</span></span>
-{!ca.inRoster&&<span style={{color:C.muted,fontSize:"10px"}}>({ca.missingPlayers.map(m=>m.p).join(", ")} not in match)</span>}
-{ca.playerSubs&&ca.playerSubs.length>0&&!ca.inRoster&&ca.playerSubs.map((ps,j)=>ps.subs.length>0&&<div key={j} style={{marginLeft:"26px",marginTop:"3px",display:"flex",gap:"6px",alignItems:"center",flexWrap:"wrap"}}>
+<span style={{width:"10px",height:"10px",borderRadius:"50%",background:dotColor}}/>
+<span style={{color:ca.alive||playableWithSubs?C.text:C.muted,fontSize:F.xs,fontFamily:"'Rajdhani'",fontWeight:ca.alive?600:playableWithSubs?500:400,textDecoration:unplayable?"line-through":"none"}}>{ca.name} <span style={{color:C.dim,fontWeight:400}}>{ca.tag}</span></span>
+{hasMissingPlayers&&<span style={{color:C.muted,fontSize:"10px"}}>({ca.missingPlayers.map(m=>m.p).join(", ")} not in match)</span>}
+{hasBannedHeroes&&<span style={{color:C.accent,fontSize:"10px"}}>({ca.bannedInComp.map(b=>b.h).join(", ")})</span>}
+</div>
+{hasBannedHeroes&&ca.replacements.map((rep,j)=>rep.alts.length>0&&<div key={j} style={{marginLeft:"26px",marginTop:"3px",display:"flex",gap:"6px",alignItems:"center",flexWrap:"wrap"}}>
+<span style={{color:C.blue,fontSize:"10px"}}>↳ {rep.banned}:</span>
+{rep.alts.map((alt,k)=>{const tc=alt.tier==="S+"?"#ff006e":alt.tier==="S"?C.green:alt.tier==="A"?C.blue:C.gold;
+return <span key={k} style={{background:`${tc}22`,color:tc,padding:"1px 8px",borderRadius:"4px",fontSize:"10px",fontWeight:700,fontFamily:"'Rajdhani'"}}>{alt.player}→{alt.hero} ({alt.tier})</span>})}
+</div>)}
+{hasMissingPlayers&&(ca.playerSubs||[]).map((ps,j)=>ps.subs.length>0&&<div key={j} style={{marginLeft:"26px",marginTop:"3px",display:"flex",gap:"6px",alignItems:"center",flexWrap:"wrap"}}>
 <span style={{color:C.blue,fontSize:"10px"}}>↳ {ps.missing}({ps.hero}):</span>
 {ps.subs.map((sub,k)=>{const tc=sub.exact?C.green:sub.tier==="S+"?"#ff006e":sub.tier==="S"?C.green:sub.tier==="A"?C.blue:C.gold;
-return<span key={k} style={{background:`${tc}22`,color:tc,padding:"1px 8px",borderRadius:"4px",fontSize:"10px",fontWeight:700,fontFamily:"'Rajdhani'"}}>{sub.player}→{sub.hero}{sub.exact?" ✓":` (${sub.tier})`}</span>})}
+return <span key={k} style={{background:`${tc}22`,color:tc,padding:"1px 8px",borderRadius:"4px",fontSize:"10px",fontWeight:700,fontFamily:"'Rajdhani'"}}>{sub.player}→{sub.hero}{sub.exact?" ✓":` (${sub.tier})`}</span>})}
 </div>)}
-{ca.bannedInComp.length>0&&ca.inRoster&&<span style={{color:C.accent,fontSize:"10px"}}>({ca.bannedInComp.map(b=>b.h).join(", ")})</span>}
-</div>
-{ca.replacements.length>0&&ca.inRoster&&ca.replacements.map((rep,j)=>rep.alts.length>0&&<div key={j} style={{marginLeft:"26px",marginTop:"3px",display:"flex",gap:"6px",alignItems:"center",flexWrap:"wrap"}}>
-<span style={{color:C.accent,fontSize:"10px"}}>↳ {rep.banned}:</span>
-{rep.alts.map((alt,k)=>{const tc=alt.tier==="S+"?"#ff006e":alt.tier==="S"?C.green:alt.tier==="A"?C.blue:C.gold;
-return<span key={k} style={{background:`${tc}22`,color:tc,padding:"1px 8px",borderRadius:"4px",fontSize:"10px",fontWeight:700,fontFamily:"'Rajdhani'"}}>{alt.player}→{alt.hero} ({alt.tier})</span>})}
-</div>)}
-</div>)}
+</div>})}
 </div></Sec>}
 </div>}
 
-// ─── NEW TAB: ROLE FLEXIBILITY MATRIX ───
+// ─── ROLE MATRIX TAB ───
 function RoleTab(){
 const roles=["vanguard","duelist","strategist"];
 const labels={vanguard:"VANGUARD",duelist:"DUELIST",strategist:"STRATEGIST"};
 const roleColors={vanguard:C.tank,duelist:C.dps,strategist:C.heal};
 const[sel,setSel]=useState(null);
-return<div style={{display:"grid",gap:"16px"}}>
+return <div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.blue}44`} title="ROLE FLEXIBILITY MATRIX" titleColor={C.blue}>
 <p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Every player mapped against every role. Color = confidence level. Click any cell for breakdown. Green = Elite/Strong. Gold = Flex/At Risk. Red = Dead/Impossible. Gray = No Data.</p>
 </Sec>
@@ -706,7 +704,7 @@ return<div style={{display:"grid",gap:"16px"}}>
 {ROLE_MATRIX.map((p,i)=><tr key={i}>
 <td style={{padding:"12px",fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.md,color:C.text,background:C.sec,borderRadius:"8px"}}>{p.name}</td>
 {roles.map(r=>{const d=p.roles[r];const isOpen=sel===p.name+r;
-return<td key={r} onClick={()=>setSel(isOpen?null:p.name+r)} style={{padding:"12px",background:`${d.c}11`,border:`2px solid ${d.c}44`,borderRadius:"10px",cursor:"pointer",textAlign:"center",verticalAlign:"top",boxShadow:isOpen?`0 0 12px ${d.c}33`:"none"}}>
+return <td key={r} onClick={()=>setSel(isOpen?null:p.name+r)} style={{padding:"12px",background:`${d.c}11`,border:`2px solid ${d.c}44`,borderRadius:"10px",cursor:"pointer",textAlign:"center",verticalAlign:"top",boxShadow:isOpen?`0 0 12px ${d.c}33`:"none"}}>
 <div style={{fontFamily:"'Rajdhani'",fontWeight:900,color:d.c,fontSize:F.md,letterSpacing:"1px"}}>{d.conf}</div>
 <div style={{color:d.wr!=="—"?C.text:C.muted,fontSize:F.sm,fontWeight:700,marginTop:"2px"}}>{d.wr!=="—"?d.wr:"—"}</div>
 {isOpen&&<div style={{textAlign:"left",marginTop:"10px",borderTop:`1px solid ${d.c}33`,paddingTop:"10px"}}>
@@ -731,14 +729,14 @@ return<td key={r} onClick={()=>setSel(isOpen?null:p.name+r)} style={{padding:"12
 </div>)}
 </Sec></div>}
 
-// ─── NEW TAB: META SNAPSHOT ───
+// ─── META TAB ───
 function MetaTab(){
 const[roleFilter,setRoleFilter]=useState("vanguard");
 const[showTU,setShowTU]=useState(false);
 const tierColors={"S+":"#ff006e","S":C.green,"A":C.blue,"B":C.gold,"C":C.muted,"—":C.muted};
 const roleData=META_TIERS[roleFilter]||[];
 const labels={vanguard:"VANGUARD",duelist:"DUELIST",strategist:"STRATEGIST"};
-return<div style={{display:"grid",gap:"16px"}}>
+return <div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.purple}44`} title="S7 META SNAPSHOT — DIAMOND+" titleColor={C.purple}>
 <p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:"0 0 14px"}}>Complete hero tier list for S7 competitive play (Diamond+ / Tournament). Data sourced primarily from Mobalytics with high-elo consensus cross-referencing. The 20% ult charge nerf defines this meta — base kit value outweighs ult cycling, dive has wider windows, neutral phases stretch 50+ seconds.</p>
 <img src="/mobalytics-tierlist.jpg" alt="Mobalytics S7 Diamond+ Tier List" style={{width:"100%",borderRadius:"10px",border:`1px solid ${C.border}`,marginBottom:"8px"}} onError={(e)=>{e.target.style.display="none"}}/>
@@ -759,7 +757,7 @@ return<div style={{display:"grid",gap:"16px"}}>
 <span style={{color:C.dim,fontSize:F.sm}}>{tier.heroes.length} {tier.heroes.length===1?"hero":"heroes"}</span></div>
 <div style={{padding:"14px 20px",display:"grid",gap:"10px"}}>
 {tier.heroes.map((hero,hi)=>{const whoPlays=Object.entries(OUR_HEROES).filter(([,arr])=>arr.includes(hero.h)).map(([p])=>p);
-return<div key={hi} style={{background:C.sec,borderRadius:"10px",padding:"14px",borderLeft:`4px solid ${tierColors[tier.tier]}`}}>
+return <div key={hi} style={{background:C.sec,borderRadius:"10px",padding:"14px",borderLeft:`4px solid ${tierColors[tier.tier]}`}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"6px"}}>
 <span style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.lg,color:C.text}}>{hero.h}</span>
 {whoPlays.length>0&&<div style={{display:"flex",gap:"4px"}}>{whoPlays.map(p=><span key={p} style={{background:`${C.gold}33`,color:C.gold,padding:"2px 8px",borderRadius:"4px",fontSize:"10px",fontWeight:700,fontFamily:"'Rajdhani'"}}>{p}</span>)}</div>}
@@ -838,7 +836,7 @@ const CHANGELOG=[
 "10 team compositions, 15 maps, ban-lock strategy, hero learning priorities.",
 ]},
 ];
-function ChangelogTab(){return<div style={{display:"grid",gap:"16px"}}>
+function ChangelogTab(){return <div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.blue}44`} title="CHANGELOG" titleColor={C.blue}>
 <p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Version history for the StubbedToes Competitive Hub. Every change is recorded so the team knows exactly what was updated and when.</p>
 </Sec>
@@ -859,12 +857,12 @@ function ChangelogTab(){return<div style={{display:"grid",gap:"16px"}}>
 function PlayerTab(){
 const names=Object.keys(STATS).sort((a,b)=>a.toLowerCase().localeCompare(b.toLowerCase()));
 const[sel,setSel]=useState(null);
-if(!sel)return<div style={{display:"grid",gap:"16px"}}>
+if(!sel)return <div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.gold}44`} title="PLAYER PROFILES" titleColor={C.gold}>
 <p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Select a player to view their complete profile — all data from every tab filtered into a single view. Use this for individual coaching sessions.</p>
 </Sec>
 <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))",gap:"10px"}}>
-{names.map(n=>{const s=STATS[n];const fb=FB.find(f=>f.n===n);return<div key={n} onClick={()=>setSel(n)} style={{background:C.panel,border:`1px solid ${C.border}`,borderRadius:F.rad,padding:F.pad,cursor:"pointer",textAlign:"center"}}>
+{names.map(n=>{const s=STATS[n];const fb=FB.find(f=>f.n===n);return <div key={n} onClick={()=>setSel(n)} style={{background:C.panel,border:`1px solid ${C.border}`,borderRadius:F.rad,padding:F.pad,cursor:"pointer",textAlign:"center"}}>
 <div style={{fontSize:"28px",marginBottom:"6px"}}>{fb?fb.i:"👤"}</div>
 <div style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.xl,color:C.text}}>{n}</div>
 <div style={{color:C.dim,fontSize:F.xs,marginTop:"4px"}}>{s.ign}</div>
@@ -880,7 +878,7 @@ const myHeroes=OUR_HEROES[sel]||[];
 const roles=["vanguard","duelist","strategist"];
 const roleColors={vanguard:C.tank,duelist:C.dps,strategist:C.heal};
 const roleLabels={vanguard:"VANGUARD",duelist:"DUELIST",strategist:"STRATEGIST"};
-return<div style={{display:"grid",gap:"16px"}}>
+return <div style={{display:"grid",gap:"16px"}}>
 {/* Back button + Header */}
 <div style={{display:"flex",alignItems:"center",gap:"14px"}}>
 <button onClick={()=>setSel(null)} style={{background:C.panel,border:`1px solid ${C.border}`,borderRadius:"8px",padding:"10px 18px",cursor:"pointer",color:C.dim,fontFamily:"'Rajdhani'",fontWeight:700,fontSize:F.sm}}>← ALL PLAYERS</button>
@@ -896,7 +894,7 @@ return<div style={{display:"grid",gap:"16px"}}>
 <Bd color={C.purple} text={s.rank+" ("+s.rs+" RS)"}/><Bd color={parseFloat(s.wr)>=55?C.green:parseFloat(s.wr)>=45?C.gold:C.accent} text={s.wr+" "+s.rec}/><Bd color={parseFloat(s.r20)>=50?C.green:parseFloat(s.r20)>=35?C.gold:C.accent} text={"L20: "+s.r20+" "+s.r20r}/>
 </div>
 <table style={{width:"100%",borderCollapse:"collapse",fontSize:F.sm}}><thead><tr style={{borderBottom:`1px solid ${C.border}`}}>{["Hero","WR","Games","KDA","K/D/A"].map(h=><th key={h} style={{textAlign:"left",padding:"8px",color:C.dim,fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",letterSpacing:"1px"}}>{h}</th>)}</tr></thead>
-<tbody>{s.heroes.map((h,i)=>{const w=parseFloat(h.w),wc=w>=60?C.green:w>=45?C.gold:C.accent;return<tr key={i} style={{borderBottom:`1px solid ${C.border}22`}}><td style={{padding:"8px",color:C.text,fontWeight:600}}>{h.h}</td><td style={{padding:"8px",color:wc,fontWeight:700}}>{h.w}</td><td style={{padding:"8px",color:C.dim}}>{h.g}</td><td style={{padding:"8px",color:C.blue,fontWeight:600}}>{h.k}</td><td style={{padding:"8px",color:C.dim}}>{h.l}</td></tr>})}</tbody></table>
+<tbody>{s.heroes.map((h,i)=>{const w=parseFloat(h.w),wc=w>=60?C.green:w>=45?C.gold:C.accent;return <tr key={i} style={{borderBottom:`1px solid ${C.border}22`}}><td style={{padding:"8px",color:C.text,fontWeight:600}}>{h.h}</td><td style={{padding:"8px",color:wc,fontWeight:700}}>{h.w}</td><td style={{padding:"8px",color:C.dim}}>{h.g}</td><td style={{padding:"8px",color:C.blue,fontWeight:600}}>{h.k}</td><td style={{padding:"8px",color:C.dim}}>{h.l}</td></tr>})}</tbody></table>
 {s.extra&&<div style={{background:`${C.purple}11`,borderRadius:"8px",padding:"14px",marginTop:"12px",border:`1px solid ${C.purple}33`}}><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{s.extra}</div></div>}
 {s.note&&<div style={{background:`${C.gold}11`,borderRadius:"8px",padding:"14px",marginTop:"8px",border:`1px solid ${C.gold}33`}}><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{s.note}</div></div>}
 </Sec>
@@ -909,7 +907,7 @@ return<div style={{display:"grid",gap:"16px"}}>
 {/* Role Matrix */}
 {rm&&<Sec border={`${C.blue}44`} title="ROLE FLEXIBILITY" titleColor={C.blue}>
 <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"10px"}}>
-{roles.map(r=>{const d=rm.roles[r];return<div key={r} style={{background:`${d.c}11`,border:`2px solid ${d.c}44`,borderRadius:"10px",padding:"14px",textAlign:"center"}}>
+{roles.map(r=>{const d=rm.roles[r];return <div key={r} style={{background:`${d.c}11`,border:`2px solid ${d.c}44`,borderRadius:"10px",padding:"14px",textAlign:"center"}}>
 <div style={{fontFamily:"'Rajdhani'",fontWeight:900,color:roleColors[r],fontSize:"12px",letterSpacing:"1.5px",marginBottom:"4px"}}>{roleLabels[r]}</div>
 <div style={{fontFamily:"'Rajdhani'",fontWeight:900,color:d.c,fontSize:F.lg}}>{d.conf}</div>
 <div style={{color:d.wr!=="—"?C.text:C.muted,fontSize:F.md,fontWeight:700}}>{d.wr!=="—"?d.wr:"—"}</div>
@@ -920,7 +918,7 @@ return<div style={{display:"grid",gap:"16px"}}>
 {/* Draft Pool */}
 {myHeroes.length>0&&<Sec border={`${C.green}44`} title={"DRAFT POOL ("+myHeroes.length+" HEROES)"} titleColor={C.green}>
 <div style={{display:"flex",gap:"8px",flexWrap:"wrap"}}>{myHeroes.map(h=>{const hero=ALL_HEROES.find(a=>a.h===h);const rc=hero?(hero.r==="tank"?C.tank:hero.r==="dps"?C.dps:C.heal):C.muted;const tc=hero?(hero.t==="S+"?"#ff006e":hero.t==="S"?C.green:hero.t==="A"?C.blue:hero.t==="B"?C.gold:C.muted):C.muted;
-return<div key={h} style={{background:C.sec,border:`1px solid ${C.border}`,borderRadius:"8px",padding:"10px 14px",display:"flex",alignItems:"center",gap:"8px"}}>
+return <div key={h} style={{background:C.sec,border:`1px solid ${C.border}`,borderRadius:"8px",padding:"10px 14px",display:"flex",alignItems:"center",gap:"8px"}}>
 <span style={{width:"10px",height:"10px",borderRadius:"50%",background:rc}}/>
 <span style={{color:C.text,fontSize:F.sm,fontWeight:600,fontFamily:"'Rajdhani'"}}>{h}</span>
 <span style={{color:tc,fontSize:"11px",fontWeight:900,fontFamily:"'Rajdhani'"}}>{hero?hero.t:""}</span>
@@ -928,7 +926,7 @@ return<div key={h} style={{background:C.sec,border:`1px solid ${C.border}`,borde
 </Sec>}
 {/* Compositions */}
 {myComps.length>0&&<Sec border={`${C.purple}44`} title={"COMPOSITIONS ("+myComps.length+")"} titleColor={C.purple}>
-{myComps.map((comp,i)=>{const mySlot=comp.lineup.find(l=>l.p===sel&&l.r!=="note");return<div key={i} style={{background:C.sec,borderRadius:"10px",padding:"14px",marginBottom:"8px",borderLeft:`4px solid ${comp.color}`}}>
+{myComps.map((comp,i)=>{const mySlot=comp.lineup.find(l=>l.p===sel&&l.r!=="note");return <div key={i} style={{background:C.sec,borderRadius:"10px",padding:"14px",marginBottom:"8px",borderLeft:`4px solid ${comp.color}`}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"6px"}}>
 <span style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.lg,color:comp.color}}>{comp.name} <span style={{fontSize:F.sm,color:C.dim,fontWeight:600}}>{comp.tag}</span></span>
 {mySlot&&<Bd color={mySlot.r==="tank"?C.tank:mySlot.r==="dps"?C.dps:C.heal} text={mySlot.h}/>}
@@ -939,7 +937,7 @@ return<div key={h} style={{background:C.sec,border:`1px solid ${C.border}`,borde
 {/* Tournament Matches */}
 {myMatches.length>0&&<Sec border={`${myMatches.some(m=>m.res==="WIN")?C.green:C.accent}44`} title={"TOURNAMENT MATCHES ("+myMatches.length+")"} titleColor={myMatches.some(m=>m.res==="WIN")?C.green:C.accent}>
 {myMatches.map((m,i)=>{const me=m.p.find(p=>p.n===sel);const rc=m.res==="WIN"?C.green:C.accent;const kr=parseFloat(me.r)||0;const kc=me.r==="∞"?"#ff006e":kr>=3?C.green:kr>=1.5?C.gold:C.accent;
-return<div key={i} style={{background:C.sec,borderRadius:"8px",padding:"12px",marginBottom:"6px",display:"grid",gridTemplateColumns:"60px 120px 100px 80px 1fr",gap:"10px",alignItems:"center",fontSize:F.xs}}>
+return <div key={i} style={{background:C.sec,borderRadius:"8px",padding:"12px",marginBottom:"6px",display:"grid",gridTemplateColumns:"60px 120px 100px 80px 1fr",gap:"10px",alignItems:"center",fontSize:F.xs}}>
 <span style={{background:rc,color:"#000",padding:"3px 10px",borderRadius:"5px",fontSize:"11px",fontWeight:900,fontFamily:"'Rajdhani'",textAlign:"center"}}>{m.res}</span>
 <span style={{color:C.text,fontWeight:600}}>{m.map} <span style={{color:C.dim}}>{m.sc}</span></span>
 <span style={{color:C.blue,fontWeight:600}}>{me.h}</span>
@@ -963,7 +961,7 @@ export default function App(){const[tab,setTab]=useState("player");
 const[openGroup,setOpenGroup]=useState(null);
 const groups=[{label:"TEAM",color:C.blue,tabs:[{id:"stats",l:"Stats"},{id:"feedback",l:"Intel"},{id:"roles",l:"Roles"}]},{label:"STRATEGY",color:C.purple,tabs:[{id:"comps",l:"Comps"},{id:"maps",l:"Maps"},{id:"draft",l:"Draft Sim"}]},{label:"REFERENCE",color:C.gold,tabs:[{id:"meta",l:"Meta"},{id:"info",l:"Rules"},{id:"learn",l:"Learns"},{id:"tourney",l:"Tournament"}]}];
 const activeGroup=groups.find(g=>g.tabs.some(t=>t.id===tab));
-return<div style={{minHeight:"100vh",background:C.bg,color:C.text,fontFamily:"'Rajdhani',sans-serif"}}>
+return <div style={{minHeight:"100vh",background:C.bg,color:C.text,fontFamily:"'Rajdhani',sans-serif"}}>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet"/>
 <div style={{background:`linear-gradient(135deg,${C.panel},${C.bg})`,borderBottom:`1px solid ${C.border}`,padding:"24px 32px 16px"}}>
 <div style={{display:"flex",alignItems:"center",gap:"14px",marginBottom:"6px"}}><h1 style={{margin:0,fontFamily:"'Orbitron'",fontWeight:900,fontSize:F.h1,letterSpacing:"4px",background:`linear-gradient(90deg,${C.accent},${C.gold})`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>MARVEL RIVALS</h1><span style={{background:C.accent,color:"#fff",padding:"4px 12px",borderRadius:"5px",fontSize:"12px",fontWeight:700}}>S7</span></div>
@@ -971,7 +969,7 @@ return<div style={{minHeight:"100vh",background:C.bg,color:C.text,fontFamily:"'R
 <div style={{display:"flex",gap:"8px",flexWrap:"wrap",alignItems:"center"}}>
 <Tab a={tab==="player"} onClick={()=>{setTab("player");setOpenGroup(null);}}>Player</Tab>
 {groups.map(g=>{const isOpen=openGroup===g.label;const hasActive=g.tabs.some(t=>t.id===tab);
-return<button key={g.label} onClick={()=>setOpenGroup(isOpen?null:g.label)} style={{background:hasActive?`${g.color}33`:isOpen?`${g.color}22`:"transparent",color:hasActive?g.color:isOpen?g.color:C.dim,border:`1px solid ${hasActive||isOpen?g.color:C.border}`,padding:"14px 22px",borderRadius:"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:F.sm,letterSpacing:"1.2px",textTransform:"uppercase",whiteSpace:"nowrap"}}>{g.label} {isOpen?"▲":"▼"}</button>})}
+return <button key={g.label} onClick={()=>setOpenGroup(isOpen?null:g.label)} style={{background:hasActive?`${g.color}33`:isOpen?`${g.color}22`:"transparent",color:hasActive?g.color:isOpen?g.color:C.dim,border:`1px solid ${hasActive||isOpen?g.color:C.border}`,padding:"14px 22px",borderRadius:"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:F.sm,letterSpacing:"1.2px",textTransform:"uppercase",whiteSpace:"nowrap"}}>{g.label} {isOpen?"▲":"▼"}</button>})}
 <Tab a={tab==="changelog"} onClick={()=>{setTab("changelog");setOpenGroup(null);}}>Changelog</Tab>
 </div>
 {(openGroup||activeGroup)&&<div style={{display:"flex",gap:"6px",marginTop:"10px",flexWrap:"wrap"}}>
