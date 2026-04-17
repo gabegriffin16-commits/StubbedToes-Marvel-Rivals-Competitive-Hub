@@ -1,23 +1,23 @@
 import { useState } from "react";
 
-const C={bg:"#0a0b0f",panel:"#12141c",ph:"#181b26",accent:"#e63946",gold:"#f4a825",blue:"#4cc9f0",purple:"#9b5de5",green:"#06d6a0",text:"#e8e8e8",dim:"#8892a4",muted:"#555e70",border:"#1e2233",tank:"#4a9eff",dps:"#ff4757",heal:"#2ed573",sec:"#0e1018"};
+const C={bg:"#0b0a12",panel:"#12111c",ph:"#1a1828",accent:"#e63946",gold:"#f4a825",blue:"#4cc9f0",purple:"#9b5de5",green:"#06d6a0",text:"#e8e8e8",dim:"#8892a4",muted:"#555e70",border:"#1e2033",tank:"#4a9eff",dps:"#ff4757",heal:"#2ed573",sec:"#0e0d18",brand:"#4eca6a"};
 const F={xs:"15px",sm:"16px",md:"18px",lg:"22px",xl:"28px",xxl:"34px",h1:"40px",pad:"24px",padL:"30px",gap:"16px",rad:"14px"};
 
 const STATS={
-Ayden:{ign:"VeloxG",rank:"Dia 3",rs:4288,wr:"55%",rec:"36W 29L",r20:"45%",r20r:"9W 11L",
-heroes:[{h:"Jeff",w:"57.9%",g:19,k:"10.86",l:"22/4.5/27.2"},{h:"Emma Frost",w:"50%",g:16,k:"4.14",l:"17.6/5.1/3.4"},{h:"Punisher",w:"66.7%",g:12,k:"3.89",l:"19.8/5.1/0"},{h:"Mr. Fantastic",w:"50%",g:12,k:"6.09",l:"17.7/3.6/4.2"},{h:"Venom",w:"50%",g:2,k:"2.45",l:"10/5.5/3.5"}],
+Ayden:{ign:"VeloxG",rank:"Dia 2",rs:4361,wr:"57%",rec:"39W 29L",r20:"65%",r20r:"13W 7L",
+heroes:[{h:"Jeff",w:"57.9%",g:19,k:"10.86",l:"22/4.5/27.2"},{h:"Emma Frost",w:"50%",g:16,k:"4.14",l:"17.6/5.1/3.4"},{h:"Punisher",w:"66.7%",g:12,k:"3.89",l:"19.8/5.1/0"},{h:"Mr. Fantastic",w:"50%",g:12,k:"6.09",l:"17.7/3.6/4.2"},{h:"White Fox",w:"100%",g:3,k:"8.27",l:"19/5/22.3"},{h:"Venom",w:"50%",g:2,k:"2.45",l:"10/5.5/3.5"}],
 extra:"Alt (The Mom Porker): Plat 3, 87% WR, 13W 2L. White Fox 100% WR 3g 51.0 KDA. Emma 100% 5g 8.47 KDA. Venom 75% 4g.",
-note:"The most versatile player. Can play every role competently. White Fox progress on alt is months ahead of expectation. Jeff at 10.86 KDA across 19 games = strongest healer stats on the entire roster. The gap between alt performance (87% WR) and main (45% recent) is almost certainly a team composition issue in solo queue, not individual skill.",
+note:"The most versatile player. White Fox now on MAIN competitive: 100% 3g 8.27 KDA — validated from alt to comp. Jeff at 10.86 KDA across 19 games = strongest healer stats on the entire roster. Climbed to Diamond 2 with 3 straight comp wins. The rank trajectory is the strongest upward trend on the roster.",
 url:"https://rivalsmeta.com/player/33050531"},
 Begin:{ign:"Begooon",rank:"GM3",rs:4544,wr:"62%",rec:"18W 11L",r20:"35%",r20r:"7W 13L",
 heroes:[{h:"Thor",w:"70%",g:20,k:"4.23",l:"22.1/6/3.3"},{h:"Dr. Strange",w:"44.4%",g:9,k:"3.66",l:"23.1/6.6/0.9"}],
 extra:"Second account (Begoooon): GM1, 4,724 RS, 73% WR, 66W 25L. Thor 66.7% 33g, Strange 69.2% 26g, Magneto 75% 12g, Groot 77.8% 9g, Magik 100% 9g 5.10 KDA. Combined data shows mastery across multiple tanks at the highest level.",
 note:"Highest-ranked player across all accounts. GM1 on second account proves the ceiling. Main account recent 20 at 35% WR is concerning — but second account at 80% recent 20 suggests the main account slump is lobbies or team composition issues, not skill degradation.",
 url:"https://rivalsmeta.com/player/1347122425"},
-Gabe:{ign:"froglin_",rank:"Dia 3",rs:4216,wr:"54%",rec:"33W 28L",r20:"20%",r20r:"4W 16L",
-heroes:[{h:"Dr. Strange",w:"57.7%",g:26,k:"3.96",l:"21.2/6/2.5"},{h:"Ultron",w:"58.3%",g:12,k:"8.75",l:"19/5.4/28.4"},{h:"Thing",w:"45.5%",g:11,k:"5.35",l:"22.2/5.7/8.5"},{h:"Magneto",w:"71.4%",g:7,k:"5.14",l:"16.1/4.1/5.1"},{h:"Star-Lord",w:"0%",g:2,k:"1.44",l:"13/9/0"}],
+Gabe:{ign:"froglin_",rank:"Dia 3",rs:4288,wr:"56%",rec:"37W 29L",r20:"50%",r20r:"10W 10L",
+heroes:[{h:"Dr. Strange",w:"57.7%",g:26,k:"3.96",l:"21.2/6/2.5"},{h:"Ultron",w:"58.3%",g:12,k:"8.75",l:"19/5.4/28.4"},{h:"Thing",w:"45.5%",g:11,k:"5.35",l:"22.2/5.7/8.5"},{h:"Magneto",w:"75%",g:12,k:"4.55",l:"15.6/4.4/4.5"},{h:"Star-Lord",w:"0%",g:2,k:"1.44",l:"13/9/0"}],
 extra:"Alt (nega.froglin): Plat 3, 42% WR, 5W 7L. Magneto 50% 6g. Strange 20% 5g on alt — his Strange struggles at lower elo too, suggesting fundamentals may be the issue not just lobbies. NEW: Strange 10.75 KDA WIN (38/4/5) on Tokyo 2099 = best comp game on the entire roster this review cycle. Also Cap America 0% 1g LOSS, Emma 100% 1g 8.00 KDA in comp. Season hero table now includes Loki 0% 1g and Cap 0% 1g.",
-note:"The 10.75 KDA Strange game (38/4/5 on Tokyo 2099) is a STATEMENT. That is elite-level performance at Diamond — proof that Gabe's ceiling on Strange is genuinely high. But the very next game was Strange at 1.36 KDA (9/11/6 LOSS). This is the Gabe paradox: the ceiling is GM-level, the floor is catastrophic, and the team needs consistency. The 20% R20 is still the most alarming stat on the roster but the trend is no longer pure freefall — he's finding wins between the losses. Magneto 71.4% remains untapped in tournament. Cap America at 0% comp WR confirms it's not viable. The path: Strange for maps where portals have value (Tokyo, Midtown), Magneto for everything else.",
+note:"THE MAGNETO COMMITMENT IS PAYING OFF. 75% WR across 12 games (+5 since last review) validates everything the dashboard recommended. R20 recovered from 20% to 50% — directly correlated with playing more Magneto. The Strange paradox remains (10.75 KDA ceiling, catastrophic floor) but Magneto is now the proven primary. RS climbed 4216→4288. The path forward is clear: Magneto default, Strange for portal-value maps only.",
 url:"https://rivalsmeta.com/player/1767308270"},
 Jace:{ign:"Jaejanken",rank:"Plat 1",rs:4145,wr:"48%",rec:"32W 34L",r20:"55%",r20r:"11W 9L",
 heroes:[{h:"Daredevil",w:"72%",g:25,k:"4.32",l:"21.3/6.7/7.6"},{h:"Blade",w:"33.3%",g:9,k:"3.52",l:"16/6/5.1"},{h:"Deadpool (V)",w:"22.2%",g:9,k:"2.72",l:"13.4/6.4/4.1"},{h:"Deadpool (S)",w:"50%",g:6,k:"5.50",l:"20.3/7/18.2"},{h:"Iron Man",w:"50%",g:2,k:"4.45",l:"24.5/5.5/0"}],
@@ -29,23 +29,23 @@ heroes:[{h:"Cloak & Dagger",w:"55.6%",g:18,k:"12.82",l:"12.9/3.3/29.8"},{h:"Jeff
 extra:"C&D 12.82 KDA with 29.8 assists/game = massive healing output when the hero is working. The 55.6% season WR vs 18% recent WR gap is enormous — something fundamentally changed in her play. JEFF THE LAND SHARK: 100% WR 4g 18.44 KDA (20/2.3/21.5) — the highest KDA stat on the entire roster at any game count. White Fox at 67% in R20 (2W 1L) is developing. Hero pool expanded from 3 to 4 viable heroes.",
 note:"JEFF CHANGES EVERYTHING. 100% WR across 4g with 18.44 KDA is not a fluke — it's 4 consecutive wins with an average of 2.3 deaths per game. Jeff should be tested as her PRIMARY healer immediately because C&D at 18% R20 (3W 14L) is a confirmed slump. The C&D data proves she CAN heal at an elite level (12.82 KDA season) but something broke in the recent meta. Jeff might be the answer — his speed boost and team healing ult fit the current meta better than C&D's positioning-dependent kit. White Fox at 67% R20 adds a third option. The 3-hero vulnerability is being addressed, but Jeff needs 15+ comp games to confirm the trend.",
 url:"https://rivalsmeta.com/player/997192574"},
-Sam:{ign:"SAMBRI912",rank:"Plat 2",rs:4062,wr:"47%",rec:"29W 33L",r20:"30%",r20r:"6W 14L",
-heroes:[{h:"Sue Storm",w:"44%",g:50,k:"5.92",l:"16.1/6.4/21.7"},{h:"Cloak & Dagger",w:"55.6%",g:9,k:"7.51",l:"18.6/7.9/40.7"},{h:"Rocket Raccoon",w:"66.7%",g:3,k:"4.29",l:"10/7/20"}],
+Sam:{ign:"SAMBRI912",rank:"Plat 1",rs:4155,wr:"49%",rec:"32W 33L",r20:"45%",r20r:"9W 11L",
+heroes:[{h:"Invisible Woman",w:"47.2%",g:53,k:"5.99",l:"16.1/6.3/21.6"},{h:"Cloak & Dagger",w:"55.6%",g:9,k:"7.51",l:"18.6/7.9/40.7"},{h:"Rocket Raccoon",w:"66.7%",g:3,k:"4.29",l:"10/7/20"}],
 extra:"Highest game count of any support player (50 Sue + 9 C&D + 3 Rocket = 62 support games). C&D 40.7 assists/game is enormous — proving high healing output even in losses. Also playing Strange (0% WR 4g) and Thing in recent matches — confirmed role confusion.",
-note:"Sam is the most experienced support player by volume but the 44% Sue WR after 50 games is a ceiling indicator. When a hero isn't above 50% after that many games, the player has likely reached their skill ceiling on that hero at their current rank. The C&D at 55.6% with 40.7 assists per game suggests C&D should be the primary pick — the healing output is there even when the team loses.",
+note:"Climbed to Plat 1 with 3 straight comp wins — strongest recent streak. Invisible Woman (formerly Sue Storm) improved from 44% to 47.2% across 53g — slow progress but trending upward for the first time. C&D at 55.6% remains her strongest hero. R20 still contaminated by Vanguard games (38% across 8g) — role confusion persists but the comp WR is approaching 50% for the first time this season.",
 url:"https://rivalsmeta.com/player/1558596661"},
-"T-Money":{ign:"xGhost-Emx",rank:"Plat 2",rs:4077,wr:"54%",rec:"27W 23L",r20:"50%",r20r:"10W 10L",
-heroes:[{h:"Punisher",w:"62.5%",g:8,k:"2.21",l:"19.4/8.8/0"},{h:"Angela",w:"100%",g:5,k:"4.76",l:"17.2/4.2/2.8"},{h:"Magneto",w:"40%",g:5,k:"2.42",l:"13.4/6.6/2.6"},{h:"Moon Knight",w:"25%",g:4,k:"2.36",l:"14.8/6.3/0"},{h:"Peni Parker",w:"50%",g:4,k:"5.14",l:"18.5/5.5/9.8"}],
+"T-Money":{ign:"xGhost-Emx",rank:"Plat 1",rs:4137,wr:"56%",rec:"30W 24L",r20:"55%",r20r:"11W 9L",
+heroes:[{h:"Punisher",w:"66.7%",g:9,k:"2.25",l:"19.2/8.6/0"},{h:"Angela",w:"100%",g:5,k:"4.76",l:"17.2/4.2/2.8"},{h:"Magneto",w:"40%",g:5,k:"2.42",l:"13.4/6.6/2.6"},{h:"Moon Knight",w:"20%",g:5,k:"2.17",l:"15.2/7/0"},{h:"Peni Parker",w:"50%",g:4,k:"5.14",l:"18.5/5.5/9.8"}],
 extra:"HUGE DISCOVERY: Playing WAY more heroes than originally listed. Angela 100% WR 5g 4.76 KDA. Peni Parker 50% 4g 5.14 KDA. Also playing: Hulk, Namor, Squirrel Girl, Loki, Thor, Wolverine, Deadpool (V), Thing, Invisible Woman. Vanguard role: 71% WR (7g). DPS role: 50% (10g). Strategist: 0% WR (3g). HE IS A BETTER TANK THAN DPS according to the data.",
-note:"The original assessment was WRONG. T-Money is not primarily a DPS player — his Vanguard WR (71%) dramatically outperforms his Duelist WR (50%). Angela at 100% WR is a small sample but the 4.76 KDA is real. Magneto at 40% WR is a red flag — his supposed main tank is underperforming. Moon Knight at 25% WR confirms it's not a tournament pick. Strategist at 0% (3g) means support flex is confirmed impossible. The hero pool is much wider than reported — he just needs to focus on what actually wins.",
+note:"Climbed to Plat 1 — the Closet Vanguard rises. Vanguard R20 at 75% (4g) continues to dramatically outperform Duelist (57%). Daredevil appearing in R20 at 75% (3W 1L, 4g) is a meaningful new DPS option. Namor comp debut WIN (4.25 KDA) adds another hero. Punisher improved to 66.7% 9g. Moon Knight dropped to 20% 5g — confirmed dead. Angela 100% 5g holds. The path: Peni/Angela for tanks, Punisher/Daredevil for DPS, avoid Moon Knight and Strategist.",
 url:"https://rivalsmeta.com/player/88489080"},
-Tristen:{ign:"keetoh1337 / potsmoker34",rank:"Dia 2-3",rs:4274,wr:"73%",rec:"32W 12L (alt)",r20:"25%",r20r:"5W 15L (main)",
-heroes:[{h:"Spider-Man",w:"78.6%",g:28,k:"2.61",l:"17.8/8.1/3.4"},{h:"Iron Man",w:"63.6%",g:11,k:"3.13",l:"21.7/7/0.2"},{h:"Hela",w:"100%",g:1,k:"3.88",l:"30/8/1"},{h:"Psylocke",w:"0%",g:2,k:"3.18",l:"26.5/8.5/0.5"},{h:"Luna Snow",w:"0%",g:1,k:"1.40",l:"1/5/6"}],
-extra:"Spider-Man is elite: 78.6% WR across 28 games on alt. Multiple MVP games. Iron Man has 63.6% WR but drops catastrophically in tournament play (0W 4L) and now 0% in R20 (0W 5L). Psylocke recent comp: 0% WR 2g — the hero isn't translating at Diamond. Also played Invisible Woman (8.67 KDA comp WIN, previously 4.22 KDA) and Luna Snow in tournament (5.00 KDA in the only win). R20 Duelist role: 19% (3W 13L). R20 Strategist role: 50% (2W 2L). His support flex is literally outperforming his DPS right now.",
-note:"R20 FREEFALL: 50% → 25% (5W 15L). Spider-Man R20 dropped to 22% (2W 7L). Iron Man R20 is 0% (0W 5L) — the hero is DEAD in comp, not just tournament. The Invisible Woman 8.67 KDA comp WIN confirms his support flex is real and getting stronger. His R20 Strategist WR (50%) is more than double his Duelist WR (19%). The data is screaming: Tristen's highest-value role right now might be support, not DPS. Spider-Man remains elite at 78.6% season but the recent collapse needs diagnosis — is he being target-banned, or has the meta shifted around him?",
+Tristen:{ign:"keetoh1337 / potsmoker34",rank:"Dia 2",rs:4319,wr:"73%",rec:"35W 13L",r20:"60%",r20r:"12W 8L",
+heroes:[{h:"Spider-Man",w:"80%",g:30,k:"2.72",l:"18.2/8/3.5"},{h:"Iron Man",w:"63.6%",g:11,k:"3.13",l:"21.7/7/0.2"},{h:"Invisible Woman",w:"50%",g:2,k:"6.13",l:"25.5/8/23.5"},{h:"Dr. Strange",w:"100%",g:1,k:"11.00",l:"10/1/1"},{h:"Hela",w:"100%",g:1,k:"3.88",l:"30/8/1"},{h:"Psylocke",w:"0%",g:2,k:"3.18",l:"26.5/8.5/0.5"},{h:"Luna Snow",w:"0%",g:1,k:"1.40",l:"1/5/6"}],
+extra:"Spider-Man RECOVERING: 80% WR across 30g, R20 back to 60%. Iron Man still 0% R20 — dead. Invisible Woman 50% 2g 6.13 KDA comp. Dr. Strange 100% 1g 11.00 KDA comp WIN — emergency portal swap, not a role change. Luna Snow 5.00 KDA in tournament only win. R20 Duelist 62% (8W 5L), Strategist 50% (3W 3L), Vanguard 100% (1g). The R20 recovery from 25% to 60% is dramatic.",
+note:"R20 RECOVERY: 25% → 60% (12W 8L). Spider-Man back to 80% across 30g — the slump is over. R20 Duelist 62% proves the DPS role is stabilizing. Iron Man R20 still 0% — permanently dead in comp. The Dr. Strange comp WIN (11.00 KDA) was a clutch emergency portal swap, not a role shift — Tristen plays DPS and swaps to Strange for last-second point saves when tanks can't swap. Invisible Woman at 50% 2g confirms his support flex remains viable but secondary to his DPS identity.",
 url:"https://rivalsmeta.com/player/1340539275"},
-Zach:{ign:"Rothmaxing",rank:"Plat 3",rs:3943,wr:"58%",rec:"11W 8L",r20:"35%",r20r:"7W 13L",
-heroes:[{h:"Thor",w:"83.3%",g:6,k:"4.48",l:"16.2/4.2/2.5"},{h:"Deadpool (V)",w:"75%",g:4,k:"5.37",l:"20.5/4.8/5"},{h:"Thing",w:"25%",g:4,k:"3.14",l:"18.5/9/9.8"},{h:"Ultron",w:"100%",g:1,k:"51.0",l:"21/1/30"}],
+Zach:{ign:"Rothmaxing",rank:"Plat 3",rs:3976,wr:"60%",rec:"12W 8L",r20:"35%",r20r:"7W 13L",
+heroes:[{h:"Thor",w:"83.3%",g:6,k:"4.48",l:"16.2/4.2/2.5"},{h:"Deadpool (V)",w:"75%",g:4,k:"5.37",l:"20.5/4.8/5"},{h:"Thing",w:"25%",g:4,k:"3.14",l:"18.5/9/9.8"},{h:"Ultron",w:"100%",g:1,k:"51.0",l:"21/1/30"},{h:"Rocket Raccoon",w:"100%",g:1,k:"7.50",l:"13/6/32"}],
 extra:"Gambit showing 8.50 KDA MVP in recent QP. Deadpool (V) NOT on original list but 75% WR. Playing Mantis (0%), Sue (0%), Daredevil, Gambit across recent games. Widest hero experimentation on roster.",
 note:"Thor 83.3% is the highest single-hero WR on the roster (minimum 5 games). Deadpool Vanguard at 75% confirms a genuine new weapon. The issue is identical to T-Money: too many heroes being tested without enough depth on any of them. His recent 20 at 35% WR mirrors his experimental phase. When he plays Thor or Deadpool (V), he wins. When he plays anything else, he doesn't.",
 url:"https://rivalsmeta.com/player/802297818"},
@@ -213,7 +213,7 @@ r:"Your identity should be: primary healer (Jeff/White Fox) with Venom as a stra
 s:"GM3 main (4,544 RS). Second account: GM1 (4,724 RS, 73% WR). Thor 70% WR main, 66.7% across 33g on second account. Groot 77.8% 9g, Magneto 75% 12g, Magik 100% 9g on second account. The mechanical skill ceiling on this roster lives here — GM1 is the top 0.5% of the competitive player base.",
 w:"Main account recent 20: 35% WR despite being GM3. Tournament: 1W 9L. Thor went 1W 4L in tournament — the team isn't enabling his engages. Strange at 44.4% comp WR on main is declining. Angela (0.29 KDA tournament) is confirmed dead pick. Even with GM-level mechanics, the team coordination gap is dragging performance down.",
 r:"Thor is your weapon, but the tournament proved individual skill can't carry alone. The team needs pre-planned comps that SUPPORT your engages — when you leap in as Thor, the DPS and healers must follow within 1-2 seconds or you die alone. Drop Angela permanently. Your Magik (100% WR second account) should be the dive comp centerpiece but needs team practice. Push the team to run structured dive scrims with callouts. Consider learning ONE support (Rocket or C&D) — in the Klyntar win, Tristen flexed to Luna Snow and you got your best game. If YOU could also flex to support in emergencies, the team gains massive draft flexibility."},
-{n:"Gabe",i:"🛡️",v:"ANCHOR TANK IN CRISIS",g:"B+",
+{n:"Gabe",i:"🛡️",v:"ANCHOR TANK — MAGNETO COMMITTED",g:"A-",
 s:"Diamond 3 (4,216 RS). Magneto 71.4% WR is elite. Strange 57.7% across 26g. Ultron heals 58.3%. The Magneto data proves high-level tank play IS in his toolkit.",
 w:"20% last 20 WR — the most alarming stat on the entire roster. Tournament: 1W 9L playing 5 different heroes without committing to Magneto. MAG NEVER PLAYED IN TOURNAMENT. Thing 3 tourney games all losses. Cap America (C-tier). Emma (C-tier). Alt account: Strange at 20% WR confirms Strange may be carried by teammates on main, not individual mastery.",
 r:"This is the most important coaching conversation on the roster: WHY DIDN'T YOU PLAY MAGNETO IN TOURNAMENT? If Magneto was banned every game — that's information the team needs to plan around. If it was a comp/draft issue — the team needs to restructure drafts around securing Magneto. If it was a personal comfort issue — you need to understand that 71.4% WR is your BEST hero by far and playing Thing at 45.5% instead is actively hurting the team. Your Strange at 20% on alt raises real questions about whether Strange is viable for you in tournament. The path forward: Magneto primary (always, unless banned). Learn Groot as backup. Consider Ultron heals as an emergency flex (4.71 KDA in tournament when forced onto it — your best non-Magneto tournament performance). Drop Thing, Cap, Star-Lord, Emma from all tournament consideration."},
@@ -437,7 +437,7 @@ const OUR_HEROES={
 };
 
 // ─── UI (35% larger) ───
-function Tab({a,onClick,children,color}){return <button onClick={onClick} style={{background:a?(color||C.accent):"transparent",color:a?"#fff":C.dim,border:a?"none":`1px solid ${C.border}`,padding:"14px 22px",borderRadius:"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:F.sm,letterSpacing:"1.2px",textTransform:"uppercase",whiteSpace:"nowrap"}}>{children}</button>}
+function Tab({a,onClick,children,color}){const ac=color||C.brand;return <button onClick={onClick} style={{background:a?`${ac}33`:"transparent",color:a?ac:C.dim,border:a?`1px solid ${ac}55`:`1px solid ${C.border}`,padding:"14px 22px",borderRadius:"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:F.sm,letterSpacing:"1.2px",textTransform:"uppercase",whiteSpace:"nowrap",transition:"all 0.2s ease"}}>{children}</button>}
 function Bd({color,text}){return <span style={{background:`${color}22`,color,padding:"3px 10px",borderRadius:"5px",fontSize:"12px",fontWeight:700,letterSpacing:"1px",fontFamily:"'Rajdhani'"}}>{text}</span>}
 function Gr({g}){const c=g.startsWith("S")?"#ff006e":g.startsWith("A")?C.green:g.startsWith("B")?C.blue:g.startsWith("C")?C.gold:C.accent;return <span style={{background:c,color:"#000",padding:"5px 16px",borderRadius:"8px",fontSize:"20px",fontWeight:900,fontFamily:"'Rajdhani'"}}>{g}</span>}
 function Sec({bg,border,title,titleColor,children}){return <div style={{background:bg||C.panel,borderRadius:F.rad,border:`1px solid ${border||C.border}`,padding:F.padL,marginBottom:F.gap}}>{title&&<h4 style={{margin:"0 0 14px",fontFamily:"'Rajdhani'",fontWeight:900,color:titleColor||C.text,letterSpacing:"1.2px",fontSize:F.lg}}>{title}</h4>}{children}</div>}
@@ -792,6 +792,22 @@ return <div key={hi} style={{background:C.sec,borderRadius:"10px",padding:"14px"
 
 // ─── CHANGELOG TAB ───
 const CHANGELOG=[
+{ver:"v1.4.2",date:"April 17, 2026",changes:[
+"Visual rebrand: MARVEL RIVALS → STUBBEDTOES. Team emblem displayed in header. Season badge updated to S7.5.",
+"Color scheme updated: emblem green (#4eca6a) as primary brand color. Backgrounds shifted to subtle purple-navy tint matching emblem. Softened tab active states — translucent colored backgrounds replace harsh solid fills.",
+"Analysis methodology updated: R20 now tracks competitive games ONLY (excludes Quick Play and Tournament). QP games weighed extremely lightly in all analysis (experimentation/learning only).",
+"Gabe grade B+ → A- (title: ANCHOR TANK — MAGNETO COMMITTED). Sam hero name: Sue Storm → Invisible Woman.",
+],timeline:{date:"April 17, 2026",players:[
+{n:"Ayden",d:"Dia 3→Dia 2 (4288→4361 RS). 55%→57% (39W 29L, +3W/+0L = 3 straight comp wins). White Fox 100% 3g 8.27 KDA on MAIN competitive — validated from alt. Rank trajectory is strongest upward trend on roster."},
+{n:"Tristen",d:"RS 4274→4319. 73% (35W 13L, +3W/+1L). Spider-Man 78.6%→80% at 30g — slump is over. R20 25%→60% (12W 8L). Dr. Strange 100% 1g 11.00 KDA WIN — emergency portal swap for clutch point save, not a role shift. Invisible Woman 50% 2g."},
+{n:"Gabe",d:"RS 4216→4288. 54%→56% (37W 29L, +4W/+1L). MAGNETO 71.4% 7g → 75% 12g (+5 games, WR UP). R20 20%→50%. Biggest coaching win — dashboard recommendation fully validated."},
+{n:"T-Money",d:"Plat 2→Plat 1 (4077→4137 RS). 54%→56% (30W 24L, +3W/+1L). Daredevil NEW in R20: 75% 4g. Namor comp debut WIN 4.25 KDA. Moon Knight 25%→20% (dead). Vanguard R20 75% continues to outperform Duelist."},
+{n:"Sam",d:"Plat 2→Plat 1 (4062→4155 RS). 47%→49% (32W 33L, +3W/+0L). Invisible Woman 44%→47.2% 53g. R20 30%→45%. Vanguard still 38% of R20 (8g) — role confusion persists despite climb."},
+{n:"Zach",d:"RS 3943→3976. 58%→60% (12W 8L, +1W). Rocket Raccoon comp debut: 100% 1g 7.50 KDA (32/6/49 match). R20 unchanged at 35%."},
+{n:"Begin",d:"No new competitive games. Last match 4 days ago. Data unchanged."},
+{n:"Raquel",d:"No new competitive games. Grinding Rocket Raccoon in QP (19 of R20 games). Positive sign for pool expansion — weighed lightly per QP rules."},
+{n:"Jace",d:"No new competitive games. Grinding Daredevil in QP. Data unchanged."},
+]}},
 {ver:"v1.4.1",date:"April 16, 2026",changes:[
 "Bans tab removed. Ban-save visual aid and procedure explanation moved to Rules tab.",
 "Draft strategy integrated into Comps tab: new 'Overall Draft Suggestions' sub-tab appears first with universal ban/save philosophy (Elsa Bloodstone always first ban, Deadpool V always second, context-dependent third).",
@@ -850,6 +866,13 @@ function ChangelogTab(){return <div style={{display:"grid",gap:"16px"}}>
 <span style={{color:i===0?C.green:C.dim,fontWeight:700}}>▸</span>
 <span style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{c}</span>
 </div>)}
+{entry.timeline&&<div style={{marginTop:"12px",background:`${C.purple}11`,borderRadius:"10px",border:`1px solid ${C.purple}33`,padding:F.pad}}>
+<div style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.lg,color:C.purple,letterSpacing:"1.5px",marginBottom:"10px"}}>TIMELINE REVIEW — {entry.timeline.date}</div>
+{entry.timeline.players.map((p,k)=><div key={k} style={{background:C.sec,borderRadius:"8px",padding:"10px 14px",marginBottom:"6px"}}>
+<span style={{fontFamily:"'Rajdhani'",fontWeight:700,color:C.text,fontSize:F.sm}}>{p.n}: </span>
+<span style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{p.d}</span>
+</div>)}
+</div>}
 </div>)}
 </div>}
 
@@ -959,17 +982,25 @@ return <div key={i} style={{background:C.sec,borderRadius:"8px",padding:"12px",m
 
 export default function App(){const[tab,setTab]=useState("player");
 const[openGroup,setOpenGroup]=useState(null);
-const groups=[{label:"TEAM",color:C.blue,tabs:[{id:"stats",l:"Stats"},{id:"feedback",l:"Intel"},{id:"roles",l:"Roles"}]},{label:"STRATEGY",color:C.purple,tabs:[{id:"comps",l:"Comps"},{id:"maps",l:"Maps"},{id:"draft",l:"Draft Sim"}]},{label:"REFERENCE",color:C.gold,tabs:[{id:"meta",l:"Meta"},{id:"info",l:"Rules"},{id:"learn",l:"Learns"},{id:"tourney",l:"Tournament"}]}];
+const groups=[{label:"TEAM",color:"#3d9ec2",tabs:[{id:"stats",l:"Stats"},{id:"feedback",l:"Intel"},{id:"roles",l:"Roles"}]},{label:"STRATEGY",color:"#7e4fba",tabs:[{id:"comps",l:"Comps"},{id:"maps",l:"Maps"},{id:"draft",l:"Draft Sim"}]},{label:"REFERENCE",color:"#c48e28",tabs:[{id:"meta",l:"Meta"},{id:"info",l:"Rules"},{id:"learn",l:"Learns"},{id:"tourney",l:"Tournament"}]}];
 const activeGroup=groups.find(g=>g.tabs.some(t=>t.id===tab));
 return <div style={{minHeight:"100vh",background:C.bg,color:C.text,fontFamily:"'Rajdhani',sans-serif"}}>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet"/>
-<div style={{background:`linear-gradient(135deg,${C.panel},${C.bg})`,borderBottom:`1px solid ${C.border}`,padding:"24px 32px 16px"}}>
-<div style={{display:"flex",alignItems:"center",gap:"14px",marginBottom:"6px"}}><h1 style={{margin:0,fontFamily:"'Orbitron'",fontWeight:900,fontSize:F.h1,letterSpacing:"4px",background:`linear-gradient(90deg,${C.accent},${C.gold})`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>MARVEL RIVALS</h1><span style={{background:C.accent,color:"#fff",padding:"4px 12px",borderRadius:"5px",fontSize:"12px",fontWeight:700}}>S7</span></div>
-<p style={{margin:"0 0 14px",color:C.dim,fontSize:F.xs,fontStyle:"italic"}}>"I have watched every timeline, every match, every misplay. The data does not lie." — The One Above All</p>
-<div style={{display:"flex",gap:"8px",flexWrap:"wrap",alignItems:"center"}}>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@700;900&family=Teko:wght@500;600;700&display=swap" rel="stylesheet"/>
+<div style={{background:`linear-gradient(135deg,#0f0e1a,${C.bg})`,borderBottom:`2px solid ${C.brand}33`,padding:"24px 32px 16px",position:"relative",overflow:"hidden"}}>
+<div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:`radial-gradient(ellipse at 10% 50%, ${C.brand}08 0%, transparent 60%)`,pointerEvents:"none"}}/>
+<div style={{display:"flex",alignItems:"center",gap:"16px",marginBottom:"8px",position:"relative"}}>
+<img src="/team-emblem.png" alt="StubbedToes" style={{width:"48px",height:"48px",borderRadius:"8px",border:`2px solid ${C.brand}44`}} onError={(e)=>{e.target.style.display="none"}}/>
+<div style={{display:"flex",alignItems:"center",gap:"14px"}}>
+<h1 style={{margin:0,fontFamily:"'Teko'",fontWeight:700,fontSize:"42px",letterSpacing:"6px",background:`linear-gradient(135deg,${C.brand},#8aefaa)`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",lineHeight:1}}>STUBBEDTOES</h1>
+<div style={{width:"1px",height:"28px",background:`${C.dim}55`}}/>
+<span style={{fontFamily:"'Rajdhani'",fontWeight:600,fontSize:"22px",color:C.dim,letterSpacing:"2px",lineHeight:1}}>MARVEL RIVALS</span>
+<span style={{background:`${C.brand}22`,color:C.brand,padding:"5px 12px",borderRadius:"5px",fontSize:"15px",fontWeight:700,border:`1px solid ${C.brand}44`,fontFamily:"'Rajdhani'",letterSpacing:"1px",lineHeight:1}}>S7.5</span>
+</div></div>
+<p style={{margin:"0 0 14px",color:C.muted,fontSize:F.xs,fontStyle:"italic",position:"relative"}}>"I have watched every timeline, every match, every misplay. The data does not lie." — The One Above All</p>
+<div style={{display:"flex",gap:"8px",flexWrap:"wrap",alignItems:"center",position:"relative"}}>
 <Tab a={tab==="player"} onClick={()=>{setTab("player");setOpenGroup(null);}}>Player</Tab>
 {groups.map(g=>{const isOpen=openGroup===g.label;const hasActive=g.tabs.some(t=>t.id===tab);
-return <button key={g.label} onClick={()=>setOpenGroup(isOpen?null:g.label)} style={{background:hasActive?`${g.color}33`:isOpen?`${g.color}22`:"transparent",color:hasActive?g.color:isOpen?g.color:C.dim,border:`1px solid ${hasActive||isOpen?g.color:C.border}`,padding:"14px 22px",borderRadius:"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:F.sm,letterSpacing:"1.2px",textTransform:"uppercase",whiteSpace:"nowrap"}}>{g.label} {isOpen?"▲":"▼"}</button>})}
+return <button key={g.label} onClick={()=>setOpenGroup(isOpen?null:g.label)} style={{background:hasActive?`${g.color}22`:isOpen?`${g.color}15`:"transparent",color:hasActive?g.color:isOpen?g.color:C.dim,border:`1px solid ${hasActive||isOpen?`${g.color}44`:C.border}`,padding:"14px 22px",borderRadius:"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:F.sm,letterSpacing:"1.2px",textTransform:"uppercase",whiteSpace:"nowrap",transition:"all 0.2s ease"}}>{g.label} {isOpen?"▲":"▼"}</button>})}
 <Tab a={tab==="changelog"} onClick={()=>{setTab("changelog");setOpenGroup(null);}}>Changelog</Tab>
 </div>
 {(openGroup||activeGroup)&&<div style={{display:"flex",gap:"6px",marginTop:"10px",flexWrap:"wrap"}}>
