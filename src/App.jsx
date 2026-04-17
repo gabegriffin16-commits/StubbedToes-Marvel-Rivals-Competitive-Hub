@@ -719,7 +719,6 @@ return <td key={r} onClick={()=>setSel(isOpen?null:p.name+r)} style={{padding:"1
 </td>})}
 </tr>)}
 </tbody></table></div>
-</div>
 <Sec border={`${C.gold}44`} title="CRITICAL INSIGHTS" titleColor={C.gold}>
 {[
 {t:"SINGLE POINT OF FAILURE — DIVE TANK",d:"Only Ayden plays Venom (2 games). If Ayden heals (his BEST role), dive is impossible. Begin or Zach must learn Venom.",c:C.accent},
