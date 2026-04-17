@@ -430,12 +430,12 @@ const ALL_HEROES=[
 const OUR_HEROES={
 "Begin":["Thor","Groot","Magneto","Magik","Dr. Strange"],
 "Ayden":["Jeff","White Fox","Venom","Emma Frost","Punisher","Mr. Fantastic","Rocket Raccoon"],
-"Tristen":["Spider-Man","Hela","Iron Man","Psylocke","Luna Snow","Invisible Woman"],
+"Tristen":["Spider-Man","Hela","Iron Man","Psylocke","Luna Snow","Invisible Woman","Dr. Strange"],
 "Gabe":["Magneto","Dr. Strange","The Thing","Ultron","Rogue"],
-"Sam":["Cloak & Dagger","Sue Storm","Rocket Raccoon"],
-"Zach":["Thor","Deadpool (V)","Wolverine","Daredevil","Gambit"],
+"Sam":["Cloak & Dagger","Invisible Woman","Rocket Raccoon"],
+"Zach":["Thor","Deadpool (V)","Wolverine","Daredevil","Gambit","Rocket Raccoon"],
 "Raquel":["Cloak & Dagger","Jeff","Luna Snow","White Fox"],
-"T-Money":["Angela","Peni Parker","Punisher","Magneto"],
+"T-Money":["Angela","Peni Parker","Punisher","Magneto","Daredevil","Namor"],
 "Jace":["Daredevil","Blade","Deadpool (V)","Deadpool (S)","Iron Man"],
 };
 
@@ -542,11 +542,12 @@ const PHASES=[
 const allPlayers=Object.keys(OUR_HEROES).sort((a,b)=>a.toLowerCase().localeCompare(b.toLowerCase()));
 const[roster,setRoster]=useState([]);
 const[ourSide,setOurSide]=useState(null);
+const[selectedMap,setSelectedMap]=useState(null);
 const[phase,setPhase]=useState(0);
 const[actions,setActions]=useState([]);
 const[filter,setFilter]=useState("all");
 const[search,setSearch]=useState("");
-const step=roster.length<6?"roster":!ourSide?"side":phase<PHASES.length?"draft":"done";
+const step=roster.length<6?"roster":!ourSide?"side":!selectedMap?"map":phase<PHASES.length?"draft":"done";
 const cur=step==="draft"?PHASES[phase]:null;
 const bans=actions.filter(a=>a.action==="BAN");
 const locks=actions.filter(a=>a.action==="SAVE");
@@ -557,12 +558,33 @@ const activeHeroes={};roster.forEach(p=>{if(OUR_HEROES[p])activeHeroes[p]=OUR_HE
 const allActiveHeroes=[...new Set(Object.values(activeHeroes).flat())];
 function pick(hero){if(step!=="draft")return;const entry={hero,team:cur.team,action:cur.action,step:cur.step};setActions(p=>[...p,entry]);setPhase(p=>p+1);}
 function undo(){if(actions.length===0)return;setActions(p=>p.slice(0,-1));setPhase(p=>p-1);}
-function reset(){setPhase(0);setActions([]);setSearch("");setOurSide(null);setRoster([]);}
+function reset(){setPhase(0);setActions([]);setSearch("");setOurSide(null);setSelectedMap(null);setRoster([]);}
 function togglePlayer(p){setRoster(r=>r.includes(p)?r.filter(x=>x!==p):r.length<6?[...r,p]:r);}
 const available=ALL_HEROES.filter(h=>!used.has(h.h)).filter(h=>filter==="all"||h.r===filter).filter(h=>!search||h.h.toLowerCase().includes(search.toLowerCase()));
-// Recommendations: high-tier heroes from our active pool still available
+// Map-aware smart recommendations
+const mapData=selectedMap?MAPS.find(mp=>mp.name===selectedMap):null;
+const mapBanList=mapData?mapData.bans.split(", ").map(s=>s.trim()):[];
+const mapPickList=mapData?mapData.picks.split(", ").map(s=>s.trim()):[];
 const isOurTurn=cur&&cur.team===ourSide;
-const recHeroes=isOurTurn?allActiveHeroes.filter(h=>!used.has(h)).map(h=>{const hero=ALL_HEROES.find(a=>a.h===h);return hero?{h,t:hero.t,r:hero.r}:null;}).filter(Boolean).sort((a,b)=>{const ord={"S+":0,"S":1,"A":2,"B":3,"C":4};return(ord[a.t]||5)-(ord[b.t]||5);}).slice(0,6):[];
+const rosterHeroPool=new Set(allActiveHeroes);
+const recHeroes=(()=>{if(!isOurTurn)return[];
+if(cur.action==="BAN"){
+// BAN priority: Elsa always → Deadpool(V) always → map-specific bans → high-tier non-roster heroes
+const banRecs=[];const seen=new Set();
+const tryAdd=(name,reason)=>{if(!used.has(name)&&!seen.has(name)){const hero=ALL_HEROES.find(a=>a.h===name);if(hero){seen.add(name);banRecs.push({h:name,t:hero.t,r:hero.r,reason});}}};
+tryAdd("Elsa Bloodstone","ALWAYS BAN — S+ game-warping DPS");
+tryAdd("Deadpool (V)","ALWAYS BAN — S+ most flexible tank");
+mapBanList.forEach(h=>tryAdd(h,"Strong on "+mapData.name));
+ALL_HEROES.filter(h=>!used.has(h.h)&&!seen.has(h.h)&&(h.t==="S+"||h.t==="S")&&!rosterHeroPool.has(h.h)).sort((a,b)=>{const ord={"S+":0,"S":1};return(ord[a.t]||5)-(ord[b.t]||5);}).forEach(h=>tryAdd(h.h,"S/S+ meta threat"));
+return banRecs.slice(0,8);
+}else{
+// SAVE priority: map picks our roster plays → roster's highest-tier heroes
+const saveRecs=[];const seen=new Set();
+const tryAdd=(name,reason)=>{if(!used.has(name)&&!seen.has(name)&&rosterHeroPool.has(name)){const hero=ALL_HEROES.find(a=>a.h===name);if(hero){seen.add(name);saveRecs.push({h:name,t:hero.t,r:hero.r,reason});}}};
+mapPickList.forEach(h=>tryAdd(h,"Strong on "+mapData.name));
+allActiveHeroes.filter(h=>!used.has(h)&&!seen.has(h)).map(h=>{const hero=ALL_HEROES.find(a=>a.h===h);return hero?{h,t:hero.t,r:hero.r}:null;}).filter(Boolean).sort((a,b)=>{const ord={"S+":0,"S":1,"A":2,"B":3,"C":4};return(ord[a.t]||5)-(ord[b.t]||5);}).forEach(h=>tryAdd(h.h,"Roster S/A tier"));
+return saveRecs.slice(0,6);
+}})();
 // Comp survival with replacement suggestions
 const compAnalysis=COMPS.map(comp=>{
 const compPlayers=comp.lineup.filter(l=>l.r!=="note");
@@ -606,11 +628,27 @@ if(step==="side")return <div style={{display:"grid",gap:"16px"}}>
 </div>)}</div>
 <div style={{textAlign:"center"}}><button onClick={reset} style={{background:"transparent",border:`1px solid ${C.border}`,borderRadius:"6px",padding:"8px 18px",cursor:"pointer",color:C.dim,fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px"}}>← CHANGE ROSTER</button></div>
 </div>;
+// MAP SELECTION
+if(step==="map") {const modes=["Convoy","Domination","Convergence"];
+return <div style={{display:"grid",gap:"16px"}}>
+<Sec border={`${C.gold}44`} title="DRAFT SIMULATOR" titleColor={C.gold}>
+<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Step 3: Select the map for this match. Ban and save recommendations will adapt to the map's meta.</p></Sec>
+{modes.map(mode=><div key={mode}>
+<h4 style={{margin:"0 0 8px",fontFamily:"'Rajdhani'",fontWeight:900,color:C.purple,letterSpacing:"1.5px",fontSize:F.lg}}>{mode.toUpperCase()}</h4>
+<div style={{display:"grid",gridTemplateColumns:m?"1fr 1fr":"repeat(auto-fill,minmax(200px,1fr))",gap:"6px",marginBottom:"14px"}}>
+{MAPS.filter(mp=>mp.mode===mode).map((mp,i)=><div key={i} onClick={()=>setSelectedMap(mp.name)} style={{background:C.panel,border:`2px solid ${C.border}`,borderRadius:"10px",padding:"12px",cursor:"pointer"}}>
+<div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:F.md,color:C.text}}>{mp.name}</div>
+<div style={{display:"flex",gap:"6px",marginTop:"4px",alignItems:"center"}}><Bd color={C.blue} text={mp.best}/></div>
+<div style={{color:C.muted,fontSize:"11px",marginTop:"4px"}}>{mp.aka}</div>
+</div>)}
+</div></div>)}
+<div style={{textAlign:"center"}}><button onClick={()=>setOurSide(null)} style={{background:"transparent",border:`1px solid ${C.border}`,borderRadius:"6px",padding:"8px 18px",cursor:"pointer",color:C.dim,fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px"}}>← CHANGE SIDE</button></div>
+</div>}
 // DRAFT + DONE states
 const enemySide=ourSide==="A"?"B":"A";
 return <div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.gold}44`} title={"DRAFT — STUBBEDTOES IS TEAM "+ourSide} titleColor={C.gold}>
-<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Active roster: {roster.join(", ")}. {step==="done"?"Draft complete.":"Select heroes to ban or lock."}</p></Sec>
+<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Active roster: {roster.join(", ")}. Map: <span style={{color:C.blue,fontWeight:700}}>{selectedMap}</span>{mapData?" ("+mapData.best+")":""}. {step==="done"?"Draft complete.":"Select heroes to ban or save."}</p></Sec>
 <div style={{display:"grid",gridTemplateColumns:m?"repeat(5,1fr)":"repeat(5,1fr)",gap:m?"3px":"6px"}}>
 {PHASES.map((p,i)=>{const isCur=i===phase&&step==="draft";const isDone=i<phase;const entry=actions.find(x=>x.step===p.step);const ac=p.action==="BAN"?C.accent:C.green;const isOurs=p.team===ourSide;
 return <div key={i} style={{background:isCur?`${ac}44`:isDone?`${ac}22`:`${C.border}44`,border:`2px solid ${isCur?ac:isDone?`${ac}66`:C.border}`,borderRadius:"10px",padding:"10px",textAlign:"center"}}>
@@ -626,10 +664,11 @@ return <div key={i} style={{background:isCur?`${ac}44`:isDone?`${ac}22`:`${C.bor
 {step==="done"&&<div style={{background:`${C.gold}11`,border:`1px solid ${C.gold}44`,borderRadius:"10px",padding:"16px",textAlign:"center"}}><span style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.xl,color:C.gold,letterSpacing:"2px"}}>DRAFT COMPLETE</span></div>}
 {/* Recommendations for our turn */}
 {isOurTurn&&recHeroes.length>0&&<div style={{background:`${C.gold}11`,border:`1px solid ${C.gold}44`,borderRadius:"10px",padding:"14px"}}>
-<div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",color:C.gold,letterSpacing:"1px",marginBottom:"8px"}}>RECOMMENDED {cur.action==="BAN"?"BANS":"SAVES"} FOR YOUR ROSTER</div>
+<div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",color:C.gold,letterSpacing:"1px",marginBottom:"8px"}}>{cur.action==="BAN"?"RECOMMENDED BANS — "+selectedMap+" meta + global threats":"RECOMMENDED SAVES — protect your roster's best for "+selectedMap}</div>
 <div style={{display:"flex",gap:"6px",flexWrap:"wrap"}}>{recHeroes.map(r=>{const tc=r.t==="S+"?"#ff006e":r.t==="S"?C.green:r.t==="A"?C.blue:C.gold;
-return <div key={r.h} onClick={()=>pick(r.h)} style={{background:C.sec,border:`1px solid ${tc}44`,borderRadius:"8px",padding:"8px 12px",cursor:"pointer",display:"flex",gap:"6px",alignItems:"center"}}>
-<span style={{color:C.text,fontSize:F.xs,fontWeight:600}}>{r.h}</span><span style={{color:tc,fontSize:"10px",fontWeight:900}}>{r.t}</span>
+return <div key={r.h} onClick={()=>pick(r.h)} style={{background:C.sec,border:`1px solid ${tc}44`,borderRadius:"8px",padding:"8px 12px",cursor:"pointer",display:"flex",flexDirection:"column",gap:"2px"}}>
+<div style={{display:"flex",gap:"6px",alignItems:"center"}}><span style={{color:C.text,fontSize:F.xs,fontWeight:600}}>{r.h}</span><span style={{color:tc,fontSize:"10px",fontWeight:900}}>{r.t}</span></div>
+{r.reason&&<div style={{color:C.muted,fontSize:"9px",lineHeight:1.2}}>{r.reason}</div>}
 </div>})}</div></div>}
 {/* Filters, Search, Undo, Reset */}
 <div style={{display:"flex",gap:"8px",alignItems:"center",flexWrap:"wrap"}}>
@@ -990,17 +1029,18 @@ return <div style={{minHeight:"100vh",background:C.bg,color:C.text,fontFamily:"'
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@700;900&family=Teko:wght@500;600;700&display=swap" rel="stylesheet"/>
 <div style={{background:`linear-gradient(135deg,#0f0e1a,${C.bg})`,borderBottom:`2px solid ${C.brand}33`,padding:m?"16px 16px 12px":"24px 32px 16px",position:"relative",overflow:"hidden"}}>
 <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:`radial-gradient(ellipse at 10% 50%, ${C.brand}08 0%, transparent 60%)`,pointerEvents:"none"}}/>
-<div style={{display:"flex",alignItems:"center",gap:m?"10px":"16px",marginBottom:"8px",position:"relative",flexWrap:m?"wrap":"nowrap"}}>
-{!m&&<img src="/team-emblem.png" alt="StubbedToes" style={{width:"48px",height:"48px",borderRadius:"8px",border:`2px solid ${C.brand}44`}} onError={(e)=>{e.target.style.display="none"}}/>}
-<div style={{display:"flex",alignItems:"center",gap:"14px",flexWrap:m?"wrap":"nowrap"}}>
+<div style={{maxWidth:"1200px",margin:"0 auto",position:"relative"}}>
+<div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:m?"10px":"16px",marginBottom:"8px",flexWrap:m?"wrap":"nowrap"}}>
+<img src="/team-emblem.png" alt="StubbedToes" style={{width:m?"32px":"48px",height:m?"32px":"48px",borderRadius:"8px",border:`2px solid ${C.brand}44`}} onError={(e)=>{e.target.style.display="none"}}/>
+<div style={{display:"flex",alignItems:"center",gap:m?"8px":"14px",flexWrap:m?"wrap":"nowrap",justifyContent:m?"center":"flex-start"}}>
 <h1 style={{margin:0,fontFamily:"'Teko'",fontWeight:700,fontSize:m?"28px":"42px",letterSpacing:m?"3px":"6px",background:`linear-gradient(135deg,${C.brand},#8aefaa)`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",lineHeight:1}}>STUBBEDTOES</h1>
 {!m&&<div style={{width:"1px",height:"28px",background:`${C.dim}55`}}/>}
 <div style={{display:"flex",alignItems:"center",gap:"8px"}}>
 <span style={{fontFamily:"'Rajdhani'",fontWeight:600,fontSize:m?"12px":"22px",color:C.dim,letterSpacing:"2px",lineHeight:1}}>MARVEL RIVALS</span>
 <span style={{background:`${C.brand}22`,color:C.brand,padding:m?"3px 8px":"5px 12px",borderRadius:"5px",fontSize:m?"11px":"15px",fontWeight:700,border:`1px solid ${C.brand}44`,fontFamily:"'Rajdhani'",letterSpacing:"1px",lineHeight:1}}>S7.5</span>
 </div></div></div>
-{!m&&<p style={{margin:"0 0 14px",color:C.muted,fontSize:F.xs,fontStyle:"italic",position:"relative"}}>"I have watched every timeline, every match, every misplay. The data does not lie." — The One Above All</p>}
-<div style={{display:"grid",gridTemplateColumns:m?"repeat(5,1fr)":"auto auto auto auto auto",gap:m?"3px":"8px",alignItems:"center",position:"relative"}}>
+{!m&&<p style={{margin:"0 0 14px",color:C.muted,fontSize:F.xs,fontStyle:"italic",textAlign:"center"}}>"I have watched every timeline, every match, every misplay. The data does not lie." — The One Above All</p>}
+<div style={{display:"grid",gridTemplateColumns:m?"repeat(5,1fr)":"auto auto auto auto auto",gap:m?"3px":"8px",alignItems:"center"}}>
 <Tab m={m} a={tab==="player"} onClick={()=>{setTab("player");setOpenGroup(null);}}>{m?"PLAYER":"Player"}</Tab>
 {groups.map(g=>{const isOpen=openGroup===g.label;const hasActive=g.tabs.some(t=>t.id===tab);const shortLabel=m?(g.label==="STRATEGY"?"STRAT":g.label==="REFERENCE"?"REF":g.label):g.label;
 return <button key={g.label} onClick={()=>setOpenGroup(isOpen?null:g.label)} style={{background:hasActive?`${g.color}22`:isOpen?`${g.color}15`:"transparent",color:hasActive?g.color:isOpen?g.color:C.dim,border:`1px solid ${hasActive||isOpen?`${g.color}44`:C.border}`,padding:m?"7px 0":"14px 22px",borderRadius:m?"6px":"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:m?"10px":"16px",letterSpacing:m?"0.5px":"1.2px",textTransform:"uppercase",whiteSpace:"nowrap",transition:"all 0.2s ease",textAlign:"center"}}>{shortLabel} {isOpen?"▲":"▼"}</button>})}
@@ -1010,7 +1050,8 @@ return <button key={g.label} onClick={()=>setOpenGroup(isOpen?null:g.label)} sty
 {(groups.find(g=>g.label===openGroup)||activeGroup).tabs.map(t=><Tab key={t.id} a={tab===t.id} onClick={()=>{setTab(t.id);setOpenGroup(null);}} m={m} color={(groups.find(g=>g.label===openGroup)||activeGroup).color}>{t.l}</Tab>)}
 </div>}
 </div>
-<div style={{padding:m?"12px 16px":"24px 32px",maxWidth:"1200px"}}>
+</div>
+<div style={{padding:m?"12px 16px":"24px 32px",maxWidth:"1200px",margin:"0 auto"}}>
 {tab==="stats"&&<StatsTab/>}{tab==="tourney"&&<TourneyTab/>}{tab==="comps"&&<CompsTab/>}{tab==="maps"&&<MapsTab/>}
 {tab==="feedback"&&<FeedbackTab/>}{tab==="learn"&&<LearnTab/>}{tab==="info"&&<InfoTab/>}
 {tab==="draft"&&<DraftTab/>}{tab==="roles"&&<RoleTab/>}{tab==="meta"&&<MetaTab/>}{tab==="player"&&<PlayerTab/>}{tab==="changelog"&&<ChangelogTab/>}
