@@ -607,12 +607,12 @@ return {name:comp.name,color:comp.color,tag:comp.tag,alive,inRoster,bannedInComp
 if(step==="roster")return <div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.gold}44`} title="DRAFT SIMULATOR" titleColor={C.gold}>
 <p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Step 1: Select the 6 players competing in this match.</p></Sec>
-<div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(auto-fill,minmax(160px,1fr))",gap:"8px"}}>
+<div style={{display:"grid",gridTemplateColumns:m?"repeat(3,1fr)":"repeat(9,1fr)",gap:m?"6px":"8px"}}>
 {allPlayers.map(p=>{const picked=roster.includes(p);const fb=FB.find(f=>f.n===p);
-return <div key={p} onClick={()=>togglePlayer(p)} style={{background:picked?`${C.green}22`:C.panel,border:`2px solid ${picked?C.green:C.border}`,borderRadius:"10px",padding:"14px",cursor:"pointer",textAlign:"center"}}>
-<div style={{fontSize:"24px"}}>{fb?fb.i:"👤"}</div>
-<div style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.lg,color:picked?C.green:C.text}}>{p}</div>
-{picked&&<div style={{color:C.green,fontSize:"11px",fontWeight:700,marginTop:"4px"}}>✓ SELECTED</div>}
+return <div key={p} onClick={()=>togglePlayer(p)} style={{background:picked?`${C.green}22`:C.panel,border:`2px solid ${picked?C.green:C.border}`,borderRadius:"10px",padding:m?"8px":"10px",cursor:"pointer",textAlign:"center"}}>
+<div style={{fontSize:m?"18px":"20px"}}>{fb?fb.i:"👤"}</div>
+<div style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:m?MF.sm:F.sm,color:picked?C.green:C.text}}>{p}</div>
+{picked&&<div style={{color:C.green,fontSize:"10px",fontWeight:700}}>✓</div>}
 </div>})}</div>
 <div style={{textAlign:"center",color:C.dim,fontSize:F.sm}}>{roster.length}/6 players selected</div>
 {roster.length===6&&<div style={{textAlign:"center"}}><button onClick={()=>{}} style={{background:C.green,color:"#000",border:"none",borderRadius:"8px",padding:"12px 30px",cursor:"pointer",fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.md,letterSpacing:"1px"}} onClick={()=>setOurSide("pending")}>CONFIRM ROSTER →</button></div>}
@@ -925,13 +925,11 @@ if(!sel)return <div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.gold}44`} title="PLAYER PROFILES" titleColor={C.gold}>
 <p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:0}}>Select a player to view their complete profile — all data from every tab filtered into a single view. Use this for individual coaching sessions.</p>
 </Sec>
-<div style={{display:"grid",gridTemplateColumns:m?"repeat(auto-fill,minmax(130px,1fr))":"repeat(auto-fill,minmax(180px,1fr))",gap:"10px"}}>
-{names.map(n=>{const s=STATS[n];const fb=FB.find(f=>f.n===n);return <div key={n} onClick={()=>setSel(n)} style={{background:C.panel,border:`1px solid ${C.border}`,borderRadius:F.rad,padding:F.pad,cursor:"pointer",textAlign:"center"}}>
-<div style={{fontSize:"28px",marginBottom:"6px"}}>{fb?fb.i:"👤"}</div>
-<div style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.xl,color:C.text}}>{n}</div>
-<div style={{color:C.dim,fontSize:F.xs,marginTop:"4px"}}>{s.ign}</div>
-<div style={{marginTop:"8px"}}>{fb&&<Gr g={fb.g}/>}</div>
-<div style={{marginTop:"8px"}}><Bd color={C.purple} text={s.rank}/></div>
+<div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"10px"}}>
+{names.map(n=>{const s=STATS[n];const fb=FB.find(f=>f.n===n);return <div key={n} onClick={()=>setSel(n)} style={{background:C.panel,border:`1px solid ${C.border}`,borderRadius:F.rad,padding:m?"10px":"14px",cursor:"pointer",textAlign:"center"}}>
+<div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:"6px"}}><span style={{fontSize:m?"18px":"22px"}}>{fb?fb.i:"👤"}</span><span style={{fontFamily:"'Rajdhani'",fontWeight:900,fontSize:m?F.lg:F.xl,color:C.text}}>{n}</span></div>
+<div style={{display:"flex",gap:"6px",justifyContent:"center",alignItems:"center",marginTop:"6px",flexWrap:"wrap"}}>{fb&&<Gr g={fb.g}/>}<Bd color={C.purple} text={s.rank}/></div>
+<div style={{color:C.muted,fontSize:m?"9px":"11px",marginTop:"6px",fontFamily:"'Rajdhani'",letterSpacing:"0.5px"}}>{s.ign}</div>
 </div>})}
 </div></div>;
 const s=STATS[sel];const fb=FB.find(f=>f.n===sel);const rm=ROLE_MATRIX.find(r=>r.name===sel);
