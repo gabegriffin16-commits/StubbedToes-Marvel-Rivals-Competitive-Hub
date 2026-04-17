@@ -440,7 +440,7 @@ const OUR_HEROES={
 };
 
 // ─── UI (35% larger) ───
-function Tab({a,onClick,children,color,m:mob}){const ac=color||C.brand;return <button onClick={onClick} style={{background:a?`${ac}33`:"transparent",color:a?ac:C.dim,border:a?`1px solid ${ac}55`:`1px solid ${C.border}`,padding:mob?"10px 14px":"14px 22px",borderRadius:"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:mob?"12px":"16px",letterSpacing:"1.2px",textTransform:"uppercase",whiteSpace:"nowrap",transition:"all 0.2s ease"}}>{children}</button>}
+function Tab({a,onClick,children,color,m:mob}){const ac=color||C.brand;return <button onClick={onClick} style={{background:a?`${ac}33`:"transparent",color:a?ac:C.dim,border:a?`1px solid ${ac}55`:`1px solid ${C.border}`,padding:mob?"7px 0":"14px 22px",borderRadius:mob?"6px":"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:mob?"10px":"16px",letterSpacing:mob?"0.5px":"1.2px",textTransform:"uppercase",whiteSpace:"nowrap",transition:"all 0.2s ease",textAlign:"center",width:mob?"100%":"auto"}}>{children}</button>}
 function Bd({color,text}){return <span style={{background:`${color}22`,color,padding:"3px 10px",borderRadius:"5px",fontSize:"12px",fontWeight:700,letterSpacing:"1px",fontFamily:"'Rajdhani'"}}>{text}</span>}
 function Gr({g}){const c=g.startsWith("S")?"#ff006e":g.startsWith("A")?C.green:g.startsWith("B")?C.blue:g.startsWith("C")?C.gold:C.accent;return <span style={{background:c,color:"#000",padding:"5px 16px",borderRadius:"8px",fontSize:"20px",fontWeight:900,fontFamily:"'Rajdhani'"}}>{g}</span>}
 function Sec({bg,border,title,titleColor,children}){const mob=useMobile();const f=mob?MF:F;return <div style={{background:bg||C.panel,borderRadius:f.rad,border:`1px solid ${border||C.border}`,padding:f.padL,marginBottom:f.gap}}>{title&&<h4 style={{margin:"0 0 14px",fontFamily:"'Rajdhani'",fontWeight:900,color:titleColor||C.text,letterSpacing:"1.2px",fontSize:f.lg}}>{title}</h4>}{children}</div>}
@@ -991,21 +991,22 @@ return <div style={{minHeight:"100vh",background:C.bg,color:C.text,fontFamily:"'
 <div style={{background:`linear-gradient(135deg,#0f0e1a,${C.bg})`,borderBottom:`2px solid ${C.brand}33`,padding:m?"16px 16px 12px":"24px 32px 16px",position:"relative",overflow:"hidden"}}>
 <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:`radial-gradient(ellipse at 10% 50%, ${C.brand}08 0%, transparent 60%)`,pointerEvents:"none"}}/>
 <div style={{display:"flex",alignItems:"center",gap:m?"10px":"16px",marginBottom:"8px",position:"relative",flexWrap:m?"wrap":"nowrap"}}>
-<img src="/team-emblem.png" alt="StubbedToes" style={{width:m?"36px":"48px",height:m?"36px":"48px",borderRadius:"8px",border:`2px solid ${C.brand}44`}} onError={(e)=>{e.target.style.display="none"}}/>
-<div style={{display:"flex",alignItems:"center",gap:"14px"}}>
+{!m&&<img src="/team-emblem.png" alt="StubbedToes" style={{width:"48px",height:"48px",borderRadius:"8px",border:`2px solid ${C.brand}44`}} onError={(e)=>{e.target.style.display="none"}}/>}
+<div style={{display:"flex",alignItems:"center",gap:"14px",flexWrap:m?"wrap":"nowrap"}}>
 <h1 style={{margin:0,fontFamily:"'Teko'",fontWeight:700,fontSize:m?"28px":"42px",letterSpacing:m?"3px":"6px",background:`linear-gradient(135deg,${C.brand},#8aefaa)`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",lineHeight:1}}>STUBBEDTOES</h1>
-<div style={{width:"1px",height:m?"20px":"28px",background:`${C.dim}55`}}/>
-<span style={{fontFamily:"'Rajdhani'",fontWeight:600,fontSize:m?"14px":"22px",color:C.dim,letterSpacing:"2px",lineHeight:1}}>MARVEL RIVALS</span>
-<span style={{background:`${C.brand}22`,color:C.brand,padding:"5px 12px",borderRadius:"5px",fontSize:"15px",fontWeight:700,border:`1px solid ${C.brand}44`,fontFamily:"'Rajdhani'",letterSpacing:"1px",lineHeight:1}}>S7.5</span>
-</div></div>
-<p style={{margin:"0 0 14px",color:C.muted,fontSize:F.xs,fontStyle:"italic",position:"relative"}}>"I have watched every timeline, every match, every misplay. The data does not lie." — The One Above All</p>
-<div style={{display:"flex",gap:m?"6px":"8px",flexWrap:"wrap",alignItems:"center",position:"relative"}}>
-<Tab m={m} a={tab==="player"} onClick={()=>{setTab("player");setOpenGroup(null);}}>Player</Tab>
-{groups.map(g=>{const isOpen=openGroup===g.label;const hasActive=g.tabs.some(t=>t.id===tab);
-return <button key={g.label} onClick={()=>setOpenGroup(isOpen?null:g.label)} style={{background:hasActive?`${g.color}22`:isOpen?`${g.color}15`:"transparent",color:hasActive?g.color:isOpen?g.color:C.dim,border:`1px solid ${hasActive||isOpen?`${g.color}44`:C.border}`,padding:m?"10px 14px":"14px 22px",borderRadius:"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:m?"12px":"16px",letterSpacing:"1.2px",textTransform:"uppercase",whiteSpace:"nowrap",transition:"all 0.2s ease"}}>{g.label} {isOpen?"▲":"▼"}</button>})}
-<Tab m={m} a={tab==="changelog"} onClick={()=>{setTab("changelog");setOpenGroup(null);}}>Changelog</Tab>
+{!m&&<div style={{width:"1px",height:"28px",background:`${C.dim}55`}}/>}
+<div style={{display:"flex",alignItems:"center",gap:"8px"}}>
+<span style={{fontFamily:"'Rajdhani'",fontWeight:600,fontSize:m?"12px":"22px",color:C.dim,letterSpacing:"2px",lineHeight:1}}>MARVEL RIVALS</span>
+<span style={{background:`${C.brand}22`,color:C.brand,padding:m?"3px 8px":"5px 12px",borderRadius:"5px",fontSize:m?"11px":"15px",fontWeight:700,border:`1px solid ${C.brand}44`,fontFamily:"'Rajdhani'",letterSpacing:"1px",lineHeight:1}}>S7.5</span>
+</div></div></div>
+{!m&&<p style={{margin:"0 0 14px",color:C.muted,fontSize:F.xs,fontStyle:"italic",position:"relative"}}>"I have watched every timeline, every match, every misplay. The data does not lie." — The One Above All</p>}
+<div style={{display:"grid",gridTemplateColumns:m?"repeat(5,1fr)":"auto auto auto auto auto",gap:m?"3px":"8px",alignItems:"center",position:"relative"}}>
+<Tab m={m} a={tab==="player"} onClick={()=>{setTab("player");setOpenGroup(null);}}>{m?"PLAYER":"Player"}</Tab>
+{groups.map(g=>{const isOpen=openGroup===g.label;const hasActive=g.tabs.some(t=>t.id===tab);const shortLabel=m?(g.label==="STRATEGY"?"STRAT":g.label==="REFERENCE"?"REF":g.label):g.label;
+return <button key={g.label} onClick={()=>setOpenGroup(isOpen?null:g.label)} style={{background:hasActive?`${g.color}22`:isOpen?`${g.color}15`:"transparent",color:hasActive?g.color:isOpen?g.color:C.dim,border:`1px solid ${hasActive||isOpen?`${g.color}44`:C.border}`,padding:m?"7px 0":"14px 22px",borderRadius:m?"6px":"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:m?"10px":"16px",letterSpacing:m?"0.5px":"1.2px",textTransform:"uppercase",whiteSpace:"nowrap",transition:"all 0.2s ease",textAlign:"center"}}>{shortLabel} {isOpen?"▲":"▼"}</button>})}
+<Tab m={m} a={tab==="changelog"} onClick={()=>{setTab("changelog");setOpenGroup(null);}}>{m?"LOG":"Changelog"}</Tab>
 </div>
-{(openGroup||activeGroup)&&<div style={{display:"flex",gap:"6px",marginTop:"10px",flexWrap:"wrap"}}>
+{(openGroup||activeGroup)&&<div style={{display:"grid",gridTemplateColumns:m?"repeat(auto-fit,minmax(80px,1fr))":"repeat(auto-fill,auto)",gap:"4px",marginTop:m?"6px":"10px"}}>
 {(groups.find(g=>g.label===openGroup)||activeGroup).tabs.map(t=><Tab key={t.id} a={tab===t.id} onClick={()=>{setTab(t.id);setOpenGroup(null);}} m={m} color={(groups.find(g=>g.label===openGroup)||activeGroup).color}>{t.l}</Tab>)}
 </div>}
 </div>
