@@ -1,4 +1,4 @@
-# Marvel Rivals S7 — Team Dashboard
+# StubbedToes — Marvel Rivals Team Dashboard
 
 Interactive competitive coaching dashboard for Marvel Rivals Season 7 tournament play.
 
