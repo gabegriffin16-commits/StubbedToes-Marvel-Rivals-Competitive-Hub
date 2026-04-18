@@ -616,7 +616,7 @@ return <div key={p} onClick={()=>togglePlayer(p)} style={{background:picked?`${C
 {picked&&<div style={{color:C.green,fontSize:"10px",fontWeight:700}}>✓</div>}
 </div>})}</div>
 <div style={{textAlign:"center",color:C.dim,fontSize:F.sm}}>{roster.length}/6 players selected</div>
-{roster.length===6&&<div style={{textAlign:"center"}}><button onClick={()=>{}} style={{background:C.green,color:"#000",border:"none",borderRadius:"8px",padding:"12px 30px",cursor:"pointer",fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.md,letterSpacing:"1px"}} onClick={()=>setOurSide("pending")}>CONFIRM ROSTER →</button></div>}
+{roster.length===6&&<div style={{textAlign:"center"}}><button onClick={()=>setOurSide("pending")} style={{background:C.green,color:"#000",border:"none",borderRadius:"8px",padding:"12px 30px",cursor:"pointer",fontFamily:"'Rajdhani'",fontWeight:900,fontSize:F.md,letterSpacing:"1px"}}>CONFIRM ROSTER →</button></div>}
 </div>;
 if(step==="side")return <div style={{display:"grid",gap:"16px"}}>
 <Sec border={`${C.gold}44`} title="DRAFT SIMULATOR" titleColor={C.gold}>
