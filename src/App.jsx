@@ -468,8 +468,13 @@ function TourneyTab(){const m=useMobile();const f=m?MF:F;const[ex,setEx]=useStat
 <div style={{background:`${rc}11`,borderRadius:"8px",padding:"12px",border:`1px solid ${rc}33`}}><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{mt.a}</div></div></div>}</div>})}
 </div>}
 
-function CompsTab(){const m=useMobile();const f=m?MF:F;const[idx,setIdx]=useState(0);const comp=COMPS[idx];return <div>
-<div style={{display:"flex",gap:"8px",flexWrap:"wrap",marginBottom:"20px"}}>{COMPS.map((c,i)=><Tab key={i} a={idx===i} onClick={()=>setIdx(i)} color={c.color}>{c.name}</Tab>)}</div>
+function CompsTab(){const m=useMobile();const f=m?MF:F;const[idx,setIdx]=useState(0);const comp=COMPS[idx];
+return <div>
+<div style={{display:"flex",gap:"2px",flexWrap:"wrap",marginBottom:"12px",alignItems:"center"}}>
+{COMPS.map((c,i)=>{const active=idx===i;const groupStart=i===1||i===3||i===5||i===7||i===9||i===11;return <div key={i} style={{display:"flex",alignItems:"center"}}>
+{groupStart&&<span style={{display:"inline-block",width:"2px",height:"20px",background:C.muted,margin:"0 6px"}}/>}
+<button onClick={()=>setIdx(i)} style={{background:active?`${c.color}33`:"transparent",color:active?c.color:C.dim,border:"1px solid "+(active?c.color+"55":C.border),padding:m?"5px 8px":"6px 12px",borderRadius:"6px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:m?"9px":"12px",letterSpacing:"0.8px",textTransform:"uppercase",whiteSpace:"nowrap"}}>{c.name.replace("HYBRID: ","").replace("ANTI-3 SUPP","ANTI-3")}</button>
+</div>})}</div>
 <div style={{background:C.panel,borderRadius:F.rad,border:`1px solid ${C.border}`,overflow:"hidden"}}>
 <div style={{padding:F.padL,borderBottom:`1px solid ${C.border}`}}><h3 style={{margin:"0 0 8px",fontSize:F.xxl,fontFamily:"'Rajdhani'",fontWeight:900,color:comp.color,letterSpacing:"2px"}}>{comp.name} <span style={{fontSize:F.md,color:C.dim,fontWeight:600}}>{comp.tag}</span></h3>
 <p style={{margin:0,color:C.dim,fontSize:F.sm,lineHeight:1.7}}>{comp.desc}</p></div>
