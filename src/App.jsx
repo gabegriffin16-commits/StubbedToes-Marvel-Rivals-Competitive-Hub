@@ -246,7 +246,6 @@ w:"3 heroes total (C&D, Luna 0%, White Fox QP-only). C&D 18% last 20. Tournament
 r:"The forensic analysis: your C&D at 12.82 KDA with 29.8 assists/game proves the HEALING OUTPUT is not the problem — you're dying too much. In your 55.6% WR games, you were likely dying ~3 times/game. In the recent 18% stretch, you're dying ~7+ times. That's a positioning/peel issue. Two hypotheses: (1) S7's dive meta means more enemies are targeting supports — you need to position further back than you did in S6, or (2) your team's composition isn't providing enough peel. The tournament data supports both — games where the team ran proper tanks (Klyntar win) you had 16.00 KDA. Games where the team was scrambled, you died 7-11 times. FIX: (1) Position 5-10m further from the fight than you currently do. (2) Learn to toggle to Dagger form when being dove — the damage can kill flankers. (3) EXPAND YOUR POOL — Rocket, Gambit, Sue. Not negotiable."},
 ];
 
-const BANS_GUIDE="S7: A ban→B ban→B save→A save→A ban→B ban→B save→A save→A ban→B ban. 3 bans + 2 saves each. 15s/phase. In BO3+, winner bans first next game. STRATEGY: Use first ban to remove enemy's best hero. Use first SAVE (phase 3-4) to protect YOUR critical hero. Use bans 2-3 to target enemy healer pool or one-tricks.";
 
 const RULES=[{l:"Format",v:"Open Quals (BO1) → Closed Quals (BO1) → Double Elim (BO3→BO5→BO7)"},{l:"Bans",v:"3 bans + 2 saves each (6 banned, 4 saved)"},{l:"Roster",v:"6+ per Faction. Subs between maps OK."},{l:"Rank",v:"Platinum 3 minimum"},{l:"Maps",v:"14 maps + Lower Manhattan. 1st=random Dom. Loser picks next."},{l:"Reg",v:"March 28–April 11 (AMERICAS)"},{l:"Open",v:"April 11–12 | 7-11pm ET"},{l:"Closed",v:"April 18–19 | 7-11pm ET"},{l:"Elim",v:"April 25–May 10"},{l:"Prize",v:"$7K / $3.5K / $2.5K / $1.5K"}];
 
@@ -480,7 +479,7 @@ return <div>
 <p style={{margin:0,color:C.dim,fontSize:F.sm,lineHeight:1.7}}>{comp.desc}</p></div>
 <div style={{padding:F.padL}}>
 {comp.lineup.length>0&&<div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:"6px"}}>{comp.lineup.filter(s=>s.r!=="note").map((s,i)=>{const rc=s.r==="tank"?C.tank:s.r==="dps"?C.dps:C.heal;return <div key={i} style={{background:C.sec,borderRadius:"8px",padding:"10px 12px",borderLeft:`3px solid ${rc}`,display:"flex",gap:"10px",alignItems:"center"}}>
-<div style={{minWidth:m?"60px":"80px"}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:m?MF.sm:F.sm,color:C.text}}>{s.p}</div><div style={{fontFamily:"'Rajdhani'",fontWeight:600,fontSize:m?"11px":"13px",color:comp.color}}>{s.h}</div></div>
+<div style={{minWidth:m?"60px":"80px"}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:m?MF.sm:F.sm,color:C.text}}>{s.p}</div><div style={{fontFamily:"'Rajdhani'",fontWeight:600,fontSize:m?"11px":"13px",color:rc}}>{s.h}</div></div>
 <div style={{color:C.muted,fontSize:m?"10px":"12px",lineHeight:1.4,flex:1}}>{s.n}</div></div>})}</div>}
 {comp.tu&&comp.tu.length>0&&<div style={{marginTop:"14px",padding:"14px",background:`${comp.color}11`,borderRadius:"10px",border:`1px solid ${comp.color}33`}}>
 <div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"12px",color:comp.color,letterSpacing:"1px",marginBottom:"6px"}}>TEAM-UPS</div>
@@ -528,12 +527,9 @@ function LearnTab(){const m=useMobile();const f=m?MF:F;return <div style={{displ
 function InfoTab(){const m=useMobile();const f=m?MF:F;return <div style={{display:"grid",gap:"16px"}}>
 <Sec title="MRC SEASON 7" titleColor={C.gold}>{RULES.map((t,i)=><div key={i} style={{display:"grid",gridTemplateColumns:m?"1fr":"120px 1fr",gap:"12px",padding:"8px 0",borderBottom:i<RULES.length-1?`1px solid ${C.border}`:"none"}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:F.xs,color:C.gold,letterSpacing:"1px"}}>{t.l}</div><div style={{color:C.dim,fontSize:F.sm}}>{t.v}</div></div>)}</Sec>
 <Sec border={`${C.gold}44`} title="BAN-SAVE PROCEDURE" titleColor={C.gold}>
-<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:"0 0 14px"}}>{BANS_GUIDE}</p>
 <p style={{color:C.dim,fontSize:F.xs,lineHeight:1.7,margin:"0 0 14px"}}>The draft alternates between bans (removing heroes from the match) and saves (protecting heroes from being banned). Each team gets 3 bans and 2 saves. Phases are 15 seconds each. In BO3+, the winner of the previous game bans first in the next game. The visual below shows the full 10-phase sequence — red = ban, green = save.</p>
 <div style={{display:"grid",gridTemplateColumns:m?"repeat(5,1fr)":"repeat(5,1fr)",gap:m?"3px":"6px"}}>{[{s:1,a:"A BAN",c:C.accent},{s:2,a:"B BAN",c:C.blue},{s:3,a:"B SAVE",c:C.green},{s:4,a:"A SAVE",c:C.green},{s:5,a:"A BAN",c:C.accent},{s:6,a:"B BAN",c:C.blue},{s:7,a:"B SAVE",c:C.green},{s:8,a:"A SAVE",c:C.green},{s:9,a:"A BAN",c:C.accent},{s:10,a:"B BAN",c:C.blue}].map(x=><div key={x.s} style={{background:`${x.c}22`,border:`1px solid ${x.c}44`,borderRadius:"8px",padding:"10px",textAlign:"center"}}><div style={{fontSize:"10px",color:C.muted,fontFamily:"'Rajdhani'"}}>{x.s}</div><div style={{fontSize:F.xs,color:x.c,fontWeight:700,fontFamily:"'Rajdhani'"}}>{x.a}</div></div>)}</div>
-</Sec>
-<Sec border={`${C.purple}44`} title="S7 META" titleColor={C.purple}>
-{["20% ult charge nerf globally. Neutral phases now 50+ seconds. Base kit value > ult cycling.","1-2-3 dominant at Diamond+. 2-2-2 has 54% WR, 62% play rate. Triple support isn't dead.","Dive stronger. Slower defensive ults = larger windows for Venom/Spider-Man/Magik/Psylocke.","S-tier Tanks: Magneto, Groot, Venom, Deadpool(V), Hulk.","S-tier DPS: Hela, Daredevil, Hawkeye, Blade, Spider-Man, Psylocke, Magik, Wolverine.","S-tier Heals: C&D, Rocket, Gambit, Luna, White Fox.","C-tier Tanks: Emma Frost, Captain America — lowest WR tanks. Deprioritize.","New team-ups: Kumiho (WF+Luna), Cosmic Cyclone (Storm+Adam). Removed: Jeff-nado, Duality Dance.","Rogue ult drain more valuable — stolen charge 20% harder to rebuild.","Bucky nerfed (CD 3s→6s). Shin-Shibuya returns to comp. Lower Manhattan added April 3."].map((n,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"10px 14px",marginBottom:"6px",display:"flex",gap:"10px"}}><span style={{color:C.purple,fontWeight:700}}>▸</span><span style={{color:C.dim,fontSize:F.xs,lineHeight:"22px"}}>{n}</span></div>)}</Sec></div>}
+</Sec></div>}
 
 // ─── DRAFT SIMULATOR ───
 function DraftTab(){const m=useMobile();const f=m?MF:F;
@@ -833,7 +829,18 @@ return <div key={hi} style={{background:C.sec,borderRadius:"10px",padding:"14px"
 "Iron Man buffed: aerial pressure improved, still B-tier predictable flight.",
 "Shin-Shibuya returned to comp. Lower Manhattan added April 3.",
 "Emma Frost: S-tier per Mobalytics Diamond+ (contrary to some sources listing C-tier). Powerful with team support, vulnerable solo. Captain America: A-tier per Mobalytics. Roster should still avoid — Gabe's tournament Cap was 0.88 KDA.",
+"Rogue ult drain more valuable — stolen charge is 20% harder to rebuild under the new ult economy. She punishes ult-dependent comps harder than ever.",
 ].map((n,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"10px 14px",marginBottom:"6px",display:"flex",gap:"10px"}}><span style={{color:C.gold,fontWeight:700}}>▸</span><span style={{color:C.dim,fontSize:F.xs,lineHeight:"22px"}}>{n}</span></div>)}
+</Sec>
+<Sec border={`${C.brand}44`} title="SEASON 7.5 — EARLY INTEL" titleColor={C.brand}>
+<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:"0 0 14px"}}>Season 7.5 launched mid-April 2026. No StubbedToes players have competitive S7.5 games yet — all dashboard data remains S7 final. Below is what we know so far.</p>
+{[
+"Deadpool (Vanguard) received nerfs. Severity and impact TBD — he was the most flexible S+ tank in S7. If the nerf is significant, our ban priority shifts (Elsa stays #1, but the #2 slot opens up). Dashboard ban logic still treats him as must-ban until verified otherwise.",
+"New heroes, maps, or team-ups for S7.5 have not yet been scouted. First priority when players start queueing: check if the tier list has shifted.",
+"All S7 data remains valid as a baseline — the ult economy changes (20% nerf) and 1-2-3 dominance are structural and unlikely to reverse in a mid-season patch.",
+"RivalsMeta and Mobalytics will need to be re-checked once Diamond+ sample sizes build for S7.5. Expect 1-2 weeks before reliable tier data exists.",
+"StubbedToes action items: (1) Verify Deadpool(V) nerf impact in QP before comp. (2) Scout for new/buffed heroes entering the meta. (3) First timeline review with S7.5 data will establish the new baseline.",
+].map((n,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"10px 14px",marginBottom:"6px",display:"flex",gap:"10px"}}><span style={{color:C.brand,fontWeight:700}}>▸</span><span style={{color:C.dim,fontSize:F.xs,lineHeight:"22px"}}>{n}</span></div>)}
 </Sec></div>}
 
 // ─── CHANGELOG TAB ───
@@ -1026,7 +1033,7 @@ return <div key={i} style={{background:C.sec,borderRadius:"8px",padding:"12px",m
 
 export default function App(){const m=useMobile();const f=m?MF:F;const[tab,setTab]=useState("player");
 const[openGroup,setOpenGroup]=useState(null);
-const groups=[{label:"TEAM",color:"#3d9ec2",tabs:[{id:"stats",l:"Stats"},{id:"feedback",l:"Intel"},{id:"roles",l:"Roles"}]},{label:"STRATEGY",color:"#7e4fba",tabs:[{id:"comps",l:"Comps"},{id:"maps",l:"Maps"},{id:"draft",l:"Draft Sim"}]},{label:"REFERENCE",color:"#c48e28",tabs:[{id:"meta",l:"Meta"},{id:"info",l:"Rules"},{id:"learn",l:"Learns"},{id:"tourney",l:"Tournament"}]}];
+const groups=[{label:"TEAM",color:"#3d9ec2",tabs:[{id:"stats",l:"Stats"},{id:"feedback",l:"Intel"},{id:"roles",l:"Roles"},{id:"learn",l:"Learns"}]},{label:"STRATEGY",color:"#7e4fba",tabs:[{id:"comps",l:"Comps"},{id:"maps",l:"Maps"},{id:"draft",l:"Draft Sim"}]},{label:"REFERENCE",color:"#c48e28",tabs:[{id:"meta",l:"Meta"},{id:"info",l:"Rules"},{id:"tourney",l:"Tournament"}]}];
 const activeGroup=groups.find(g=>g.tabs.some(t=>t.id===tab));
 return <div style={{minHeight:"100vh",background:C.bg,color:C.text,fontFamily:"'Rajdhani',sans-serif"}}>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@700;900&family=Teko:wght@500;600;700&display=swap" rel="stylesheet"/>
