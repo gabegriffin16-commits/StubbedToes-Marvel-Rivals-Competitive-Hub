@@ -140,7 +140,7 @@ function App(){
           const url=`${API}${encodeURIComponent(ign)}?season=${seasonNum}`;
           const resp=await fetch(url,{headers:{"x-api-key":KEY}});
           const json=await resp.json();
-          if(json.message?.includes("Too many")){addLog(`⚠ Rate limited on ${ign}, waiting 3s...`);await new Promise(r=>setTimeout(r,3000));const r2=await fetch(url,{headers:{"x-api-key":KEY}});const j2=await r2.json();if(!j2.error&&!j2.message){data=j2;addLog(`✓ ${p.label} — retry OK`);break;}else{addLog(`✗ ${p.label} — retry failed: ${j2.message||j2.error}`);}}
+          if(json.message?.includes("Too many")){addLog(`⚠ Rate limited on ${ign}, waiting 6s...`);await new Promise(r=>setTimeout(r,6000));const r2=await fetch(url,{headers:{"x-api-key":KEY}});const j2=await r2.json();if(!j2.error&&!j2.message){data=j2;addLog(`✓ ${p.label} — retry OK`);break;}else if(j2.message?.includes("Too many")){addLog(`⚠ Still limited, waiting 10s...`);await new Promise(r=>setTimeout(r,10000));const r3=await fetch(url,{headers:{"x-api-key":KEY}});const j3=await r3.json();if(!j3.error&&!j3.message){data=j3;addLog(`✓ ${p.label} — 2nd retry OK`);break;}else{addLog(`✗ ${p.label} — 2nd retry failed`);}}else{addLog(`✗ ${p.label} — retry failed: ${j2.message||j2.error}`);}}
           else if(!json.error&&!json.message){data=json;addLog(`✓ ${p.label} — ${json.player?.rank?.rank||"N/A"}`);break;}
           else if(json.message?.includes("private")){data=json;addLog(`🔒 ${p.label} — PRIVATE`);break;}
           else{addLog(`✗ ${p.label} (${ign}): ${json.message||json.error}`);}
@@ -149,7 +149,7 @@ function App(){
       fetched.push(processPlayer(data,p.label));
       setProgress({done:i+1,total});
       setResults([...fetched]);
-      if(i<PLAYERS.length-1)await new Promise(r=>setTimeout(r,1500));
+      if(i<PLAYERS.length-1)await new Promise(r=>setTimeout(r,3500));
     }
     addLog(`Done — ${fetched.filter(r=>!r.error).length}/${total} successful`);
     setLoading(false);
@@ -256,7 +256,7 @@ function App(){
 
         {/* Footer */}
         <div style={{textAlign:"center",marginTop:"24px",padding:"12px",borderTop:`1px solid ${C.border}`,color:C.muted,fontSize:"11px"}}>
-          StubbedToes Team Tool • marvelrivalsapi.com Free Tier (3K req/day) • 1.5s delay between requests • Auto-retry on rate limit
+          StubbedToes Team Tool • marvelrivalsapi.com Free Tier (3K req/day) • 3.5s delay between requests • Auto-retry on rate limit (6s + 10s)
         </div>
       </div>
     </div>
