@@ -14,8 +14,8 @@ note:"The most versatile player. White Fox now on MAIN competitive: 100% 3g 8.27
 url:"https://rivalsmeta.com/player/33050531"},
 Begin:{ign:"Begooon",rank:"GM3",rs:4544,wr:"62%",rec:"18W 11L",r20:"35%",r20r:"7W 13L",
 heroes:[{h:"Thor",w:"70%",g:20,k:"4.23",l:"22.1/6/3.3"},{h:"Dr. Strange",w:"44.4%",g:9,k:"3.66",l:"23.1/6.6/0.9"}],
-extra:"Second account (Begoooon): GM1, 4,724 RS, 73% WR, 66W 25L. Thor 66.7% 33g, Strange 69.2% 26g, Magneto 75% 12g, Groot 77.8% 9g, Magik 100% 9g 5.10 KDA. Combined data shows mastery across multiple tanks at the highest level.",
-note:"Highest-ranked player across all accounts. GM1 on second account proves the ceiling. Main account recent 20 at 35% WR is concerning — but second account at 80% recent 20 suggests the main account slump is lobbies or team composition issues, not skill degradation.",
+extra:"Alt accounts: Begoooon (GM1, 4,724 RS, 73% WR) and Deanna Schmidt (lower ELO stacking account). Begoooon: 66W 25L. Thor 66.7% 33g, Strange 69.2% 26g, Magneto 75% 12g, Groot 77.8% 9g, Magik 100% 9g 5.10 KDA. Combined data shows mastery across multiple tanks at the highest level.",
+note:"Highest-ranked player. GM3 main creates a MATCHMAKING PENALTY — stacking with Plat/Diamond teammates in GM lobbies tanks everyone's WR. Synergy data proves it: 7-45% WR with roster on main vs 61-80% on alt (Deanna Schmidt). In tournament against Celestial/Eternity players, this advantage disappears — the 1W-9L record is the real baseline. Begin's individual skill is not in question. The team composition around him is.",
 url:"https://rivalsmeta.com/player/1347122425"},
 Gabe:{ign:"froglin_",rank:"Dia 3",rs:4288,wr:"56%",rec:"37W 29L",r20:"50%",r20r:"10W 10L",
 heroes:[{h:"Dr. Strange",w:"57.7%",g:26,k:"3.96",l:"21.2/6/2.5"},{h:"Ultron",w:"58.3%",g:12,k:"8.75",l:"19/5.4/28.4"},{h:"Thing",w:"45.5%",g:11,k:"5.35",l:"22.2/5.7/8.5"},{h:"Magneto",w:"75%",g:12,k:"4.55",l:"15.6/4.4/4.5"},{h:"Star-Lord",w:"0%",g:2,k:"1.44",l:"13/9/0"}],
@@ -438,6 +438,57 @@ const OUR_HEROES={
 "Jace":["Daredevil","Blade","Deadpool (V)","Deadpool (S)","Iron Man"],
 };
 
+
+// ─── SYNERGY DATA (S7 all modes) ───
+const SYNERGY=[
+{p1:"Jace",p2:"Ayden",wr:"90.91%",g:11,v:"ELITE"},
+{p1:"Raquel",p2:"Begin (alt)",wr:"70.37%",g:27,v:"STRONG"},
+{p1:"Jace",p2:"Begin (alt)",wr:"70%",g:10,v:"STRONG"},
+{p1:"Ayden",p2:"Begin (alt)",wr:"66.67%",g:45,v:"STRONG"},
+{p1:"Jace",p2:"T-Money",wr:"63.64%",g:11,v:"GOOD"},
+{p1:"T-Money",p2:"Begin (alt)",wr:"61.54%",g:26,v:"GOOD"},
+{p1:"Tristen",p2:"T-Money",wr:"59.09%",g:22,v:"GOOD"},
+{p1:"Ayden",p2:"Gabe",wr:"58.82%",g:85,v:"GOOD"},
+{p1:"Gabe",p2:"Tristen",wr:"58.82%",g:51,v:"GOOD"},
+{p1:"Tristen",p2:"Raquel",wr:"58.33%",g:48,v:"GOOD"},
+{p1:"Ayden",p2:"Tristen",wr:"57.58%",g:66,v:"GOOD"},
+{p1:"Gabe",p2:"T-Money",wr:"57.14%",g:28,v:"GOOD"},
+{p1:"T-Money",p2:"Ayden",wr:"55.56%",g:36,v:"NEUTRAL"},
+{p1:"Raquel",p2:"Gabe",wr:"53.85%",g:52,v:"NEUTRAL"},
+{p1:"Gabe",p2:"Sam",wr:"51.81%",g:83,v:"NEUTRAL"},
+{p1:"Ayden",p2:"Sam",wr:"47.14%",g:70,v:"WEAK"},
+{p1:"T-Money",p2:"Sam",wr:"46.43%",g:28,v:"WEAK"},
+{p1:"Raquel",p2:"Ayden",wr:"45.35%",g:86,v:"WEAK"},
+{p1:"Ayden",p2:"Begin",wr:"44.68%",g:47,v:"WEAK"},
+{p1:"Sam",p2:"Raquel",wr:"41.67%",g:24,v:"CRISIS"},
+{p1:"Begin",p2:"Tristen",wr:"31.82%",g:22,v:"CRISIS"},
+{p1:"Ayden",p2:"Zach",wr:"26.67%",g:15,v:"CRISIS"},
+{p1:"Raquel",p2:"Zach",wr:"26.67%",g:15,v:"CRISIS"},
+{p1:"Gabe",p2:"Zach",wr:"25%",g:20,v:"CRISIS"},
+{p1:"Tristen",p2:"Zach",wr:"15.38%",g:13,v:"CRISIS"},
+{p1:"Begin",p2:"Zach",wr:"9.09%",g:11,v:"CRISIS"},
+{p1:"Begin",p2:"Raquel",wr:"7.14%",g:14,v:"CRISIS"},
+{p1:"Begin",p2:"Gabe",wr:"7.14%",g:14,v:"CRISIS"},
+];
+
+// ─── MAP PLAYER DATA (S7 Competitive WR per player per map, 3+ games only) ───
+const MAP_PLAYERS={
+"Midtown":[{p:"Ayden",wr:"42.86%",g:7},{p:"Gabe",wr:"60%",g:5}],
+"Arakko":[{p:"Ayden",wr:"42.86%",g:7},{p:"Gabe",wr:"66.67%",g:6},{p:"Tristen",wr:"80%",g:5},{p:"Sam",wr:"40%",g:5},{p:"Jace",wr:"25%",g:4}],
+"Spider-Islands":[{p:"Ayden",wr:"71.43%",g:7},{p:"Gabe",wr:"16.67%",g:6},{p:"Begin",wr:"25%",g:4},{p:"Tristen",wr:"75%",g:4},{p:"T-Money",wr:"33.33%",g:3},{p:"Raquel",wr:"66.67%",g:3},{p:"Jace",wr:"100%",g:3},{p:"Zach",wr:"33.33%",g:3}],
+"Yggdrasill Path":[{p:"Gabe",wr:"80%",g:5},{p:"Sam",wr:"100%",g:4},{p:"Begin",wr:"33.33%",g:3},{p:"Jace",wr:"30%",g:10}],
+"Museum":[{p:"Gabe",wr:"50%",g:4},{p:"Tristen",wr:"80%",g:5},{p:"Zach",wr:"66.67%",g:3}],
+"Krakoa":[{p:"Sam",wr:"66.67%",g:3},{p:"Raquel",wr:"75%",g:4}],
+"Hell's Heaven":[{p:"Ayden",wr:"62.5%",g:8},{p:"Tristen",wr:"83.33%",g:6},{p:"Gabe",wr:"42.86%",g:7},{p:"Jace",wr:"83.33%",g:6},{p:"T-Money",wr:"75%",g:4},{p:"Sam",wr:"50%",g:8},{p:"Raquel",wr:"66.67%",g:3},{p:"Zach",wr:"33.33%",g:3}],
+"Birnin T'Challa":[{p:"Begin",wr:"66.67%",g:3},{p:"Gabe",wr:"25%",g:4},{p:"Tristen",wr:"33.33%",g:3},{p:"T-Money",wr:"50%",g:4},{p:"Sam",wr:"25%",g:4}],
+"Celestial Husk":[{p:"Begin",wr:"75%",g:4},{p:"Tristen",wr:"75%",g:4},{p:"T-Money",wr:"80%",g:5},{p:"Gabe",wr:"40%",g:5},{p:"Raquel",wr:"66.67%",g:3}],
+"Symbiotic Surface":[{p:"T-Money",wr:"71.43%",g:7},{p:"Gabe",wr:"40%",g:5},{p:"Raquel",wr:"66.67%",g:3}],
+"Heart of Heaven":[{p:"Ayden",wr:"60%",g:5},{p:"T-Money",wr:"33.33%",g:6},{p:"Gabe",wr:"50%",g:4},{p:"Sam",wr:"60%",g:5},{p:"Jace",wr:"36.36%",g:11}],
+"Shin-Shibuya":[{p:"T-Money",wr:"100%",g:4},{p:"Gabe",wr:"71.43%",g:7},{p:"Tristen",wr:"75%",g:4},{p:"Raquel",wr:"25%",g:4},{p:"Jace",wr:"66.67%",g:6}],
+"Hall of Djalia":[{p:"Ayden",wr:"55.56%",g:9},{p:"Gabe",wr:"28.57%",g:7},{p:"Tristen",wr:"33.33%",g:6},{p:"Jace",wr:"33.33%",g:6},{p:"Zach",wr:"25%",g:4},{p:"Sam",wr:"33.33%",g:6}],
+"Central Park":[{p:"Ayden",wr:"66.67%",g:9},{p:"Gabe",wr:"50%",g:8},{p:"Tristen",wr:"50%",g:6},{p:"Jace",wr:"75%",g:4},{p:"Sam",wr:"71.43%",g:7}],
+};
+
 // ─── UI (35% larger) ───
 function Tab({a,onClick,children,color,m:mob}){const ac=color||C.brand;return <button onClick={onClick} style={{background:a?`${ac}33`:"transparent",color:a?ac:C.dim,border:a?`1px solid ${ac}55`:`1px solid ${C.border}`,padding:mob?"7px 0":"14px 22px",borderRadius:mob?"6px":"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:mob?"10px":"16px",letterSpacing:mob?"0.5px":"1.2px",textTransform:"uppercase",whiteSpace:"nowrap",transition:"all 0.2s ease",textAlign:"center",width:"100%"}}>{children}</button>}
 function Bd({color,text}){return <span style={{background:`${color}22`,color,padding:"3px 10px",borderRadius:"5px",fontSize:"12px",fontWeight:700,letterSpacing:"1px",fontFamily:"'Rajdhani'"}}>{text}</span>}
@@ -452,7 +503,16 @@ function StatsTab(){const m=useMobile();const f=m?MF:F;const[sel,setSel]=useStat
 <tbody>{s.heroes.map((h,i)=>{const w=parseFloat(h.w),wc=w>=60?C.green:w>=45?C.gold:C.accent;return <tr key={i} style={{borderBottom:`1px solid ${C.border}22`}}><td style={{padding:"8px",color:C.text,fontWeight:600}}>{h.h}</td><td style={{padding:"8px",color:wc,fontWeight:700}}>{h.w}</td><td style={{padding:"8px",color:C.dim}}>{h.g}</td><td style={{padding:"8px",color:C.blue,fontWeight:600}}>{h.k}</td><td style={{padding:"8px",color:C.dim}}>{h.l}</td></tr>})}</tbody></table></div>
 {s.extra&&<div style={{background:`${C.purple}11`,borderRadius:"8px",padding:"14px",border:`1px solid ${C.purple}33`}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"13px",color:C.purple,letterSpacing:"1px",marginBottom:"6px"}}>ADDITIONAL DATA</div><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{s.extra}</div></div>}
 <div style={{background:`${C.gold}11`,borderRadius:"8px",padding:"14px",border:`1px solid ${C.gold}33`}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"13px",color:C.gold,letterSpacing:"1px",marginBottom:"6px"}}>ANALYSIS</div><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{s.note}</div></div>
-<a href={s.url} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()} style={{color:C.blue,fontSize:F.xs,textDecoration:"none"}}>View on RivalsMeta →</a></div>}</div>})}</div>}
+<a href={s.url} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()} style={{color:C.blue,fontSize:F.xs,textDecoration:"none"}}>View on RivalsMeta →</a></div>}</div>})}
+<Sec border={`${C.purple}44`} title="TEAM SYNERGY — DUO WIN RATES" titleColor={C.purple}>
+<p style={{color:C.dim,fontSize:F.xs,lineHeight:1.6,margin:"0 0 12px"}}>Win rates when two players queue together (S7 all modes). Begin main account synergy is deflated by GM3 matchmaking penalty — teammates get pulled into harder lobbies. Tournament lobbies against Celestial/Eternity players will not be easier.</p>
+<div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:"6px"}}>
+{SYNERGY.map((s,i)=>{const wr=parseFloat(s.wr);const c=s.v==="ELITE"?"#ff006e":s.v==="STRONG"?C.green:s.v==="GOOD"?C.blue:s.v==="NEUTRAL"?C.gold:s.v==="WEAK"?C.accent:C.accent;
+return <div key={i} style={{background:C.sec,borderRadius:"8px",padding:"8px 12px",borderLeft:`3px solid ${c}`,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+<div style={{display:"flex",gap:"6px",alignItems:"center"}}><span style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:m?MF.xs:F.xs,color:C.text}}>{s.p1}</span><span style={{color:C.muted,fontSize:"10px"}}>+</span><span style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:m?MF.xs:F.xs,color:C.text}}>{s.p2}</span></div>
+<div style={{display:"flex",gap:"8px",alignItems:"center"}}><span style={{color:c,fontWeight:700,fontSize:m?MF.xs:F.xs}}>{s.wr}</span><span style={{color:C.muted,fontSize:"10px"}}>{s.g}g</span></div>
+</div>})}
+</div></Sec></div>}
 
 function TourneyTab(){const m=useMobile();const f=m?MF:F;const[ex,setEx]=useState(null);return <div style={{display:"grid",gap:"18px"}}>
 <Sec border={`${C.accent}44`} title={"TOURNAMENT: "+TSUMMARY.rec} titleColor={C.accent}><div style={{fontSize:F.sm,marginBottom:"12px"}}><span style={{color:C.green,fontWeight:700}}>Only Win:</span> <span style={{color:C.dim}}>{TSUMMARY.win}</span></div>
@@ -504,7 +564,13 @@ function MapsTab(){const m=useMobile();const f=m?MF:F;const[sel,setSel]=useState
 <div style={{display:"flex",gap:"6px",alignItems:"center"}}><Bd color={C.blue} text={mp.best}/><span style={{color:C.muted}}>{o?"▲":"▼"}</span></div></div>
 {o&&<div style={{marginTop:"14px",display:"grid",gap:"10px"}}>
 <div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr 1fr",gap:"10px"}}>
-{[{l:"TOP BANS",c:C.accent,t:m.bans},{l:"TOP PICKS",c:C.green,t:m.picks},{l:"BEST ARCHETYPE",c:C.blue,t:m.best}].map((x,j)=><div key={j} style={{background:C.sec,borderRadius:"8px",padding:"12px"}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"11px",color:x.c,letterSpacing:"1px",marginBottom:"4px"}}>{x.l}</div><div style={{color:C.dim,fontSize:F.xs}}>{x.t}</div></div>)}</div>
+{[{l:"TOP BANS",c:C.accent,t:mp.bans},{l:"TOP PICKS",c:C.green,t:mp.picks},{l:"BEST ARCHETYPE",c:C.blue,t:mp.best}].map((x,j)=><div key={j} style={{background:C.sec,borderRadius:"8px",padding:"12px"}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"11px",color:x.c,letterSpacing:"1px",marginBottom:"4px"}}>{x.l}</div><div style={{color:C.dim,fontSize:F.xs}}>{x.t}</div></div>)}</div>
+{MAP_PLAYERS[mp.name]&&<div style={{background:`${C.brand}11`,borderRadius:"8px",padding:"14px",border:`1px solid ${C.brand}33`}}>
+<div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"11px",color:C.brand,letterSpacing:"1px",marginBottom:"8px"}}>PLAYER PERFORMANCE ON THIS MAP</div>
+<div style={{display:"flex",gap:"6px",flexWrap:"wrap"}}>{MAP_PLAYERS[mp.name].sort((a,b)=>parseFloat(b.wr)-parseFloat(a.wr)).map((pl,k)=>{const wr=parseFloat(pl.wr);const c=wr>=70?C.green:wr>=50?C.gold:C.accent;return <div key={k} style={{background:C.sec,borderRadius:"6px",padding:"6px 10px",border:`1px solid ${c}33`,display:"flex",gap:"6px",alignItems:"center"}}>
+<span style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"13px",color:C.text}}>{pl.p}</span>
+<span style={{color:c,fontWeight:700,fontSize:"12px"}}>{pl.wr}</span>
+<span style={{color:C.muted,fontSize:"10px"}}>{pl.g}g</span></div>})}</div></div>}
 <div style={{background:`${C.gold}11`,borderRadius:"8px",padding:"14px",border:`1px solid ${C.gold}33`}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"11px",color:C.gold,letterSpacing:"1px",marginBottom:"6px"}}>MAP ANALYSIS</div><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{mp.why}</div></div>
 <div style={{background:`${C.purple}11`,borderRadius:"8px",padding:"14px",border:`1px solid ${C.purple}33`}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"11px",color:C.purple,letterSpacing:"1px",marginBottom:"6px"}}>POSITIONING & HERO TIPS</div><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{mp.tips}</div></div>
 <div style={{background:`${C.green}11`,borderRadius:"8px",padding:"14px",border:`1px solid ${C.green}33`}}><div style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:"11px",color:C.green,letterSpacing:"1px",marginBottom:"6px"}}>OUR COMP</div><div style={{color:C.dim,fontSize:F.xs,lineHeight:1.6}}>{mp.ourComp}</div></div>
@@ -833,18 +899,46 @@ return <div key={hi} style={{background:C.sec,borderRadius:"10px",padding:"14px"
 ].map((n,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"10px 14px",marginBottom:"6px",display:"flex",gap:"10px"}}><span style={{color:C.gold,fontWeight:700}}>▸</span><span style={{color:C.dim,fontSize:F.xs,lineHeight:"22px"}}>{n}</span></div>)}
 </Sec>
 <Sec border={`${C.brand}44`} title="SEASON 7.5 — EARLY INTEL" titleColor={C.brand}>
-<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:"0 0 14px"}}>Season 7.5 launched mid-April 2026. No StubbedToes players have competitive S7.5 games yet — all dashboard data remains S7 final. Below is what we know so far.</p>
+<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:"0 0 14px"}}>Season 7.5 launched mid-April 2026. 4 of 9 StubbedToes players have S7.5 competitive data. S7 data remains the primary baseline — S7.5 sample sizes are too small for tier adjustments.</p>
 {[
-"Deadpool (Vanguard) received nerfs. Severity and impact TBD — he was the most flexible S+ tank in S7. If the nerf is significant, our ban priority shifts (Elsa stays #1, but the #2 slot opens up). Dashboard ban logic still treats him as must-ban until verified otherwise.",
-"New heroes, maps, or team-ups for S7.5 have not yet been scouted. First priority when players start queueing: check if the tier list has shifted.",
-"All S7 data remains valid as a baseline — the ult economy changes (20% nerf) and 1-2-3 dominance are structural and unlikely to reverse in a mid-season patch.",
-"RivalsMeta and Mobalytics will need to be re-checked once Diamond+ sample sizes build for S7.5. Expect 1-2 weeks before reliable tier data exists.",
-"StubbedToes action items: (1) Verify Deadpool(V) nerf impact in QP before comp. (2) Scout for new/buffed heroes entering the meta. (3) First timeline review with S7.5 data will establish the new baseline.",
+"S7.5 ACTIVE: Gabe (1W 0L, Dia 2 climb), Tristen (3W 1L, Spider-Man 100%), Sam (2W 0L, 38.00 KDA Invisible Woman), Jace (3W 5L, Daredevil 25%). 5 players have 0 S7.5 comp games.",
+"JACE DAREDEVIL CRISIS: 72% S7 → 25% S7.5 (1W 3L). RS dropped 4145→4120. Either S7.5 meta shifted against Daredevil specifically, or early-season variance. Blade (100% 1g) and Iron Man (100% 1g) are showing as viable alternatives. MONITOR CLOSELY.",
+"GABE CLIMBED TO DIAMOND 2 (4339 RS) from Dia 3 (4288 S7). Won on Captain America (5.75 KDA) — contrary to our 'avoid Cap' guidance. 1 game sample. The S7.5 Magneto data will be critical.",
+"SAM BEST S7.5 START: 100% WR, Invisible Woman 38.00 KDA (17/1/21), Rocket 10.60 KDA. If this holds, she's the most improved player entering the new season.",
+"TEAM STACKING DATA: Tristen + Sam + Gabe + Begin (alt) queuing together at 75% WR (4g). This 4-stack is the core that should enter S7.5 tournaments.",
+"Deadpool (Vanguard) received nerfs. Still treated as must-ban until more data confirms impact. Elsa Bloodstone remains ban #1.",
+"All S7 data remains valid as baseline. S7.5 tier list will need Mobalytics/RivalsMeta Diamond+ data — expect 1-2 weeks for reliable sample sizes.",
 ].map((n,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"10px 14px",marginBottom:"6px",display:"flex",gap:"10px"}}><span style={{color:C.brand,fontWeight:700}}>▸</span><span style={{color:C.dim,fontSize:F.xs,lineHeight:"22px"}}>{n}</span></div>)}
 </Sec></div>}
 
 // ─── CHANGELOG TAB ───
 const CHANGELOG=[
+{ver:"v1.5",date:"April 18, 2026",changes:[
+"NEW: Team Synergy section in Stats tab — duo WR matrix for all roster pairs. Color-coded: Elite (pink), Strong (green), Good (blue), Neutral (gold), Weak/Crisis (red).",
+"NEW: Player Performance on Maps — each map in the Maps tab now shows per-player WR data when expanded. Sorted by WR, color-coded by performance.",
+"NEW: Duo Synergy section in Player Profile — select a player to see their WR with every partner.",
+"NEW: Draft Sim map selection step — Step 3 selects map before drafting. Bans/saves now factor in map-specific meta.",
+"Begin alt 'Deanna Schmidt' identified and documented. Begin's synergy analysis updated: GM3 matchmaking penalty confirmed — 7-45% WR with roster on main vs 61-80% on alt.",
+"Tournament context corrected: opponents are Celestial/Eternity/Top 500. The 1W-9L record is against players 2-3 full tiers above the roster. Begin's alt synergy does NOT predict tournament performance.",
+"Zach identified as roster's biggest synergy liability: 9-27% WR with all teammates despite 60% solo WR.",
+"Jace + Ayden duo identified at 90.91% WR (11g) — strongest pair on the roster by far.",
+"Sam + Raquel duo at 41.67% (24g) — weakest support pair. Every comp running both starts at a disadvantage.",
+"Map specializations discovered: Sam 100% Yggsgard, T-Money 100% Tokyo Conv, Begin 75% Domination mode, Tristen 83% Hydra Charteris.",
+"Fixed: Maps tab was using wrong variable for ban/pick/archetype display (m → mp).",
+"Learns subtab moved from REFERENCE to TEAM group.",
+"Mobile UI improvements: condensed player cards, single-row draft roster, 5-col nav grid.",
+"Comp hero names now match role colors (blue=Vanguard, red=Duelist, green=Strategist).",
+],timeline:{date:"April 18, 2026",players:[
+{n:"Gabe",d:"S7.5: 1W 0L (100%). Climbed Dia 3→Dia 2 (4288→4339 RS). Captain America WIN 5.75 KDA — contrary to 'avoid Cap' guidance but only 1g sample. Active 44 min ago."},
+{n:"Tristen",d:"S7.5: 3W 1L (75%). Spider-Man 100% 2g comp. Hela 0% 1g. Stacking with Sam+Gabe+Begin(alt) at 75% WR. Active 18 min ago."},
+{n:"Sam",d:"S7.5: 2W 0L (100%). Invisible Woman 38.00 KDA (17/1/21). Rocket 10.60 KDA. Best start on the roster. Active 7 min ago."},
+{n:"Jace",d:"S7.5: 3W 5L (38%). RS 4145→4120 (DOWN). Daredevil 25% 4g — CRISIS. Was 72% S7. Blade 100% 1g, Iron Man 100% 1g showing as alternatives. Monitor closely."},
+{n:"Ayden",d:"S7.5: 0W 0L comp. Playing QP (White Fox grinding). Last match 4 hrs ago. S7 data unchanged (Dia 2, 57%)."},
+{n:"Begin",d:"S7.5: 0W 0L. Last match 6+ days ago. Inactive. S7 data unchanged (GM3, 62%)."},
+{n:"T-Money",d:"S7.5: 0W 0L. No activity. S7 data unchanged (Plat 1, 56%)."},
+{n:"Zach",d:"S7.5: 0W 0L. No activity. S7 data unchanged (Plat 3, 60%)."},
+{n:"Raquel",d:"S7.5: 0W 0L comp. Playing QP (Rocket Raccoon). Active 8 min ago. S7 data unchanged (Plat 3, 59%)."},
+]}},
 {ver:"v1.4.2",date:"April 17, 2026",changes:[
 "Visual rebrand: MARVEL RIVALS → STUBBEDTOES. Team emblem displayed in header. Season badge updated to S7.5.",
 "Color scheme updated: emblem green (#4eca6a) as primary brand color. Backgrounds shifted to subtle purple-navy tint matching emblem. Softened tab active states — translucent colored backgrounds replace harsh solid fills.",
@@ -997,6 +1091,16 @@ return <div style={{display:"grid",gap:"16px"}}>
 <div style={{color:C.muted,fontSize:"11px",lineHeight:1.4,marginTop:"4px",textAlign:"left",fontStyle:"italic"}}>{d.note}</div>
 </div>})}
 </div></Sec>}
+{/* Synergy */}
+{(()=>{const mySyn=SYNERGY.filter(s=>s.p1===sel||s.p2===sel).map(s=>({partner:s.p1===sel?s.p2:s.p1,wr:s.wr,g:s.g,v:s.v})).sort((a,b)=>parseFloat(b.wr)-parseFloat(a.wr));
+return mySyn.length>0?<Sec border={`${C.purple}44`} title={"DUO SYNERGY ("+mySyn.length+" PARTNERS)"} titleColor={C.purple}>
+<div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:"6px"}}>
+{mySyn.map((s,i)=>{const c=s.v==="ELITE"?"#ff006e":s.v==="STRONG"?C.green:s.v==="GOOD"?C.blue:s.v==="NEUTRAL"?C.gold:C.accent;
+return <div key={i} style={{background:C.sec,borderRadius:"8px",padding:"8px 12px",borderLeft:`3px solid ${c}`,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+<span style={{fontFamily:"'Rajdhani'",fontWeight:700,fontSize:F.xs,color:C.text}}>{s.partner}</span>
+<div style={{display:"flex",gap:"8px",alignItems:"center"}}><span style={{color:c,fontWeight:700,fontSize:F.xs}}>{s.wr}</span><span style={{color:C.muted,fontSize:"10px"}}>{s.g}g</span><Bd color={c} text={s.v}/></div>
+</div>})}
+</div></Sec>:null})()}
 {/* Draft Pool */}
 {myHeroes.length>0&&<Sec border={`${C.green}44`} title={"DRAFT POOL ("+myHeroes.length+" HEROES)"} titleColor={C.green}>
 <div style={{display:"flex",gap:"8px",flexWrap:"wrap"}}>{myHeroes.map(h=>{const hero=ALL_HEROES.find(a=>a.h===h);const rc=hero?(hero.r==="tank"?C.tank:hero.r==="dps"?C.dps:C.heal):C.muted;const tc=hero?(hero.t==="S+"?"#ff006e":hero.t==="S"?C.green:hero.t==="A"?C.blue:hero.t==="B"?C.gold:C.muted):C.muted;
