@@ -210,7 +210,7 @@ function App(){
     setLoading(false);
   },[season,fetchSingle,addLog]);
 
-  const copyForClaude=()=>{
+  const copyForTheOneAboveAll=()=>{
     const text=generateExport(results,season);
     navigator.clipboard.writeText(text).then(()=>{setCopied(true);setTimeout(()=>setCopied(false),3000);});
   };
@@ -222,14 +222,14 @@ function App(){
         {/* Header */}
         <div style={{textAlign:"center",marginBottom:"24px",borderBottom:`2px solid ${C.brand}44`,paddingBottom:"16px"}}>
           <h1 style={{margin:0,fontSize:"28px",fontWeight:900,letterSpacing:"3px",color:C.brand,fontFamily:"'Teko',sans-serif"}}>STUBBEDTOES SCRAPER</h1>
-          <p style={{margin:"4px 0 0",color:C.muted,fontSize:"13px"}}>Marvel Rivals Team Data Tool — Scrape → Copy → Paste to Claude for analysis</p>
+          <p style={{margin:"4px 0 0",color:C.muted,fontSize:"13px"}}>Marvel Rivals Team Data Tool — Scrape → Copy → Paste to The One Above All for analysis</p>
         </div>
 
         {/* Controls */}
         <div style={{display:"flex",gap:"12px",marginBottom:"20px",alignItems:"center",flexWrap:"wrap"}}>
           <select value={season} onChange={e=>setSeason(e.target.value)} style={{background:C.panel,color:C.text,border:`1px solid ${C.border}`,padding:"8px 16px",borderRadius:"6px",fontSize:"14px",cursor:"pointer",fontFamily:"'Rajdhani'"}}>{Object.keys(SEASONS).map(s=><option key={s} value={s}>{s}</option>)}</select>
           <button onClick={fetchAll} disabled={loading} style={{background:loading?C.muted:C.brand,color:"#000",border:"none",padding:"8px 24px",borderRadius:"6px",fontSize:"14px",fontWeight:700,cursor:loading?"not-allowed":"pointer",letterSpacing:"1px",fontFamily:"'Rajdhani'"}}>{loading?`SCRAPING ${progress.done}/${progress.total} (~${Math.ceil((progress.total-progress.done)*1.5)}min remaining)`:"SCRAPE ALL PLAYERS"}</button>
-          {results.length>0&&<button onClick={copyForClaude} style={{background:copied?C.brand:C.purple,color:"#fff",border:"none",padding:"8px 24px",borderRadius:"6px",fontSize:"14px",fontWeight:700,cursor:"pointer",letterSpacing:"1px",fontFamily:"'Rajdhani'"}}>{copied?"✓ COPIED!":"COPY FOR CLAUDE"}</button>}
+          {results.length>0&&<button onClick={copyForTheOneAboveAll} style={{background:copied?C.brand:C.purple,color:"#fff",border:"none",padding:"8px 24px",borderRadius:"6px",fontSize:"14px",fontWeight:700,cursor:"pointer",letterSpacing:"1px",fontFamily:"'Rajdhani'"}}>{copied?"✓ COPIED!":"COPY FOR THE ONE ABOVE ALL"}</button>}
           {loading&&<div style={{flex:1,height:"6px",background:C.sec,borderRadius:"3px",overflow:"hidden",minWidth:"100px"}}><div style={{width:`${(progress.done/Math.max(progress.total,1))*100}%`,height:"100%",background:C.brand,transition:"width 0.5s ease",borderRadius:"3px"}}/></div>}
         </div>
 
@@ -319,8 +319,8 @@ function App(){
           <div style={{textAlign:"center",padding:"60px 20px",color:C.muted}}>
             <div style={{fontSize:"48px",marginBottom:"16px",opacity:0.3}}>⚡</div>
             <p style={{fontSize:"16px",margin:0}}>Select a season and click <strong style={{color:C.brand}}>SCRAPE ALL PLAYERS</strong></p>
-            <p style={{fontSize:"13px",marginTop:"8px"}}>After scraping, click <strong style={{color:C.purple}}>COPY FOR CLAUDE</strong> and paste into your Claude chat</p>
-            <p style={{fontSize:"13px",marginTop:"4px",color:C.muted}}>Claude will analyze the data, diff against the dashboard, and patch changes</p>
+            <p style={{fontSize:"13px",marginTop:"8px"}}>After scraping, click <strong style={{color:C.purple}}>COPY FOR THE ONE ABOVE ALL</strong> and paste into The One Above All</p>
+            <p style={{fontSize:"13px",marginTop:"4px",color:C.muted}}>The One Above All will analyze the data, diff against the dashboard, and patch changes</p>
           </div>
         )}
 
