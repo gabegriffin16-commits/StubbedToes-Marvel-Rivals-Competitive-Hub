@@ -67,11 +67,26 @@ function processPlayer(raw, label){
   const os=raw.overall_stats||{};
   const rw=os.ranked?.total_wins||0;
   const rt=os.ranked?.total_matches||0;
+
+  // Build per-hero WR from match history (more reliable than heroes_ranked WR fields)
+  const matchHeroStats={};
+  (raw.match_history||[]).filter(m=>m.game_mode_id===2).forEach(m=>{
+    const h=m.player_performance?.hero_name;
+    if(!h) return;
+    if(!matchHeroStats[h]) matchHeroStats[h]={w:0,l:0};
+    m.player_performance?.is_win?.is_win ? matchHeroStats[h].w++ : matchHeroStats[h].l++;
+  });
+
   const heroes=(raw.heroes_ranked||[]).filter(h=>(h.total_matches||h.matches||0)>0).map(h=>{
-    const g=h.total_matches||h.matches||0, w=h.total_wins||h.win||0;
+    const g=h.total_matches||h.matches||0;
     const k=h.total_kills||h.kills||0, d=h.total_deaths||h.deaths||0, a=h.total_assists||h.assists||0;
-    return {name:h.hero_name||"Unknown",g,w,wr:g>0?Math.round(w/g*100):0,k,d,a,kda:formatKDA(k,d,a,g),mvp:h.total_mvp||h.mvp||0,svp:h.total_svp||h.svp||0};
+    const hName=h.hero_name||"Unknown";
+    const mhs=matchHeroStats[hName];
+    const wrFromHistory=mhs?(Math.round(mhs.w/(mhs.w+mhs.l)*100)):null;
+    return {name:hName,g,k,d,a,kda:formatKDA(k,d,a,g),mvp:h.total_mvp||h.mvp||0,svp:h.total_svp||h.svp||0,
+      wr:wrFromHistory,wrLabel:wrFromHistory!==null?wrFromHistory+"%":"—"};
   }).sort((a,b)=>b.g-a.g);
+
   const matches=(raw.match_history||[]).map(m=>({
     hero:m.player_performance?.hero_name||"Unknown",
     mode:m.game_mode_id,
@@ -84,8 +99,19 @@ function processPlayer(raw, label){
     map:m.map_id,
     duration:Math.round((m.duration||0)/60),
   }));
-  const teammates=(raw.team_mates||[]).map(t=>({name:t.name||t.nick_name||"Unknown",wr:t.win_rate||"0",g:t.total_matches||0}));
-  return {label, name:raw.name, uid:raw.uid, rank:raw.player?.rank?.rank||"N/A", private:raw.isPrivate,
+
+  // Teammates - name is in t.info.nick_name for this API
+  const teammates=(raw.team_mates||[]).map(t=>{
+    const name=t.info?.nick_name||t.name||t.nick_name||"Unknown";
+    const g=t.total_matches||t.matches||0;
+    const w=t.total_wins||t.win||0;
+    const wr=t.win_rate||(g>0?((w/g)*100).toFixed(1):"0");
+    return {name,wr,g};
+  });
+
+  const rankDisplay=raw.player?.rank?.rank||"N/A";
+  const cleanRank=rankDisplay==="Invalid level"?"No Rank":rankDisplay;
+  return {label, name:raw.name, uid:raw.uid, rank:cleanRank, private:raw.isPrivate,
     comp:{w:rw,l:rt-rw,total:rt}, heroes, matches, teammates,
     allModes:{total:os.total_matches||0,wins:os.total_wins||0}};
 }
@@ -99,7 +125,7 @@ function generateExport(results, seasonLabel){
     out+=`Comp: ${r.comp.w}W ${r.comp.l}L (${r.comp.total}g)`;
     if(r.comp.total>0)out+=` ${Math.round(r.comp.w/r.comp.total*100)}%`;
     out+=`\n`;
-    if(r.heroes.length>0){out+=`Heroes (Comp):\n`;for(const h of r.heroes)out+=`  ${h.name}: ${h.g}g ${h.wr}%WR ${h.kda} | ${h.mvp}MVP ${h.svp}SVP\n`;}
+    if(r.heroes.length>0){out+=`Heroes (Comp):\n`;for(const h of r.heroes)out+=`  ${h.name}: ${h.g}g ${h.wrLabel}WR ${h.kda} | ${h.mvp}MVP ${h.svp}SVP\n`;}
     else out+=`Heroes (Comp): None\n`;
     const tourney=r.matches.filter(m=>m.mode===9);
     const comp=r.matches.filter(m=>m.mode===2);
@@ -145,7 +171,7 @@ function App(){
       fetched.push(processPlayer(data,p.label));
       setProgress({done:i+1,total});
       setResults([...fetched]);
-      if(i<PLAYERS.length-1){addLog(`Waiting 8s before next request...`);await new Promise(r=>setTimeout(r,8000));}
+      if(i<PLAYERS.length-1){addLog(`Waiting 12s before next request...`);await new Promise(r=>setTimeout(r,12000));}
     }
     addLog(`Done — ${fetched.filter(r=>!r.error).length}/${total} successful`);
     setLoading(false);
@@ -169,7 +195,7 @@ function App(){
         {/* Controls */}
         <div style={{display:"flex",gap:"12px",marginBottom:"20px",alignItems:"center",flexWrap:"wrap"}}>
           <select value={season} onChange={e=>setSeason(e.target.value)} style={{background:C.panel,color:C.text,border:`1px solid ${C.border}`,padding:"8px 16px",borderRadius:"6px",fontSize:"14px",cursor:"pointer",fontFamily:"'Rajdhani'"}}>{Object.keys(SEASONS).map(s=><option key={s} value={s}>{s}</option>)}</select>
-          <button onClick={fetchAll} disabled={loading} style={{background:loading?C.muted:C.brand,color:"#000",border:"none",padding:"8px 24px",borderRadius:"6px",fontSize:"14px",fontWeight:700,cursor:loading?"not-allowed":"pointer",letterSpacing:"1px",fontFamily:"'Rajdhani'"}}>{loading?`SCRAPING ${progress.done}/${progress.total} (~${(progress.total-progress.done)*8}s remaining)`:"SCRAPE ALL PLAYERS"}</button>
+          <button onClick={fetchAll} disabled={loading} style={{background:loading?C.muted:C.brand,color:"#000",border:"none",padding:"8px 24px",borderRadius:"6px",fontSize:"14px",fontWeight:700,cursor:loading?"not-allowed":"pointer",letterSpacing:"1px",fontFamily:"'Rajdhani'"}}>{loading?`SCRAPING ${progress.done}/${progress.total} (~${(progress.total-progress.done)*12}s remaining)`:"SCRAPE ALL PLAYERS"}</button>
           {results.length>0&&<button onClick={copyForClaude} style={{background:copied?C.brand:C.purple,color:"#fff",border:"none",padding:"8px 24px",borderRadius:"6px",fontSize:"14px",fontWeight:700,cursor:"pointer",letterSpacing:"1px",fontFamily:"'Rajdhani'"}}>{copied?"✓ COPIED!":"COPY FOR CLAUDE"}</button>}
           {loading&&<div style={{flex:1,height:"6px",background:C.sec,borderRadius:"3px",overflow:"hidden",minWidth:"100px"}}><div style={{width:`${(progress.done/Math.max(progress.total,1))*100}%`,height:"100%",background:C.brand,transition:"width 0.5s ease",borderRadius:"3px"}}/></div>}
         </div>
@@ -196,7 +222,7 @@ function App(){
                   <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(250px,1fr))",gap:"6px"}}>
                     {r.heroes.map((h,i)=>(
                       <div key={i} style={{background:C.sec,borderRadius:"6px",padding:"8px 12px",borderLeft:`3px solid ${heroColor(h.name)}`,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-                        <div><span style={{fontWeight:700,fontSize:"13px",color:heroColor(h.name),textTransform:"capitalize"}}>{h.name}</span><span style={{color:C.dim,fontSize:"11px",marginLeft:"6px"}}>{h.g}g {h.wr}%</span></div>
+                        <div><span style={{fontWeight:700,fontSize:"13px",color:heroColor(h.name),textTransform:"capitalize"}}>{h.name}</span><span style={{color:C.dim,fontSize:"11px",marginLeft:"6px"}}>{h.g}g {h.wrLabel}</span></div>
                         <div style={{display:"flex",gap:"8px",alignItems:"center"}}><span style={{color:C.dim,fontSize:"11px"}}>{h.kda}</span>{h.mvp>0&&<Badge color={C.gold} text={`${h.mvp}MVP`}/>}{h.svp>0&&<Badge color={C.blue} text={`${h.svp}SVP`}/>}</div>
                       </div>
                     ))}
@@ -252,7 +278,7 @@ function App(){
 
         {/* Footer */}
         <div style={{textAlign:"center",marginTop:"24px",padding:"12px",borderTop:`1px solid ${C.border}`,color:C.muted,fontSize:"11px"}}>
-          StubbedToes Team Tool • marvelrivalsapi.com Free Tier (3K req/day) • 8s delay between requests • ~90s full scrape
+          StubbedToes Team Tool • marvelrivalsapi.com Free Tier (3K req/day) • 12s delay between requests • ~2min full scrape
         </div>
       </div>
     </div>
