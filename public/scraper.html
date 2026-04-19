@@ -30,7 +30,7 @@ const PLAYERS = [
   { label: "Begin", ign: "Begooon", id: "1347122425" },
   { label: "Begin (Alt)", ign: "Deanna Schmidt", id: "1436317669" },
   { label: "Ayden", ign: "VeloxG", id: "33050531" },
-  { label: "Tristen", ign: "keetohwo", alt: "potsmoker34", id: "1340539275" },
+  { label: "Tristen", ign: "potsmoker34", id: "1340539275" },
   { label: "T-Money", ign: "xGhost-Emx", id: "88489080" },
   { label: "Gabe", ign: "froglin_", id: "1767308270" },
   { label: "Sam", ign: "SAMBRI912", id: "1558596661" },
@@ -131,21 +131,17 @@ function App(){
     const fetched=[];
     for(let i=0;i<PLAYERS.length;i++){
       const p=PLAYERS[i];
-      const igns=[p.ign];
-      if(p.alt)igns.push(p.alt);
       let data=null;
-      for(const ign of igns){
-        try{
-          addLog(`Fetching ${p.label} (${ign})...`);
-          const url=`${API}${encodeURIComponent(ign)}?season=${seasonNum}`;
-          const resp=await fetch(url,{headers:{"x-api-key":KEY}});
-          const json=await resp.json();
-          if(json.message?.includes("Too many")){addLog(`⚠ Rate limited on ${ign}, waiting 15s...`);await new Promise(r=>setTimeout(r,15000));const r2=await fetch(url,{headers:{"x-api-key":KEY}});const j2=await r2.json();if(!j2.error&&!j2.message){data=j2;addLog(`✓ ${p.label} — retry OK`);break;}else if(j2.message?.includes("Too many")){addLog(`⚠ Still limited, waiting 20s...`);await new Promise(r=>setTimeout(r,20000));const r3=await fetch(url,{headers:{"x-api-key":KEY}});const j3=await r3.json();if(!j3.error&&!j3.message){data=j3;addLog(`✓ ${p.label} — 2nd retry OK`);break;}else{addLog(`✗ ${p.label} — 2nd retry failed`);}}else{addLog(`✗ ${p.label} — retry failed: ${j2.message||j2.error}`);}}
-          else if(!json.error&&!json.message){data=json;addLog(`✓ ${p.label} — ${json.player?.rank?.rank||"N/A"}`);break;}
-          else if(json.message?.includes("private")){data=json;addLog(`🔒 ${p.label} — PRIVATE`);break;}
-          else{addLog(`✗ ${p.label} (${ign}): ${json.message||json.error}`);}
-        }catch(e){addLog(`✗ ${p.label} error: ${e.message}`);}
-      }
+      try{
+        addLog(`Fetching ${p.label} (${p.ign})...`);
+        const url=`${API}${encodeURIComponent(p.ign)}?season=${seasonNum}`;
+        const resp=await fetch(url,{headers:{"x-api-key":KEY}});
+        const json=await resp.json();
+        if(json.message?.includes("Too many")){addLog(`⚠ Rate limited on ${p.ign}, waiting 15s...`);await new Promise(r=>setTimeout(r,15000));const r2=await fetch(url,{headers:{"x-api-key":KEY}});const j2=await r2.json();if(!j2.error&&!j2.message){data=j2;addLog(`✓ ${p.label} — retry OK`);}else if(j2.message?.includes("Too many")){addLog(`⚠ Still limited, waiting 20s...`);await new Promise(r=>setTimeout(r,20000));const r3=await fetch(url,{headers:{"x-api-key":KEY}});const j3=await r3.json();if(!j3.error&&!j3.message){data=j3;addLog(`✓ ${p.label} — 2nd retry OK`);}else{addLog(`✗ ${p.label} — 2nd retry failed`);}}else{addLog(`✗ ${p.label} — retry failed: ${j2.message||j2.error}`);}}
+        else if(!json.error&&!json.message){data=json;addLog(`✓ ${p.label} — ${json.player?.rank?.rank||"N/A"}`);}
+        else if(json.message?.includes("private")){data=json;addLog(`🔒 ${p.label} — PRIVATE`);}
+        else{addLog(`✗ ${p.label}: ${json.message||json.error}`);}
+      }catch(e){addLog(`✗ ${p.label} error: ${e.message}`);}
       fetched.push(processPlayer(data,p.label));
       setProgress({done:i+1,total});
       setResults([...fetched]);
