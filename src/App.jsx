@@ -210,8 +210,9 @@ const LEARNS=[
 {h:"White Fox",p:"CRITICAL",r:"S-tier S7 Strategist with charm CC. Blessing of the Kumiho team-up with Luna Snow adds healing + damage + CC in one ability. Meta-defining at Diamond+. Ayden 100% WR on alt. Raquel 67% QP. Both must get 30+ comp games. Enables a future comp variant that replaces C&D in poke lineups.",w:["Ayden","Raquel"]},
 {h:"Ult Cycling Discipline",p:"CRITICAL",r:"The 1-2-3 Triple Support comp REQUIRES ult cycling: Jeff ult → C&D ult → Ultron ult in sequence, NEVER overlapping. If two supports accidentally ult at the same time, the comp falls apart. The team needs to practice this timing in QP/scrims before running it in tournament. This is the #1 reason 1-2-3 fails at lower ranks.",w:["Ayden","Raquel","Gabe"]},
 {h:"Venom (Backup Dive Tank)",p:"CRITICAL",r:"Only Ayden plays Venom. If Ayden is on heals (his BEST role — 10.86 KDA Jeff), dive is impossible. Begin or Zach learning Venom enables comps where Ayden heals and someone else dives. Without a backup Venom player, the entire dive archetype lives and dies on one person's role assignment.",w:["Begin","Zach"]},
+{h:"Begin: Groot Comp Reps",p:"CRITICAL",r:"Begin has ZERO competitive Groot games on his main account — only Thor (70% 20g) and Strange (44% 9g) in S7 comp. Multiple comps assign him Groot. His alt (Deanna Schmidt) has Groot 67% 3g in comp, proving the skill exists at a lower MMR. He MUST get 10+ competitive Groot games on main before the next tournament. Without this, every poke comp that puts Begin on Groot is running an untested player on that hero at GM level.",w:["Begin"]},
 {h:"Phoenix",p:"HIGH",r:"S+ at Diamond+ per Celestial-ranked analysis. Self-sustaining flanker with splash damage, infinite-range stun (cancels enemy ults), and Endsong Inferno that DESTROYS bonus health/deployables — hard counters Venom ult, Rocket rez, shield stacking. Primal Flame team-up with Wolverine (Zach) gives both lifesteal fire. Replaces Hela when banned without requiring headshot precision. Priority over Hawkeye (B-tier at Diamond+, requires consistent headshots our Plat-Diamond roster can't reliably land against Celestial opponents).",w:["Tristen","Jace"]},
-{h:"Jace: Blade for Brawl Maps",p:"HIGH",r:"Daredevil is S7.5 crisis (25% 4g). Blade is S-tier dive/brawl DPS with lifesteal self-sustain. Jace already at 33.3% 9g with MVP ceiling games (10.75, 7.50 KDA). Needs 20+ comp games to stabilize. Critical for Hellfire Gala, Krakoa, Shin-Shibuya where DD poke is less effective.",w:["Jace"]},
+{h:"Jace: Blade Primary Shift",p:"HIGH",r:"S7.5 DATA CONFIRMS: Blade 2g 3.60 KDA with 1 MVP vs Daredevil 6g 3.37 KDA with 1 SVP. Blade is OUTPERFORMING DD in S7.5. DD went from 72% S7 → struggling in S7.5 (4W 7L overall). Blade's lifesteal self-sustain means he doesn't need healer peel — critical against Celestial+ pressure. Blade of Khonshu team-up with Moon Knight adds synergy. Consider making Blade the PRIMARY pick on brawl/dive maps, DD secondary on poke maps only.",w:["Jace"]},
 {h:"Gambit (Multiple Players)",p:"HIGH",r:"Explosive Entanglement is the highest-value team-up — enables both Magneto bubble AND Rogue drain comps. Currently only Ayden and Zach play Gambit. Sam needs this for 1-2-3 variants. More Gambit players = more comp flexibility.",w:["Sam","Zach"]},
 {h:"Groot (Gabe Backup)",p:"HIGH",r:"Gabe needs Groot for when Magneto is banned. Groot wall is the most impactful single ability on poke maps. Begin's Groot is 77.8% on alt — he can teach Gabe. Without Groot access for Gabe, Magneto ban collapses both Poke AND 1-2-3.",w:["Gabe"]},
 {h:"Dive Coordination",p:"HIGH",r:"Dive comp requires EVERYONE to attack the SAME target simultaneously. Venom web → Spider-Man follow → Magik portal behind. Practice target calling in QP stacks. The comp has the highest ceiling but fails completely without voice coordination.",w:["Ayden","Tristen","Begin"]},
@@ -915,25 +916,48 @@ return <div key={hi} style={{background:C.sec,borderRadius:"10px",padding:"14px"
 "Scarlet Witch buffed: first improvement in ages, still C-tier Diamond+.",
 "Iron Man buffed: aerial pressure improved, still B-tier predictable flight.",
 "Shin-Shibuya returned to comp. Lower Manhattan added April 3.",
-"Emma Frost: S-tier per Mobalytics Diamond+ (contrary to some sources listing C-tier). Powerful with team support, vulnerable solo. Captain America: A-tier per Mobalytics. Roster should still avoid — Gabe's tournament Cap was 0.88 KDA.",
+"Emma Frost: S-tier per Mobalytics Diamond+ (contrary to some sources listing C-tier). Powerful with team support, vulnerable solo. Captain America: A-tier per Mobalytics. Gabe showing 5.75 KDA on Cap in S7.5 — may be viable for Gabe specifically despite earlier 0.88 KDA tournament showing.",
 "Rogue ult drain more valuable — stolen charge is 20% harder to rebuild under the new ult economy. She punishes ult-dependent comps harder than ever.",
 ].map((n,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"10px 14px",marginBottom:"6px",display:"flex",gap:"10px"}}><span style={{color:C.gold,fontWeight:700}}>▸</span><span style={{color:C.dim,fontSize:F.xs,lineHeight:"22px"}}>{n}</span></div>)}
 </Sec>
 <Sec border={`${C.brand}44`} title="SEASON 7.5 — EARLY INTEL" titleColor={C.brand}>
-<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:"0 0 14px"}}>Season 7.5 launched mid-April 2026. 4 of 9 StubbedToes players have S7.5 competitive data. S7 data remains the primary baseline — S7.5 sample sizes are too small for tier adjustments.</p>
+<p style={{color:C.dim,fontSize:F.sm,lineHeight:1.7,margin:"0 0 14px"}}>Season 7.5 launched April 17, 2026. 5 of 9 players have S7.5 competitive data. Tournament played ~12 hours ago (1W 4L). S7 data remains the primary baseline but S7.5 trends are emerging. Raquel's profile is currently private.</p>
 {[
-"S7.5 ACTIVE: Gabe (1W 0L, Dia 2 climb), Tristen (3W 1L, Spider-Man 100%), Sam (2W 0L, 38.00 KDA Invisible Woman), Jace (3W 5L, Daredevil 25%). 5 players have 0 S7.5 comp games.",
-"JACE DAREDEVIL CRISIS: 72% S7 → 25% S7.5 (1W 3L). RS dropped 4145→4120. Either S7.5 meta shifted against Daredevil specifically, or early-season variance. Blade (100% 1g) and Iron Man (100% 1g) are showing as viable alternatives. MONITOR CLOSELY.",
-"GABE CLIMBED TO DIAMOND 2 (4339 RS) from Dia 3 (4288 S7). Won on Captain America (5.75 KDA) — contrary to our 'avoid Cap' guidance. 1 game sample. The S7.5 Magneto data will be critical.",
-"SAM BEST S7.5 START: 100% WR, Invisible Woman 38.00 KDA (17/1/21), Rocket 10.60 KDA. If this holds, she's the most improved player entering the new season.",
-"TEAM STACKING DATA: Tristen + Sam + Gabe + Begin (alt) queuing together at 75% WR (4g). This 4-stack is the core that should enter S7.5 tournaments.",
-"Deadpool (Vanguard) received nerfs. Still treated as must-ban until more data confirms impact. Elsa Bloodstone remains ban #1.",
-"All S7 data remains valid as baseline. S7.5 tier list will need Mobalytics/RivalsMeta Diamond+ data — expect 1-2 weeks for reliable sample sizes.",
+"S7.5 ACTIVE: Gabe (2W 0L, Dia 2), Tristen (2W 0L, Spider-Man), Sam (2W 0L, Dia 3 CLIMB from Plat 1!), Jace (4W 7L, RS dropping). Begin alt (Deanna Schmidt) 2W 0L Dia 1. 4 players have 0 S7.5 comp games. Raquel profile PRIVATE.",
+"TOURNAMENT 12 HOURS AGO: Team went 1W 4L. Ayden played White Fox (1W 3L) and Venom (0W 1L). White Fox WIN was a 35/7/45 monster (11.43 KDA). All-time tournament record now approximately 2W-13L.",
+"JACE S7.5 DEEPER: Now 4W 7L across 11 games. DD 6g 3.37 KDA (1 SVP) — still his primary but struggling. BLADE 2g 3.60 KDA (1 MVP) — actually performing BETTER than DD in S7.5. Strange 1g, Iron Man 1g. Consider shifting Jace's primary to Blade on brawl/dive maps.",
+"GABE MAGNETO MONSTER: 17/1/3 = 20.00 KDA on Magneto in S7.5 comp. Also Cap America 5.75 KDA. Gabe is the most consistent player in S7.5. The 'avoid Cap' guidance may need revisiting.",
+"BEGIN GROOT CRISIS: Begin has ZERO competitive Groot games on his main account. All Groot games are QP or alt account. Multiple comps assign him Groot. His alt (Deanna Schmidt) has Groot 67% 3g comp — the skill exists but needs main-account comp reps BEFORE tournament.",
+"SAM CLIMBED TO DIAMOND 3 from Plat 1. 100% WR with Invisible Woman 38.00 KDA and Rocket 10.60 KDA. Most improved player on the roster. IW is now tournament-viable in her pool.",
+"AYDEN WHITE FOX TOURNAMENT-TESTED: Played 4 tournament matches on White Fox. High variance (11.43 KDA peak, 0.17 KDA floor). Committed to the hero. Also flexed to Venom in tournament (0.25 KDA — rough).",
+"All S7 data remains valid as baseline. S7.5 meta still settling. Black Cat added to roster pool — Lucky Loan team-up with White Fox + Cap America.",
 ].map((n,i)=><div key={i} style={{background:C.sec,borderRadius:"8px",padding:"10px 14px",marginBottom:"6px",display:"flex",gap:"10px"}}><span style={{color:C.brand,fontWeight:700}}>▸</span><span style={{color:C.dim,fontSize:F.xs,lineHeight:"22px"}}>{n}</span></div>)}
 </Sec></div>}
 
 // ─── CHANGELOG TAB ───
 const CHANGELOG=[
+{ver:"v1.7",date:"April 19, 2026 (Late)",changes:[
+"FULL SCRAPE via marvelrivalsapi.com API (free tier, 3K req/day). All 10 accounts scraped: 8 players + Deanna Schmidt + Raquel (private).",
+"S7.5 Early Intel updated with latest data: Jace now 4W 7L (DD 6g, Blade 2g), Gabe 2W 0L (Magneto 20.00 KDA monster), Sam climbed to Dia 3.",
+"TOURNAMENT DATA: Team played 1W 4L tournament ~12 hours ago. Ayden on White Fox (1W 3L) and Venom (0W 1L). All-time tournament record now ~2W-13L.",
+"BEGIN GROOT CRISIS DOCUMENTED: Zero competitive Groot games on main account (Thor+Strange ONLY in S7 comp). Alt has Groot 67% 3g comp. Added CRITICAL LEARNS priority.",
+"JACE BLADE > DD IN S7.5: Blade 2g 3.60 KDA (1 MVP) vs Daredevil 6g 3.37 KDA (1 SVP). Blade performing better with smaller sample.",
+"Raquel profile confirmed PRIVATE via API (403). Using S7 baseline data.",
+"Cap America guidance updated — Gabe showing 5.75 KDA on Cap, 'avoid Cap' guidance may need revisiting.",
+"Phoenix prioritized over Hawkeye as Hela-banned fallback (S+ vs B at Diamond+).",
+"Comp system rebuilt with verified S7.5 team-ups (24 active). Anti-3 Supp restored. Rogue ult drain corrected to ultimate-only + S7.5 CC Protection noted.",
+],timeline:{date:"April 19, 2026 (Late)",players:[
+{n:"Gabe",d:"S7.5: 2W 0L (100%). Dia 2 (4339 RS). Cap America 5.75 KDA, Magneto 20.00 KDA (17/1/3 MONSTER). Most consistent player in S7.5."},
+{n:"Tristen",d:"S7.5: 2W 0L. Spider-Man 2g 3.81 KDA. Stacking with Sam+Gabe+Begin(alt)."},
+{n:"Sam",d:"S7.5: 2W 0L (100%). CLIMBED Plat 1→Diamond 3. Rocket 10.60 KDA, Invisible Woman 38.00 KDA (17/1/21). Most improved player."},
+{n:"Jace",d:"S7.5: 4W 7L (36%). RS still dropping. DD 6g 3.37 KDA (struggling). BLADE 2g 3.60 KDA 1 MVP — performing better. Strange 1g, Iron Man 1g. Consider primary shift to Blade."},
+{n:"Ayden",d:"S7.5: 0W 0L comp. TOURNAMENT: 1W 4L — White Fox (1W 3L, peak 11.43 KDA), Venom (0W 1L). White Fox is tournament-committed. Also grinding WF in QP."},
+{n:"Begin (main)",d:"S7.5: 0W 0L. INACTIVE 6+ days. S7 comp: ONLY Thor+Strange (29 games). Zero Groot/Magik comp games on main. CRITICAL: needs comp reps on Groot before tournament."},
+{n:"Begin (alt)",d:"S7.5: 2W 0L Dia 1 (4414 RS). Magik 4.50 KDA, Angela 4.75 KDA in comp. Wider pool (Groot 67% 3g, Spider-Man 100% 2g on S7). Active 14 hours ago."},
+{n:"T-Money",d:"S7.5: 0W 0L. Inactive."},
+{n:"Zach",d:"S7.5: 0W 0L. Inactive."},
+{n:"Raquel",d:"PROFILE PRIVATE. Cannot scrape. S7 baseline: Plat 3, 59% (16W 11L), C&D 12.82 KDA. Needs to unprivate for next review."},
+]}},
 {ver:"v1.6",date:"April 19, 2026",changes:[
 "COMP SYSTEM OVERHAUL: Reduced from 12 comps to 7 focused, executable compositions based on pro-play research. Removed all theoretical/fantasy comps that were never practiced.",
 "New comp structure: DRAFT (ban/save) → POKE (double shield) → 1-2-3 (triple support meta) → DIVE (Venom+Spider-Man) → BRAWL (Thor rush) → ANTI-DIVE (wall+info counter) → FLEX (fallback plan).",
