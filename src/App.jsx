@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import CompanionTab from "./CompanionTab";
 
 const C={bg:"#0b0a12",panel:"#12111c",ph:"#1a1828",accent:"#e63946",gold:"#f4a825",blue:"#4cc9f0",purple:"#9b5de5",green:"#06d6a0",text:"#e8e8e8",dim:"#8892a4",muted:"#555e70",border:"#1e2033",tank:"#4a9eff",dps:"#ff4757",heal:"#2ed573",sec:"#0e0d18",brand:"#4eca6a"};
 const F={xs:"15px",sm:"16px",md:"18px",lg:"22px",xl:"28px",xxl:"34px",h1:"40px",pad:"24px",padL:"30px",gap:"16px",rad:"14px"};
@@ -1228,6 +1229,7 @@ return <div style={{minHeight:"100vh",background:C.bg,color:C.text,fontFamily:"'
 {groups.map(g=>{const isOpen=openGroup===g.label;const hasActive=g.tabs.some(t=>t.id===tab);const shortLabel=m?(g.label==="STRATEGY"?"STRAT":g.label==="REFERENCE"?"REF":g.label):g.label;
 return <button key={g.label} onClick={()=>setOpenGroup(isOpen?null:g.label)} style={{background:hasActive?`${g.color}22`:isOpen?`${g.color}15`:"transparent",color:hasActive?g.color:isOpen?g.color:C.dim,border:`1px solid ${hasActive||isOpen?`${g.color}44`:C.border}`,padding:m?"7px 0":"14px 22px",borderRadius:m?"6px":"8px",cursor:"pointer",fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:m?"10px":"16px",letterSpacing:m?"0.5px":"1.2px",textTransform:"uppercase",whiteSpace:"nowrap",transition:"all 0.2s ease",textAlign:"center",width:"100%"}}>{shortLabel} {isOpen?"▲":"▼"}</button>})}
 <Tab m={m} a={tab==="changelog"} onClick={()=>{setTab("changelog");setOpenGroup(null);}}>{m?"LOG":"Changelog"}</Tab>
+<Tab m={m} a={tab==="companion"} onClick={()=>{setTab("companion");setOpenGroup(null);}} color={C.brand}>{m?"APP":"Companion"}</Tab>
 </div>
 {(openGroup||activeGroup)&&<div style={{display:"grid",gridTemplateColumns:`repeat(${(groups.find(g=>g.label===openGroup)||activeGroup).tabs.length},1fr)`,gap:"4px",marginTop:m?"6px":"10px"}}>
 {(groups.find(g=>g.label===openGroup)||activeGroup).tabs.map(t=><Tab key={t.id} a={tab===t.id} onClick={()=>{setTab(t.id);setOpenGroup(null);}} m={m} color={(groups.find(g=>g.label===openGroup)||activeGroup).color}>{t.l}</Tab>)}
@@ -1237,5 +1239,5 @@ return <button key={g.label} onClick={()=>setOpenGroup(isOpen?null:g.label)} sty
 <div style={{padding:m?"12px 16px":"24px 32px",maxWidth:"1200px",margin:"0 auto"}}>
 {tab==="stats"&&<StatsTab/>}{tab==="tourney"&&<TourneyTab/>}{tab==="comps"&&<CompsTab/>}{tab==="maps"&&<MapsTab/>}
 {tab==="feedback"&&<FeedbackTab/>}{tab==="learn"&&<LearnTab/>}{tab==="info"&&<InfoTab/>}
-{tab==="draft"&&<DraftTab/>}{tab==="roles"&&<RoleTab/>}{tab==="meta"&&<MetaTab/>}{tab==="player"&&<PlayerTab/>}{tab==="changelog"&&<ChangelogTab/>}
+{tab==="draft"&&<DraftTab/>}{tab==="roles"&&<RoleTab/>}{tab==="meta"&&<MetaTab/>}{tab==="player"&&<PlayerTab/>}{tab==="changelog"&&<ChangelogTab/>}{tab==="companion"&&<CompanionTab/>}
 </div></div>}
