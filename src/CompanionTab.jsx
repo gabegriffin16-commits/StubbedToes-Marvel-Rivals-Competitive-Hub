@@ -3,7 +3,7 @@
 const C={bg:"#0a0b0f",panel:"#12141c",sec:"#0e1018",accent:"#e63946",gold:"#f4a825",blue:"#4cc9f0",purple:"#9b5de5",green:"#06d6a0",text:"#e8e8e8",dim:"#8892a4",muted:"#555e70",border:"#1e2233",brand:"#06d6a0"};
 const F={xs:"13px",sm:"14px",md:"16px",lg:"19px",xl:"24px",xxl:"30px",pad:"22px",padL:"28px",gap:"14px",rad:"14px"};
 
-const DOWNLOAD_URL = "https://github.com/megriffin16-commits/StubbedToes-Marvel-Rivals-Competitive-Hub/releases/download/companion-v1.0.0/StubbedToes-Companion-Setup-1.0.0.exe";
+const DOWNLOAD_URL = "https://github.com/gabegriffin16-commits/StubbedToes-Marvel-Rivals-Competitive-Hub/releases/download/companion-v1.0.0/StubbedToes-Companion-Setup-1.0.0.exe";
 const VERSION = "1.0.0";
 
 export default function CompanionTab() {
