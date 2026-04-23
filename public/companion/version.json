@@ -1,6 +1,6 @@
 {
-  "latest": "1.0.0",
-  "download_url": "https://stubbedtoes.org/companion/StubbedToes-Companion-Setup.exe",
-  "release_notes": "Initial release with match tracking and team backend integration",
-  "released_at": "2026-04-21"
+  "latest": "1.0.1",
+  "download_url": "https://github.com/gabegriffin16-commits/StubbedToes-Marvel-Rivals-Competitive-Hub/releases/download/companion-v1.0.1/StubbedToes-Companion-Setup-1.0.1.exe",
+  "release_notes": "Fixes Settings tab not saving on first launch",
+  "released_at": "2026-04-22"
 }
